@@ -3,9 +3,9 @@ import {App} from '../../src/App';
 import React from 'react';
 
 describe('<App/>', () => {
-    test('renders welcome dummy text', () => {
+    test('renders welcome text', () => {
         render(<App />);
 
-        expect(screen.getByRole('heading')).toHaveTextContent('Good luck in developing Social Lending app!');
+        expect(screen.getByRole('heading')).toHaveTextContent('Hello world with Chakra UI!');
     });
 });
