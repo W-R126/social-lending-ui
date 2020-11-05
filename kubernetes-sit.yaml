@@ -82,17 +82,9 @@ data:
     users: |
         ZXhhbXBsZTokYXByMSROOG1OUFFKTiRJWTVyZnBTenJEZkszTmN1bkhTbWQvCgo=
 
+
 #encryped username: example, with password: example
 
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-    name: fintech-sit-metis-team-basic-auth-middleware
-    namespace: fintech-sit-metis-team
-spec:
-    basicAuth:
-        secret: fintech-sit-metis-team-basic-auth-secret
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
@@ -105,9 +97,6 @@ spec:
     routes:
         - kind: Rule
           match: Host(`social-lending.metis-team.sit.fintechchallenge.pl`)
-          middlewares:
-              - name: fintech-sit-metis-team-basic-auth-middleware
-                namespace: fintech-sit-metis-team
           services:
               - kind: Service
                 name: social-lending
