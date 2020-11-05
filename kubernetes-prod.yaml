@@ -19,7 +19,7 @@ spec:
                 - name: fintech-docker-secret
             containers:
                 - name: social-lending
-                  image: metis-team-docker-registry.fintechchallenge.pl/metis-team/social-lending:image_version_placeholder
+                  image: metis-team-docker-registry.fintechchallenge.pl/metis-team/social-lending:latest
                   imagePullPolicy: Always
                   env:
                       - name: API_BASE_PATH
