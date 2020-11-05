@@ -2,10 +2,6 @@ import React from 'react';
 import {Box, Link, Text} from '@chakra-ui/core';
 import {Link as RouterLink} from 'react-router-dom';
 
-{
-    // @ts-ignore-start
-}
-
 export const PageNotFound: React.FC = () => {
     return (
         <Box
