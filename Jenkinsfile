@@ -112,23 +112,5 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Prod') {
-            when { branch 'master' }
-            agent {
-                docker {
-                    image 'fintech/kubernetes-agent'
-                    reuseNode true
-                }
-            }
-            steps {
-                script {
-                    withCredentials([file(credentialsId: 'kubeconfig-uat', variable: 'KUBECONFIG')]) {
-                        sh "kubectl apply -f ./kubernetes-prod.yaml"
-                        sh "kubectl rollout restart deployment social-lending"
-                        sh "kubectl rollout status deployment social-lending --timeout=1m"
-                    }
-                }
-            }
-        }
     }
 }
