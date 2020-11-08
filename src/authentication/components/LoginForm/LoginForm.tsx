@@ -10,7 +10,7 @@ export const LoginForm: React.FC = () => {
     };
 
     return (
-        <Box p={8} borderWidth={1} borderRadius={8} boxShadow={'lg'}>
+        <Box width={'full'} maxWidth={500} p={8} borderWidth={1} borderRadius={8} boxShadow={'lg'}>
             <Box textAlign={'center'}>
                 <Heading>Welcome back</Heading>
             </Box>

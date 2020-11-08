@@ -1,6 +1,6 @@
 import React from 'react';
-import {Box, Link, Text} from '@chakra-ui/core';
-import {Link as RouterLink} from 'react-router-dom';
+import {Box, Text} from '@chakra-ui/core';
+import {AppLink} from '../AppLink';
 
 export const PageNotFound: React.FC = () => {
     return (
@@ -15,9 +15,7 @@ export const PageNotFound: React.FC = () => {
         >
             <Text>Looks like you're lost :(</Text>
 
-            <Link>
-                <RouterLink to={'/'}>Perhaps you'd like to go home?</RouterLink>
-            </Link>
+            <AppLink to={'/'}>Perhaps you'd like to go home?</AppLink>
         </Box>
     );
 };

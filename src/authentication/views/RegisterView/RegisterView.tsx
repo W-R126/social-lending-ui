@@ -1,18 +1,16 @@
 import React from 'react';
-import {Box, Flex, Link, Text} from '@chakra-ui/core';
-import {Link as RouterLink} from 'react-router-dom';
+import {Box, Flex, Text} from '@chakra-ui/core';
 import {Routes} from '../../../routing/routes';
 import {RegisterForm} from '../../components/RegisterForm';
+import {AppLink} from '../../../routing/components/AppLink';
 
 export const RegisterView: React.FC = () => {
     return (
-        <Flex width={'full'} py={12} align={'center'} justifyContent={'center'} direction={'column'}>
+        <Flex width={'full'} p={4} align={'center'} justifyContent={'center'} direction={'column'}>
             <RegisterForm />
-            <Box my={6} p={2} borderWidth={1} borderRadius={8} boxShadow={'lg'}>
+            <Box width={'full'} maxWidth={500} my={6} p={2} borderWidth={1} borderRadius={8} boxShadow={'lg'}>
                 <Text display={'inline'}>Already have account? </Text>
-                <Link>
-                    <RouterLink to={Routes.LOGIN}>Login!</RouterLink>
-                </Link>
+                <AppLink to={Routes.LOGIN}>Login!</AppLink>
             </Box>
         </Flex>
     );

@@ -7,12 +7,12 @@ import {RegisterFormData} from './RegisterForm.types';
 
 export const RegisterForm: React.FC = () => {
     const handleSubmit = (values: RegisterFormData, {setSubmitting}: FormikHelpers<RegisterFormData>) => {
-        // setSubmitting(false);
+        setSubmitting(false);
         console.log(values);
     };
 
     return (
-        <Box p={8} borderWidth={1} borderRadius={8} boxShadow={'lg'}>
+        <Box width={'full'} maxWidth={500} p={8} borderWidth={1} borderRadius={8} boxShadow={'lg'}>
             <Box textAlign={'center'}>
                 <Heading>Register</Heading>
             </Box>
