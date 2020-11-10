@@ -1,12 +1,17 @@
 import React from 'react';
 import {Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
-import {Formik} from 'formik';
+import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './LoginForm.constants';
 import {validate} from './LoginForm.helpers';
+import {useAuth} from '../../context/authContext';
+import {LoginFormData} from './LoginForm.types';
 
 export const LoginForm: React.FC = () => {
-    const handleSubmit = (/*values: LoginFormData, {setSubmitting}: FormikHelpers<LoginFormData>*/) => {
-        // setSubmitting(false);
+    const {login} = useAuth();
+
+    const handleSubmit = (values: LoginFormData, {setSubmitting}: FormikHelpers<LoginFormData>) => {
+        login();
+        setSubmitting(false);
     };
 
     return (

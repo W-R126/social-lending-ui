@@ -5,6 +5,7 @@ import {RegisterView} from '../authentication/views/RegisterView';
 import {getBaseName} from './AppRouter.helpers';
 import {PageNotFound} from './components/PageNotFound';
 import {LoginView} from '../authentication/views/LoginView';
+import {RestrictedRoute} from './components/RestrictedRoute/RestrictedRoute';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -21,6 +22,9 @@ export const AppRouter: React.FC = () => {
                 <Route path={Routes.REGISTER}>
                     <RegisterView />
                 </Route>
+                <RestrictedRoute path={'/secret'}>
+                    <div>SECRET CONTENT</div>
+                </RestrictedRoute>
                 <Route>
                     <PageNotFound />
                 </Route>
