@@ -1,6 +1,22 @@
 import React, {useState} from 'react';
-import {AuthContext} from './authContext';
 import {retrieveToken, storeToken} from '../helpers/tokenStorage';
+import {createContext, useContext} from 'react';
+
+interface Context {
+    isAuthenticated: boolean;
+    token: string | null;
+    login: () => void;
+    logout: () => void;
+}
+
+const AuthContext = createContext<Context>({
+    isAuthenticated: false,
+    token: null,
+    login: () => {},
+    logout: () => {},
+});
+
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({children}) => {
     const [token, setToken] = useState<string | null>(retrieveToken());

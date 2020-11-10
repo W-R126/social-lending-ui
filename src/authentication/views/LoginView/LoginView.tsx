@@ -3,7 +3,7 @@ import {LoginForm} from '../../components/LoginForm';
 import {Box, Flex, Text} from '@chakra-ui/core';
 import {Routes} from '../../../routing/routes';
 import {AppLink} from '../../../routing/components/AppLink';
-import {useAuth} from '../../context/authContext';
+import {useAuth} from '../../context/AuthProvider';
 
 export const LoginView: React.FC = () => {
     const {isAuthenticated} = useAuth();

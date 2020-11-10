@@ -3,8 +3,8 @@ import {Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} f
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './LoginForm.constants';
 import {validate} from './LoginForm.helpers';
-import {useAuth} from '../../context/authContext';
 import {LoginFormData} from './LoginForm.types';
+import {useAuth} from '../../context/AuthProvider';
 
 export const LoginForm: React.FC = () => {
     const {login} = useAuth();
