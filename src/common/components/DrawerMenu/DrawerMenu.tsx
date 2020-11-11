@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Box,
     Button,
     Drawer,
     DrawerBody,
@@ -8,7 +9,10 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
+    Flex,
+    Heading,
     Icon,
+    IconButton,
     Input,
     Stack,
     Text,
@@ -17,24 +21,29 @@ import {
 import {Card} from '../Card';
 import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
+import {useAuth} from '../../../authentication/context/AuthProvider';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const {isAuthenticated} = useAuth();
     return (
         <>
-            <Button variantColor={'teal'} onClick={onOpen}>
-                Open Drawer
-            </Button>
+            <Flex as={'nav'} align={'center'} justify={'space-between'} p={3}>
+                <Text>Otter - The Social Lending App</Text>
+                {isAuthenticated && (
+                    <IconButton variant={'outline'} variantColor={'teal'} aria-label="Open Drawer" icon={'arrow-left'} onClick={onOpen} />
+                )}
+            </Flex>
             <Drawer isOpen={isOpen} placement={'right'} onClose={onClose}>
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader>Create your account</DrawerHeader>
+                    <DrawerHeader borderBottomWidth={'1px'}>USER INFO HERE</DrawerHeader>
 
                     <DrawerBody>
                         <Stack spacing={2}>
-                            <LinkCard icon={'auctions'} path={'/secret'}>
-                                SECRET
+                            <LinkCard icon={'auctions'} path={Routes.AUCTIONS}>
+                                Auctions
                             </LinkCard>
                         </Stack>
                     </DrawerBody>

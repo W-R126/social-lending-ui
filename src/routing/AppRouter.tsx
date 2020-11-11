@@ -7,8 +7,8 @@ import {PageNotFound} from './components/PageNotFound';
 import {LoginView} from '../authentication/views/LoginView';
 import {RestrictedRoute} from './components/RestrictedRoute/RestrictedRoute';
 import {useAuth} from '../authentication/context/AuthProvider';
-import {DrawerMenu} from '../common/components/DrawerMenu/DrawerMenu';
 import {BrowseAuctionsView} from '../auctions/views/BrowseAuctionsView';
+import {DrawerMenu} from '../common/components/DrawerMenu';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -16,12 +16,13 @@ export const AppRouter: React.FC = () => {
 
     return (
         <BrowserRouter basename={basename}>
+            <DrawerMenu />
             <Switch>
                 <Route path={'/'} exact>
                     <Redirect to={Routes.LOGIN} />
                 </Route>
-                <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={'/secret'} /> : <LoginView />}</Route>
-                <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={'/secret'} /> : <RegisterView />}</Route>
+                <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <LoginView />}</Route>
+                <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <RegisterView />}</Route>
                 <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <LoginView />}</Route>
                 <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <RegisterView />}</Route>
                 <RestrictedRoute path={Routes.AUCTIONS}>
