@@ -7,6 +7,7 @@ import {PageNotFound} from './components/PageNotFound';
 import {LoginView} from '../authentication/views/LoginView';
 import {RestrictedRoute} from './components/RestrictedRoute/RestrictedRoute';
 import {useAuth} from '../authentication/context/AuthProvider';
+import {DrawerMenu} from '../common/components/DrawerMenu/DrawerMenu';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -21,6 +22,7 @@ export const AppRouter: React.FC = () => {
                 <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={'/secret'} /> : <LoginView />}</Route>
                 <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={'/secret'} /> : <RegisterView />}</Route>
                 <RestrictedRoute path={'/secret'}>
+                    <DrawerMenu />
                     <div>SECRET CONTENT</div>
                 </RestrictedRoute>
                 <Route>
