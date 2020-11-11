@@ -1,5 +1,5 @@
 import React from 'react';
-import {BoxProps, Icon, Text} from '@chakra-ui/core';
+import {Icon, Text} from '@chakra-ui/core';
 import {Card} from '../Card';
 import {useRouteMatch, useHistory} from 'react-router-dom';
 import * as styles from './LinkCard.styles';
