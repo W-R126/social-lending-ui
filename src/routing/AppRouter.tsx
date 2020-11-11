@@ -7,6 +7,7 @@ import {PageNotFound} from './components/PageNotFound';
 import {LoginView} from '../authentication/views/LoginView';
 import {RestrictedRoute} from './components/RestrictedRoute/RestrictedRoute';
 import {useAuth} from '../authentication/context/AuthProvider';
+import {BrowseAuctionsView} from '../auctions/views/BrowseAuctionsView';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -18,10 +19,10 @@ export const AppRouter: React.FC = () => {
                 <Route path={'/'} exact>
                     <Redirect to={Routes.LOGIN} />
                 </Route>
-                <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={'/secret'} /> : <LoginView />}</Route>
-                <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={'/secret'} /> : <RegisterView />}</Route>
-                <RestrictedRoute path={'/secret'}>
-                    <div>SECRET CONTENT</div>
+                <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <LoginView />}</Route>
+                <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <RegisterView />}</Route>
+                <RestrictedRoute path={Routes.AUCTIONS}>
+                    <BrowseAuctionsView />
                 </RestrictedRoute>
                 <Route>
                     <PageNotFound />
