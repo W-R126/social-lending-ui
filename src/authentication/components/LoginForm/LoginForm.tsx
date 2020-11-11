@@ -1,5 +1,5 @@
-import React from 'react';
-import {Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
+import React, {useState} from 'react';
+import {Alert, AlertIcon, Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './LoginForm.constants';
 import {validate} from './LoginForm.helpers';
@@ -8,10 +8,18 @@ import {useAuth} from '../../context/AuthProvider';
 
 export const LoginForm: React.FC = () => {
     const {login} = useAuth();
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = (values: LoginFormData, {setSubmitting}: FormikHelpers<LoginFormData>) => {
-        login();
-        setSubmitting(false);
+        login(values.username, values.password)
+            .then(success => {
+                if (!success) {
+                    setError('Wrong username or password!');
+                } else {
+                    setError(null);
+                }
+            })
+            .finally(() => setSubmitting(false));
     };
 
     return (
@@ -63,6 +71,12 @@ export const LoginForm: React.FC = () => {
                                 >
                                     Sign In
                                 </Button>
+                                {error !== null && (
+                                    <Alert mt={3} status="error">
+                                        <AlertIcon />
+                                        {error}
+                                    </Alert>
+                                )}
                             </form>
                         );
                     }}

@@ -1,19 +1,21 @@
 import React, {useState} from 'react';
 import {retrieveToken, storeToken} from '../helpers/tokenStorage';
 import {createContext, useContext} from 'react';
+import {signin} from '../api/authAPI';
+import axios from 'axios';
 
 interface Context {
     isAuthenticated: boolean;
     token: string | null;
-    login: () => void;
-    logout: () => void;
+    login: (username: string, password: string) => Promise<boolean>;
+    logout: () => Promise<boolean>;
 }
 
 const AuthContext = createContext<Context>({
     isAuthenticated: false,
     token: null,
-    login: () => {},
-    logout: () => {},
+    login: async () => false,
+    logout: async () => false,
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -21,18 +23,30 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider: React.FC = ({children}) => {
     const [token, setToken] = useState<string | null>(retrieveToken());
 
-    const login = () => {
-        const token = 'JWT';
+    const login = async (username: string, password: string) => {
+        const token = await signin(username, password);
 
         setToken(token);
         storeToken(token);
+
+        if (token !== null) {
+            axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+        } else {
+            axios.defaults.headers['Authorization'] = null;
+        }
+
+        return token !== null;
     };
 
-    const logout = () => {
-        const token = null;
+    const logout = async () => {
+        if (token === null) {
+            return false;
+        }
 
-        setToken(token);
-        storeToken(token);
+        axios.defaults.headers['Authorization'] = null;
+        setToken(null);
+        storeToken(null);
+        return true;
     };
 
     return (
