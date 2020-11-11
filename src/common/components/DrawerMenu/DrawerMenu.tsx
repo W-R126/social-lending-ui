@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-    Box,
-    Button,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
@@ -10,15 +8,11 @@ import {
     DrawerHeader,
     DrawerOverlay,
     Flex,
-    Heading,
-    Icon,
     IconButton,
-    Input,
     Stack,
     Text,
     useDisclosure,
 } from '@chakra-ui/core';
-import {Card} from '../Card';
 import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
