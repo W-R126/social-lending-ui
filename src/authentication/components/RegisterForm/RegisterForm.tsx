@@ -1,14 +1,30 @@
-import React from 'react';
-import {Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
+import React, {useState} from 'react';
+import {Alert, AlertIcon, Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './RegisterForm.constants';
 import {validate} from './RegisterForm.helpers';
 import {RegisterFormData} from './RegisterForm.types';
+import {signup} from '../../api/authAPI';
+import {useAuth} from '../../context/AuthProvider';
 
 export const RegisterForm: React.FC = () => {
+    const {login} = useAuth();
+    const [error, setError] = useState<string | null>(null);
+
     const handleSubmit = (values: RegisterFormData, {setSubmitting}: FormikHelpers<RegisterFormData>) => {
-        setSubmitting(false);
-        console.log(values);
+        signup(values.username, values.password)
+            .then(async success => {
+                if (success) {
+                    const result = await login(values.username, values.password);
+
+                    if (!result) {
+                        setError('Something went wrong. Please try again or try different username/password.');
+                    }
+                } else {
+                    setError('User already exists!');
+                }
+            })
+            .finally(() => setSubmitting(false));
     };
 
     return (
@@ -53,7 +69,7 @@ export const RegisterForm: React.FC = () => {
                                 <FormControl mt={4} isInvalid={!!(errors.confirmPassword && touched.confirmPassword)}>
                                     <FormLabel>Confirm password</FormLabel>
                                     <Input
-                                        type={'confirmPassword'}
+                                        type={'password'}
                                         placeholder={'********'}
                                         name={'confirmPassword'}
                                         value={values.confirmPassword}
@@ -73,6 +89,12 @@ export const RegisterForm: React.FC = () => {
                                 >
                                     Sign up
                                 </Button>
+                                {error !== null && (
+                                    <Alert mt={3} status="error">
+                                        <AlertIcon />
+                                        {error}
+                                    </Alert>
+                                )}
                             </form>
                         );
                     }}
