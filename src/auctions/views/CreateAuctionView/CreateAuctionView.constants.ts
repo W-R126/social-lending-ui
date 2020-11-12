@@ -1,7 +1,8 @@
 import {CreateAuctionFormData} from './CreateAuctionView.types';
+import {getTomorrow} from '../../../common/helpers/getTomorrow';
 
 export const initialFormValues: CreateAuctionFormData = {
-    endDate: new Date(),
+    endDate: getTomorrow(),
     loanAmount: 300,
     numberOfInstallments: 12,
 };

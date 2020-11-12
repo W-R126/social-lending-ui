@@ -36,7 +36,17 @@ export const CreateAuctionView: React.FC = () => {
                 <Heading>Create New Auction</Heading>
                 <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                     {props => {
-                        const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
+                        const {
+                            values,
+                            touched,
+                            errors,
+                            isSubmitting,
+                            isValid,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            setFieldValue,
+                        } = props;
 
                         return (
                             <form onSubmit={handleSubmit}>
@@ -75,15 +85,10 @@ export const CreateAuctionView: React.FC = () => {
                                     <FormErrorMessage>{errors.numberOfInstallments}</FormErrorMessage>
                                 </FormControl>
 
-                                <FormControl>
-                                    <FormLabel htmlFor="published-date">Published Date</FormLabel>
-                                    <DatePicker
-                                        id="published-date"
-                                        selectedDate={values.endDate}
-                                        onChange={handleChange}
-                                        showPopperArrow={true}
-                                    />
-                                    <FormHelperText>Date this widget was published</FormHelperText>
+                                <FormControl mt={3}>
+                                    <FormLabel>Auction ends on</FormLabel>
+                                    <DatePicker name={'endDate'} value={values.endDate} onChange={setFieldValue} showPopperArrow={true} />
+                                    <FormHelperText>The auction always closes at 23:59 on the specificed day.</FormHelperText>
                                 </FormControl>
 
                                 <Button
