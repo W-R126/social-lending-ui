@@ -7,8 +7,8 @@ import {Auction} from '../../api/auctionsAPI.types';
 interface Props {
     auctions: Auction[];
 }
-
 export const BrowseAuctions: React.FC<Props> = ({auctions}) => {
+    console.log(auctions);
     return (
         <Box>
             <Table data={auctions} columns={TableColumns} />

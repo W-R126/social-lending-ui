@@ -5,7 +5,7 @@ export const TableItem = css`
     align-items: center;
     border-bottom-width: 1px;
     overflow: hidden;
-    padding: 0.75rem;
+    padding: 1rem;
     background: #edf2f7;
     justify-content: space-between;
 `;

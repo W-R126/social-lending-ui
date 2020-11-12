@@ -3,8 +3,11 @@ import {Auction, AuctionDTO} from '../auctionsAPI.types';
 
 export function getAuctions(): Promise<Auction[] | null> {
     return axios
-        .get('api/borrower/auctions')
-        .then(response => response.data)
+        .get('api/borrower/auctions', {headers: {Authorization: `Bearer ${localStorage.getItem('JWT')}`}})
+        .then(response => {
+            console.log(response.data);
+            return response.data;
+        })
         .catch(() => null);
 }
 

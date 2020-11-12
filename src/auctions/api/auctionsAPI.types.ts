@@ -1,6 +1,6 @@
 export interface Auction {
-    beginDate: string;
-    endDate: string;
+    beginDate: number;
+    endDate: number;
     id: number;
     loanAmount: number;
     numberOfInstallments: number;

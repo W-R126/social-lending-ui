@@ -15,12 +15,12 @@ export const BrowseAuctionsView: React.FC = () => {
     const [auctionsToDisplay, setAuctionsToDisplay] = useState<Auction[] | null>(null);
 
     useEffect(() => {
-        if (ProfileState.LENDER) {
+        if (ProfileState.LENDER === currentProfile) {
             setAuctionsToDisplay(lenderAuctions);
         } else {
             setAuctionsToDisplay(borrowerAuctions);
         }
-    });
+    }, [currentProfile, setAuctionsToDisplay, borrowerAuctions, lenderAuctions]);
 
     return (
         <Flex flexDir="column">
