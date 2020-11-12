@@ -1,4 +1,5 @@
 export interface CreateAuctionFormData {
-    username: string;
-    password: string;
+    endDate: string;
+    loanAmount: number;
+    numberOfInstallments: number;
 }

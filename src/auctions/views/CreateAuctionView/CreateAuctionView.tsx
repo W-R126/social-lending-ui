@@ -1,15 +1,30 @@
 import React, {useState} from 'react';
 import {Card} from '../../../common/components/Card';
-import {Alert, AlertIcon, Button, Flex, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
+import {
+    Alert,
+    AlertIcon,
+    Button,
+    Flex,
+    FormControl,
+    FormErrorMessage,
+    FormLabel,
+    Heading,
+    Icon,
+    Input,
+    InputGroup,
+    InputLeftAddon,
+    InputLeftElement,
+    InputRightElement,
+} from '@chakra-ui/core';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './CreateAuctionView.constants';
 import {validate} from './CreateAuctionView.helpers';
-import {LoginFormData} from '../../../authentication/components/LoginForm/LoginForm.types';
+import {CreateAuctionFormData} from './CreateAuctionView.types';
 
 export const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = (values: LoginFormData, {setSubmitting}: FormikHelpers<LoginFormData>) => {
+    const handleSubmit = (values: CreateAuctionFormData, {setSubmitting}: FormikHelpers<CreateAuctionFormData>) => {
         setError('ERROR: throw the computer out of the window!');
         setSubmitting(false);
     };
@@ -24,30 +39,39 @@ export const CreateAuctionView: React.FC = () => {
 
                         return (
                             <form onSubmit={handleSubmit}>
-                                <FormControl isInvalid={!!(errors.username && touched.username)}>
-                                    <FormLabel>Username</FormLabel>
-                                    <Input
-                                        type={'email'}
-                                        placeholder={'username'}
-                                        name={'username'}
-                                        value={values.username}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                    />
-                                    <FormErrorMessage>{errors.username}</FormErrorMessage>
+                                <FormControl isInvalid={!!(errors.loanAmount && touched.loanAmount)}>
+                                    <FormLabel>Loan amount</FormLabel>
+                                    <InputGroup>
+                                        <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
+                                        <Input
+                                            type={'number'}
+                                            placeholder={'loan amount'}
+                                            name={'loanAmount'}
+                                            value={values.loanAmount}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                        />
+                                        {!errors.loanAmount && <InputRightElement children={<Icon name="check" color="green.500" />} />}
+                                    </InputGroup>
+                                    <FormErrorMessage>{errors.loanAmount}</FormErrorMessage>
                                 </FormControl>
 
-                                <FormControl mt={4} isInvalid={!!(errors.password && touched.password)}>
-                                    <FormLabel>Password</FormLabel>
-                                    <Input
-                                        type={'password'}
-                                        placeholder={'********'}
-                                        name={'password'}
-                                        value={values.password}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                    />
-                                    <FormErrorMessage>{errors.password}</FormErrorMessage>
+                                <FormControl mt={3} isInvalid={!!(errors.numberOfInstallments && touched.numberOfInstallments)}>
+                                    <FormLabel>Target number of installments</FormLabel>
+                                    <InputGroup>
+                                        <Input
+                                            type={'number'}
+                                            placeholder={'target number of installments'}
+                                            name={'numberOfInstallments'}
+                                            value={values.numberOfInstallments}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                        />
+                                        {!errors.numberOfInstallments && (
+                                            <InputRightElement children={<Icon name="check" color="green.500" />} />
+                                        )}
+                                    </InputGroup>
+                                    <FormErrorMessage>{errors.numberOfInstallments}</FormErrorMessage>
                                 </FormControl>
 
                                 <Button
@@ -58,7 +82,7 @@ export const CreateAuctionView: React.FC = () => {
                                     isLoading={isSubmitting}
                                     onClick={handleSubmit}
                                 >
-                                    Sign In
+                                    Create Auction
                                 </Button>
                                 {error !== null && (
                                     <Alert mt={3} status="error">
