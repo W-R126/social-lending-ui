@@ -88,7 +88,7 @@ export const CreateAuctionView: React.FC = () => {
                                 <FormControl mt={3}>
                                     <FormLabel>Auction ends on</FormLabel>
                                     <DatePicker name={'endDate'} value={values.endDate} onChange={setFieldValue} showPopperArrow={true} />
-                                    <FormHelperText>The auction always closes at 23:59 on the specificed day.</FormHelperText>
+                                    <FormHelperText>The auction always closes at 23:59 on the specified day.</FormHelperText>
                                 </FormControl>
 
                                 <Button
