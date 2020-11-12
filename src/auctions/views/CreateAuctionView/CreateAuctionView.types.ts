@@ -1,5 +1,5 @@
 export interface CreateAuctionFormData {
-    endDate: string;
+    endDate: Date;
     loanAmount: number;
     numberOfInstallments: number;
 }

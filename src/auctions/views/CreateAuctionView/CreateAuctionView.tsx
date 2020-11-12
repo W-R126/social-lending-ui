@@ -7,12 +7,12 @@ import {
     Flex,
     FormControl,
     FormErrorMessage,
+    FormHelperText,
     FormLabel,
     Heading,
     Icon,
     Input,
     InputGroup,
-    InputLeftAddon,
     InputLeftElement,
     InputRightElement,
 } from '@chakra-ui/core';
@@ -20,6 +20,7 @@ import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './CreateAuctionView.constants';
 import {validate} from './CreateAuctionView.helpers';
 import {CreateAuctionFormData} from './CreateAuctionView.types';
+import {DatePicker} from '../../../common/components/DatePicker/DatePicker';
 
 export const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
@@ -72,6 +73,17 @@ export const CreateAuctionView: React.FC = () => {
                                         )}
                                     </InputGroup>
                                     <FormErrorMessage>{errors.numberOfInstallments}</FormErrorMessage>
+                                </FormControl>
+
+                                <FormControl>
+                                    <FormLabel htmlFor="published-date">Published Date</FormLabel>
+                                    <DatePicker
+                                        id="published-date"
+                                        selectedDate={values.endDate}
+                                        onChange={handleChange}
+                                        showPopperArrow={true}
+                                    />
+                                    <FormHelperText>Date this widget was published</FormHelperText>
                                 </FormControl>
 
                                 <Button
