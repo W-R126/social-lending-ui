@@ -21,7 +21,18 @@ const AuthContext = createContext<Context>({
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({children}) => {
-    const [token, setToken] = useState<string | null>(retrieveToken());
+    const storedToken = retrieveToken();
+    const [token, setToken] = useState<string | null>(storedToken);
+
+    const setAxiosToken = (token: string | null) => {
+        if (token !== null) {
+            axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+        } else {
+            axios.defaults.headers['Authorization'] = null;
+        }
+    };
+
+    setAxiosToken(storedToken);
 
     const login = async (username: string, password: string) => {
         const token = await signin(username, password);
@@ -30,9 +41,9 @@ export const AuthProvider: React.FC = ({children}) => {
         storeToken(token);
 
         if (token !== null) {
-            axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+            setAxiosToken(token);
         } else {
-            axios.defaults.headers['Authorization'] = null;
+            setAxiosToken(null);
         }
 
         return token !== null;
@@ -43,7 +54,7 @@ export const AuthProvider: React.FC = ({children}) => {
             return false;
         }
 
-        axios.defaults.headers['Authorization'] = null;
+        setAxiosToken(null);
         setToken(null);
         storeToken(null);
         return true;
