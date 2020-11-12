@@ -9,6 +9,7 @@ import {RestrictedRoute} from './components/RestrictedRoute';
 import {useAuth} from '../authentication/context/AuthProvider';
 import {BrowseAuctionsView} from '../auctions/views/BrowseAuctionsView';
 import {DrawerMenu} from '../common/components/DrawerMenu';
+import {CreateAuctionView} from '../auctions/views/CreateAuctionView';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -23,9 +24,15 @@ export const AppRouter: React.FC = () => {
                 </Route>
                 <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <LoginView />}</Route>
                 <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <RegisterView />}</Route>
+
                 <RestrictedRoute path={Routes.AUCTIONS}>
                     <BrowseAuctionsView />
                 </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.CREATE_AUCTION}>
+                    <CreateAuctionView />
+                </RestrictedRoute>
+
                 <Route>
                     <PageNotFound />
                 </Route>

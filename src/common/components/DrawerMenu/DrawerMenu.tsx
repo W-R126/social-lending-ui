@@ -22,7 +22,7 @@ export const DrawerMenu: React.FC = () => {
     const {isAuthenticated} = useAuth();
     return (
         <>
-            <Flex as={'nav'} align={'center'} justify={'space-between'} p={3}>
+            <Flex as={'nav'} align={'center'} justify={'space-between'} p={3} shadow={'sm'}>
                 <Text>Otter - The Social Lending App</Text>
                 {isAuthenticated && (
                     <IconButton variant={'outline'} variantColor={'teal'} aria-label="Open Drawer" icon={'arrow-left'} onClick={onOpen} />
@@ -36,6 +36,10 @@ export const DrawerMenu: React.FC = () => {
 
                     <DrawerBody>
                         <Stack spacing={2}>
+                            <LinkCard icon={'newAuction'} path={Routes.CREATE_AUCTION}>
+                                Create Auction
+                            </LinkCard>
+
                             <LinkCard icon={'auctions'} path={Routes.AUCTIONS}>
                                 Auctions
                             </LinkCard>
