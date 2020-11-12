@@ -5,20 +5,20 @@ import {format} from 'date-fns';
 export const TableColumns: any = [
     {
         Header: 'Value of loan',
-        accessor: 'valueOfLoan',
+        accessor: 'loanAmount',
     },
     {
-        Header: 'Deadline',
-        accessor: 'deadline',
+        Header: 'Number of Installments',
+        accessor: 'numberOfInstallments',
+    },
+    {
+        Header: 'Begin date',
+        accessor: 'beginDate',
         sortType: 'datetime',
         Cell: (props: any) => <Box>{format(new Date(props.value), 'dd-MM-yyyy')}</Box>,
     },
     {
-        Header: 'Number of offers',
-        accessor: 'offers',
-    },
-    {
-        Header: 'Lowest bid',
-        accessor: 'lowestBid',
+        Header: 'End date',
+        accessor: 'endDate',
     },
 ];
