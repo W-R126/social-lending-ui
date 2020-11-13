@@ -9,6 +9,7 @@ import {
     DrawerOverlay,
     Flex,
     IconButton,
+    Image,
     Stack,
     Text,
     useDisclosure,
@@ -22,12 +23,16 @@ export const DrawerMenu: React.FC = () => {
     const {isAuthenticated} = useAuth();
     return (
         <>
-            <Flex as={'nav'} align={'center'} justify={'space-between'} p={3}>
-                <Text>Otter - The Social Lending App</Text>
+            <Flex as={'nav'} align={'center'} justify={'space-between'} p={2} shadow={'sm'}>
+                <span>
+                    <Image src={'logo/logo256.png'} size={'48px'} d={'inline'} />
+                    <Text d={'inline'}>LendTree - The Social Lending App</Text>
+                </span>
                 {isAuthenticated && (
                     <IconButton variant={'outline'} variantColor={'teal'} aria-label="Open Drawer" icon={'arrow-left'} onClick={onOpen} />
                 )}
             </Flex>
+
             <Drawer isOpen={isOpen} placement={'right'} onClose={onClose}>
                 <DrawerOverlay />
                 <DrawerContent>
@@ -36,6 +41,10 @@ export const DrawerMenu: React.FC = () => {
 
                     <DrawerBody>
                         <Stack spacing={2}>
+                            <LinkCard icon={'newAuction'} path={Routes.CREATE_AUCTION}>
+                                Create Auction
+                            </LinkCard>
+
                             <LinkCard icon={'auctions'} path={Routes.AUCTIONS}>
                                 Auctions
                             </LinkCard>
