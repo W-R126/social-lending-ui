@@ -26,8 +26,8 @@ export const AuthProvider: React.FC = ({children}) => {
     const login = async (username: string, password: string) => {
         const token = await signin(username, password);
 
-        setToken(token);
         storeToken(token);
+        setToken(token);
 
         if (token !== null) {
             axios.defaults.headers['Authorization'] = `Bearer ${token}`;

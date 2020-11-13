@@ -2,23 +2,25 @@ import {Box} from '@chakra-ui/core';
 import React from 'react';
 import {format} from 'date-fns';
 
+const dateFormat = 'dd-MM-yyyy HH:mm';
+
 export const TableColumns: any = [
     {
         Header: 'Value of loan',
-        accessor: 'valueOfLoan',
+        accessor: 'loanAmount',
     },
     {
-        Header: 'Deadline',
-        accessor: 'deadline',
-        sortType: 'datetime',
-        Cell: (props: any) => <Box>{format(new Date(props.value), 'dd-MM-yyyy')}</Box>,
+        Header: 'Number of Installments',
+        accessor: 'numberOfInstallments',
     },
     {
-        Header: 'Number of offers',
-        accessor: 'offers',
+        Header: 'Begin date',
+        accessor: 'beginDate',
+        Cell: (props: any) => <Box>{format(new Date(props.value), dateFormat)}</Box>,
     },
     {
-        Header: 'Lowest bid',
-        accessor: 'lowestBid',
+        Header: 'End date',
+        accessor: 'endDate',
+        Cell: (props: any) => <Box>{format(new Date(props.value), dateFormat)}</Box>,
     },
 ];

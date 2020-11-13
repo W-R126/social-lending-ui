@@ -1,18 +1,17 @@
 import * as React from 'react';
-import {AuctionInfo} from './BrowseAuctions.types';
 import {Box} from '@chakra-ui/core';
-import {Table} from '../Table/Table';
+import {Table} from '../Table';
 import {TableColumns} from './BrowseAuctions.constants';
-import {prepareData} from './BrowseAuctions.helpers';
+import {Auction} from '../../api/auctionsAPI.types';
 
 interface Props {
-    auctions: AuctionInfo[];
+    auctions: Auction[];
 }
-
 export const BrowseAuctions: React.FC<Props> = ({auctions}) => {
+    console.log(auctions);
     return (
         <Box>
-            <Table data={prepareData(auctions)} columns={TableColumns} />
+            <Table data={auctions} columns={TableColumns} />
         </Box>
     );
 };
