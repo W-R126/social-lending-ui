@@ -46,15 +46,15 @@ export const DrawerMenu: React.FC = () => {
                                 Create Auction
                             </LinkCard>
 
+                            <LinkCard icon={'myAuctions'} path={Routes.MY_AUCTIONS}>
+                                My Auctions
+                            </LinkCard>
+
                             <LinkCard icon={'auctions'} path={Routes.AUCTIONS}>
                                 Auctions
                             </LinkCard>
                         </Stack>
                     </DrawerBody>
-
-                    <DrawerFooter>
-                        <Text></Text>
-                    </DrawerFooter>
                 </DrawerContent>
             </Drawer>
         </>

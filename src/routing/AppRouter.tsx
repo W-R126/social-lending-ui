@@ -10,6 +10,7 @@ import {useAuth} from '../authentication/context/AuthProvider';
 import {BrowseAuctionsView} from '../auctions/views/BrowseAuctionsView';
 import {DrawerMenu} from '../common/components/DrawerMenu';
 import {CreateAuctionView} from '../auctions/views/CreateAuctionView';
+import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -27,6 +28,10 @@ export const AppRouter: React.FC = () => {
 
                 <RestrictedRoute path={Routes.AUCTIONS}>
                     <BrowseAuctionsView />
+                </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.MY_AUCTIONS}>
+                    <BrowseMyAuctionsView />
                 </RestrictedRoute>
 
                 <RestrictedRoute path={Routes.CREATE_AUCTION}>

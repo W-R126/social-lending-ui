@@ -6,13 +6,13 @@ import {useLender} from '../../hooks/useLender';
 import {Auction} from '../../api/auctionsAPI.types';
 import {useBorrower} from '../../hooks/useBorrower';
 
-export const BrowseAuctionsView: React.FC = () => {
+export const BrowseMyAuctionsView: React.FC = () => {
     const {lenderAuctions} = useLender();
     const {borrowerAuctions} = useBorrower();
     const [auctionsToDisplay, setAuctionsToDisplay] = useState<Auction[] | null>(null);
 
     useEffect(() => {
-        setAuctionsToDisplay(lenderAuctions);
+        setAuctionsToDisplay(borrowerAuctions);
     }, [setAuctionsToDisplay, borrowerAuctions, lenderAuctions]);
 
     return (
