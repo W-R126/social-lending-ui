@@ -38,7 +38,7 @@ export const LoginForm: React.FC = () => {
                                 <FormControl isInvalid={!!(errors.username && touched.username)}>
                                     <FormLabel>Username</FormLabel>
                                     <Input
-                                        type={'email'}
+                                        type={'text'}
                                         placeholder={'username'}
                                         name={'username'}
                                         value={values.username}
