@@ -96,6 +96,11 @@ export const CreateAuctionView: React.FC = () => {
                                             <InputRightElement children={<Icon name="check" color="green.500" />} />
                                         )}
                                     </InputGroup>
+                                    {!errors.numberOfInstallments && (
+                                        <FormHelperText>
+                                            Each installment will be ${(values.loanAmount / values.numberOfInstallments).toFixed(2)}
+                                        </FormHelperText>
+                                    )}
                                     <FormErrorMessage>{errors.numberOfInstallments}</FormErrorMessage>
                                 </FormControl>
 
