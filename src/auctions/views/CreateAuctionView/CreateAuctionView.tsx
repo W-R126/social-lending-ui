@@ -39,8 +39,8 @@ export const CreateAuctionView: React.FC = () => {
             numberOfInstallments: values.numberOfInstallments,
         } as AuctionDTO);
         fetchBorrowerAuctions();
-        history.push(Routes.AUCTIONS);
-        setError('ERROR: throw the computer out of the window!');
+        history.push(Routes.MY_AUCTIONS);
+        setError('ERROR: Throw the computer out of the window!');
         setSubmitting(false);
     };
 

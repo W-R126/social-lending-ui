@@ -60,6 +60,18 @@ export const AuthProvider: React.FC = ({children}) => {
         return true;
     };
 
+    axios.interceptors.response.use(
+        value => value,
+        error => {
+            if (error.response && error.response.status) {
+                if (error.response.status === 403) {
+                    logout();
+                }
+            }
+            return Promise.reject(error);
+        },
+    );
+
     return (
         <AuthContext.Provider
             value={{

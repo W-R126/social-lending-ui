@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     Box,
+    Button,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
@@ -21,7 +22,13 @@ import {useAuth} from '../../../authentication/context/AuthProvider';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
-    const {isAuthenticated} = useAuth();
+    const {isAuthenticated, logout} = useAuth();
+
+    const handleLogout = () => {
+        onClose();
+        logout();
+    };
+
     return (
         <>
             <Flex as={'nav'} align={'center'} justify={'space-between'} p={2} shadow={'sm'}>
@@ -55,6 +62,10 @@ export const DrawerMenu: React.FC = () => {
                             </LinkCard>
                         </Stack>
                     </DrawerBody>
+
+                    <DrawerFooter>
+                        <Button onClick={handleLogout}>Logout</Button>
+                    </DrawerFooter>
                 </DrawerContent>
             </Drawer>
         </>
