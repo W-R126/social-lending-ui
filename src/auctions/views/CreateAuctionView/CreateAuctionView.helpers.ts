@@ -10,6 +10,8 @@ export const validate = (values: CreateAuctionFormData) => {
 
     if (!values.numberOfInstallments || values.numberOfInstallments <= 0) {
         errors.numberOfInstallments = 'Number of installments must be greater than 0.';
+    } else if (values.loanAmount / values.numberOfInstallments < 5) {
+        errors.numberOfInstallments = 'Minimum price for each installment should be at least $5!';
     }
 
     if (!values.endDate) {
