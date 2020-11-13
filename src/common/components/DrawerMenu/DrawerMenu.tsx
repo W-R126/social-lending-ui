@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Box,
     Button,
+    Divider,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
@@ -10,6 +11,7 @@ import {
     DrawerHeader,
     DrawerOverlay,
     Flex,
+    Heading,
     IconButton,
     Image,
     Stack,
@@ -49,6 +51,13 @@ export const DrawerMenu: React.FC = () => {
 
                     <DrawerBody>
                         <Stack spacing={2}>
+                            <Box mt={2}>
+                                <Heading as={'h5'} size={'md'} color={'#cccccc'}>
+                                    Borrow
+                                </Heading>
+                                <Divider mt={0} />
+                            </Box>
+
                             <LinkCard icon={'newAuction'} path={Routes.CREATE_AUCTION}>
                                 Create Auction
                             </LinkCard>
@@ -56,6 +65,13 @@ export const DrawerMenu: React.FC = () => {
                             <LinkCard icon={'myAuctions'} path={Routes.MY_AUCTIONS}>
                                 My Auctions
                             </LinkCard>
+
+                            <Box mt={2}>
+                                <Heading as={'h5'} size={'md'} color={'#cccccc'}>
+                                    Lend
+                                </Heading>
+                                <Divider mt={0} />
+                            </Box>
 
                             <LinkCard icon={'auctions'} path={Routes.AUCTIONS}>
                                 Auctions
