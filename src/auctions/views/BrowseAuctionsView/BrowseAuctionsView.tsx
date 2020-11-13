@@ -11,7 +11,7 @@ import {useBorrower} from '../../hooks/useBorrower';
 export const BrowseAuctionsView: React.FC = () => {
     const {lenderAuctions} = useLender();
     const {borrowerAuctions} = useBorrower();
-    const [currentProfile, setCurrentProfile] = useState<ProfileState>(ProfileState.LENDER);
+    const [currentProfile, setCurrentProfile] = useState<ProfileState>(ProfileState.BORROWER);
     const [auctionsToDisplay, setAuctionsToDisplay] = useState<Auction[] | null>(null);
 
     useEffect(() => {

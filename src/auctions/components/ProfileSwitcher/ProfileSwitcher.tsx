@@ -15,7 +15,7 @@ export const ProfileSwitcher: React.FC<Props> = ({currentProfile, setCurrentProf
         isInline
         value={currentProfile}
     >
-        <ProfileSwitcherRadio value={ProfileState.LENDER}>Lender</ProfileSwitcherRadio>
         <ProfileSwitcherRadio value={ProfileState.BORROWER}>Borrower</ProfileSwitcherRadio>
+        <ProfileSwitcherRadio value={ProfileState.LENDER}>Lender</ProfileSwitcherRadio>
     </RadioButtonGroup>
 );

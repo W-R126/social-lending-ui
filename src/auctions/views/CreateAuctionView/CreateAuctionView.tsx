@@ -17,15 +17,29 @@ import {
     InputRightElement,
 } from '@chakra-ui/core';
 import {Formik, FormikHelpers} from 'formik';
-import {initialFormValues} from './CreateAuctionView.constants';
+import {dateFormat, initialFormValues} from './CreateAuctionView.constants';
 import {validate} from './CreateAuctionView.helpers';
 import {CreateAuctionFormData} from './CreateAuctionView.types';
 import {DatePicker} from '../../../common/components/DatePicker/DatePicker';
+import {useBorrower} from '../../hooks/useBorrower';
+import {AuctionDTO} from '../../api/auctionsAPI.types';
+import {useHistory} from 'react-router-dom';
+import {Routes} from '../../../routing/routes';
+import {format} from 'date-fns';
 
 export const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
+    const {createNewBorrowerAuction, fetchBorrowerAuctions} = useBorrower();
+    const history = useHistory();
 
     const handleSubmit = (values: CreateAuctionFormData, {setSubmitting}: FormikHelpers<CreateAuctionFormData>) => {
+        createNewBorrowerAuction({
+            endDate: format(values.endDate, dateFormat),
+            loanAmount: values.loanAmount,
+            numberOfInstallments: values.numberOfInstallments,
+        } as AuctionDTO);
+        fetchBorrowerAuctions();
+        history.push(Routes.AUCTIONS);
         setError('ERROR: throw the computer out of the window!');
         setSubmitting(false);
     };

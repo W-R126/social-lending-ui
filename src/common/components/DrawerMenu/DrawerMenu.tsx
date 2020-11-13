@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Box,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
@@ -24,10 +25,10 @@ export const DrawerMenu: React.FC = () => {
     return (
         <>
             <Flex as={'nav'} align={'center'} justify={'space-between'} p={2} shadow={'sm'}>
-                <span>
+                <Box as={'span'}>
                     <Image src={'logo/logo256.png'} size={'48px'} d={'inline'} />
                     <Text d={'inline'}>LendTree - The Social Lending App</Text>
-                </span>
+                </Box>
                 {isAuthenticated && (
                     <IconButton variant={'outline'} variantColor={'teal'} aria-label="Open Drawer" icon={'arrow-left'} onClick={onOpen} />
                 )}
@@ -37,7 +38,7 @@ export const DrawerMenu: React.FC = () => {
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader borderBottomWidth={'1px'}>USER INFO HERE</DrawerHeader>
+                    <DrawerHeader borderBottomWidth={'1px'}>WELCOME</DrawerHeader>
 
                     <DrawerBody>
                         <Stack spacing={2}>
@@ -52,7 +53,7 @@ export const DrawerMenu: React.FC = () => {
                     </DrawerBody>
 
                     <DrawerFooter>
-                        <Text>Hello</Text>
+                        <Text></Text>
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>
