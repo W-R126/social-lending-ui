@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {BrowseAuctions} from '../../components/BrowseAuctions';
-import {Flex, Skeleton} from '@chakra-ui/react';
+import {Flex, Stack, Skeleton, Image, Heading} from '@chakra-ui/react';
 import {useAuctions} from '../../hooks/useAuctions';
 import {useInit} from '../../../common/hooks/useInit';
 
@@ -11,7 +11,14 @@ export const BrowseAuctionsView: React.FC = () => {
     return (
         <Flex flexDir="column">
             <Skeleton isLoaded={!isFetching}>
-                <BrowseAuctions auctions={auctions} />
+                {auctions.length !== 0 ? (
+                    <BrowseAuctions auctions={auctions} />
+                ) : (
+                    <Stack direction={'column'} justify={'center'} align={'center'}>
+                        <Image width={['60%', '50%', '40%', '30%']} src={'svg/empty.svg'} />
+                        <Heading color={'gray.400'}>Looks like there aren't any auctions here yet :(</Heading>
+                    </Stack>
+                )}
             </Skeleton>
         </Flex>
     );
