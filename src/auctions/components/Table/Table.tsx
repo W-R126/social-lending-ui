@@ -1,4 +1,4 @@
-import {Box, Flex} from '@chakra-ui/core';
+import {Box, Flex} from '@chakra-ui/react';
 import React from 'react';
 import {Column, Row, usePagination, useSortBy, useTable} from 'react-table';
 import {defaultPageSize} from './Table.constants';

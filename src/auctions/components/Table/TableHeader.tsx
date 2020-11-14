@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Flex, Text} from '@chakra-ui/core';
+import {Flex, Text} from '@chakra-ui/react';
 import {ChevronDown, ChevronUp} from 'react-feather';
 import {HeaderGroup} from 'react-table';
 import {HeaderTitle, HeaderWrapper, MainFlex, TableItem} from './TableHeader.styles';

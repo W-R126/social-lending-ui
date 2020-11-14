@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {BrowseAuctions} from '../../components/BrowseAuctions';
-import {Flex, Skeleton} from '@chakra-ui/core';
+import {Flex, Skeleton} from '@chakra-ui/react';
 import {useUserAuctions} from '../../hooks/useUserAuctions';
 import {useInit} from '../../../common/hooks/useInit';
 

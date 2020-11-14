@@ -1,11 +1,11 @@
-import React from 'react';
-import {Icon, Text} from '@chakra-ui/core';
+import React, {ReactElement} from 'react';
+import {Stack, Text} from '@chakra-ui/react';
 import {Card} from '../Card';
 import {useRouteMatch, useHistory} from 'react-router-dom';
 import * as styles from './LinkCard.styles';
 
 interface Props {
-    icon: string;
+    icon: ReactElement;
     path: string;
 }
 
@@ -21,15 +21,17 @@ export const LinkCard: React.FC<Props> = ({icon, path, children, ...rest}) => {
 
     return (
         <Card
+            p={2}
+            cursor={'pointer'}
             className={match === null ? styles.card : ''}
             backgroundColor={match !== null ? '#dde3f9' : '#ffffffff'}
             onClick={navigate}
             {...rest}
         >
-            <Icon name={icon} size={'24px'} />
-            <Text ml={2} display={'inline'}>
-                {children}
-            </Text>
+            <Stack direction={'row'} align={'center'}>
+                {icon}
+                <Text>{children}</Text>
+            </Stack>
         </Card>
     );
 };

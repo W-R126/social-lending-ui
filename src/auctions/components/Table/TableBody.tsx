@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Flex} from '@chakra-ui/core';
+import {Flex} from '@chakra-ui/react';
 import {Row} from 'react-table';
 import {TableCell, MainFlex, TableRow} from './TableBody.styles';
 
