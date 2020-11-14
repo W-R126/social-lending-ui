@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, AlertIcon, Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/core';
+import {Alert, AlertIcon, Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/react';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './LoginForm.constants';
 import {validate} from './LoginForm.helpers';
@@ -67,7 +67,7 @@ export const LoginForm: React.FC = () => {
                                     type={'submit'}
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
-                                    onClick={handleSubmit}
+                                    onClick={() => handleSubmit()}
                                 >
                                     Sign In
                                 </Button>

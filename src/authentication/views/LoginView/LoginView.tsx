@@ -1,6 +1,6 @@
 import React from 'react';
 import {LoginForm} from '../../components/LoginForm';
-import {Box, Flex, Text} from '@chakra-ui/core';
+import {Box, Flex, Text} from '@chakra-ui/react';
 import {Routes} from '../../../routing/routes';
 import {AppLink} from '../../../routing/components/AppLink';
 

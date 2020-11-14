@@ -17,10 +17,12 @@ import {
     Stack,
     Text,
     useDisclosure,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
+import {ArrowLeft} from 'react-feather';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon} from './DrawerMenu.icons';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -35,11 +37,11 @@ export const DrawerMenu: React.FC = () => {
         <>
             <Flex as={'nav'} align={'center'} justify={'space-between'} p={2} shadow={'sm'}>
                 <Box as={'span'}>
-                    <Image src={'logo/logo256.png'} size={'48px'} d={'inline'} />
+                    <Image src={'logo/logo256.png'} boxSize={'48px'} d={'inline'} />
                     <Text d={'inline'}>LendTree - The Social Lending App</Text>
                 </Box>
                 {isAuthenticated && (
-                    <IconButton variant={'outline'} variantColor={'teal'} aria-label="Open Drawer" icon={'arrow-left'} onClick={onOpen} />
+                    <IconButton variant={'outline'} colorScheme={'teal'} aria-label="Open Drawer" icon={<ArrowLeft />} onClick={onOpen} />
                 )}
             </Flex>
 
@@ -58,11 +60,11 @@ export const DrawerMenu: React.FC = () => {
                                 <Divider mt={0} />
                             </Box>
 
-                            <LinkCard icon={'newAuction'} path={Routes.CREATE_AUCTION}>
+                            <LinkCard icon={<NewAuctionIcon boxSize={'48px'} />} path={Routes.CREATE_AUCTION}>
                                 Create Auction
                             </LinkCard>
 
-                            <LinkCard icon={'myAuctions'} path={Routes.MY_AUCTIONS}>
+                            <LinkCard icon={<MyAuctionsIcon boxSize={'48px'} />} path={Routes.MY_AUCTIONS}>
                                 My Auctions
                             </LinkCard>
 
@@ -73,7 +75,7 @@ export const DrawerMenu: React.FC = () => {
                                 <Divider mt={0} />
                             </Box>
 
-                            <LinkCard icon={'auctions'} path={Routes.AUCTIONS}>
+                            <LinkCard icon={<AuctionsIcon boxSize={'48px'} />} path={Routes.AUCTIONS}>
                                 Auctions
                             </LinkCard>
                         </Stack>

@@ -10,12 +10,10 @@ import {
     FormHelperText,
     FormLabel,
     Heading,
-    Icon,
     Input,
     InputGroup,
     InputLeftElement,
-    InputRightElement,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import {Formik, FormikHelpers} from 'formik';
 import {dateFormat, initialFormValues} from './CreateAuctionView.constants';
 import {validate} from './CreateAuctionView.helpers';
@@ -79,7 +77,6 @@ export const CreateAuctionView: React.FC = () => {
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                         />
-                                        {!errors.loanAmount && <InputRightElement children={<Icon name="check" color="green.500" />} />}
                                     </InputGroup>
                                     <FormErrorMessage>{errors.loanAmount}</FormErrorMessage>
                                 </FormControl>
@@ -95,9 +92,6 @@ export const CreateAuctionView: React.FC = () => {
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                         />
-                                        {!errors.numberOfInstallments && (
-                                            <InputRightElement children={<Icon name="check" color="green.500" />} />
-                                        )}
                                     </InputGroup>
                                     {!errors.numberOfInstallments && (
                                         <FormHelperText>
@@ -119,7 +113,7 @@ export const CreateAuctionView: React.FC = () => {
                                     type={'submit'}
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
-                                    onClick={handleSubmit}
+                                    onClick={() => handleSubmit()}
                                 >
                                     Create Auction
                                 </Button>

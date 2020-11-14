@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Flex, IconButton, Text} from '@chakra-ui/core';
+import {Flex, IconButton, Text} from '@chakra-ui/react';
 import {ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight} from 'react-feather';
 import {
     MainFlex,
@@ -37,7 +37,7 @@ export const TableFooter: React.FC<Props> = ({
                 className={PageChangeButtonStyles}
                 onClick={() => gotoPage(0)}
                 isDisabled={!canPreviousPage}
-                icon={() => <ChevronsLeft size={20} />}
+                icon={<ChevronsLeft size={20} />}
                 size="sm"
                 aria-label="Table Icon button"
             />
@@ -45,7 +45,7 @@ export const TableFooter: React.FC<Props> = ({
                 className={PageChangeButtonStyles}
                 isDisabled={!canPreviousPage}
                 onClick={() => previousPage()}
-                icon={() => <ChevronLeft size={20} />}
+                icon={<ChevronLeft size={20} />}
                 size="sm"
                 aria-label="Table Icon button"
             />
@@ -61,7 +61,7 @@ export const TableFooter: React.FC<Props> = ({
                 className={PageChangeButtonStyles}
                 isDisabled={!canNextPage}
                 onClick={() => nextPage()}
-                icon={() => <ChevronRight size={20} />}
+                icon={<ChevronRight size={20} />}
                 size="sm"
                 aria-label="Table Icon button"
             />
@@ -69,7 +69,7 @@ export const TableFooter: React.FC<Props> = ({
                 className={PageChangeButtonStyles}
                 onClick={() => gotoPage(pageCount ? pageCount - 1 : 1)}
                 isDisabled={!canNextPage}
-                icon={() => <ChevronsRight size={20} />}
+                icon={<ChevronsRight size={20} />}
                 size="sm"
                 aria-label="Table Icon button"
             />

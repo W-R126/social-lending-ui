@@ -1,14 +1,14 @@
 import React from 'react';
-import {AppTheme} from './AppTheme';
+import {ChakraProvider} from '@chakra-ui/react';
 import {AppRouter} from './routing/AppRouter';
 import {AuthProvider} from './authentication/context/AuthProvider';
 
 export const App = () => {
     return (
-        <AppTheme>
+        <ChakraProvider>
             <AuthProvider>
                 <AppRouter />
             </AuthProvider>
-        </AppTheme>
+        </ChakraProvider>
     );
 };

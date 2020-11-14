@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box} from '@chakra-ui/core';
+import {Box} from '@chakra-ui/react';
 import {Table} from '../Table';
 import {TableColumns} from './BrowseAuctions.constants';
 import {Auction} from '../../api/auctionsAPI.types';

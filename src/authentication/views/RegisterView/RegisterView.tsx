@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Flex, Text} from '@chakra-ui/core';
+import {Box, Flex, Text} from '@chakra-ui/react';
 import {Routes} from '../../../routing/routes';
 import {RegisterForm} from '../../components/RegisterForm';
 import {AppLink} from '../../../routing/components/AppLink';
