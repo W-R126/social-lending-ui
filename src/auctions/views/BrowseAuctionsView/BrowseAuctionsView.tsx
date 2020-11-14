@@ -14,7 +14,7 @@ export const BrowseAuctionsView: React.FC = () => {
                 {auctions.length !== 0 ? (
                     <BrowseAuctions auctions={auctions} />
                 ) : (
-                    <Stack direction={'column'} justify={'center'} align={'center'}>
+                    <Stack mt={8} direction={'column'} justify={'center'} align={'center'}>
                         <Image width={['60%', '50%', '40%', '30%']} src={'svg/empty.svg'} />
                         <Heading color={'gray.400'}>Looks like there aren't any auctions here yet :(</Heading>
                     </Stack>
