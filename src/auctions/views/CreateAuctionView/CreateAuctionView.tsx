@@ -21,27 +21,30 @@ import {dateFormat, initialFormValues} from './CreateAuctionView.constants';
 import {validate} from './CreateAuctionView.helpers';
 import {CreateAuctionFormData} from './CreateAuctionView.types';
 import {DatePicker} from '../../../common/components/DatePicker/DatePicker';
-import {useBorrower} from '../../hooks/useBorrower';
 import {AuctionDTO} from '../../api/auctionsAPI.types';
 import {useHistory} from 'react-router-dom';
 import {Routes} from '../../../routing/routes';
 import {format} from 'date-fns';
+import {useUserAuctions} from '../../hooks/useUserAuctions';
 
 export const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
-    const {createNewBorrowerAuction, fetchBorrowerAuctions} = useBorrower();
+    const {createAuction} = useUserAuctions();
     const history = useHistory();
 
     const handleSubmit = (values: CreateAuctionFormData, {setSubmitting}: FormikHelpers<CreateAuctionFormData>) => {
-        createNewBorrowerAuction({
+        createAuction({
             endDate: format(values.endDate, dateFormat),
             loanAmount: values.loanAmount,
             numberOfInstallments: values.numberOfInstallments,
-        } as AuctionDTO);
-        fetchBorrowerAuctions();
-        history.push(Routes.MY_AUCTIONS);
-        setError('ERROR: Throw the computer out of the window!');
-        setSubmitting(false);
+        } as AuctionDTO).then(success => {
+            if (success) {
+                history.push(Routes.MY_AUCTIONS);
+            } else {
+                setError('ERROR: Throw the computer out of the window (or try again)!');
+                setSubmitting(false);
+            }
+        });
     };
 
     return (
