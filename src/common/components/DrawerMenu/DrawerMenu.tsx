@@ -23,7 +23,8 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon} from './DrawerMenu.icons';
+import {ArrowLeft} from 'react-feather';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, UserIcon} from './DrawerMenu.icons';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -64,6 +65,17 @@ export const DrawerMenu: React.FC = () => {
 
                     <DrawerBody>
                         <Stack spacing={2}>
+                            <Box mt={2}>
+                                <Heading as={'h5'} size={'md'} color={'#cccccc'}>
+                                    My Account
+                                </Heading>
+                                <Divider mt={0} />
+                            </Box>
+
+                            <LinkCard icon={<UserIcon boxSize={'48px'} />} path={Routes.USER_PROFILE}>
+                                View Profile
+                            </LinkCard>
+
                             <Box mt={2}>
                                 <Heading as={'h5'} size={'md'} color={'#cccccc'}>
                                     Borrow

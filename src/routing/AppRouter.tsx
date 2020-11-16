@@ -18,6 +18,7 @@ import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
 import {MyAuctionDetailsView} from '../auctions/views/MyAuctionDetailsView';
 import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 import {CreateOfferView} from '../auctions/views/CreateOfferView';
+import {UserProfileView} from '../userProfile/views/UserProfileView/UserProfileView';
 
 /**
  * Routing implementation for whole app. Uses useAuth hook in order to check whether user
@@ -62,6 +63,9 @@ export const AppRouter: React.FC = () => {
                     <BrowseMyOffersView />
                 </RestrictedRoute>
 
+                <RestrictedRoute path={Routes.USER_PROFILE}>
+                    <UserProfileView />
+                </RestrictedRoute>
                 <Route>
                     <PageNotFound />
                 </Route>
