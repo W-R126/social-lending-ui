@@ -11,6 +11,7 @@ import {BrowseAuctionsView} from '../auctions/views/BrowseAuctionsView';
 import {DrawerMenu} from '../common/components/DrawerMenu';
 import {CreateAuctionView} from '../auctions/views/CreateAuctionView';
 import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
+import {BrowseOffersView} from '../auctions/views/BrowseOffersView';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -36,6 +37,10 @@ export const AppRouter: React.FC = () => {
 
                 <RestrictedRoute path={Routes.CREATE_AUCTION}>
                     <CreateAuctionView />
+                </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.OFFERS}>
+                    <BrowseOffersView />
                 </RestrictedRoute>
 
                 <Route>

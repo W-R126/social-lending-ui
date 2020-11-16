@@ -4,4 +4,5 @@ export enum Routes {
     AUCTIONS = '/auctions',
     MY_AUCTIONS = '/my-auctions',
     CREATE_AUCTION = '/new-auction',
+    OFFERS = '/offers',
 }
