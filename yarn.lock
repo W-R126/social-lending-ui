@@ -6217,7 +6217,7 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^2.9.5:
+framer-motion@^2.9.5-rc.0:
   version "2.9.5-rc.0"
   resolved "https://nexus.fintechchallenge.pl/repository/npm/framer-motion/-/framer-motion-2.9.5-rc.0.tgz#042b51205fac732283c456409e7ae511cb43c320"
   integrity sha512-rjZ36vC0z80J3tchRODjTwERSAQq0lyi6sWw7zWWzDVIOrJRrNVlfB1TM1xOYtPu/hgmvo+dQ4UHV8gNzBvPlA==

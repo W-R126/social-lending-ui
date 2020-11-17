@@ -8,7 +8,7 @@ export function getOffers(): Promise<Offer[] | null> {
         .catch(() => null);
 }
 
-export function createOffer(offer: OfferDTO): Promise<Offer | null> {
+export function postOffer(offer: OfferDTO): Promise<Offer | null> {
     return axios
         .post('api/lender/offers', offer)
         .then(response => response.data)

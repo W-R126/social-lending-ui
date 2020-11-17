@@ -22,7 +22,7 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {ArrowLeft} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon} from './DrawerMenu.icons';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon} from './DrawerMenu.icons';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -77,6 +77,10 @@ export const DrawerMenu: React.FC = () => {
 
                             <LinkCard icon={<AuctionsIcon boxSize={'48px'} />} path={Routes.AUCTIONS}>
                                 Auctions
+                            </LinkCard>
+
+                            <LinkCard icon={<MyOffersIcon boxSize={'48px'} />} path={Routes.MY_OFFERS}>
+                                My Offers
                             </LinkCard>
                         </Stack>
                     </DrawerBody>

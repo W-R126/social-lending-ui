@@ -7,7 +7,7 @@ export const TableItem = css`
     overflow: hidden;
     padding: 1rem;
     background: #edf2f7;
-    justify-content: space-between;
+    justify-content: center;
 `;
 
 export const MainFlex = css`
