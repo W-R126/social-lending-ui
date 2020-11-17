@@ -8,7 +8,7 @@ import {Grid, Box} from '@chakra-ui/react';
 
 export const BankAccount: React.FC = () => {
     return (
-        <Flex justify={'left'}>
+        <Flex justify={'center'}>
             <Card m={4} width={'full'} maxWidth={'800px'}>
                 <Text fontSize="xs">12345SOMEACCOUNTNUMBER678910</Text>
 
