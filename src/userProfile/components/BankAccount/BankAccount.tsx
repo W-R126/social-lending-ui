@@ -2,7 +2,7 @@ import React from 'react';
 import {Card} from '../../../common/components/Card';
 import {Heading, Text, Flex} from '@chakra-ui/react';
 import {LinkCard} from '../../../common/components/LinkCard';
-import {HistoryIcon, TransferIcon} from './BankAccount.icons';
+import {HistoryIcon, TransferIcon} from '../../../common/components/DrawerMenu/DrawerMenu.icons';
 import {Routes} from '../../../routing/routes';
 import {Grid, Box} from '@chakra-ui/react';
 
@@ -18,18 +18,12 @@ export const BankAccount: React.FC = () => {
 
                 <Grid templateColumns="repeat(2, 1fr)" gap={6}>
                     <Box>
-                        <LinkCard
-                            icon={<HistoryIcon boxSize="48px" />}
-                            path={Routes.USER_PROFILE /*TODO: change to transfer path when ready*/}
-                        >
+                        <LinkCard icon={<HistoryIcon boxSize="48px" />} path={Routes.HISTORY}>
                             History
                         </LinkCard>
                     </Box>
                     <Box>
-                        <LinkCard
-                            icon={<TransferIcon boxSize="48px" />}
-                            path={Routes.USER_PROFILE /*TODO: change to transfer path when ready*/}
-                        >
+                        <LinkCard icon={<TransferIcon boxSize="48px" />} path={Routes.TRANSFER}>
                             Transfer
                         </LinkCard>
                     </Box>

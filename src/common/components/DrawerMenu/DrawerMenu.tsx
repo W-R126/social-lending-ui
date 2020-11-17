@@ -24,7 +24,7 @@ import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
 import {ArrowLeft} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, UserIcon} from './DrawerMenu.icons';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, UserIcon, TransferIcon, HistoryIcon} from './DrawerMenu.icons';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -74,6 +74,14 @@ export const DrawerMenu: React.FC = () => {
 
                             <LinkCard icon={<UserIcon boxSize={'48px'} />} path={Routes.USER_PROFILE}>
                                 View Profile
+                            </LinkCard>
+
+                            <LinkCard icon={<TransferIcon boxSize={'48px'} />} path={Routes.TRANSFER}>
+                                Transfer
+                            </LinkCard>
+
+                            <LinkCard icon={<HistoryIcon boxSize={'48px'} />} path={Routes.HISTORY}>
+                                History
                             </LinkCard>
 
                             <Box mt={2}>

@@ -45,4 +45,6 @@ export enum Routes {
      */
     MY_OFFERS = '/my-offers',
     USER_PROFILE = '/user-profile',
+    TRANSFER = '/transfer',
+    HISTORY = '/history',
 }
