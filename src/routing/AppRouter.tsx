@@ -12,6 +12,7 @@ import {DrawerMenu} from '../common/components/DrawerMenu';
 import {CreateAuctionView} from '../auctions/views/CreateAuctionView';
 import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
 import {BrowseOffersView} from '../auctions/views/BrowseOffersView';
+import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -43,6 +44,9 @@ export const AppRouter: React.FC = () => {
                     <BrowseOffersView />
                 </RestrictedRoute>
 
+                <RestrictedRoute path={Routes.MY_OFFERS}>
+                    <BrowseMyOffersView />
+                </RestrictedRoute>
                 <Route>
                     <PageNotFound />
                 </Route>
