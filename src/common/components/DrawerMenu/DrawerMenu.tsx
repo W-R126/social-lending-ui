@@ -17,20 +17,22 @@ import {
     Stack,
     Text,
     useDisclosure,
+    useColorMode,
 } from '@chakra-ui/react';
 import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
-import {Menu} from 'react-feather';
+import {Menu, Moon, Sun} from 'react-feather';
 import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon} from './DrawerMenu.icons';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const {isAuthenticated, logout} = useAuth();
+    const {colorMode, toggleColorMode} = useColorMode();
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         onClose();
-        logout();
+        await logout();
     };
 
     return (
@@ -40,9 +42,18 @@ export const DrawerMenu: React.FC = () => {
                     <Image src={'logo/logo256.png'} boxSize={'48px'} d={'inline'} />
                     <Text d={'inline'}>LendTree - The Social Lending App</Text>
                 </Box>
-                {isAuthenticated && (
-                    <IconButton variant={'outline'} colorScheme={'teal'} aria-label="Open Drawer" icon={<Menu />} onClick={onOpen} />
-                )}
+                <Stack direction={'row'}>
+                    <IconButton
+                        variant={'outline'}
+                        colorScheme={'teal'}
+                        aria-label={`Toggle ${colorMode} mode`}
+                        icon={colorMode === 'dark' ? <Sun /> : <Moon />}
+                        onClick={toggleColorMode}
+                    />
+                    {isAuthenticated && (
+                        <IconButton variant={'outline'} colorScheme={'teal'} aria-label="Open Drawer" icon={<Menu />} onClick={onOpen} />
+                    )}
+                </Stack>
             </Flex>
 
             <Drawer isOpen={isOpen} placement={'right'} onClose={onClose}>
