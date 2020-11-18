@@ -1,8 +1,7 @@
 import {Box} from '@chakra-ui/react';
 import React from 'react';
 import {format} from 'date-fns';
-
-const dateFormat = 'dd-MM-yyyy HH:mm';
+import {DATE_FORMAT} from '../../../common/constants';
 
 export const TableColumns: any = [
     {
@@ -16,11 +15,11 @@ export const TableColumns: any = [
     {
         Header: 'Begin date',
         accessor: 'beginDate',
-        Cell: (props: any) => <Box>{format(new Date(props.value), dateFormat)}</Box>,
+        Cell: (props: any) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
     },
     {
         Header: 'End date',
         accessor: 'endDate',
-        Cell: (props: any) => <Box>{format(new Date(props.value), dateFormat)}</Box>,
+        Cell: (props: any) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
     },
 ];

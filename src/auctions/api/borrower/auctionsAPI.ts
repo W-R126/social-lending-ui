@@ -10,6 +10,13 @@ export function getAuctions(): Promise<Auction[] | null> {
         .catch(() => null);
 }
 
+export function getAuction(auctionId: number): Promise<Auction | null> {
+    return axios
+        .get(auctionsUrl + '/' + auctionId)
+        .then(response => response.data)
+        .catch(() => null);
+}
+
 export function postAuction(auction: AuctionDTO): Promise<Auction | null> {
     return axios
         .post(auctionsUrl, auction)

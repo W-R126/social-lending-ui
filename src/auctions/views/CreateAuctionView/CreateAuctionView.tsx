@@ -15,7 +15,7 @@ import {
     InputLeftElement,
 } from '@chakra-ui/react';
 import {Formik, FormikHelpers} from 'formik';
-import {dateFormat, initialFormValues} from './CreateAuctionView.constants';
+import {initialFormValues} from './CreateAuctionView.constants';
 import {validate} from './CreateAuctionView.helpers';
 import {CreateAuctionFormData} from './CreateAuctionView.types';
 import {DatePicker} from '../../../common/components/DatePicker/DatePicker';
@@ -24,6 +24,7 @@ import {useHistory} from 'react-router-dom';
 import {Routes} from '../../../routing/routes';
 import {format} from 'date-fns';
 import {useUserAuctions} from '../../hooks/useUserAuctions';
+import {DATE_FORMAT} from '../../../common/constants';
 
 export const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
@@ -32,7 +33,7 @@ export const CreateAuctionView: React.FC = () => {
 
     const handleSubmit = (values: CreateAuctionFormData, {setSubmitting}: FormikHelpers<CreateAuctionFormData>) => {
         createAuction({
-            endDate: format(values.endDate, dateFormat),
+            endDate: format(values.endDate, DATE_FORMAT),
             loanAmount: values.loanAmount,
             numberOfInstallments: values.numberOfInstallments,
         } as AuctionDTO).then(success => {
