@@ -21,7 +21,7 @@ import {
 import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
-import {ArrowLeft} from 'react-feather';
+import {Menu} from 'react-feather';
 import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon} from './DrawerMenu.icons';
 
 export const DrawerMenu: React.FC = () => {
@@ -41,7 +41,7 @@ export const DrawerMenu: React.FC = () => {
                     <Text d={'inline'}>LendTree - The Social Lending App</Text>
                 </Box>
                 {isAuthenticated && (
-                    <IconButton variant={'outline'} colorScheme={'teal'} aria-label="Open Drawer" icon={<ArrowLeft />} onClick={onOpen} />
+                    <IconButton variant={'outline'} colorScheme={'teal'} aria-label="Open Drawer" icon={<Menu />} onClick={onOpen} />
                 )}
             </Flex>
 
