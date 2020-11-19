@@ -25,6 +25,7 @@ import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
 import {ArrowLeft} from 'react-feather';
 import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, UserIcon, TransferIcon, HistoryIcon} from './DrawerMenu.icons';
+import {BankAccount} from '../../../userProfile/components/BankAccount/BankAccount';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -71,6 +72,8 @@ export const DrawerMenu: React.FC = () => {
                                 </Heading>
                                 <Divider mt={0} />
                             </Box>
+
+                            <BankAccount />
 
                             <LinkCard icon={<UserIcon boxSize={'48px'} />} path={Routes.USER_PROFILE}>
                                 View Profile

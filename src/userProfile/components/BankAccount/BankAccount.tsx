@@ -10,24 +10,13 @@ export const BankAccount: React.FC = () => {
     return (
         <Flex justify={'center'}>
             <Card m={4} width={'full'} maxWidth={'800px'}>
-                <Text fontSize="xs">12345SOMEACCOUNTNUMBER678910</Text>
+                <Text align={'left'}>Available Balance:</Text>
 
-                <Text align={'right'}>Available Balance:</Text>
+                <Heading align={'left'}>£10000</Heading>
 
-                <Heading align={'right'}>£10000</Heading>
-
-                <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                    <Box>
-                        <LinkCard icon={<HistoryIcon boxSize="48px" />} path={Routes.HISTORY}>
-                            History
-                        </LinkCard>
-                    </Box>
-                    <Box>
-                        <LinkCard icon={<TransferIcon boxSize="48px" />} path={Routes.TRANSFER}>
-                            Transfer
-                        </LinkCard>
-                    </Box>
-                </Grid>
+                <Text alighn={'right'} fontSize="xs">
+                    12345SOMEACCOUNTNUMBER678910
+                </Text>
             </Card>
         </Flex>
     );
