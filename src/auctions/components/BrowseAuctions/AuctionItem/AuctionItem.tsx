@@ -6,9 +6,10 @@ import {formatDate} from './AuctionItem.helpers';
 
 interface Props {
     auction: Auction;
+    onOpenDetails: (auction: Auction) => void;
 }
 
-export const AuctionItem: React.FC<Props> = ({auction}) => {
+export const AuctionItem: React.FC<Props> = ({auction, onOpenDetails}) => {
     return (
         <Card key={auction.id} maxWidth={'500px'} width={'full'}>
             <Stack direction={'column'}>
@@ -27,7 +28,9 @@ export const AuctionItem: React.FC<Props> = ({auction}) => {
                             {formatDate(auction.beginDate)} - {formatDate(auction.endDate)}
                         </StatHelpText>
                     </Stat>
-                    <Button colorScheme={'teal'}>See details</Button>
+                    <Button colorScheme={'teal'} onClick={() => onOpenDetails(auction)}>
+                        See details
+                    </Button>
                 </Flex>
             </Stack>
         </Card>

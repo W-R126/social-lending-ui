@@ -3,8 +3,7 @@ import React from 'react';
 import {format} from 'date-fns';
 import {HandleAcceptOfferClick} from './BrowseOffers.helpers';
 import {TableButton} from '../TableButton';
-
-const dateFormat = 'dd-MM-yyyy HH:mm';
+import {DATE_FORMAT} from '../../../common/constants';
 
 export const TableColumns: any = [
     {
@@ -14,7 +13,7 @@ export const TableColumns: any = [
     {
         Header: 'Date',
         accessor: 'date',
-        Cell: (props: any) => <Box>{format(new Date(props.value), dateFormat)}</Box>,
+        Cell: (props: any) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
     },
     {
         Header: 'Action',

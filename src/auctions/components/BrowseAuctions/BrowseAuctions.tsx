@@ -9,9 +9,10 @@ import {orderAuctions} from './BrowseAuctions.helpers';
 
 interface Props {
     auctions: Auction[];
+    onOpenDetails?: (auction: Auction) => void;
 }
 
-export const BrowseAuctions: React.FC<Props> = ({auctions}) => {
+export const BrowseAuctions: React.FC<Props> = ({auctions, onOpenDetails}) => {
     const [order, setOrder] = useState(OrderBy.DEFAULT);
 
     const handleOrderChange = (event: SyntheticEvent) => {
@@ -20,6 +21,12 @@ export const BrowseAuctions: React.FC<Props> = ({auctions}) => {
     };
 
     const sortedAuctions = orderAuctions(auctions, order);
+
+    const handleOpenDetails = (auction: Auction) => {
+        if (onOpenDetails) {
+            onOpenDetails(auction);
+        }
+    };
 
     return (
         <Stack m={3} align={'center'}>
@@ -40,7 +47,7 @@ export const BrowseAuctions: React.FC<Props> = ({auctions}) => {
             </Card>
 
             {sortedAuctions.map(auction => (
-                <AuctionItem key={auction.id} auction={auction} />
+                <AuctionItem key={auction.id} auction={auction} onOpenDetails={handleOpenDetails} />
             ))}
         </Stack>
     );

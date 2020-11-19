@@ -6,5 +6,3 @@ export const initialFormValues: CreateAuctionFormData = {
     loanAmount: 300,
     numberOfInstallments: 12,
 };
-
-export const dateFormat = 'dd/MM/yyyy HH:mm';

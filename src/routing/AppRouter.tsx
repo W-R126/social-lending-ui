@@ -11,7 +11,7 @@ import {BrowseAuctionsView} from '../auctions/views/BrowseAuctionsView';
 import {DrawerMenu} from '../common/components/DrawerMenu';
 import {CreateAuctionView} from '../auctions/views/CreateAuctionView';
 import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
-import {BrowseOffersView} from '../auctions/views/BrowseOffersView';
+import {MyAuctionDetailsView} from '../auctions/views/MyAuctionDetailsView';
 import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 
 export const AppRouter: React.FC = () => {
@@ -32,16 +32,16 @@ export const AppRouter: React.FC = () => {
                     <BrowseAuctionsView />
                 </RestrictedRoute>
 
+                <RestrictedRoute path={Routes.MY_AUCTION_DETAILS}>
+                    <MyAuctionDetailsView />
+                </RestrictedRoute>
+
                 <RestrictedRoute path={Routes.MY_AUCTIONS}>
                     <BrowseMyAuctionsView />
                 </RestrictedRoute>
 
                 <RestrictedRoute path={Routes.CREATE_AUCTION}>
                     <CreateAuctionView />
-                </RestrictedRoute>
-
-                <RestrictedRoute path={Routes.OFFERS}>
-                    <BrowseOffersView />
                 </RestrictedRoute>
 
                 <RestrictedRoute path={Routes.MY_OFFERS}>

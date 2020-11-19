@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import {Auction} from '../api/auctionsAPI.types';
 import {getAuctions} from '../api/lender/auctionsAPI';
+import {getAuction} from '../api/borrower/auctionsAPI';
 
 export function useAuctions() {
     const [auctions, setAuctions] = useState<Auction[]>([]);
+    const [fetchedAuction, setFetchedAuction] = useState<Auction>();
     const [isFetching, setFetching] = useState(false);
 
     async function fetchAuctions(): Promise<boolean> {
@@ -19,5 +21,17 @@ export function useAuctions() {
         return false;
     }
 
-    return {isFetching, auctions, fetchAuctions};
+    async function fetchAuction(auctionId: number): Promise<boolean> {
+        setFetching(true);
+        const auction = await getAuction(auctionId);
+        setFetching(false);
+
+        if (auction !== null) {
+            setFetchedAuction(auction);
+            return true;
+        }
+        return false;
+    }
+
+    return {isFetching, auctions, fetchAuctions, fetchAuction, fetchedAuction};
 }
