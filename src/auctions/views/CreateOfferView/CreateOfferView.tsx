@@ -6,17 +6,21 @@ import {OfferDTO} from '../../api/offersAPI.types';
 import {Formik, FormikHelpers} from 'formik';
 import {Routes} from '../../../routing/routes';
 import {Card} from '../../../common/components/Card';
-import {Alert, AlertIcon, Button, Flex, FormControl, Heading} from '@chakra-ui/react';
-import {initialFormValues} from './CreateOfferView.constants';
+import {Alert, AlertIcon, Button, Flex, FormControl, Heading, useDisclosure} from '@chakra-ui/react';
+import {dialogText, initialFormValues} from './CreateOfferView.constants';
 import {validate} from './CreateOfferView.helpers';
 import {useParams} from 'react-router';
 import {RangeInput} from '../../components/RangeInput';
+import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
 
 export const CreateOfferView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {createOffer} = useLenderOffers();
     const history = useHistory();
     const {auctionId} = useParams();
+    const {isOpen, onOpen, onClose} = useDisclosure();
+
+    const cancelRef = React.useRef();
 
     const handleSubmit = (values: OfferDTO, {setSubmitting}: FormikHelpers<OfferDTO>) => {
         createOffer({
@@ -53,10 +57,9 @@ export const CreateOfferView: React.FC = () => {
                                 <Button
                                     width={'full'}
                                     mt={4}
-                                    type={'submit'}
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
-                                    onClick={() => handleSubmit()}
+                                    onClick={onOpen}
                                 >
                                     Create Offer
                                 </Button>
@@ -66,6 +69,13 @@ export const CreateOfferView: React.FC = () => {
                                         {error}
                                     </Alert>
                                 )}
+                                <AreYouSureAlert
+                                    dialogText={dialogText(values.proposedAnnualPercentageRate)}
+                                    onClose={onClose}
+                                    isOpen={isOpen}
+                                    cancelRef={cancelRef}
+                                    onConsent={handleSubmit}
+                                />
                             </form>
                         );
                     }}
