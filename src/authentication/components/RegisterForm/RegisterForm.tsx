@@ -1,18 +1,38 @@
 import React, {useState} from 'react';
-import {Alert, AlertIcon, Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input} from '@chakra-ui/react';
+import {
+    Alert,
+    AlertIcon,
+    Box,
+    Button,
+    Flex,
+    FormControl,
+    FormErrorMessage,
+    FormLabel,
+    Grid,
+    GridItem,
+    Heading,
+    Input,
+} from '@chakra-ui/react';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './RegisterForm.constants';
 import {validate} from './RegisterForm.helpers';
 import {RegisterFormData} from './RegisterForm.types';
 import {signup} from '../../api/authAPI';
 import {useAuth} from '../../context/AuthProvider';
+import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
 
 export const RegisterForm: React.FC = () => {
     const {login} = useAuth();
     const [error, setError] = useState<string | null>(null);
+    const [cardFocus, setCardFocus] = useState<'number' | 'cvc' | 'expiry' | 'name' | undefined>('number');
+
+    const handleCardFocus = (e: any) => {
+        setCardFocus(e.target.name);
+    };
 
     const handleSubmit = (values: RegisterFormData, {setSubmitting}: FormikHelpers<RegisterFormData>) => {
-        signup(values.username, values.password)
+        signup(values.username, values.password, Number(values.cvc), values.expiry.toString(), values.name, Number(values.cardNumber))
             .then(async success => {
                 if (success) {
                     const result = await login(values.username, values.password);
@@ -78,7 +98,74 @@ export const RegisterForm: React.FC = () => {
                                     />
                                     <FormErrorMessage>{errors.confirmPassword}</FormErrorMessage>
                                 </FormControl>
-
+                                <Flex mt={4} justifyContent={'center'}>
+                                    <Heading size={'md'}>Payment details</Heading>
+                                </Flex>
+                                <FormControl mt={4} isInvalid={!!(errors.cardNumber && touched.cardNumber)}>
+                                    <FormLabel>Card number</FormLabel>
+                                    <Input
+                                        type={'tel'}
+                                        placeholder={'**** **** **** ****'}
+                                        name={'cardNumber'}
+                                        value={values.cardNumber}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        onFocus={handleCardFocus}
+                                    />
+                                    <FormErrorMessage>{errors.cardNumber}</FormErrorMessage>
+                                </FormControl>
+                                <FormControl mt={4} isInvalid={!!(errors.name && touched.name)}>
+                                    <FormLabel>Name</FormLabel>
+                                    <Input
+                                        type={'text'}
+                                        placeholder={'YOUR NAME HERE'}
+                                        name={'name'}
+                                        value={values.name}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        onFocus={handleCardFocus}
+                                    />
+                                    <FormErrorMessage>{errors.name}</FormErrorMessage>
+                                </FormControl>
+                                <Grid mt={4} mb={4} templateColumns={'repeat(3, 1fr)'} gap={4}>
+                                    <GridItem colSpan={2}>
+                                        <FormControl isInvalid={!!(errors.expiry && touched.expiry)}>
+                                            <FormLabel>Expiry date</FormLabel>
+                                            <Input
+                                                type={'text'}
+                                                placeholder={'**/**'}
+                                                name={'expiry'}
+                                                value={values.expiry}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                onFocus={handleCardFocus}
+                                            />
+                                            <FormErrorMessage>{errors.expiry}</FormErrorMessage>
+                                        </FormControl>
+                                    </GridItem>
+                                    <GridItem>
+                                        <FormControl isInvalid={!!(errors.cvc && touched.cvc)}>
+                                            <FormLabel>CVC</FormLabel>
+                                            <Input
+                                                type={'password'}
+                                                placeholder={'***'}
+                                                name={'cvc'}
+                                                value={values.cvc}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                onFocus={handleCardFocus}
+                                            />
+                                            <FormErrorMessage>{errors.cvc}</FormErrorMessage>
+                                        </FormControl>
+                                    </GridItem>
+                                </Grid>
+                                <Cards
+                                    cvc={values.cvc}
+                                    expiry={values.expiry}
+                                    name={values.name}
+                                    number={values.cardNumber}
+                                    focused={cardFocus}
+                                />
                                 <Button
                                     width={'full'}
                                     mt={4}
@@ -86,6 +173,7 @@ export const RegisterForm: React.FC = () => {
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
                                     onClick={() => handleSubmit()}
+                                    onFocus={handleCardFocus}
                                 >
                                     Sign up
                                 </Button>

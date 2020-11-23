@@ -10,11 +10,22 @@ export function signin(username: string, password: string): Promise<string | nul
         .catch(() => null);
 }
 
-export function signup(username: string, password: string): Promise<string | null> {
+export function signup(
+    username: string,
+    password: string,
+    cvc: number,
+    expiry: string,
+    name: string,
+    cardNumber: number,
+): Promise<string | null> {
     return axios
         .post('api/user/signup', {
             username,
             password,
+            cvc,
+            expiry,
+            name,
+            cardNumber,
         })
         .then(response => response.data)
         .catch(() => null);
