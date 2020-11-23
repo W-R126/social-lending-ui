@@ -1,0 +1,9 @@
+{
+    "env": {
+        "authenticatedHomepage": "/auctions",
+        "serverUrl": "https://metis-social-lending-service.metis-team.sit.fintechchallenge.pl"
+    },
+    "baseUrl": "http://localhost:3000",
+    "video": false,
+    "screenshotOnRunFailure": false
+}
