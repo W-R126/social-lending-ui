@@ -73,7 +73,7 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "http://localhost:8080",
+    "proxy": "https://metis-social-lending-service.metis-team.sit.fintechchallenge.pl",
     "devDependencies": {
         "cypress": "^5.6.0",
         "start-server-and-test": "^1.11.6"

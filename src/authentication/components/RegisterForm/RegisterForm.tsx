@@ -118,7 +118,7 @@ export const RegisterForm: React.FC = () => {
                                     <FormLabel>Name</FormLabel>
                                     <Input
                                         type={'text'}
-                                        placeholder={'YOUR NAME HERE'}
+                                        placeholder={'First and family names'}
                                         name={'name'}
                                         value={values.name}
                                         onChange={handleChange}

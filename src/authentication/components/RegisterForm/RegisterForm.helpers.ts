@@ -29,7 +29,7 @@ export const validate = (values: RegisterFormData) => {
     }
 
     if (/([A-Za-z]+) ([A-Za-z]+)/g.exec(values.name) === null) {
-        errors.name = 'Provide first and family name';
+        errors.name = 'Provide first and family names';
     }
 
     const expiryValues: string[] = values.expiry.split('/');
@@ -38,7 +38,7 @@ export const validate = (values: RegisterFormData) => {
     }
 
     const cvcCasted: number = Number(values.cvc);
-    if (isNaN(cvcCasted) || cvcCasted < 0 || cvcCasted > 999) {
+    if ((typeof values.cvc !== 'number' && values.cvc?.length === 0) || isNaN(cvcCasted) || cvcCasted < 0 || cvcCasted > 999) {
         errors.cvc = 'CVC should be between 000 and 999';
     }
     return errors;
