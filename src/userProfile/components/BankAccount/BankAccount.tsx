@@ -1,23 +1,34 @@
 import React from 'react';
-import {Card} from '../../../common/components/Card';
-import {Heading, Text, Flex} from '@chakra-ui/react';
-import {LinkCard} from '../../../common/components/LinkCard';
-import {HistoryIcon, TransferIcon} from '../../../common/components/DrawerMenu/DrawerMenu.icons';
-import {Routes} from '../../../routing/routes';
-import {Grid, Box} from '@chakra-ui/react';
+import {Heading, Text, Flex, Grid, Button, Box, GridItem, useClipboard} from '@chakra-ui/react';
+import {useUser} from '../../contexts/UserProvider';
 
 export const BankAccount: React.FC = () => {
+    const [accountNo, setAccountNo] = React.useState('3fa85f64-5717-4562-b3fc-2c963f66afa6');
+    const {hasCopied, onCopy} = useClipboard(accountNo);
+    const user = useUser();
+    console.log(user);
     return (
-        <Flex justify={'center'}>
-            <Card m={4} width={'full'} maxWidth={'800px'}>
-                <Text align={'left'}>Available Balance:</Text>
+        <Flex>
+            <Grid templateColumns="repeat(4, 1fr)">
+                <GridItem colSpan={4} w={'260px'}>
+                    <Text fontSize="xs">{accountNo}</Text>
+                </GridItem>
 
-                <Heading align={'left'}>£10000</Heading>
+                <GridItem colSpan={4}>
+                    <Button onClick={onCopy} size={'s'}>
+                        {hasCopied ? 'Copied' : 'Copy'}
+                    </Button>
+                </GridItem>
 
-                <Text alighn={'right'} fontSize="xs">
-                    12345SOMEACCOUNTNUMBER678910
-                </Text>
-            </Card>
+                <GridItem colSpan={4}>
+                    <br />
+                    <Text>Available Balance:</Text>
+                </GridItem>
+
+                <GridItem colSpan={4}>
+                    <Heading>£10000</Heading>
+                </GridItem>
+            </Grid>
         </Flex>
     );
 };

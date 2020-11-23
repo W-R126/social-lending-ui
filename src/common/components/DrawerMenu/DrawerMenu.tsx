@@ -23,9 +23,9 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
-import {ArrowLeft} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, UserIcon, TransferIcon, HistoryIcon} from './DrawerMenu.icons';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, TransferIcon, HistoryIcon} from './DrawerMenu.icons';
 import {BankAccount} from '../../../userProfile/components/BankAccount/BankAccount';
+import {UserProvider} from '../../../userProfile/contexts/UserProvider';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -73,11 +73,11 @@ export const DrawerMenu: React.FC = () => {
                                 <Divider mt={0} />
                             </Box>
 
-                            <BankAccount />
-
-                            <LinkCard icon={<UserIcon boxSize={'48px'} />} path={Routes.USER_PROFILE}>
-                                View Profile
-                            </LinkCard>
+                            <Box>
+                                <UserProvider>
+                                    <BankAccount />
+                                </UserProvider>
+                            </Box>
 
                             <LinkCard icon={<TransferIcon boxSize={'48px'} />} path={Routes.TRANSFER}>
                                 Transfer

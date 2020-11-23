@@ -65,10 +65,6 @@ export const AppRouter: React.FC = () => {
                     <BrowseMyOffersView />
                 </RestrictedRoute>
 
-                <RestrictedRoute path={Routes.USER_PROFILE}>
-                    <UserProfileView />
-                </RestrictedRoute>
-
                 <RestrictedRoute path={Routes.TRANSFER}>
                     <TransferView />
                 </RestrictedRoute>
