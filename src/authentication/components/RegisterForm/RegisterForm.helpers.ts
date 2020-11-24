@@ -13,15 +13,15 @@ export const validate = (values: RegisterFormData) => {
     }
 
     if (!values.confirmPassword) {
-        errors.confirmPassword = 'Password is required!';
+        errors.confirmPassword = 'Confirm password is required!';
     }
 
     if (values.confirmPassword !== values.password) {
-        errors.confirmPassword = 'Confirm password does not match with password';
+        errors.confirmPassword = 'Confirm password does not match with password!';
     }
 
     if (values.password.length < 8) {
-        errors.password = 'Password should have at least 8 characters';
+        errors.password = 'Password should have at least 8 characters!';
     }
 
     return errors;

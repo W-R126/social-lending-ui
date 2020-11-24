@@ -37,6 +37,19 @@ pipeline {
                 sh 'yarn test'
             }
         }
+        stage('Test e2e') {
+            agent {
+                docker {
+                    image 'cypress/base:10'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh "yarn run cypress install"
+                sh "yarn run cy:verify"
+                sh "yarn run e2e"
+            }
+        }
         stage('Sonar') {
             when { branch 'master' }
             agent {
