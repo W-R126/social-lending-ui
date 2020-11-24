@@ -24,5 +24,22 @@ export const validate = (values: RegisterFormData) => {
         errors.password = 'Password should have at least 8 characters!';
     }
 
+    if (values.cardNumber.toString().length !== 16) {
+        errors.cardNumber = 'Card number should consist of 16 digits';
+    }
+
+    if (/([A-Za-z]+) ([A-Za-z]+)/g.exec(values.name) === null) {
+        errors.name = 'Provide first and family names';
+    }
+
+    const expiryValues: string[] = values.expiry.split('/');
+    if (expiryValues.length !== 2 || Number(expiryValues[0]) < 1 || Number(expiryValues[0]) > 31 || Number(expiryValues[1]) < 0) {
+        errors.expiry = 'Provide expiry date in format **/**';
+    }
+
+    const cvcCasted: number = Number(values.cvc);
+    if ((typeof values.cvc !== 'number' && values.cvc?.length === 0) || isNaN(cvcCasted) || cvcCasted < 0 || cvcCasted > 999) {
+        errors.cvc = 'CVC should be between 000 and 999';
+    }
     return errors;
 };
