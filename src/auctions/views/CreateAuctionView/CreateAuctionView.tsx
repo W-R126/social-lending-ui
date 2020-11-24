@@ -40,7 +40,7 @@ export const CreateAuctionView: React.FC = () => {
             if (success) {
                 history.push(Routes.MY_AUCTIONS);
             } else {
-                setError('ERROR: Throw the computer out of the window (or try again)!');
+                setError('Error while submitting auction');
                 setSubmitting(false);
             }
         });

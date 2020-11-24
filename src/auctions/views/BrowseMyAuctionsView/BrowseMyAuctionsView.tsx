@@ -20,7 +20,7 @@ export const BrowseMyAuctionsView: React.FC = () => {
         <Flex flexDir="column">
             <Skeleton isLoaded={!isFetching}>
                 {auctions.length !== 0 ? (
-                    <BrowseAuctions auctions={auctions} onOpenDetails={handleOpenDetails} />
+                    <BrowseAuctions buttonTitle={'See details'} auctions={auctions} onOpenDetails={handleOpenDetails} />
                 ) : (
                     <Stack mt={8} direction={'column'} justify={'center'} align={'center'}>
                         <Image width={['60%', '50%', '40%', '30%']} src={'svg/empty.svg'} />
