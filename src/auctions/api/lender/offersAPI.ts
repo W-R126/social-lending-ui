@@ -14,3 +14,10 @@ export function postOffer(offer: OfferDTO): Promise<Offer | null> {
         .then(response => response.data)
         .catch(() => null);
 }
+
+export function deleteOffer(offerId: number): Promise<boolean> {
+    return axios
+        .delete(`api/lender/offers/${offerId}`)
+        .then(response => response.status === 200)
+        .catch(() => false);
+}
