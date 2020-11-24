@@ -1,6 +1,6 @@
 import {Offer, OfferDTO} from '../api/offersAPI.types';
 import {useState} from 'react';
-import {getOffers, postOffer} from '../api/lender/offersAPI';
+import {deleteOffer, getOffers, postOffer} from '../api/lender/offersAPI';
 
 export function useLenderOffers() {
     const [offers, setOffers] = useState<Offer[]>([]);
@@ -22,5 +22,9 @@ export function useLenderOffers() {
         return (await postOffer(offer)) !== null;
     }
 
-    return {isFetching, offers, fetchOffers, createOffer};
+    async function cancelOffer(offer: Offer): Promise<boolean> {
+        return await deleteOffer(offer.id);
+    }
+
+    return {isFetching, offers, fetchOffers, createOffer, cancelOffer};
 }
