@@ -19,5 +19,12 @@ export const validate = (values: CreateAuctionFormData) => {
         errors.endDate = 'Please specify the end date for the auction.';
     }
 
+    if (!values.description || values.description.length < 5) {
+        errors.description = 'Description should be at least 5 characters long';
+    }
+
+    if (values.description.length > 250) {
+        errors.description = 'Description should not exceed 250 characters';
+    }
     return errors;
 };

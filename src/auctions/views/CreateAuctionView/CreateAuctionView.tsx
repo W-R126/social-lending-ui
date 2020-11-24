@@ -13,6 +13,7 @@ import {
     Input,
     InputGroup,
     InputLeftElement,
+    Textarea,
 } from '@chakra-ui/react';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './CreateAuctionView.constants';
@@ -36,6 +37,7 @@ export const CreateAuctionView: React.FC = () => {
             endDate: format(values.endDate, DATE_FORMAT),
             loanAmount: values.loanAmount,
             numberOfInstallments: values.numberOfInstallments,
+            description: values.description,
         } as AuctionDTO).then(success => {
             if (success) {
                 history.push(Routes.MY_AUCTIONS);
@@ -107,7 +109,20 @@ export const CreateAuctionView: React.FC = () => {
                                     <DatePicker name={'endDate'} value={values.endDate} onChange={setFieldValue} showPopperArrow={true} />
                                     <FormHelperText>The auction always closes at 23:59 on the specified day.</FormHelperText>
                                 </FormControl>
-
+                                <FormControl mt={3} isInvalid={!!(errors.description && touched.description)}>
+                                    <FormLabel>Description</FormLabel>
+                                    <InputGroup>
+                                        <Textarea
+                                            name={'description'}
+                                            value={values.description}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            placeholder={'Short description...'}
+                                            maxLength={250}
+                                        />
+                                    </InputGroup>
+                                    <FormErrorMessage>{errors.description}</FormErrorMessage>
+                                </FormControl>
                                 <Button
                                     width={'full'}
                                     mt={4}

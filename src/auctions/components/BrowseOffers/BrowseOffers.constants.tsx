@@ -8,7 +8,8 @@ import {DATE_FORMAT} from '../../../common/constants';
 export const TableColumns: any = [
     {
         Header: 'Annual percentage rate',
-        accessor: 'annualPercentageRate',
+        accessor: 'proposedAnnualPercentageRate',
+        Cell: (props: any) => <Box>{props.value} %</Box>,
     },
     {
         Header: 'Date',

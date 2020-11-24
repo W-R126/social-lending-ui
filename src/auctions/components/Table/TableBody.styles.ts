@@ -20,4 +20,5 @@ export const TableRow = css`
 export const TableCell = css`
     width: 100%;
     padding: 1rem;
+    justify-content: center;
 `;
