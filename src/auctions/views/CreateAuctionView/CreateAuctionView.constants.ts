@@ -5,4 +5,5 @@ export const initialFormValues: CreateAuctionFormData = {
     endDate: getTomorrow(),
     loanAmount: 300,
     numberOfInstallments: 12,
+    description: '',
 };

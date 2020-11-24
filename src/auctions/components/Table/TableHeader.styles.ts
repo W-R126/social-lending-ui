@@ -17,6 +17,7 @@ export const MainFlex = css`
 export const HeaderWrapper = css`
     flex: 1;
     flex-direction: row;
+    justify-content: center;
 `;
 
 export const HeaderTitle = css`
