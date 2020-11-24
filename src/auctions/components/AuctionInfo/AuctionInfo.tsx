@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box, Flex, Heading, Skeleton, Stat, StatHelpText, StatLabel, StatNumber} from '@chakra-ui/react';
+import {Box, Flex, Heading, Skeleton, Stat, StatLabel, StatNumber, Text} from '@chakra-ui/react';
 import {Auction} from '../../api/auctionsAPI.types';
 import {CURRENCY} from '../../../common/constants';
 
@@ -23,7 +23,6 @@ export const AuctionInfo: React.FC<Props> = ({auction, auctionId}) => {
                             <Stat>
                                 <StatLabel>Number of installments</StatLabel>
                                 <StatNumber>{auction?.numberOfInstallments}</StatNumber>
-                                <StatHelpText></StatHelpText>
                             </Stat>
                         </Flex>
                         <Flex>
@@ -33,9 +32,11 @@ export const AuctionInfo: React.FC<Props> = ({auction, auctionId}) => {
                                     {CURRENCY}
                                     {auction?.loanAmount}
                                 </StatNumber>
-                                <StatHelpText></StatHelpText>
                             </Stat>
                         </Flex>
+                    </Flex>
+                    <Flex alignItems={'center'} p={8} flexDir={'column'} flexWrap={'wrap'}>
+                        <Text size={'lg'}>{auction?.description}</Text>
                     </Flex>
                 </Box>
             </Skeleton>
