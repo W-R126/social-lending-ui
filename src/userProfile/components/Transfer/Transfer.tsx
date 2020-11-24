@@ -15,13 +15,13 @@ import {
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
 import {Formik, FormikHelpers} from 'formik';
-import {initialFormValues} from './TransferView.constants';
-import {validate} from './TransferView.helpers';
-import {newTransferData} from './TransferViewTypes';
+import {initialFormValues} from './Transfer.constants';
+import {validate} from './Transfer.helpers';
+import {newTransferData} from './Transfer.types';
 import {DatePicker} from '../../../common/components/DatePicker/DatePicker';
 import {useState} from 'react';
 
-export const TransferView: React.FC = () => {
+export const Transfer: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const handleSubmit = (values: newTransferData, {setSubmitting}: FormikHelpers<newTransferData>) => {
         console.log(values);
@@ -31,7 +31,7 @@ export const TransferView: React.FC = () => {
 
     return (
         <Flex justify={'center'}>
-            <Card m={4} width={'full'} maxWidth={'800px'}>
+            <Card maxWidth={'800px'}>
                 <Heading> Transfer </Heading>
                 <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                     {props => {
@@ -78,16 +78,6 @@ export const TransferView: React.FC = () => {
                                         />
                                     </InputGroup>
                                     <FormErrorMessage>{errors.toAccount}</FormErrorMessage>
-                                </FormControl>
-
-                                <FormControl mt={3}>
-                                    <FormLabel>transfer date</FormLabel>
-                                    <DatePicker
-                                        name={'transferDate'}
-                                        value={values.transferDate}
-                                        onChange={setFieldValue}
-                                        showPopperArrow={true}
-                                    />
                                 </FormControl>
 
                                 <Button

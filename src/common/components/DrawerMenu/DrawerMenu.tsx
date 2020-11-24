@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Box,
     Button,
@@ -23,9 +23,10 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, TransferIcon, HistoryIcon} from './DrawerMenu.icons';
-import {BankAccount} from '../../../userProfile/components/BankAccount/BankAccount';
-import {UserProvider} from '../../../userProfile/contexts/UserProvider';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, TransferIcon, HistoryIcon, UserIcon} from './DrawerMenu.icons';
+import {Balance} from '../../../userProfile/components/Balance/Balance';
+import {UserProvider, useUser} from '../../../userProfile/contexts/UserProvider';
+import {useInit} from '../../hooks/useInit';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -75,12 +76,12 @@ export const DrawerMenu: React.FC = () => {
 
                             <Box>
                                 <UserProvider>
-                                    <BankAccount />
+                                    <Balance />
                                 </UserProvider>
                             </Box>
 
-                            <LinkCard icon={<TransferIcon boxSize={'48px'} />} path={Routes.TRANSFER}>
-                                Transfer
+                            <LinkCard icon={<UserIcon boxSize={'48px'} />} path={Routes.ACCOUNT}>
+                                View Account
                             </LinkCard>
 
                             <LinkCard icon={<HistoryIcon boxSize={'48px'} />} path={Routes.HISTORY}>

@@ -1,4 +1,4 @@
-import {newTransferData} from './TransferViewTypes';
+import {newTransferData} from './Transfer.types';
 import {FormikErrors} from 'formik';
 
 export const validate = (values: newTransferData) => {
@@ -12,8 +12,6 @@ export const validate = (values: newTransferData) => {
         // todo: verify what are the format specifications for account
         errors.toAccount = 'Please enter a valid account number';
     }
-
-    // transfer date can be empty, (it means sending tight away)
 
     return errors;
 };
