@@ -18,6 +18,6 @@ export function postOffer(offer: OfferDTO): Promise<Offer | null> {
 export function deleteOffer(offerId: number): Promise<boolean> {
     return axios
         .delete(`api/lender/offers/${offerId}`)
-        .then(response => response.status == 200)
+        .then(response => response.status === 200)
         .catch(() => false);
 }
