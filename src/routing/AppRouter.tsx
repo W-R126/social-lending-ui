@@ -13,6 +13,7 @@ import {CreateAuctionView} from '../auctions/views/CreateAuctionView';
 import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
 import {MyAuctionDetailsView} from '../auctions/views/MyAuctionDetailsView';
 import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
+import {CreateOfferView} from '../auctions/views/CreateOfferView';
 
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
@@ -27,6 +28,10 @@ export const AppRouter: React.FC = () => {
                 </Route>
                 <Route path={Routes.LOGIN}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <LoginView />}</Route>
                 <Route path={Routes.REGISTER}>{isAuthenticated ? <Redirect to={Routes.AUCTIONS} /> : <RegisterView />}</Route>
+
+                <RestrictedRoute path={Routes.AUCTION_CREATE_OFFER}>
+                    <CreateOfferView />
+                </RestrictedRoute>
 
                 <RestrictedRoute path={Routes.AUCTIONS}>
                     <BrowseAuctionsView />
@@ -47,6 +52,7 @@ export const AppRouter: React.FC = () => {
                 <RestrictedRoute path={Routes.MY_OFFERS}>
                     <BrowseMyOffersView />
                 </RestrictedRoute>
+
                 <Route>
                     <PageNotFound />
                 </Route>

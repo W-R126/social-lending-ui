@@ -4,4 +4,8 @@ export const initialFormValues: RegisterFormData = {
     username: '',
     password: '',
     confirmPassword: '',
+    cvc: '',
+    expiry: '',
+    name: '',
+    cardNumber: '',
 };
