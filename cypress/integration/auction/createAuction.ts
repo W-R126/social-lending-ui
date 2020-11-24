@@ -27,8 +27,12 @@ context('Create auction', () => {
         cy.get('[name="numberOfInstallments"]')
             .clear()
             .blur();
+        cy.get('[name="description"]')
+            .clear()
+            .blur();
         cy.contains('Loan amount must be greater than 0');
         cy.contains('Number of installments must be greater than 0');
+        cy.contains('Description should be at least 5 characters long');
         cy.get('[type="submit"]').should('be.disabled');
     });
 
@@ -39,15 +43,24 @@ context('Create auction', () => {
         cy.contains('Minimum price for each installment should be at least $5!');
     });
 
-    it('should create new auction', () => {
+    it.only('should create new auction', () => {
         const loanAmount = Math.round(Math.random() * 100000) / 100;
         const numberOfInstallments = Math.round(Math.random() * 120);
+        const description = uuidv4() + uuidv4();
 
         cy.get('[name="loanAmount"]').type((loanAmount as unknown) as string);
         cy.get('[name="numberOfInstallments"]').type((numberOfInstallments as unknown) as string);
+        cy.get('[name="description"]').type(description);
         cy.get('[type="submit"]').click();
         cy.contains(loanAmount);
         cy.contains(numberOfInstallments);
+        cy.get('[type="button"]')
+            .contains('See details')
+            .should('be.visible')
+            .click();
+        cy.contains(loanAmount);
+        cy.contains(numberOfInstallments);
+        cy.contains(description);
     });
 });
 
