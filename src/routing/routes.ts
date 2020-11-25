@@ -44,4 +44,7 @@ export enum Routes {
      * Lists all offers create by certain user.
      */
     MY_OFFERS = '/my-offers',
+    ACCOUNT = '/user-profile',
+    TRANSFER = '/transfer',
+    HISTORY = '/history',
 }

@@ -23,7 +23,9 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon} from './DrawerMenu.icons';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, HistoryIcon, UserIcon} from './DrawerMenu.icons';
+import {Balance} from '../../../userProfile/components/Balance/Balance';
+import {UserProvider} from '../../../userProfile/contexts/UserProvider';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -64,6 +66,27 @@ export const DrawerMenu: React.FC = () => {
 
                     <DrawerBody>
                         <Stack spacing={2}>
+                            <Box mt={2}>
+                                <Heading as={'h5'} size={'md'} color={'#cccccc'}>
+                                    My Account
+                                </Heading>
+                                <Divider mt={0} />
+                            </Box>
+
+                            <Box>
+                                <UserProvider>
+                                    <Balance />
+                                </UserProvider>
+                            </Box>
+
+                            <LinkCard icon={<UserIcon boxSize={'48px'} />} path={Routes.ACCOUNT}>
+                                View Account
+                            </LinkCard>
+
+                            <LinkCard icon={<HistoryIcon boxSize={'48px'} />} path={Routes.HISTORY}>
+                                History
+                            </LinkCard>
+
                             <Box mt={2}>
                                 <Heading as={'h5'} size={'md'} color={'#cccccc'}>
                                     Borrow
