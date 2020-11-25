@@ -6,6 +6,7 @@ import {TopUp} from '../../components/TopUp/TopUp';
 import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw/Withdraw';
 export const AccountView: React.FC = () => {
+    console.log('account veiwwwwwwwwwwwwwww');
     return (
         <Flex flexDir="column">
             <UserProvider>
