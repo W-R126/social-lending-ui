@@ -12,6 +12,7 @@ export const UserProvider: React.FC = ({children}) => {
     const [isFetching, setFetching] = useState(false);
     async function fetchUser(): Promise<boolean> {
         setFetching(true);
+        console.log(isFetching); //todo temp
         const fetchedUser = await getUser();
         if (fetchedUser !== null) {
             console.log(fetchedUser);
