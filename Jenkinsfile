@@ -102,7 +102,7 @@ pipeline {
                     withCredentials([file(credentialsId: 'kubeconfig-sit', variable: 'KUBECONFIG')]) {
                         sh "kubectl apply -f ./kubernetes-sit.yaml"
                         sh "kubectl rollout restart deployment social-lending"
-                        sh "kubectl rollout status deployment social-lending --timeout=1m"
+                        sh "kubectl rollout status deployment social-lending --timeout=5m"
                     }
                 }
             }
