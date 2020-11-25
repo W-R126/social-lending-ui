@@ -17,13 +17,25 @@ import {useState} from 'react';
 import {TopUpData} from './TopUp.types';
 import {initialFormValues} from './TopUp.constants';
 import {validate} from './TopUp.helpers';
+import {useTransactions} from '../../hooks/useTransactions';
+import {useUser} from '../../contexts/UserProvider';
 
 export const TopUp: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
+    const {sendTopUp} = useTransactions();
+    const accountNo = useUser()?.account;
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
         console.log(values);
+        if (accountNo) {
+            sendTopUp(accountNo, values.amount).then(success => {
+                if (success) {
+                    console.log('nice one');
+                } else {
+                    setError('Failed to top up, please try again later.');
+                }
+            });
+        }
         setSubmitting(false);
-        setError(null); // todo: this is temp to avoid build error
     };
 
     return (
