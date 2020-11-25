@@ -43,7 +43,7 @@ context('Create auction', () => {
         cy.contains('Minimum price for each installment should be at least $5!');
     });
 
-    it.only('should create new auction', () => {
+    it('should create new auction', () => {
         const loanAmount = Math.round(Math.random() * 100000) / 100;
         const numberOfInstallments = Math.round(Math.random() * 120);
         const description = uuidv4() + uuidv4();
