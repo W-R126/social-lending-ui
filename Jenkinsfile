@@ -42,9 +42,13 @@ pipeline {
                 docker {
                     image 'cypress/base:10'
                     reuseNode true
+                  	args '-u root --privileged'
                 }
             }
             steps {
+              	// Extend max_user_watches to prevent "ENOSPC: System limit for number of file watchers reached" error
+              	sh "echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p"
+
                 sh "yarn run cypress install"
                 sh "yarn run cy:verify"
                 sh "yarn run e2e"
