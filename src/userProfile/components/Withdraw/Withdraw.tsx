@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
     Button,
-    Flex,
     Text,
-    useClipboard,
     Heading,
     FormControl,
     FormLabel,
@@ -15,27 +13,21 @@ import {
     AlertIcon,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
-import {useUser} from '../../contexts/UserProvider';
+//import {useUser} from '../../contexts/UserProvider';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
 
 export const Withdraw: React.FC = () => {
-    const user = useUser();
-    const account = user?.account;
-    const [accountNo, setAccountNo] = React.useState('');
-    const {hasCopied, onCopy} = useClipboard(accountNo);
+    //const user = useUser();
+    //const account = user?.account;
     const [error, setError] = useState<string | null>(null);
-    useEffect(() => {
-        if (account) {
-            setAccountNo(account);
-        }
-    });
 
     const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
         console.log('bless yourself');
         setSubmitting(false);
+        setError(null);
     };
     return (
         <Card>
@@ -44,7 +36,7 @@ export const Withdraw: React.FC = () => {
 
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
-                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit, setFieldValue} = props;
+                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
 
                     return (
                         <form onSubmit={handleSubmit}>

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
     Button,
-    Flex,
     Text,
     useClipboard,
     Heading,
@@ -20,7 +19,6 @@ import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './TopUp.constants';
 import {validate} from './TopUp.helpers';
 import {TopUpData} from './TopUp.types';
-import {cardWidth} from '../../common/common.constants';
 import {useTransactions} from '../../hooks/useTransactions';
 
 export const TopUp: React.FC = () => {
@@ -33,7 +31,7 @@ export const TopUp: React.FC = () => {
         if (account) {
             setAccountNo(account);
         }
-    });
+    }, [account]);
 
     const {topUp} = useTransactions();
 
@@ -60,7 +58,7 @@ export const TopUp: React.FC = () => {
             </Button>
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
-                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit, setFieldValue} = props;
+                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
 
                     return (
                         <form onSubmit={handleSubmit}>

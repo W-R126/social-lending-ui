@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
     Box,
     Button,
@@ -23,10 +23,9 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, TransferIcon, HistoryIcon, UserIcon} from './DrawerMenu.icons';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, HistoryIcon, UserIcon} from './DrawerMenu.icons';
 import {Balance} from '../../../userProfile/components/Balance/Balance';
-import {UserProvider, useUser} from '../../../userProfile/contexts/UserProvider';
-import {useInit} from '../../hooks/useInit';
+import {UserProvider} from '../../../userProfile/contexts/UserProvider';
 
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();

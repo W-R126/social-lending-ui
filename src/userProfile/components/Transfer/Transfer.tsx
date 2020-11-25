@@ -3,10 +3,8 @@ import {
     Alert,
     AlertIcon,
     Button,
-    Flex,
     FormControl,
     FormErrorMessage,
-    FormHelperText,
     FormLabel,
     Heading,
     Input,
@@ -33,7 +31,7 @@ export const Transfer: React.FC = () => {
             <Heading size={'md'}> External Transfer </Heading>
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
-                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit, setFieldValue} = props;
+                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
 
                     return (
                         <form onSubmit={handleSubmit}>

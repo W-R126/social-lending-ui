@@ -1,7 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
-import {retrieveToken, storeToken} from '../../authentication/helpers/tokenStorage';
-import axios from 'axios';
-import {signin} from '../../authentication/api/authAPI';
+import React, {createContext, useContext, useState} from 'react';
 import {getUser} from '../api/user/userApi';
 import {User} from './userContext.types';
 import {useInit} from '../../common/hooks/useInit';
@@ -24,9 +21,7 @@ export const UserProvider: React.FC = ({children}) => {
         return false;
     }
 
-    useInit(() => {
-        fetchUser();
-    });
+    useInit(fetchUser);
     // const user = await getUser();
     return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
