@@ -1,3 +1,7 @@
+/**
+ * File with routing configuration
+ * @packageDocumentation
+ */
 import React from 'react';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import {Routes} from './routes';
@@ -15,6 +19,11 @@ import {MyAuctionDetailsView} from '../auctions/views/MyAuctionDetailsView';
 import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 import {CreateOfferView} from '../auctions/views/CreateOfferView';
 
+/**
+ * Routing implementation for whole app. Uses useAuth hook in order to check whether user
+ * has privileges to access certain resource. The requested url is formatted using getBaseName
+ * @constructor
+ */
 export const AppRouter: React.FC = () => {
     const basename = getBaseName();
     const {isAuthenticated} = useAuth();
