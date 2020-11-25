@@ -9,7 +9,7 @@ export const TableColumns: any = [
     {
         Header: 'Annual percentage rate',
         accessor: 'proposedAnnualPercentageRate',
-        Cell: (props: any) => <Box>{props.value} %</Box>,
+        Cell: (props: any) => <Box>{props.value * 100} %</Box>,
     },
     {
         Header: 'Date',

@@ -25,7 +25,7 @@ export const CreateOfferView: React.FC = () => {
     const handleSubmit = (values: OfferDTO, {setSubmitting}: FormikHelpers<OfferDTO>) => {
         createOffer({
             auctionId: auctionId,
-            proposedAnnualPercentageRate: values.proposedAnnualPercentageRate,
+            proposedAnnualPercentageRate: values.proposedAnnualPercentageRate / 100,
         } as OfferDTO).then(success => {
             if (success) {
                 history.push(Routes.MY_OFFERS);

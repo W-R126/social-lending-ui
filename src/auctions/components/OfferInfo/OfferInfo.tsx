@@ -31,7 +31,7 @@ export const OfferInfo: React.FC<Props> = ({offer, onDelete}) => {
 
                 <Stat>
                     <StatLabel>Interest</StatLabel>
-                    <StatNumber>{offer.annualPercentageRate.toFixed(2)}%</StatNumber>
+                    <StatNumber>{(offer.annualPercentageRate * 100).toFixed(2)}%</StatNumber>
                 </Stat>
 
                 <IconButton colorScheme={'red'} aria-label={'Delete offer'} icon={<Trash />} onClick={onOpen} />
