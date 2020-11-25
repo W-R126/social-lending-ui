@@ -1,13 +1,11 @@
 import React, {useEffect} from 'react';
-import {Heading, Text, Flex, Grid, Button, Box, GridItem, useClipboard, Stack} from '@chakra-ui/react';
+import {Heading, Text, Grid, Button, Box, useClipboard} from '@chakra-ui/react';
 import {useUser} from '../../contexts/UserProvider';
 import {Balance} from '../Balance/Balance';
-import {useInit} from '../../../common/hooks/useInit';
 import {Card} from '../../../common/components/Card';
 import {LinkCard} from '../../../common/components/LinkCard';
-import {HistoryIcon, TransferIcon} from '../../../common/components/DrawerMenu/DrawerMenu.icons';
+import {HistoryIcon} from '../../../common/components/DrawerMenu/DrawerMenu.icons';
 import {Routes} from '../../../routing/routes';
-import {cardWidth} from '../../common/common.constants';
 
 export const BankAccount: React.FC = () => {
     const user = useUser();
@@ -19,7 +17,7 @@ export const BankAccount: React.FC = () => {
         if (account) {
             setAccountNo(account);
         }
-    });
+    }, [account]);
 
     return (
         <Card>
