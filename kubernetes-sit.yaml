@@ -24,8 +24,6 @@ spec:
                   env:
                       - name: API_BASE_PATH
                         value: https://metis-social-lending-service.metis-team.sit.fintechchallenge.pl
-                      - name: BANK_API_BASE_PATH
-                        value: https://hltechbank.thebe-team.sit.fintechchallenge.pl
                   ports:
                       - name: web
                         containerPort: 8080
