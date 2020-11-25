@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {topUpAccount} from '../api/account/accountApi';
 
 export function useTransactions() {
-    const [isFetching, setFetching] = useState(false);
+    const [isFetching /*,setFetching*/] = useState(false);
     // setFetching(false); // todo temp
 
     async function sendTopUp(accountNo: string, amount: number): Promise<boolean> {
