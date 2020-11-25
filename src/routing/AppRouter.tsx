@@ -20,7 +20,7 @@ import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 import {CreateOfferView} from '../auctions/views/CreateOfferView';
 import {Transfer} from '../userProfile/components/Transfer/Transfer';
 import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
-import {AccountView} from '../userProfile/views/UserView/AccountView';
+import {AccountView} from '../userProfile/views/AccountView/AccountView';
 
 /**
  * Routing implementation for whole app. Uses useAuth hook in order to check whether user

@@ -1,71 +1,67 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-    Alert,
-    AlertIcon,
     Button,
     Flex,
-    FormControl,
-    FormErrorMessage,
-    FormHelperText,
-    FormLabel,
+    Text,
+    useClipboard,
     Heading,
-    Input,
+    FormControl,
+    FormLabel,
     InputGroup,
     InputLeftElement,
+    Input,
+    FormErrorMessage,
+    Alert,
+    AlertIcon,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
+import {useUser} from '../../contexts/UserProvider';
 import {Formik, FormikHelpers} from 'formik';
-import {initialFormValues} from './Transfer.constants';
-import {validate} from './Transfer.helpers';
-import {newTransferData} from './Transfer.types';
-import {useState} from 'react';
+import {initialFormValues} from './Withdraw.constants';
+import {validate} from './Withdraw.helpers';
+import {WithdrawData} from './Withdraw.types';
 
-export const Transfer: React.FC = () => {
+export const Withdraw: React.FC = () => {
+    const user = useUser();
+    const account = user?.account;
+    const [accountNo, setAccountNo] = React.useState('');
+    const {hasCopied, onCopy} = useClipboard(accountNo);
     const [error, setError] = useState<string | null>(null);
-    const handleSubmit = (values: newTransferData, {setSubmitting}: FormikHelpers<newTransferData>) => {
-        console.log(values);
-        setSubmitting(false);
-        setError(null); // todo: this is temp to avoid build error
-    };
+    useEffect(() => {
+        if (account) {
+            setAccountNo(account);
+        }
+    });
 
+    const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
+        console.log('bless yourself');
+        setSubmitting(false);
+    };
     return (
         <Card>
-            <Heading size={'md'}> External Transfer </Heading>
+            <Heading size={'md'}>Withdraw to your card</Heading>
+            <Text>Card number 1234...5678</Text>
+
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
                     const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit, setFieldValue} = props;
 
                     return (
                         <form onSubmit={handleSubmit}>
-                            <FormControl isInvalid={!!(errors.transferAmount && touched.transferAmount)}>
-                                <FormLabel>Transfer Amount</FormLabel>
+                            <FormControl isInvalid={!!(errors.amount && touched.amount)}>
+                                <FormLabel>Withdraw to your card</FormLabel>
                                 <InputGroup>
                                     <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
                                     <Input
                                         type={'number'}
-                                        placeholder={'transfer amount'}
-                                        name={'transferAmount'}
-                                        value={values.transferAmount}
+                                        placeholder={'amount'}
+                                        name={'amount'}
+                                        value={values.amount}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
                                 </InputGroup>
-                                <FormErrorMessage>{errors.transferAmount}</FormErrorMessage>
-                            </FormControl>
-
-                            <FormControl mt={3} isInvalid={!!(errors.toAccount && touched.toAccount)}>
-                                <FormLabel>Destination Address</FormLabel>
-                                <InputGroup>
-                                    <Input
-                                        type={'string'}
-                                        placeholder={'ex. 0000-0000-0000-0000'}
-                                        name={'toAccount'}
-                                        value={values.toAccount}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                    />
-                                </InputGroup>
-                                <FormErrorMessage>{errors.toAccount}</FormErrorMessage>
+                                <FormErrorMessage>{errors.amount}</FormErrorMessage>
                             </FormControl>
 
                             <Button
@@ -76,7 +72,7 @@ export const Transfer: React.FC = () => {
                                 isLoading={isSubmitting}
                                 onClick={() => handleSubmit()}
                             >
-                                Send Transfer
+                                Withdraw
                             </Button>
                             {error !== null && (
                                 <Alert mt={3} status="error">

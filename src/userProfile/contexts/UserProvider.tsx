@@ -2,7 +2,7 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 import {retrieveToken, storeToken} from '../../authentication/helpers/tokenStorage';
 import axios from 'axios';
 import {signin} from '../../authentication/api/authAPI';
-import {getUser} from '../api/userApi';
+import {getUser} from '../api/user/userApi';
 import {User} from './userContext.types';
 import {useInit} from '../../common/hooks/useInit';
 
