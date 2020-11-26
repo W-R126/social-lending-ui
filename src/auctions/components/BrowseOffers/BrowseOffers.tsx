@@ -18,7 +18,7 @@ export const BrowseOffers: React.FC<Props> = ({offers, auction, auctionId}) => {
         <>
             <AuctionInfo auction={auction} auctionId={auctionId} />
 
-            <Table data={offers} columns={TableColumns(auctionId, history)} />
+            <Table data={offers} columns={TableColumns(auctionId!, history)} />
         </>
     );
 };

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export function useInit(func: () => any) {
+export function useInit(func: () => void) {
     const [initialized, setInitialized] = useState(false);
     useEffect(() => {
         if (!initialized) {

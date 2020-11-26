@@ -4,18 +4,19 @@ import {format} from 'date-fns';
 import {HandleAcceptOfferClick} from './BrowseOffers.helpers';
 import {TableButton} from '../TableButton';
 import {DATE_FORMAT} from '../../../common/constants';
+import {Column} from 'react-table';
 
-export const TableColumns: any = (auctionId: number, history: History) => {
+export const TableColumns = (auctionId: number, history: {push: (route: string) => void}) => {
     return [
         {
             Header: 'Annual percentage rate',
             accessor: 'proposedAnnualPercentageRate',
-            Cell: (props: any) => <Box>{props.value * 100} %</Box>,
+            Cell: (props: {value: number}) => <Box>{props.value * 100} %</Box>,
         },
         {
             Header: 'Date',
             accessor: 'date',
-            Cell: (props: any) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
+            Cell: (props: {value: number}) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
         },
         {
             Header: 'Action',
@@ -23,5 +24,5 @@ export const TableColumns: any = (auctionId: number, history: History) => {
                 <TableButton text="Accept" onClick={() => HandleAcceptOfferClick(props.cell.row.original.id, auctionId, history)} />
             ),
         },
-    ];
+    ] as Column[];
 };

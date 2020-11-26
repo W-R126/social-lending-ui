@@ -20,8 +20,6 @@ export const CreateOfferView: React.FC = () => {
     const {auctionId} = useParams();
     const {isOpen, onOpen, onClose} = useDisclosure();
 
-    const cancelRef = React.useRef();
-
     const handleSubmit = (values: OfferDTO, {setSubmitting}: FormikHelpers<OfferDTO>) => {
         createOffer({
             auctionId: auctionId,
@@ -73,7 +71,6 @@ export const CreateOfferView: React.FC = () => {
                                     dialogText={dialogText(values.proposedAnnualPercentageRate)}
                                     onClose={onClose}
                                     isOpen={isOpen}
-                                    cancelRef={cancelRef}
                                     onConsent={handleSubmit}
                                 />
                             </form>

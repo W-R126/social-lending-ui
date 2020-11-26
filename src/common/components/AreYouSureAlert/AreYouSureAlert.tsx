@@ -13,7 +13,7 @@ import {
 interface Props {
     isOpen: boolean;
     onClose: () => void;
-    cancelRef: React.RefObject<any> | undefined;
+    cancelRef?: React.RefObject<HTMLButtonElement>;
     onConsent: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
     dialogText: string;
 }

@@ -7,3 +7,5 @@ export interface RegisterFormData {
     name: string;
     cardNumber: string | number;
 }
+
+export type CardFocus = 'number' | 'cvc' | 'expiry' | 'name' | undefined;
