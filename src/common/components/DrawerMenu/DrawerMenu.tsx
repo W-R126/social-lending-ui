@@ -23,7 +23,7 @@ import {LinkCard} from '../LinkCard';
 import {Routes} from '../../../routing/routes';
 import {useAuth} from '../../../authentication/context/AuthProvider';
 import {Menu, Moon, Sun} from 'react-feather';
-import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, HistoryIcon, UserIcon} from './DrawerMenu.icons';
+import {NewAuctionIcon, AuctionsIcon, MyAuctionsIcon, MyOffersIcon, HistoryIcon, UserIcon, MyLoansIcon} from './DrawerMenu.icons';
 import {Balance} from '../../../userProfile/components/Balance/Balance';
 import {UserProvider} from '../../../userProfile/contexts/UserProvider';
 
@@ -100,6 +100,10 @@ export const DrawerMenu: React.FC = () => {
 
                             <LinkCard icon={<MyAuctionsIcon boxSize={'48px'} />} path={Routes.MY_AUCTIONS}>
                                 My Auctions
+                            </LinkCard>
+
+                            <LinkCard icon={<MyLoansIcon boxSize={'48px'} />} path={Routes.BORROWER_LOANS}>
+                                My Loans
                             </LinkCard>
 
                             <Box mt={2}>

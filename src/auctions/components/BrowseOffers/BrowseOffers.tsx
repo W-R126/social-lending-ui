@@ -4,6 +4,7 @@ import {Table} from '../Table';
 import {TableColumns} from './BrowseOffers.constants';
 import {Auction} from '../../api/auctionsAPI.types';
 import {AuctionInfo} from '../AuctionInfo';
+import {useHistory} from 'react-router-dom';
 
 interface Props {
     offers: Offer[];
@@ -12,11 +13,12 @@ interface Props {
 }
 
 export const BrowseOffers: React.FC<Props> = ({offers, auction, auctionId}) => {
+    const history = useHistory();
     return (
         <>
             <AuctionInfo auction={auction} auctionId={auctionId} />
 
-            <Table data={offers} columns={TableColumns} />
+            <Table data={offers} columns={TableColumns(auctionId, history)} />
         </>
     );
 };

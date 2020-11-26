@@ -17,6 +17,7 @@ import {
 import {Auction} from '../../../api/auctionsAPI.types';
 import {Card} from '../../../../common/components/Card';
 import {formatDate} from './AuctionItem.helpers';
+import {CURRENCY} from '../../../../common/constants';
 
 interface Props {
     auction: Auction;
@@ -30,7 +31,7 @@ export const AuctionItem: React.FC<Props> = ({buttonTitle, auction, onOpenDetail
             <Stack direction={'column'}>
                 <Flex justify={'flex-end'} align={'flex-end'}>
                     <Text fontSize={'sm'} color={'gray.500'} lineHeight={1.4} mr={1}>
-                        $
+                        {CURRENCY}
                     </Text>
                     <Text fontSize={'3xl'} lineHeight={1}>
                         {auction.loanAmount}

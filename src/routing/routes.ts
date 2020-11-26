@@ -47,4 +47,6 @@ export enum Routes {
     ACCOUNT = '/user-profile',
     TRANSFER = '/transfer',
     HISTORY = '/history',
+    BORROWER_LOANS = '/borrower-loans',
+    BORROWER_LOANS_DETAILS = '/borrower-loans/:loanId',
 }

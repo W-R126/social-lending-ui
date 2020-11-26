@@ -21,6 +21,8 @@ import {CreateOfferView} from '../auctions/views/CreateOfferView';
 import {Transfer} from '../userProfile/components/Transfer/Transfer';
 import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
 import {AccountView} from '../userProfile/views/AccountView/AccountView';
+import {BorrowerLoanView} from '../loans/views/BorrowerLoanView';
+import {BorrowerLoanHistoryView} from '../loans/views/BorrowerLoanDetailsView';
 
 /**
  * Routing implementation for whole app. Uses useAuth hook in order to check whether user
@@ -75,6 +77,14 @@ export const AppRouter: React.FC = () => {
 
                 <RestrictedRoute path={Routes.HISTORY}>
                     <HistoryView />
+                </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.BORROWER_LOANS_DETAILS}>
+                    <BorrowerLoanHistoryView />
+                </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.BORROWER_LOANS}>
+                    <BorrowerLoanView />
                 </RestrictedRoute>
 
                 <Route>
