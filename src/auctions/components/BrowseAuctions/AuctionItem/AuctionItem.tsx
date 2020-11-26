@@ -1,5 +1,19 @@
 import * as React from 'react';
-import {Button, Stack, Stat, StatHelpText, Flex, Text} from '@chakra-ui/react';
+import {
+    Box,
+    Button,
+    Stack,
+    Stat,
+    StatHelpText,
+    Flex,
+    Text,
+    Divider,
+    Accordion,
+    AccordionButton,
+    AccordionItem,
+    AccordionIcon,
+    AccordionPanel,
+} from '@chakra-ui/react';
 import {Auction} from '../../../api/auctionsAPI.types';
 import {Card} from '../../../../common/components/Card';
 import {formatDate} from './AuctionItem.helpers';
@@ -33,6 +47,20 @@ export const AuctionItem: React.FC<Props> = ({buttonTitle, auction, onOpenDetail
                         {buttonTitle}
                     </Button>
                 </Flex>
+                <Divider />
+                <Accordion allowToggle>
+                    <AccordionItem>
+                        <AccordionButton _expanded={{color: 'gray.500'}}>
+                            <Box flex="1" textAlign="left">
+                                Show description
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                        <AccordionPanel pb={2}>
+                            <Text mb={0}>{auction.description}</Text>
+                        </AccordionPanel>
+                    </AccordionItem>
+                </Accordion>
             </Stack>
         </Card>
     );
