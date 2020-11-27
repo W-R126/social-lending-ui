@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const BrowseAuctions: React.FC<Props> = ({buttonTitle, auctions, onOpenDetails}) => {
-    const [order, setOrder] = useState(OrderBy.DEFAULT);
+    const [order, setOrder] = useState(OrderBy.NEWEST);
 
     const handleOrderChange = (event: SyntheticEvent) => {
         // Suggest a better idea than this cast if possible

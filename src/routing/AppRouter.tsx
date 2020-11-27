@@ -22,7 +22,7 @@ import {Transfer} from '../userProfile/components/Transfer/Transfer';
 import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
 import {AccountView} from '../userProfile/views/AccountView/AccountView';
 import {BorrowerLoanView} from '../loans/views/BorrowerLoanView';
-import {BorrowerLoanHistoryView} from '../loans/views/BorrowerLoanDetailsView';
+import {BorrowerLoanHistoryView} from '../loans/views/BorrowerLoanHistoryView';
 
 /**
  * Routing implementation for whole app. Uses useAuth hook in order to check whether user

@@ -5,6 +5,12 @@ import {Flex, Skeleton} from '@chakra-ui/react';
 import {useBorrowerLoans} from '../../hooks/useBorrowerLoans';
 import {useInit} from '../../../common/hooks/useInit';
 
+/**
+ * Entry point of Loan history and details view.
+ * Renders {@link BrowseLoanHistory} with appropriate
+ * props (loans data, and installments)
+ * @constructor
+ */
 export const BorrowerLoanHistoryView: React.FC = () => {
     const {loanId} = useParams();
     const {loans, isFetching, fetchLoans} = useBorrowerLoans();

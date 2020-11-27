@@ -3,18 +3,38 @@ import {Card} from '../../../common/components/Card';
 import {Button, Flex, Stack, Stat, StatHelpText, Text, useDisclosure} from '@chakra-ui/react';
 import {StatusBadge} from '../StatusBadge';
 import {CURRENCY} from '../../../common/constants';
-import {formatDate} from '../../../auctions/components/BrowseAuctions/AuctionItem/AuctionItem.helpers';
-import {LoanWithRedundantData} from '../../api/loansAPI.types';
+import {Loan} from '../../api/loansAPI.types';
 import {getCurrentInstallment, onPayInstallment} from './BrowseLoans.helpers';
 import {useHistory} from 'react-router';
 import {Routes} from '../../../routing/routes';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
+import {formatDate} from '../../helpers/formatDate';
 
-interface Props {
-    loan: LoanWithRedundantData;
+/**
+ * Parameter definitions for {@link BrowseLoansItem}
+ */
+interface ItemProps {
+    /**
+     * Loan info to be shown
+     */
+    loan: Loan;
 }
 
-export const BrowseLoansItem: React.FC<Props> = ({loan}) => {
+/**
+ * Loan item which will be displayed in the
+ * {@link BrowseLoans} component as a list.
+ * Shortly describes the most recent not paid
+ * installment and makes ability to pay for it
+ *
+ * After pushing see details button, user is redirected
+ * to {@link BorrowerLoanHistoryView}
+ *
+ * When Pay installment is pressed, after prompt,
+ * installment is being paid
+ * @param loan
+ * @constructor
+ */
+export const BrowseLoansItem: React.FC<ItemProps> = ({loan}) => {
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
     const currentInstallment = getCurrentInstallment(loan.installments);

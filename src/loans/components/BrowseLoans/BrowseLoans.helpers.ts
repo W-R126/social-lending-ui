@@ -1,7 +1,18 @@
 import {Installment} from '../../api/loansAPI.types';
-import {format} from 'date-fns';
-import {dateFormat} from '../InstallmentItem/InstallmentItem.constants';
 
+/**
+ * Gets current installment. It takes first installment
+ * that does not have status PAID. All installments are
+ * in chronological order so it takes the ones that
+ * user not yet fulfilled.
+ *
+ * If all installments was being paid by user, then
+ * it takes last one
+ *
+ * Used to select latest one at {@link BorrowerLoanView} page and
+ * allow user to pay for installment without entering {@link BorrowerLoanHistoryView}
+ * @param installments
+ */
 export const getCurrentInstallment = (installments: Installment[]): Installment | undefined => {
     const currentInstallment = installments.find(installment => installment.status !== 'PAID');
     if (currentInstallment === undefined) {
@@ -11,10 +22,13 @@ export const getCurrentInstallment = (installments: Installment[]): Installment 
     }
 };
 
+/**
+ * On payment latest installment handler
+ *
+ * TODO
+ *
+ * @param installmentId
+ */
 export const onPayInstallment = (installmentId: number) => {
     console.log({installmentId: installmentId});
 };
-
-export function formatDate(date: number) {
-    return format(new Date(date), dateFormat);
-}

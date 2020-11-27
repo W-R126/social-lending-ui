@@ -36,7 +36,7 @@ export const RangeInput: React.FC<Props> = ({name, title, onChange, value}) => {
                     min={minInputValue}
                     step={step}
                 >
-                    <NumberInputField />
+                    <NumberInputField name="rangeInputNumberInput" />
                     <NumberInputStepper>
                         <NumberIncrementStepper />
                         <NumberDecrementStepper />
@@ -46,7 +46,7 @@ export const RangeInput: React.FC<Props> = ({name, title, onChange, value}) => {
             <GridItem colSpan={[3, 5]}>
                 <Slider min={minInputValue} max={maxInputValue} onChange={val => onChange(name, val)} name={name} value={value} step={step}>
                     <SliderTrack>
-                        <SliderFilledTrack />
+                        <SliderFilledTrack name="percentageSlider" />
                     </SliderTrack>
                     <SliderThumb />
                 </Slider>

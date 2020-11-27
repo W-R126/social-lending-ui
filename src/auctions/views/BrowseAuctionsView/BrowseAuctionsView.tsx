@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {BrowseAuctions} from '../../components/BrowseAuctions';
-import {Flex, Stack, Skeleton, Image, Heading} from '@chakra-ui/react';
+import {Flex, Skeleton} from '@chakra-ui/react';
 import {useAuctions} from '../../hooks/useAuctions';
 import {useInit} from '../../../common/hooks/useInit';
 import {Auction} from '../../api/auctionsAPI.types';
 import {Routes} from '../../../routing/routes';
 import {useHistory} from 'react-router-dom';
+import {EmptyPage} from '../../../common/components/EmptyPage';
 
 export const BrowseAuctionsView: React.FC = () => {
     const {isFetching, auctions, fetchAuctions} = useAuctions();
@@ -23,10 +24,7 @@ export const BrowseAuctionsView: React.FC = () => {
                 {auctions.length !== 0 ? (
                     <BrowseAuctions buttonTitle={'Make offer'} auctions={auctions} onOpenDetails={handleOpenDetails} />
                 ) : (
-                    <Stack mt={8} direction={'column'} justify={'center'} align={'center'}>
-                        <Image width={['60%', '50%', '40%', '30%']} src={'svg/empty.svg'} />
-                        <Heading color={'gray.400'}>Looks like there aren't any auctions here yet :(</Heading>
-                    </Stack>
+                    <EmptyPage text={"Looks like there aren't any auctions here yet :("} />
                 )}
             </Skeleton>
         </Flex>
