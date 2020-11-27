@@ -11,13 +11,13 @@ import {useInit} from '../../../common/hooks/useInit';
  * @constructor
  */
 export const BorrowerLoanView: React.FC = () => {
-    const {loans, fetchLoans, isFetching} = useBorrowerLoans();
+    const {loans, fetchLoans, isFetching, payInstallment, isPaymentFetching} = useBorrowerLoans();
     useInit(fetchLoans);
 
     return (
         <Flex flexDir="column">
             <Skeleton isLoaded={!isFetching}>
-                <BrowseLoans loans={loans} />
+                <BrowseLoans loans={loans} payInstallment={payInstallment} isPaymentFetching={isPaymentFetching} />
             </Skeleton>
         </Flex>
     );

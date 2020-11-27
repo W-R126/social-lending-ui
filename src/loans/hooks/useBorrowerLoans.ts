@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Loan} from '../api/loansAPI.types';
-import {getMyLoans} from '../api/borrower/loansAPI';
+import {getMyLoans, payNextInstallment} from '../api/borrower/loansAPI';
 
 /**
  * Hook used for communicating with api module.
@@ -14,6 +14,7 @@ import {getMyLoans} from '../api/borrower/loansAPI';
 export function useBorrowerLoans() {
     const [loans, setLoans] = useState<Loan[]>([]);
     const [isFetching, setFetching] = useState(false);
+    const [isPaymentFetching, setPaymentFetching] = useState(false);
 
     async function fetchLoans(): Promise<boolean> {
         setFetching(true);
@@ -27,5 +28,15 @@ export function useBorrowerLoans() {
         return false;
     }
 
-    return {loans, isFetching, fetchLoans};
+    async function payInstallment(loanId: number, amount: number): Promise<boolean> {
+        setPaymentFetching(true);
+        const status = await payNextInstallment(loanId, amount);
+        const loans = await getMyLoans();
+        if (loans !== null) setLoans(loans);
+        setPaymentFetching(false);
+
+        return status === 200;
+    }
+
+    return {loans, isFetching, fetchLoans, payInstallment, isPaymentFetching};
 }
