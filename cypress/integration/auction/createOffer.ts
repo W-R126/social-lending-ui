@@ -46,7 +46,8 @@ context('Create offer', () => {
         cy.visit('/my-offers');
         cy.get('[name="DeleteOffer"]').click();
         cy.contains('Yes').click();
-        cy.should('not.contain', testData.loanAmount);
+        cy.wait(2000);
+        cy.contains("Looks like there aren't any offers here yet :(");
     });
 
     it('offer should be visible by borrower', () => {
