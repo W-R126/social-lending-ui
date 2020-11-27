@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
     Alert,
     AlertIcon,
+    Box,
     Button,
     FormControl,
     FormErrorMessage,
@@ -17,6 +18,7 @@ import {initialFormValues} from './Transfer.constants';
 import {validate} from './Transfer.helpers';
 import {newTransferData} from './Transfer.types';
 import {useState} from 'react';
+import {boxStyle} from '../../views/AccountView/AccountView.styles';
 
 export const Transfer: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
@@ -27,8 +29,9 @@ export const Transfer: React.FC = () => {
     };
 
     return (
-        <Card>
+        <Card className={boxStyle}>
             <Heading size={'md'}> External Transfer </Heading>
+            <br />
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
                     const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;

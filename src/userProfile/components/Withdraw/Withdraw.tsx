@@ -11,6 +11,7 @@ import {
     FormErrorMessage,
     Alert,
     AlertIcon,
+    Box,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
 //import {useUser} from '../../contexts/UserProvider';
@@ -18,6 +19,7 @@ import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
+import {boxStyle} from '../../views/AccountView/AccountView.styles';
 
 export const Withdraw: React.FC = () => {
     //const user = useUser();
@@ -32,6 +34,7 @@ export const Withdraw: React.FC = () => {
     return (
         <Card>
             <Heading size={'md'}>Withdraw to your card</Heading>
+            <br />
             <Text>Card number 1234...5678</Text>
 
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>

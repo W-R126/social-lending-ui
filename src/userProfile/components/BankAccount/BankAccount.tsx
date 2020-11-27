@@ -6,6 +6,7 @@ import {Card} from '../../../common/components/Card';
 import {LinkCard} from '../../../common/components/LinkCard';
 import {HistoryIcon} from '../../../common/components/DrawerMenu/DrawerMenu.icons';
 import {Routes} from '../../../routing/routes';
+import {boxStyle} from '../../views/AccountView/AccountView.styles';
 
 export const BankAccount: React.FC = () => {
     const user = useUser();
@@ -20,10 +21,12 @@ export const BankAccount: React.FC = () => {
     }, [account]);
 
     return (
-        <Card>
+        <Card className={boxStyle}>
             <Heading size={'md'}>{userName}</Heading>
+            <br />
             <Text>Balance: </Text>
             <Balance />
+            <br />
             <Text> Account Number: </Text>
             <Text fontSize="md">{accountNo}</Text>
 
@@ -32,6 +35,7 @@ export const BankAccount: React.FC = () => {
             </Button>
             <Grid templateColumns="repeat(2, 1fr)" gap={6}>
                 <Box>
+                    <br />
                     <LinkCard icon={<HistoryIcon boxSize={'48px'} />} path={Routes.HISTORY}>
                         History
                     </LinkCard>

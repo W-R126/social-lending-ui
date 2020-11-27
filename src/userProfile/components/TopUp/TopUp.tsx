@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
     Alert,
     AlertIcon,
+    Box,
     Button,
     FormControl,
     FormErrorMessage,
@@ -10,6 +11,8 @@ import {
     Input,
     InputGroup,
     InputLeftElement,
+    Flex,
+    Grid,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
 import {Formik, FormikHelpers} from 'formik';
@@ -19,9 +22,17 @@ import {initialFormValues} from './TopUp.constants';
 import {validate} from './TopUp.helpers';
 import {useTransactions} from '../../hooks/useTransactions';
 import {useUser} from '../../contexts/UserProvider';
+import {CardEnding} from '../CardEnding';
+import {bottomAligner, boxStyle, verticalAlignBottom} from '../../views/AccountView/AccountView.styles';
+
+/**
+ * Component responsible for topping up the account.
+ * @constructor
+ */
 
 export const TopUp: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const {sendTopUp} = useTransactions();
     const accountNo = useUser()?.account;
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
@@ -29,9 +40,11 @@ export const TopUp: React.FC = () => {
         if (accountNo) {
             sendTopUp(accountNo, values.amount).then(success => {
                 if (success) {
-                    console.log('nice one');
+                    setSuccessMessage(`$${values.amount} will be added to your account`);
+                    setError(null);
                 } else {
                     setError('Failed to top up, please try again later.');
+                    setSuccessMessage(null);
                 }
             });
         }
@@ -40,49 +53,62 @@ export const TopUp: React.FC = () => {
 
     return (
         <Card>
-            <Heading size={'md'}> Top Up </Heading>
-            <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
-                {props => {
-                    const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
+            <Box w={'100%'}>
+                <Heading size={'md'}> Top Up </Heading>
+                <CardEnding />
+                <br />
+            </Box>
 
-                    return (
-                        <form onSubmit={handleSubmit}>
-                            <FormControl isInvalid={!!(errors.amount && touched.amount)}>
-                                <FormLabel>Top up from your card</FormLabel>
-                                <InputGroup>
-                                    <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
-                                    <Input
-                                        type={'number'}
-                                        placeholder={'amount'}
-                                        name={'amount'}
-                                        value={values.amount}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                    />
-                                </InputGroup>
-                                <FormErrorMessage>{errors.amount}</FormErrorMessage>
-                            </FormControl>
+            <Box w={'100%'}>
+                <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
+                    {props => {
+                        const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
 
-                            <Button
-                                width={'full'}
-                                mt={4}
-                                type={'submit'}
-                                isDisabled={isSubmitting || !isValid}
-                                isLoading={isSubmitting}
-                                onClick={() => handleSubmit()}
-                            >
-                                Top Up
-                            </Button>
-                            {error !== null && (
-                                <Alert mt={3} status="error">
-                                    <AlertIcon />
-                                    {error}
-                                </Alert>
-                            )}
-                        </form>
-                    );
-                }}
-            </Formik>
+                        return (
+                            <form onSubmit={handleSubmit}>
+                                <FormControl isInvalid={!!(errors.amount && touched.amount)}>
+                                    <FormLabel>Top up from your card</FormLabel>
+                                    <InputGroup>
+                                        <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
+                                        <Input
+                                            type={'number'}
+                                            placeholder={'amount'}
+                                            name={'amount'}
+                                            value={values.amount}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                        />
+                                    </InputGroup>
+                                    <FormErrorMessage>{errors.amount}</FormErrorMessage>
+                                </FormControl>
+
+                                <Button
+                                    width={'full'}
+                                    mt={4}
+                                    type={'submit'}
+                                    isDisabled={isSubmitting || !isValid}
+                                    isLoading={isSubmitting}
+                                    onClick={() => handleSubmit()}
+                                >
+                                    Top Up
+                                </Button>
+                                {error !== null && (
+                                    <Alert mt={3} status={'error'}>
+                                        <AlertIcon />
+                                        {error}
+                                    </Alert>
+                                )}
+                                {successMessage !== null && (
+                                    <Alert mt={3} status={'success'}>
+                                        <AlertIcon />
+                                        {successMessage}
+                                    </Alert>
+                                )}
+                            </form>
+                        );
+                    }}
+                </Formik>
+            </Box>
         </Card>
     );
 };
