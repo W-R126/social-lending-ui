@@ -54,12 +54,40 @@ context('Create auction', () => {
         cy.get('[type="submit"]').click();
         cy.contains(loanAmount);
         cy.contains(numberOfInstallments);
+        cy.get('button')
+            .contains('Show description')
+            .click();
+        cy.contains(description);
         cy.get('[type="button"]')
             .contains('See details')
             .should('be.visible')
             .click();
         cy.contains(loanAmount);
         cy.contains(numberOfInstallments);
+        cy.contains(description);
+    });
+    it('should show auction created by other user', () => {
+        const loanAmount = Math.round(Math.random() * 100000) / 100;
+        const numberOfInstallments = Math.round(Math.random() * 120);
+        const description = uuidv4() + uuidv4();
+        const endDate = '12/12/9999 12:12';
+        const username1 = uuidv4();
+        const password1 = uuidv4();
+        const username2 = uuidv4();
+        const password2 = uuidv4();
+
+        cy.registerUser(username1, password1);
+        cy.login(username1, password1);
+        cy.createNewAuction(description, endDate, loanAmount, numberOfInstallments);
+        cy.logout();
+        cy.registerUser(username2, password2);
+        cy.login(username2, password2);
+        cy.visit('/');
+        cy.contains(loanAmount);
+        cy.contains(numberOfInstallments);
+        cy.get('button')
+            .contains('Show description')
+            .click();
         cy.contains(description);
     });
 });
