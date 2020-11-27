@@ -16,7 +16,7 @@ import {
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './RegisterForm.constants';
 import {validate} from './RegisterForm.helpers';
-import {RegisterFormData} from './RegisterForm.types';
+import {RegisterFormData, CardFocus} from './RegisterForm.types';
 import {signup} from '../../api/authAPI';
 import {useAuth} from '../../context/AuthProvider';
 import Cards from 'react-credit-cards';
@@ -25,10 +25,14 @@ import 'react-credit-cards/es/styles-compiled.css';
 export const RegisterForm: React.FC = () => {
     const {login} = useAuth();
     const [error, setError] = useState<string | null>(null);
-    const [cardFocus, setCardFocus] = useState<'number' | 'cvc' | 'expiry' | 'name' | undefined>('number');
+    const [cardFocus, setCardFocus] = useState<CardFocus>('number');
 
-    const handleCardFocus = (e: any) => {
-        setCardFocus(e.target.name);
+    const handleCardFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+        setCardFocus(e.target.name as CardFocus);
+    };
+
+    const handleCardButtonFocus = (e: React.FocusEvent<HTMLButtonElement>) => {
+        setCardFocus(e.target.name as CardFocus);
     };
 
     const handleSubmit = (values: RegisterFormData, {setSubmitting}: FormikHelpers<RegisterFormData>) => {
@@ -173,7 +177,7 @@ export const RegisterForm: React.FC = () => {
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
                                     onClick={() => handleSubmit()}
-                                    onFocus={handleCardFocus}
+                                    onFocus={handleCardButtonFocus}
                                 >
                                     Sign up
                                 </Button>

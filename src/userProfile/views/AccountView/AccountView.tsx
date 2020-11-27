@@ -5,12 +5,12 @@ import {UserProvider} from '../../contexts/UserProvider';
 import {TopUp} from '../../components/TopUp/TopUp';
 import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw/Withdraw';
+
 export const AccountView: React.FC = () => {
-    console.log('account veiwwwwwwwwwwwwwww');
     return (
         <Flex flexDir="column">
             <UserProvider>
-                <SimpleGrid minChildWidth={'340px'} spacing={22}>
+                <SimpleGrid m={4} minChildWidth={'340px'} spacing={22}>
                     <Box>
                         <BankAccount />
                     </Box>

@@ -13,7 +13,6 @@ interface Props {
 
 export const OfferInfo: React.FC<Props> = ({offer, onDelete}) => {
     const {isOpen, onOpen, onClose} = useDisclosure();
-    const cancelRef = React.useRef();
 
     const handleConsent = () => {
         onDelete(offer);
@@ -36,13 +35,7 @@ export const OfferInfo: React.FC<Props> = ({offer, onDelete}) => {
 
                 <IconButton colorScheme={'red'} aria-label={'Delete offer'} icon={<Trash />} onClick={onOpen} />
             </StatGroup>
-            <AreYouSureAlert
-                isOpen={isOpen}
-                onClose={onClose}
-                cancelRef={cancelRef}
-                onConsent={handleConsent}
-                dialogText={'Are you sure?'}
-            />
+            <AreYouSureAlert isOpen={isOpen} onClose={onClose} onConsent={handleConsent} dialogText={'Are you sure?'} />
         </Card>
     );
 };

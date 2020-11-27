@@ -17,7 +17,8 @@ export const BrowseAuctions: React.FC<Props> = ({buttonTitle, auctions, onOpenDe
     const [order, setOrder] = useState(OrderBy.DEFAULT);
 
     const handleOrderChange = (event: SyntheticEvent) => {
-        const select = event.target as any;
+        // Suggest a better idea than this cast if possible
+        const select = (event.target as unknown) as {value: OrderBy};
         setOrder(select.value);
     };
 

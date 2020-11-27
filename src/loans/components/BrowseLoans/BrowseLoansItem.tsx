@@ -18,7 +18,6 @@ export const BrowseLoansItem: React.FC<Props> = ({loan}) => {
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
     const currentInstallment = getCurrentInstallment(loan.installments);
-    const cancelRef = React.useRef();
 
     const handleOpenDetails = () => {
         history.push(Routes.BORROWER_LOANS_DETAILS.replace(':loanId', loan.id.toString()));
@@ -66,7 +65,6 @@ export const BrowseLoansItem: React.FC<Props> = ({loan}) => {
                                 <AreYouSureAlert
                                     isOpen={isOpen}
                                     onClose={onClose}
-                                    cancelRef={cancelRef}
                                     onConsent={() => handleConsent(currentInstallment.id)}
                                     dialogText={'Are you sure?'}
                                 />
