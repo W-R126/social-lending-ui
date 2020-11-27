@@ -1,12 +1,10 @@
 !(function(e) {
     var t = {};
-
     function r(n) {
         if (t[n]) return t[n].exports;
         var i = (t[n] = {i: n, l: !1, exports: {}});
         return e[n].call(i.exports, i, i.exports, r), (i.l = !0), i.exports;
     }
-
     (r.m = e),
         (r.c = t),
         (r.d = function(e, t, n) {
@@ -20,14 +18,7 @@
             if ((1 & t && (e = r(e)), 8 & t)) return e;
             if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
             var n = Object.create(null);
-            if (
-                (r.r(n),
-                Object.defineProperty(n, 'default', {
-                    enumerable: !0,
-                    value: e,
-                }),
-                2 & t && 'string' != typeof e)
-            )
+            if ((r.r(n), Object.defineProperty(n, 'default', {enumerable: !0, value: e}), 2 & t && 'string' != typeof e))
                 for (var i in e)
                     r.d(
                         n,
@@ -636,12 +627,7 @@
                             if (
                                 (0 == i.str.length && (a.final = !0),
                                 n.push({node: a, editsRemaining: i.editsRemaining - 1, str: i.str}),
-                                i.str.length > 1 &&
-                                    n.push({
-                                        node: i.node,
-                                        editsRemaining: i.editsRemaining - 1,
-                                        str: i.str.slice(1),
-                                    }),
+                                i.str.length > 1 && n.push({node: i.node, editsRemaining: i.editsRemaining - 1, str: i.str.slice(1)}),
                                 1 == i.str.length && (i.node.final = !0),
                                 i.str.length >= 1)
                             ) {
@@ -878,13 +864,7 @@
                         t = Object.keys(this.fieldVectors).map(function(e) {
                             return [e, this.fieldVectors[e].toJSON()];
                         }, this);
-                    return {
-                        version: C.version,
-                        fields: this.fields,
-                        fieldVectors: t,
-                        invertedIndex: e,
-                        pipeline: this.pipeline.toJSON(),
-                    };
+                    return {version: C.version, fields: this.fields, fieldVectors: t, invertedIndex: e, pipeline: this.pipeline.toJSON()};
                 }),
                 (C.Index.load = function(e) {
                     var t = {},
@@ -1149,13 +1129,7 @@
                     return e.push(this.str.slice(t, this.pos)), (this.escapeCharPositions.length = 0), e.join('');
                 }),
                 (C.QueryLexer.prototype.emit = function(e) {
-                    this.lexemes.push({
-                        type: e,
-                        str: this.sliceString(),
-                        start: this.start,
-                        end: this.pos,
-                    }),
-                        (this.start = this.pos);
+                    this.lexemes.push({type: e, str: this.sliceString(), start: this.start, end: this.pos}), (this.start = this.pos);
                 }),
                 (C.QueryLexer.prototype.escapeCharacter = function() {
                     this.escapeCharPositions.push(this.pos - 1), (this.pos += 1);
@@ -1408,18 +1382,15 @@
         'use strict';
         r.r(t);
         var n = [];
-
         function i(e, t) {
             n.push({selector: t, constructor: e});
         }
-
         var s,
             o,
             a = (function() {
                 function e() {
                     this.createComponents(document.body);
                 }
-
                 return (
                     (e.prototype.createComponents = function(e) {
                         n.forEach(function(t) {
@@ -1451,7 +1422,6 @@
                     function r() {
                         this.constructor = e;
                     }
-
                     s(e, t), (e.prototype = null === t ? Object.create(t) : ((r.prototype = t.prototype), new r()));
                 });
         !(function(e) {
@@ -1472,7 +1442,6 @@
                     if (!n || !i) throw new Error('The input field or the result list wrapper are not found');
                     return (r.field = n), (r.results = i), (r.base = r.el.dataset.base + '/'), r.bindEvents(), r;
                 }
-
                 return (
                     c(t, e),
                     (t.prototype.loadIndex = function() {
@@ -1600,7 +1569,6 @@
                 function e() {
                     this.listeners = {};
                 }
-
                 return (
                     (e.prototype.addEventListener = function(e, t) {
                         e in this.listeners || (this.listeners[e] = []), this.listeners[e].push(t);
@@ -1641,7 +1609,6 @@
                     function n() {
                         this.constructor = t;
                     }
-
                     e(t, r), (t.prototype = null === r ? Object.create(r) : ((n.prototype = r.prototype), new n()));
                 };
             })(),
@@ -1673,7 +1640,6 @@
                         t
                     );
                 }
-
                 return (
                     p(t, e),
                     (t.prototype.triggerResize = function() {
@@ -1718,7 +1684,6 @@
                     function n() {
                         this.constructor = t;
                     }
-
                     e(t, r), (t.prototype = null === r ? Object.create(r) : ((n.prototype = r.prototype), new n()));
                 };
             })(),
@@ -1738,7 +1703,6 @@
                         r
                     );
                 }
-
                 return (
                     m(t, e),
                     (t.prototype.createAnchors = function() {
@@ -1799,7 +1763,6 @@
                     function n() {
                         this.constructor = t;
                     }
-
                     e(t, r), (t.prototype = null === r ? Object.create(r) : ((n.prototype = r.prototype), new n()));
                 };
             })(),
@@ -1807,7 +1770,6 @@
                 function e(e, t) {
                     (this.signature = e), (this.description = t);
                 }
-
                 return (
                     (e.prototype.addClass = function(e) {
                         return this.signature.classList.add(e), this.description.classList.add(e), this;
@@ -1840,7 +1802,6 @@
                         r
                     );
                 }
-
                 return (
                     g(t, e),
                     (t.prototype.setIndex = function(e) {
@@ -1922,7 +1883,6 @@
                     function n() {
                         this.constructor = t;
                     }
-
                     e(t, r), (t.prototype = null === r ? Object.create(r) : ((n.prototype = r.prototype), new n()));
                 };
             })(),
@@ -1946,7 +1906,6 @@
                         r
                     );
                 }
-
                 return (
                     T(t, e),
                     (t.prototype.setActive = function(e) {
@@ -2003,7 +1962,6 @@
                     function n() {
                         this.constructor = t;
                     }
-
                     e(t, r), (t.prototype = null === r ? Object.create(r) : ((n.prototype = r.prototype), new n()));
                 };
             })(),
@@ -2015,7 +1973,6 @@
                         this.initialize(),
                         window.localStorage[this.key] && this.setValue(this.fromLocalStorage(window.localStorage[this.key]));
                 }
-
                 return (
                     (e.prototype.initialize = function() {}),
                     (e.prototype.setValue = function(e) {
@@ -2031,7 +1988,6 @@
                 function t() {
                     return (null !== e && e.apply(this, arguments)) || this;
                 }
-
                 return (
                     C(t, e),
                     (t.prototype.initialize = function() {
@@ -2061,7 +2017,6 @@
                 function t() {
                     return (null !== e && e.apply(this, arguments)) || this;
                 }
-
                 return (
                     C(t, e),
                     (t.prototype.initialize = function() {
@@ -2118,7 +2073,6 @@
                         r
                     );
                 }
-
                 return (
                     C(t, e),
                     (t.isSupported = function() {

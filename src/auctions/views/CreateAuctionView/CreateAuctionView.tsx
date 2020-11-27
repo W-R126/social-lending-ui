@@ -96,11 +96,7 @@ export const CreateAuctionView: React.FC = () => {
                                             onBlur={handleBlur}
                                         />
                                     </InputGroup>
-                                    {!errors.numberOfInstallments && (
-                                        <FormHelperText>
-                                            Each installment will be ${(values.loanAmount / values.numberOfInstallments).toFixed(2)}
-                                        </FormHelperText>
-                                    )}
+                                    {!errors.numberOfInstallments}
                                     <FormErrorMessage>{errors.numberOfInstallments}</FormErrorMessage>
                                 </FormControl>
 

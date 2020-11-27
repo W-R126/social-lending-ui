@@ -2,14 +2,27 @@ import * as React from 'react';
 import {Installment} from '../../api/loansAPI.types';
 import {Card} from '../../../common/components/Card';
 import {Flex, Stack, Stat, StatHelpText, Text} from '@chakra-ui/react';
-import {formatDate} from '../../../auctions/components/BrowseAuctions/AuctionItem/AuctionItem.helpers';
 import {CURRENCY} from '../../../common/constants';
 import {StatusBadge} from '../StatusBadge';
+import {formatDate} from '../../helpers/formatDate';
 
+/**
+ * Parameter definition
+ */
 interface Props {
+    /**
+     * Installment info to be shown
+     */
     installment: Installment;
 }
 
+/**
+ * Component showing info about one of
+ * the installments of given auction.
+ * Renders as a list in {@link BrowseLoanHistory}
+ * @param installment
+ * @constructor
+ */
 export const InstallmentItem: React.FC<Props> = ({installment}) => {
     return (
         <Card maxWidth={'500px'} width={'full'}>

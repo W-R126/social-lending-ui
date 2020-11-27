@@ -1,14 +1,28 @@
 import * as React from 'react';
 import {Flex, Heading, Stat, StatLabel, StatNumber} from '@chakra-ui/react';
 import {CURRENCY} from '../../../common/constants';
-import {LoanWithRedundantData} from '../../api/loansAPI.types';
+import {Loan} from '../../api/loansAPI.types';
 import {Card} from '../../../common/components/Card';
 import {formatInterest} from './LoanInfo.helpers';
 
+/**
+ * Parameter definitions
+ */
 interface Props {
-    loan: LoanWithRedundantData | undefined;
+    /**
+     * Basic info about loan to be shown
+     */
+    loan: Loan | undefined;
 }
 
+/**
+ * Info to be shown at the top of
+ * {@link BrowseLoanHistory} component
+ *
+ * Contains basic info about ongoing loan
+ * @param loan
+ * @constructor
+ */
 export const LoanInfo: React.FC<Props> = ({loan}) => {
     return (
         <Card maxWidth={'500px'} width={'full'}>

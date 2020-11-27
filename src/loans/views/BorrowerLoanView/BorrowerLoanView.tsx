@@ -4,6 +4,12 @@ import {BrowseLoans} from '../../components/BrowseLoans';
 import {useBorrowerLoans} from '../../hooks/useBorrowerLoans';
 import {useInit} from '../../../common/hooks/useInit';
 
+/**
+ * Entry point for loan list view.
+ * Renders {@link BrowseLoans} with appropriate
+ * props (loans data)
+ * @constructor
+ */
 export const BorrowerLoanView: React.FC = () => {
     const {loans, fetchLoans, isFetching} = useBorrowerLoans();
     useInit(fetchLoans);

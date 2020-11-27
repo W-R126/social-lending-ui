@@ -1,17 +1,29 @@
-import {Loan, LoanWithRedundantData} from '../loansAPI.types';
+import {Loan} from '../loansAPI.types';
 import axios from 'axios';
 
-const auctionsUrl = 'api/borrower/auctions';
-
+/**
+ * Makes POST request to api in order to make offer
+ * acceptance request by borrower
+ *
+ * @param auctionId
+ * @param offerId
+ * @returns Loan data
+ */
 export function acceptOffer(auctionId: number, offerId: number): Promise<Loan | null> {
-    const url = `${auctionsUrl}/${auctionId}/accept-offer?offer_id=${offerId}`;
+    const url = `api/borrower/auctions/${auctionId}/accept-offer?offer_id=${offerId}`;
     return axios
         .post(url)
         .then(response => response.data)
         .catch(() => null);
 }
 
-export function getMyLoans(): Promise<LoanWithRedundantData[] | null> {
+/**
+ * Makes GET request to api in order to get
+ * loans for current account
+ *
+ * @returns List of all loans assigned to user
+ */
+export function getMyLoans(): Promise<Loan[] | null> {
     return axios
         .get('/api/borrower/loans')
         .then(response => response.data)
