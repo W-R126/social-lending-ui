@@ -9,6 +9,7 @@ import {useHistory} from 'react-router';
 import {Routes} from '../../../routing/routes';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
 import {formatDate} from '../../helpers/formatDate';
+import {areYouSureText} from './BrowseLoansItem.constants';
 
 /**
  * Parameter definitions for {@link BrowseLoansItem}
@@ -85,8 +86,9 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan}) => {
                                 <AreYouSureAlert
                                     isOpen={isOpen}
                                     onClose={onClose}
-                                    onConsent={() => handleConsent(currentInstallment.id)}
-                                    dialogText={'Are you sure?'}
+                                    onConsent={() => handleConsent(loan.id)}
+                                    dialogText={areYouSureText(currentInstallment.total)}
+                                    title={'Pay installment'}
                                 />
                             </Flex>
                         </Flex>
