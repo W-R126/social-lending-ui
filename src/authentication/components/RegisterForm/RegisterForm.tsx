@@ -109,12 +109,13 @@ export const RegisterForm: React.FC = () => {
                                     <FormLabel>Card number</FormLabel>
                                     <Input
                                         type={'tel'}
-                                        placeholder={'**** **** **** ****'}
+                                        placeholder={'****************'}
                                         name={'cardNumber'}
                                         value={values.cardNumber}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         onFocus={handleCardFocus}
+                                        maxLength={16}
                                     />
                                     <FormErrorMessage>{errors.cardNumber}</FormErrorMessage>
                                 </FormControl>
@@ -143,6 +144,7 @@ export const RegisterForm: React.FC = () => {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 onFocus={handleCardFocus}
+                                                maxLength={5}
                                             />
                                             <FormErrorMessage>{errors.expiry}</FormErrorMessage>
                                         </FormControl>
@@ -158,6 +160,7 @@ export const RegisterForm: React.FC = () => {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 onFocus={handleCardFocus}
+                                                maxLength={3}
                                             />
                                             <FormErrorMessage>{errors.cvc}</FormErrorMessage>
                                         </FormControl>
