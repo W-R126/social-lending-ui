@@ -5,5 +5,5 @@ import {useUser} from '../contexts/UserProvider';
 export const CardEnding: React.FC = () => {
     const cardNumber = useUser()?.cardNumber;
 
-    return <Text>Card ending . . . 5555{cardNumber}</Text>;
+    return <Text>{cardNumber}</Text>;
 };

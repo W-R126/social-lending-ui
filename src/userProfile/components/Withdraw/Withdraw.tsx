@@ -20,22 +20,31 @@ import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
 import {boxStyle} from '../../views/AccountView/AccountView.styles';
+import {CardEnding} from '../CardEnding';
+import {useTransactions} from '../../hooks/useTransactions';
 
 export const Withdraw: React.FC = () => {
-    //const user = useUser();
-    //const account = user?.account;
     const [error, setError] = useState<string | null>(null);
+    const {sendWithdrawal} = useTransactions();
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
     const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
-        console.log('bless yourself');
+        sendWithdrawal(values.amount).then(success => {
+            if (success) {
+                setSuccessMessage(`$${values.amount} will be sent to your card`);
+                setError(null);
+            } else {
+                setError('Failed to send funds to your card, please ensure you have enough funds');
+                setSuccessMessage(null);
+            }
+        });
         setSubmitting(false);
-        setError(null);
     };
     return (
         <Card>
             <Heading size={'md'}>Withdraw to your card</Heading>
             <br />
-            <Text>Card number 1234...5678</Text>
+            <CardEnding />
 
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
@@ -73,6 +82,12 @@ export const Withdraw: React.FC = () => {
                                 <Alert mt={3} status="error">
                                     <AlertIcon />
                                     {error}
+                                </Alert>
+                            )}
+                            {successMessage !== null && (
+                                <Alert mt={3} status={'success'}>
+                                    <AlertIcon />
+                                    {successMessage}
                                 </Alert>
                             )}
                         </form>

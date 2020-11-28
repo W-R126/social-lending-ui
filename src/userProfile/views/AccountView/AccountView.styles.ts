@@ -4,7 +4,7 @@ import {css} from 'emotion';
  * Styles for AccountView Component. Adjusts spacing and size
  */
 export const boxStyle = css`
-    min-height: 380px;
+    min-height: 370px;
 `;
 
 export const containerStyle = css`

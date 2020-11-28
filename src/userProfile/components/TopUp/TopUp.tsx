@@ -38,7 +38,7 @@ export const TopUp: React.FC = () => {
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
         console.log(values);
         if (accountNo) {
-            sendTopUp(accountNo, values.amount).then(success => {
+            sendTopUp(values.amount).then(success => {
                 if (success) {
                     setSuccessMessage(`$${values.amount} will be added to your account`);
                     setError(null);
@@ -55,8 +55,8 @@ export const TopUp: React.FC = () => {
         <Card>
             <Box w={'100%'}>
                 <Heading size={'md'}> Top Up </Heading>
-                <CardEnding />
                 <br />
+                <CardEnding />
             </Box>
 
             <Box w={'100%'}>

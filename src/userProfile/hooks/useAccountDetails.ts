@@ -20,6 +20,5 @@ export function useAccountDetails(accountNo: string | null) {
         setFetching(false);
         return false;
     }
-
     return {isFetching, accountDetails, fetchAccountDetails};
 }
