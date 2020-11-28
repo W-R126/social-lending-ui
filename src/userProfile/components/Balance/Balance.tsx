@@ -11,7 +11,7 @@ export const Balance: React.FC = () => {
         <Skeleton isLoaded={!isFetching}>
             <Heading>
                 {CURRENCY}
-                {balance}
+                {balance?.toFixed(2)}
             </Heading>
         </Skeleton>
     );
