@@ -74,10 +74,27 @@
                                     <h3>Functions</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="loans_api_borrower.html#acceptoffer" class="tsd-kind-icon">accept<wbr />Offer</a>
+                                            <a href="loans_api_borrower.html#acceptoffer" class="tsd-kind-icon"
+                                                >accept
+                                                <wbr />
+                                                Offer</a
+                                            >
                                         </li>
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="loans_api_borrower.html#getmyloans" class="tsd-kind-icon">get<wbr />MyLoans</a>
+                                            <a href="loans_api_borrower.html#getmyloans" class="tsd-kind-icon"
+                                                >get
+                                                <wbr />
+                                                MyLoans</a
+                                            >
+                                        </li>
+                                        <li class="tsd-kind-function tsd-parent-kind-module">
+                                            <a href="loans_api_borrower.html#paynextinstallment" class="tsd-kind-icon"
+                                                >pay
+                                                <wbr />
+                                                Next
+                                                <wbr />
+                                                Installment</a
+                                            >
                                         </li>
                                     </ul>
                                 </section>
@@ -88,11 +105,16 @@
                         <h2>Functions</h2>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="acceptoffer" class="tsd-anchor"></a>
-                            <h3>accept<wbr />Offer</h3>
+                            <h3>
+                                accept
+                                <wbr />
+                                Offer
+                            </h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    accept<wbr />Offer<span class="tsd-signature-symbol">(</span>auctionId<span class="tsd-signature-symbol"
-                                        >: </span
+                                    accept
+                                    <wbr />
+                                    Offer<span class="tsd-signature-symbol">(</span>auctionId<span class="tsd-signature-symbol">: </span
                                     ><span class="tsd-signature-type">number</span>, offerId<span class="tsd-signature-symbol">: </span
                                     ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
@@ -135,10 +157,16 @@
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="getmyloans" class="tsd-anchor"></a>
-                            <h3>get<wbr />MyLoans</h3>
+                            <h3>
+                                get
+                                <wbr />
+                                MyLoans
+                            </h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    get<wbr />MyLoans<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
+                                    get
+                                    <wbr />
+                                    MyLoans<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
                                     ><span class="tsd-signature-symbol">&lt;</span
                                     ><a href="../interfaces/loans_api.loan.html" class="tsd-signature-type">Loan</a
@@ -168,6 +196,64 @@
                                 </li>
                             </ul>
                         </section>
+                        <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+                            <a name="paynextinstallment" class="tsd-anchor"></a>
+                            <h3>
+                                pay
+                                <wbr />
+                                Next
+                                <wbr />
+                                Installment
+                            </h3>
+                            <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+                                <li class="tsd-signature tsd-kind-icon">
+                                    pay
+                                    <wbr />
+                                    Next
+                                    <wbr />
+                                    Installment<span class="tsd-signature-symbol">(</span>loanId<span class="tsd-signature-symbol">: </span
+                                    ><span class="tsd-signature-type">number</span>, amount<span class="tsd-signature-symbol">: </span
+                                    ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
+                                    ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
+                                    ><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span
+                                    ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span
+                                    ><span class="tsd-signature-symbol">&gt;</span>
+                                </li>
+                            </ul>
+                            <ul class="tsd-descriptions">
+                                <li class="tsd-description">
+                                    <aside class="tsd-sources">
+                                        <ul>
+                                            <li>Defined in src/loans/api/borrower/loansAPI.ts:43</li>
+                                        </ul>
+                                    </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                Makes POST request to api in order to pay next installment Successful if borrower has enough
+                                                funds on his account
+                                            </p>
+                                        </div>
+                                        <p>After payment amount is taken from borrower account and added to lender account</p>
+                                    </div>
+                                    <h4 class="tsd-parameters-title">Parameters</h4>
+                                    <ul class="tsd-parameters">
+                                        <li>
+                                            <h5>loanId: <span class="tsd-signature-type">number</span></h5>
+                                        </li>
+                                        <li>
+                                            <h5>amount: <span class="tsd-signature-type">number</span></h5>
+                                        </li>
+                                    </ul>
+                                    <h4 class="tsd-returns-title">
+                                        Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
+                                        ><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span
+                                        ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span>
+                                    </h4>
+                                    <p>http codes 200 if successful, 400 otherwise</p>
+                                </li>
+                            </ul>
+                        </section>
                     </section>
                 </div>
                 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -184,10 +270,27 @@
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="loans_api_borrower.html#acceptoffer" class="tsd-kind-icon">accept<wbr />Offer</a>
+                                <a href="loans_api_borrower.html#acceptoffer" class="tsd-kind-icon"
+                                    >accept
+                                    <wbr />
+                                    Offer</a
+                                >
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="loans_api_borrower.html#getmyloans" class="tsd-kind-icon">get<wbr />MyLoans</a>
+                                <a href="loans_api_borrower.html#getmyloans" class="tsd-kind-icon"
+                                    >get
+                                    <wbr />
+                                    MyLoans</a
+                                >
+                            </li>
+                            <li class=" tsd-kind-function tsd-parent-kind-module">
+                                <a href="loans_api_borrower.html#paynextinstallment" class="tsd-kind-icon"
+                                    >pay
+                                    <wbr />
+                                    Next
+                                    <wbr />
+                                    Installment</a
+                                >
                             </li>
                         </ul>
                     </nav>

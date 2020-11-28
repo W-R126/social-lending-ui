@@ -22,6 +22,12 @@ export const getCurrentInstallment = (installments: Installment[]): Installment 
     }
 };
 
+/**
+ * Sorts loans in descending order in respect
+ * to amountLeft value
+ * @param loans
+ * @returns sorted list of loans
+ */
 export const sortLoans = (loans: Loan[]) => {
     return loans.sort((a, b) => b.amountLeft - a.amountLeft);
 };

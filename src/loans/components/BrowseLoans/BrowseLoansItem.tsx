@@ -19,7 +19,17 @@ interface ItemProps {
      * Loan info to be shown
      */
     loan: Loan;
+    /**
+     * Pay installment with specified data.
+     * Makes call to hook which makes call to api
+     * @param loanId id of loan in which installment is
+     * @param amount value of installment which will be payed
+     */
     payInstallment: (loanId: number, amount: number) => Promise<boolean>;
+    /**
+     * True if payment procedure is not finished,
+     * false otherwise
+     */
     isPaymentFetching: boolean;
 }
 
@@ -29,12 +39,18 @@ interface ItemProps {
  * Shortly describes the most recent not paid
  * installment and makes ability to pay for it
  *
- * After pushing see details button, user is redirected
+ * After pushing "see details" button, user is redirected
  * to {@link BorrowerLoanHistoryView}
  *
- * When Pay installment is pressed, after prompt,
+ * When "Pay installment" is pressed, after prompt,
  * installment is being paid
+ *
+ * When successful, then green toast is produced,
+ * when failure, then red toast with appropriate
+ * messages are displayed
  * @param loan
+ * @param payInstallment
+ * @param isPaymentFetching
  * @constructor
  */
 export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPaymentFetching}) => {
@@ -117,6 +133,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                                     Pay installment
                                 </Button>
                                 <AreYouSureAlert
+                                    isLoading={isPaymentFetching}
                                     isOpen={isOpen}
                                     onClose={onClose}
                                     onConsent={() => handleConsent(currentInstallment, loan.id)}
