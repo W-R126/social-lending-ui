@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Heading, Text, Grid, Button, Box, useClipboard, Skeleton, Flex} from '@chakra-ui/react';
+import {Heading, Text, Grid, Button, Box, useClipboard, Skeleton} from '@chakra-ui/react';
 import {useUser} from '../../contexts/UserProvider';
 import {Balance} from '../Balance/Balance';
 import {Card} from '../../../common/components/Card';

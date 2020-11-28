@@ -1,5 +1,5 @@
 import React from 'react';
-import {Flex, Skeleton, Text} from '@chakra-ui/react';
+import {Skeleton, Text} from '@chakra-ui/react';
 import {useUser} from '../contexts/UserProvider';
 
 export const CardNumber: React.FC = () => {
