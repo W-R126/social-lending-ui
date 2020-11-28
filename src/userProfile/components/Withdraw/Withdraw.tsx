@@ -18,6 +18,13 @@ import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
 import {CardNumber} from '../CardNumber';
 import {useTransactions} from '../../hooks/useTransactions';
+import {textBottomPaddingStyle} from '../../common/common.styles';
+import {CURRENCY} from '../../../common/constants';
+
+/**
+ * Component responsible for withdrawing to the card. Dependent on useUser context
+ * @constructor
+ */
 
 export const Withdraw: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
@@ -27,10 +34,10 @@ export const Withdraw: React.FC = () => {
     const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
         sendWithdrawal(values.amount).then(success => {
             if (success) {
-                setSuccessMessage(`$${values.amount} will be sent to your card`);
+                setSuccessMessage(`${CURRENCY}${values.amount} will be sent to your card`);
                 setError(null);
             } else {
-                setError('Failed to send funds to your card, please ensure you have enough funds');
+                setError('Failed to send to your card, please ensure you have enough funds');
                 setSuccessMessage(null);
             }
         });
@@ -38,8 +45,9 @@ export const Withdraw: React.FC = () => {
     };
     return (
         <Card>
-            <Heading size={'md'}>Withdraw to your card</Heading>
-            <br />
+            <Heading size={'md'} className={textBottomPaddingStyle}>
+                Withdraw to your card
+            </Heading>
             <CardNumber />
 
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>

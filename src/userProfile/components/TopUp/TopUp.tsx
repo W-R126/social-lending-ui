@@ -19,8 +19,9 @@ import {TopUpData} from './TopUp.types';
 import {initialFormValues} from './TopUp.constants';
 import {validate} from './TopUp.helpers';
 import {useTransactions} from '../../hooks/useTransactions';
-import {useUser} from '../../contexts/UserProvider';
 import {CardNumber} from '../CardNumber';
+import {textBottomPaddingStyle} from '../../common/common.styles';
+import {CURRENCY} from '../../../common/constants';
 
 /**
  * Component responsible for topping up the account.
@@ -31,27 +32,26 @@ export const TopUp: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const {sendTopUp} = useTransactions();
-    const accountNo = useUser()?.user?.account;
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
-        if (accountNo) {
-            sendTopUp(values.amount).then(success => {
-                if (success) {
-                    setSuccessMessage(`$${values.amount} will be added to your account`);
-                    setError(null);
-                } else {
-                    setError('Failed to top up, please try again later.');
-                    setSuccessMessage(null);
-                }
-            });
-        }
+        sendTopUp(values.amount).then(success => {
+            if (success) {
+                setSuccessMessage(`${CURRENCY}${values.amount} will be added to your account`);
+                setError(null);
+            } else {
+                setError('Failed to top up, please try again later.');
+                setSuccessMessage(null);
+            }
+        });
         setSubmitting(false);
     };
 
     return (
         <Card>
             <Box w={'100%'}>
-                <Heading size={'md'}> Top Up </Heading>
-                <br />
+                <Heading size={'md'} className={textBottomPaddingStyle}>
+                    {' '}
+                    Top Up{' '}
+                </Heading>
                 <CardNumber />
             </Box>
 

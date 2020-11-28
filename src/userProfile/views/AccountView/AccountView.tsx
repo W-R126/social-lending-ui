@@ -5,9 +5,7 @@ import {UserProvider} from '../../contexts/UserProvider';
 import {TopUp} from '../../components/TopUp/TopUp';
 import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw/Withdraw';
-import {containerStyle} from './AccountView.styles';
-
-// todo only get the context here and make the rest into props
+import {containerStyle} from '../../common/common.styles';
 
 export const AccountView: React.FC = () => {
     return (

@@ -23,3 +23,11 @@ export const bottomAligner = css`
     vertical-align: bottom;
     width: 0px;
 `;
+
+export const textBottomPaddingStyle = css`
+    padding-bottom: 10px;
+`;
+
+export const textTopPaddingStyle = css`
+    padding-top: 20px;
+`;

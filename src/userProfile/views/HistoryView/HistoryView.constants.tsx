@@ -1,6 +1,6 @@
 import {Box} from '@chakra-ui/react';
 import {format} from 'date-fns';
-import {DATE_FORMAT} from '../../../common/constants';
+import {CURRENCY, DATE_FORMAT} from '../../../common/constants';
 import {Column} from 'react-table';
 import React from 'react';
 
@@ -18,7 +18,12 @@ export const TableColumns = [
     {
         Header: 'Amount',
         accessor: 'amount',
-        Cell: (props: {value: number}) => <Box>${props.value}</Box>,
+        Cell: (props: {value: number}) => (
+            <Box>
+                {CURRENCY}
+                {props.value}
+            </Box>
+        ),
     },
     {
         Header: 'Date',

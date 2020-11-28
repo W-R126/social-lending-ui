@@ -17,8 +17,9 @@ import {initialFormValues} from './Transfer.constants';
 import {validate} from './Transfer.helpers';
 import {newTransferData} from './Transfer.types';
 import {useState} from 'react';
-import {boxStyle} from '../../views/AccountView/AccountView.styles';
+import {boxStyle, textBottomPaddingStyle} from '../../common/common.styles';
 import {useTransactions} from '../../hooks/useTransactions';
+import {CURRENCY} from '../../../common/constants';
 
 export const Transfer: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
@@ -28,7 +29,7 @@ export const Transfer: React.FC = () => {
     const handleSubmit = (values: newTransferData, {setSubmitting}: FormikHelpers<newTransferData>) => {
         sendWithdrawal(values.amount).then(success => {
             if (success) {
-                setSuccessMessage(`$${values.amount} will be transferred`);
+                setSuccessMessage(`${CURRENCY}${values.amount} will be transferred`);
                 setError(null);
             } else {
                 setError('Failed to transfer, please ensure you have enough funds');
@@ -40,8 +41,10 @@ export const Transfer: React.FC = () => {
 
     return (
         <Card className={boxStyle}>
-            <Heading size={'md'}> External Transfer </Heading>
-            <br />
+            <Heading size={'md'} className={textBottomPaddingStyle}>
+                {' '}
+                External Transfer{' '}
+            </Heading>
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
                     const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
