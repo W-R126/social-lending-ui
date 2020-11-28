@@ -44,8 +44,13 @@ export enum Routes {
      * Lists all offers create by certain user.
      */
     MY_OFFERS = '/my-offers',
+    /**
+     * All user account related actions
+     */
     ACCOUNT = '/user-profile',
-    TRANSFER = '/transfer',
+    /**
+     * History of transactions associated with user's account
+     */
     HISTORY = '/history',
     BORROWER_LOANS = '/borrower-loans',
     BORROWER_LOANS_DETAILS = '/borrower-loans/:loanId',

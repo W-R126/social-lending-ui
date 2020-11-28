@@ -1,6 +1,10 @@
 import {newTransferData} from './Transfer.types';
 import {FormikErrors} from 'formik';
 
+/**
+ * Validation for transfer form
+ * @param values
+ */
 export const validate = (values: newTransferData) => {
     const errors: FormikErrors<newTransferData> = {};
 

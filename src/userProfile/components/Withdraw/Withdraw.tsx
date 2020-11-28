@@ -16,13 +16,13 @@ import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
-import {CardNumber} from '../CardNumber';
+import {CardNumber} from '../CardNumber/CardNumber';
 import {useTransactions} from '../../hooks/useTransactions';
 import {textBottomPaddingStyle} from '../../common/common.styles';
 import {CURRENCY} from '../../../common/constants';
 
 /**
- * Component responsible for withdrawing to the card. Dependent on useUser context
+ * Component responsible for withdrawing to the card.
  * @constructor
  */
 

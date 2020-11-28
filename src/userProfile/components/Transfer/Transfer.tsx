@@ -21,6 +21,10 @@ import {boxStyle, textBottomPaddingStyle} from '../../common/common.styles';
 import {useTransactions} from '../../hooks/useTransactions';
 import {CURRENCY} from '../../../common/constants';
 
+/**
+ * Component responsible for user transfers
+ * @constructor
+ */
 export const Transfer: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {sendWithdrawal} = useTransactions();

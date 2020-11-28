@@ -73,10 +73,6 @@ export const AppRouter: React.FC = () => {
                     <AccountView />
                 </RestrictedRoute>
 
-                <RestrictedRoute path={Routes.TRANSFER}>
-                    <Transfer />
-                </RestrictedRoute>
-
                 <RestrictedRoute path={Routes.HISTORY}>
                     <UserProvider>
                         <HistoryView />

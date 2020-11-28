@@ -19,7 +19,7 @@ import {TopUpData} from './TopUp.types';
 import {initialFormValues} from './TopUp.constants';
 import {validate} from './TopUp.helpers';
 import {useTransactions} from '../../hooks/useTransactions';
-import {CardNumber} from '../CardNumber';
+import {CardNumber} from '../CardNumber/CardNumber';
 import {textBottomPaddingStyle} from '../../common/common.styles';
 import {CURRENCY} from '../../../common/constants';
 

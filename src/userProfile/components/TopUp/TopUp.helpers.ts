@@ -1,6 +1,11 @@
 import {FormikErrors} from 'formik';
 import {TopUpData} from './TopUp.types';
 
+/**
+ * Validation for top up form
+ * @param values
+ */
+
 export const validate = (values: TopUpData) => {
     const errors: FormikErrors<TopUpData> = {};
 

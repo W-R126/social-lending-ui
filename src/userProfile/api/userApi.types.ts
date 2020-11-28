@@ -1,3 +1,7 @@
+/**
+ * Defines all the user data attributes
+ */
+
 export interface User {
     account: string | null;
     balance: number | null;

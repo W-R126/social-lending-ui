@@ -4,6 +4,10 @@ import {User} from '../api/userApi.types';
 import {useInit} from '../../common/hooks/useInit';
 import {UserContextType} from './userProvider.types';
 
+/**
+ * User data context with provider to be used across components that need to display user data
+ */
+
 const UserContext = createContext<UserContextType | null>(null);
 
 export const useUser = () => useContext(UserContext);

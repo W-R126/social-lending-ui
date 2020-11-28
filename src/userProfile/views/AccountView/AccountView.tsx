@@ -7,6 +7,10 @@ import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw/Withdraw';
 import {containerStyle} from '../../common/common.styles';
 
+/**
+ * View for user account details and user account related actions.
+ * @constructor
+ */
 export const AccountView: React.FC = () => {
     return (
         <Flex flexDir="column" className={containerStyle}>

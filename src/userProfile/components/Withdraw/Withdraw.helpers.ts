@@ -1,6 +1,10 @@
 import {FormikErrors} from 'formik';
 import {WithdrawData} from './Withdraw.types';
 
+/**
+ * Validation for withdrawal form.
+ * @param values
+ */
 export const validate = (values: WithdrawData) => {
     const errors: FormikErrors<WithdrawData> = {};
 
