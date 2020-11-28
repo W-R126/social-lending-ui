@@ -1,17 +1,16 @@
 import axios from 'axios';
-import {AccountDetails} from './accountApi.types';
-import {BASE_URL} from './accountApi.constants';
+import {User} from './userApi.types';
 
-export function getAccountDetails(accountNo: string): Promise<AccountDetails | null> {
+export function getUser(): Promise<User | null> {
     return axios
-        .get('/accounts/' + accountNo)
+        .get('api/user/me')
         .then(response => response.data)
         .catch(() => null);
 }
 
 export function topUpAccount(amount: number): Promise<boolean> {
     return axios
-        .post(BASE_URL + '/deposit', {amount: amount})
+        .post('api/user/bank/deposit?amount=' + amount)
         .then(response => {
             console.log(response);
             return true;
@@ -21,7 +20,7 @@ export function topUpAccount(amount: number): Promise<boolean> {
 
 export function withdrawFromAccount(amount: number): Promise<boolean> {
     return axios
-        .post('/withdrawals', {amount: amount})
+        .post('api/user/bank/withdraw?amount=' + amount)
         .then(() => true)
         .catch(() => false);
 }

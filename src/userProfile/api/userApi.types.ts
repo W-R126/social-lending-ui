@@ -1,12 +1,12 @@
 export interface User {
-    username: string | null;
     account: string | null;
+    balance: number | null;
     cardNumber: number | null;
-    name: string | null;
     cvc: number | null;
     expiry: string | null;
-    balance: number | null;
+    name: string | null;
     transactions: Transaction[];
+    username: string | null;
 }
 
 export interface Transaction {

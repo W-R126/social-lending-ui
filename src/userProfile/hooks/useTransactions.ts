@@ -1,13 +1,13 @@
 import {useState} from 'react';
 // import {AccountDetails} from '../api/account/accountApi.types';
-import {topUpAccount, withdrawFromAccount} from '../api/account/accountApi';
+import {topUpAccount, withdrawFromAccount} from '../api/userApi';
 
 export function useTransactions() {
     const [isFetching /*,setFetching*/] = useState(false);
     // setFetching(false); // todo temp
 
     async function sendTopUp(amount: number): Promise<boolean> {
-        return (await topUpAccount(amount)) !== null;
+        return await topUpAccount(amount);
     }
 
     async function sendWithdrawal(amount: number): Promise<boolean> {

@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from 'react';
-import {getUser} from '../api/user/userApi';
-import {User} from './userContext.types';
+import {getUser} from '../api/userApi';
+import {User} from '../api/userApi.types';
 import {useInit} from '../../common/hooks/useInit';
 
 const UserContext = createContext<User | null>(null);

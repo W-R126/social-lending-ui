@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import {AccountDetails} from '../api/account/accountApi.types';
-import {getAccountDetails} from '../api/account/accountApi';
+import {AccountDetails} from '../api/accountApi.types';
+import {getAccountDetails} from '../api/userApi';
 
 export function useAccountDetails(accountNo: string | null) {
     const [accountDetails, setAccountDetails] = useState<AccountDetails | null>(null);
