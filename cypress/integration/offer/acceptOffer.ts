@@ -11,6 +11,7 @@ context('Accept offer', () => {
 
         cy.registerUser(testData.username2, testData.password2);
         cy.login(testData.username2, testData.password2);
+        cy.deposit(testData.loanAmount);
         cy.submitOffer(testData.proposedAnnualPercentageRate);
         cy.login(testData.username1, testData.password1);
         cy.visit('/my-auctions');
