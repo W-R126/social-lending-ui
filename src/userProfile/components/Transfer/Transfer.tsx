@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
     Alert,
     AlertIcon,
-    Box,
     Button,
     FormControl,
     FormErrorMessage,
@@ -19,13 +18,24 @@ import {validate} from './Transfer.helpers';
 import {newTransferData} from './Transfer.types';
 import {useState} from 'react';
 import {boxStyle} from '../../views/AccountView/AccountView.styles';
+import {useTransactions} from '../../hooks/useTransactions';
 
 export const Transfer: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
+    const {sendWithdrawal} = useTransactions();
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
     const handleSubmit = (values: newTransferData, {setSubmitting}: FormikHelpers<newTransferData>) => {
-        console.log(values);
+        sendWithdrawal(values.amount).then(success => {
+            if (success) {
+                setSuccessMessage(`$${values.amount} will be transferred`);
+                setError(null);
+            } else {
+                setError('Failed to transfer, please ensure you have enough funds');
+                setSuccessMessage(null);
+            }
+        });
         setSubmitting(false);
-        setError(null); // todo: this is temp to avoid build error
     };
 
     return (
@@ -38,20 +48,20 @@ export const Transfer: React.FC = () => {
 
                     return (
                         <form onSubmit={handleSubmit}>
-                            <FormControl isInvalid={!!(errors.transferAmount && touched.transferAmount)}>
+                            <FormControl isInvalid={!!(errors.amount && touched.amount)}>
                                 <FormLabel>Transfer Amount</FormLabel>
                                 <InputGroup>
                                     <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
                                     <Input
                                         type={'number'}
-                                        placeholder={'transfer amount'}
-                                        name={'transferAmount'}
-                                        value={values.transferAmount}
+                                        placeholder={'amount'}
+                                        name={'amount'}
+                                        value={values.amount}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
                                 </InputGroup>
-                                <FormErrorMessage>{errors.transferAmount}</FormErrorMessage>
+                                <FormErrorMessage>{errors.amount}</FormErrorMessage>
                             </FormControl>
 
                             <FormControl mt={3} isInvalid={!!(errors.toAccount && touched.toAccount)}>
@@ -83,6 +93,12 @@ export const Transfer: React.FC = () => {
                                 <Alert mt={3} status="error">
                                     <AlertIcon />
                                     {error}
+                                </Alert>
+                            )}
+                            {successMessage !== null && (
+                                <Alert mt={3} status={'success'}>
+                                    <AlertIcon />
+                                    {successMessage}
                                 </Alert>
                             )}
                         </form>

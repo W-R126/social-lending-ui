@@ -1,5 +1,4 @@
 import {useState} from 'react';
-// import {AccountDetails} from '../api/account/accountApi.types';
 import {topUpAccount, withdrawFromAccount} from '../api/userApi';
 
 export function useTransactions() {
