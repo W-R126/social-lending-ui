@@ -49,4 +49,5 @@ export enum Routes {
     HISTORY = '/history',
     BORROWER_LOANS = '/borrower-loans',
     BORROWER_LOANS_DETAILS = '/borrower-loans/:loanId',
+    LENDER_LOANS = '/lender-loans',
 }

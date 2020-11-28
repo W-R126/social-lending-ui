@@ -23,6 +23,7 @@ import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
 import {AccountView} from '../userProfile/views/AccountView/AccountView';
 import {BorrowerLoanView} from '../loans/views/BorrowerLoanView';
 import {BorrowerLoanHistoryView} from '../loans/views/BorrowerLoanHistoryView';
+import {LenderLoanView} from '../loans/views/LenderLoanView';
 import {UserProvider} from '../userProfile/contexts/UserProvider';
 
 /**
@@ -88,6 +89,10 @@ export const AppRouter: React.FC = () => {
 
                 <RestrictedRoute path={Routes.BORROWER_LOANS}>
                     <BorrowerLoanView />
+                </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.LENDER_LOANS}>
+                    <LenderLoanView />
                 </RestrictedRoute>
 
                 <Route>
