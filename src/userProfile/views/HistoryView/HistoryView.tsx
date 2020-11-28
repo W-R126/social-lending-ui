@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Flex, Heading, Skeleton} from '@chakra-ui/react';
-import {Table} from '../../../auctions/components/Table';
+import {Table} from '../../../common/components/Table';
 import {useUser} from '../../contexts/UserProvider';
 import {TableColumns} from './HistoryView.constants';
 
