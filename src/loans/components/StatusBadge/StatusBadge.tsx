@@ -27,7 +27,7 @@ interface Props {
  */
 export const StatusBadge: React.FC<Props> = ({status}) => {
     return (
-        <Badge mb={4} colorScheme={getColorScheme(status)} maxHeight={5}>
+        <Badge mb={4} colorScheme={getColorScheme(status)} maxHeight={5} name={'statusBadge'}>
             {status}
         </Badge>
     );

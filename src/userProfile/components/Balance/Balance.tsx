@@ -9,7 +9,7 @@ export const Balance: React.FC = () => {
     const balance = userContext?.user?.balance;
     return (
         <Skeleton isLoaded={!isFetching}>
-            <Heading>
+            <Heading name="AccountBalance">
                 {CURRENCY}
                 {balance}
             </Heading>

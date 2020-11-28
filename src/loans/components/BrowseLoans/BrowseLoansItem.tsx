@@ -4,7 +4,7 @@ import {Button, Flex, Stack, Stat, StatHelpText, Text, useDisclosure, useToast} 
 import {StatusBadge} from '../StatusBadge';
 import {CURRENCY} from '../../../common/constants';
 import {Installment, InstallmentStatus, Loan} from '../../api/loansAPI.types';
-import {getCurrentInstallment} from './BrowseLoans.helpers';
+import {getCurrentInstallment, sortInvestmentsById} from './BrowseLoans.helpers';
 import {useHistory} from 'react-router';
 import {Routes} from '../../../routing/routes';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
@@ -57,7 +57,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
     const toast = useToast();
-    const currentInstallment = getCurrentInstallment(loan.installments);
+    const currentInstallment = getCurrentInstallment(sortInvestmentsById(loan.installments));
 
     const handleOpenDetails = () => {
         history.push(Routes.BORROWER_LOANS_DETAILS.replace(':loanId', loan.id.toString()));
@@ -83,6 +83,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
             });
         }
     };
+
     return (
         <Card maxWidth={'500px'} width={'full'}>
             <Stack direction={'column'}>
@@ -91,7 +92,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                         <Flex justify={'space-between'}>
                             <StatusBadge status={currentInstallment.status} />
                             <Flex alignItems={'flex-end'} flexDir={'column'}>
-                                <Text fontSize={'3xl'} lineHeight={1} ml={1}>
+                                <Text fontSize={'3xl'} lineHeight={1} ml={1} name="LoanLeft">
                                     {CURRENCY}
                                     {currentInstallment.status !== InstallmentStatus.PAID ? currentInstallment.left : 0}
                                 </Text>
@@ -113,9 +114,14 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                                         </StatHelpText>
                                         <StatHelpText mb={0}>
                                             {CURRENCY}
-                                            {currentInstallment.total} value to pay
+                                            <Flex name="valueToPay" display={'inline'}>
+                                                {currentInstallment.total}
+                                            </Flex>{' '}
+                                            value to pay
                                         </StatHelpText>
-                                        <StatHelpText mb={0}>Due {formatDate(currentInstallment.due)}</StatHelpText>
+                                        <StatHelpText name="dueDate" mb={0}>
+                                            Due {formatDate(currentInstallment.due)}
+                                        </StatHelpText>
                                     </>
                                 ) : (
                                     <></>

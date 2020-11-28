@@ -28,6 +28,14 @@ export const getCurrentInstallment = (installments: Installment[]): Installment 
  * @param loans
  * @returns sorted list of loans
  */
-export const sortLoans = (loans: Loan[]) => {
+export const sortLoans = (loans: Loan[]): Loan[] => {
     return loans.sort((a, b) => b.amountLeft - a.amountLeft);
+};
+
+/**
+ * Sorts installments by id in ascending order
+ * @param installments
+ */
+export const sortInvestmentsById = (installments: Installment[]): Installment[] => {
+    return installments.sort((a, b) => a.id - b.id);
 };
