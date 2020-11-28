@@ -6,18 +6,15 @@ import {HandleAcceptOfferClick} from '../../../auctions/components/BrowseOffers/
 import {Column} from 'react-table';
 import React from 'react';
 
-export const TableColumns = (auctionId: number, history: {push: (route: string) => void}) => {
+export const TableColumns = () => {
     return [
         {
             Header: 'ID',
             accessor: 'transactionID',
-            Cell: (props: {value: number}) => <Box>{props.value}</Box>,
-        },
-        {
-            Header: 'Date',
-            accessor: 'date',
-            // todo: format date
-            Cell: (props: {value: string}) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
+            Cell: (props: {value: number}) => {
+                console.log(props);
+                return <Box>{props.value}</Box>;
+            },
         },
         {
             Header: 'Type',
@@ -29,16 +26,37 @@ export const TableColumns = (auctionId: number, history: {push: (route: string) 
             accessor: 'transactionAmount',
             Cell: (props: {value: number}) => <Box>${props.value}</Box>,
         },
-        {
-            Header: 'Reference ID',
-            accessor: 'referenceID',
-            Cell: (props: {value: string}) => <Box>{props.value}</Box>,
-        },
-        {
-            Header: 'Action',
-            Cell: (props: any) => (
-                <TableButton text="Accept" onClick={() => HandleAcceptOfferClick(props.cell.row.original.id, auctionId, history)} />
-            ),
-        },
+        // {
+        //     Header: 'Date',
+        //     accessor: 'date',
+        //     // todo: format date
+        //     Cell: (props: {value: string}) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
+        // },
+        // {
+        //     Header: 'Reference ID',
+        //     accessor: 'referenceID',
+        //     Cell: (props: {value: string}) => <Box>{props.value}</Box>,
+        // }
     ] as Column[];
 };
+
+export const mockTransactions = [
+    {
+        index: 0,
+        type: 'DEBIT',
+        amount: 15.67,
+        timestamp: 1606524211326,
+    },
+    {
+        index: 1,
+        type: 'DEBIT',
+        amount: 15.67,
+        timestamp: 1606524213399,
+    },
+    {
+        index: 2,
+        type: 'CREDIT',
+        amount: 15,
+        timestamp: 1606524233846,
+    },
+];
