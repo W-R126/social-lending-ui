@@ -59,7 +59,7 @@ export const Withdraw: React.FC = () => {
                             <FormControl isInvalid={!!(errors.amount && touched.amount)}>
                                 <FormLabel>Withdraw to your card</FormLabel>
                                 <InputGroup>
-                                    <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
+                                    <InputLeftElement color="gray.300" fontSize="1.2em" children={CURRENCY} />
                                     <Input
                                         type={'number'}
                                         placeholder={'amount'}

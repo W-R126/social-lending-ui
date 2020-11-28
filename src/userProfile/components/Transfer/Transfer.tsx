@@ -42,8 +42,7 @@ export const Transfer: React.FC = () => {
     return (
         <Card className={boxStyle}>
             <Heading size={'md'} className={textBottomPaddingStyle}>
-                {' '}
-                External Transfer{' '}
+                External Transfer
             </Heading>
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
@@ -54,7 +53,7 @@ export const Transfer: React.FC = () => {
                             <FormControl isInvalid={!!(errors.amount && touched.amount)}>
                                 <FormLabel>Transfer Amount</FormLabel>
                                 <InputGroup>
-                                    <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
+                                    <InputLeftElement color="gray.300" fontSize="1.2em" children={CURRENCY} />
                                     <Input
                                         type={'number'}
                                         placeholder={'amount'}

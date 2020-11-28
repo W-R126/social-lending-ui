@@ -49,8 +49,7 @@ export const TopUp: React.FC = () => {
         <Card>
             <Box w={'100%'}>
                 <Heading size={'md'} className={textBottomPaddingStyle}>
-                    {' '}
-                    Top Up{' '}
+                    Top Up
                 </Heading>
                 <CardNumber />
             </Box>
@@ -65,7 +64,7 @@ export const TopUp: React.FC = () => {
                                 <FormControl isInvalid={!!(errors.amount && touched.amount)}>
                                     <FormLabel>Top up from your card</FormLabel>
                                     <InputGroup>
-                                        <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
+                                        <InputLeftElement color="gray.300" fontSize="1.2em" children={CURRENCY} />
                                         <Input
                                             type={'number'}
                                             placeholder={'amount'}
