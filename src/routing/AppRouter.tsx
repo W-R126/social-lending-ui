@@ -23,6 +23,7 @@ import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
 import {AccountView} from '../userProfile/views/AccountView/AccountView';
 import {BorrowerLoanView} from '../loans/views/BorrowerLoanView';
 import {BorrowerLoanHistoryView} from '../loans/views/BorrowerLoanHistoryView';
+import {LenderLoanView} from '../loans/views/LenderLoanView';
 
 /**
  * Routing implementation for whole app. Uses useAuth hook in order to check whether user
@@ -85,6 +86,10 @@ export const AppRouter: React.FC = () => {
 
                 <RestrictedRoute path={Routes.BORROWER_LOANS}>
                     <BorrowerLoanView />
+                </RestrictedRoute>
+
+                <RestrictedRoute path={Routes.LENDER_LOANS}>
+                    <LenderLoanView />
                 </RestrictedRoute>
 
                 <Route>
