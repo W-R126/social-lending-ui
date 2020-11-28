@@ -1,4 +1,4 @@
-import {Installment} from '../../api/loansAPI.types';
+import {Installment, Loan} from '../../api/loansAPI.types';
 
 /**
  * Gets current installment. It takes first installment
@@ -22,13 +22,6 @@ export const getCurrentInstallment = (installments: Installment[]): Installment 
     }
 };
 
-/**
- * On payment latest installment handler
- *
- * TODO
- *
- * @param installmentId
- */
-export const onPayInstallment = (installmentId: number) => {
-    console.log({installmentId: installmentId});
+export const sortLoans = (loans: Loan[]) => {
+    return loans.sort((a, b) => b.amountLeft - a.amountLeft);
 };

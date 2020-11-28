@@ -29,3 +29,11 @@ export function getMyLoans(): Promise<Loan[] | null> {
         .then(response => response.data)
         .catch(() => null);
 }
+
+export function payNextInstallment(loanId: number, amount: number): Promise<any | null> {
+    const url = `api/borrower/loans/${loanId}/pay-next-installment?amount=${amount}`;
+    return axios
+        .post(url)
+        .then(response => response.status)
+        .catch(() => null);
+}

@@ -4,6 +4,7 @@ import {useParams} from 'react-router';
 import {Flex, Skeleton} from '@chakra-ui/react';
 import {useBorrowerLoans} from '../../hooks/useBorrowerLoans';
 import {useInit} from '../../../common/hooks/useInit';
+import {borrowerLoanHistoryViewHelpers} from './BorrowerLoanHistoryView.helpers';
 
 /**
  * Entry point of Loan history and details view.
@@ -20,7 +21,7 @@ export const BorrowerLoanHistoryView: React.FC = () => {
     return (
         <Flex flexDir="column">
             <Skeleton isLoaded={!isFetching}>
-                <BrowseLoanHistory loan={loan} installments={loan?.installments ?? []} />
+                <BrowseLoanHistory loan={loan} installments={borrowerLoanHistoryViewHelpers(loan)} />
             </Skeleton>
         </Flex>
     );

@@ -46,7 +46,7 @@ context('Register', () => {
     it('should show error when incorrect card number provided', () => {
         cy.visit('/register');
         cy.get('[name="cardNumber"]')
-            .type(uuidv4())
+            .type('abc')
             .blur();
         cy.contains('Card number should consist of 16 digits');
     });
@@ -60,14 +60,14 @@ context('Register', () => {
     it('should show error when incorrect expiry date provided', () => {
         cy.visit('/register');
         cy.get('[name="expiry"]')
-            .type(uuidv4())
+            .type('12345')
             .blur();
         cy.contains('Provide expiry date in format **/**');
     });
     it('should show error when incorrect CVC provided', () => {
         cy.visit('/register');
         cy.get('[name="cvc"]')
-            .type(uuidv4())
+            .type('asd')
             .blur();
         cy.contains('CVC should be between 000 and 999');
     });

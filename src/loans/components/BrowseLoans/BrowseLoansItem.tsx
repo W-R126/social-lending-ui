@@ -1,14 +1,15 @@
 import * as React from 'react';
 import {Card} from '../../../common/components/Card';
-import {Button, Flex, Stack, Stat, StatHelpText, Text, useDisclosure} from '@chakra-ui/react';
+import {Button, Flex, Stack, Stat, StatHelpText, Text, useDisclosure, useToast} from '@chakra-ui/react';
 import {StatusBadge} from '../StatusBadge';
 import {CURRENCY} from '../../../common/constants';
-import {Loan} from '../../api/loansAPI.types';
-import {getCurrentInstallment, onPayInstallment} from './BrowseLoans.helpers';
+import {Installment, InstallmentStatus, Loan} from '../../api/loansAPI.types';
+import {getCurrentInstallment} from './BrowseLoans.helpers';
 import {useHistory} from 'react-router';
 import {Routes} from '../../../routing/routes';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
 import {formatDate} from '../../helpers/formatDate';
+import {areYouSureText} from './BrowseLoansItem.constants';
 
 /**
  * Parameter definitions for {@link BrowseLoansItem}
@@ -18,6 +19,8 @@ interface ItemProps {
      * Loan info to be shown
      */
     loan: Loan;
+    payInstallment: (loanId: number, amount: number) => Promise<boolean>;
+    isPaymentFetching: boolean;
 }
 
 /**
@@ -34,19 +37,36 @@ interface ItemProps {
  * @param loan
  * @constructor
  */
-export const BrowseLoansItem: React.FC<ItemProps> = ({loan}) => {
+export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPaymentFetching}) => {
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const toast = useToast();
     const currentInstallment = getCurrentInstallment(loan.installments);
 
     const handleOpenDetails = () => {
         history.push(Routes.BORROWER_LOANS_DETAILS.replace(':loanId', loan.id.toString()));
     };
-    const handleConsent = (id: number) => {
-        onPayInstallment(id);
+    const handleConsent = async (installment: Installment, loanId: number) => {
+        const isSuccessful = await payInstallment(loanId, installment.total);
         onClose();
+        if (isSuccessful) {
+            toast({
+                title: 'Installment paid.',
+                description: `${CURRENCY}${installment.total} was taken from your account`,
+                status: 'success',
+                duration: 4000,
+                isClosable: true,
+            });
+        } else {
+            toast({
+                title: 'Installment payment failed.',
+                description: 'Not enough funds on your account',
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            });
+        }
     };
-
     return (
         <Card maxWidth={'500px'} width={'full'}>
             <Stack direction={'column'}>
@@ -54,39 +74,54 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan}) => {
                     <>
                         <Flex justify={'space-between'}>
                             <StatusBadge status={currentInstallment.status} />
-                            <Flex alignItems={'flex-end'}>
-                                <Text as="span" fontSize={'sm'} color={'gray.500'} lineHeight={1.4}>
-                                    {CURRENCY}
-                                </Text>
+                            <Flex alignItems={'flex-end'} flexDir={'column'}>
                                 <Text fontSize={'3xl'} lineHeight={1} ml={1}>
-                                    {currentInstallment.total}
+                                    {CURRENCY}
+                                    {currentInstallment.status !== InstallmentStatus.PAID ? currentInstallment.left : 0}
                                 </Text>
+                                <Stat alignItems={'right'}>
+                                    <StatHelpText mb={0} mt={1}>
+                                        Amount of loan left
+                                    </StatHelpText>
+                                </Stat>
                             </Flex>
                         </Flex>
                         <Flex justify={'flex-start'} align={'flex-end'}>
                             <Stat>
-                                <StatHelpText mb={0}>
-                                    {CURRENCY}
-                                    {currentInstallment.fine} fine
-                                </StatHelpText>
-                                <StatHelpText mb={0}>
-                                    {CURRENCY}
-                                    {currentInstallment.left} left
-                                </StatHelpText>
-                                <StatHelpText mb={0}>Due {formatDate(currentInstallment.due)}</StatHelpText>
+                                {currentInstallment.status !== InstallmentStatus.PAID ? (
+                                    <>
+                                        <Text>Current installment</Text>
+                                        <StatHelpText mb={0}>
+                                            {CURRENCY}
+                                            {currentInstallment.fine} fine
+                                        </StatHelpText>
+                                        <StatHelpText mb={0}>
+                                            {CURRENCY}
+                                            {currentInstallment.total} value to pay
+                                        </StatHelpText>
+                                        <StatHelpText mb={0}>Due {formatDate(currentInstallment.due)}</StatHelpText>
+                                    </>
+                                ) : (
+                                    <></>
+                                )}
                             </Stat>
                             <Flex flexDir={'column'} justifyContent={'space-between'}>
                                 <Button mb={2} colorScheme={'teal'} onClick={handleOpenDetails}>
                                     See details
                                 </Button>
-                                <Button disabled={currentInstallment.status === 'PAID'} colorScheme={'teal'} onClick={onOpen}>
+                                <Button
+                                    disabled={currentInstallment.status.toString() === InstallmentStatus.PAID}
+                                    colorScheme={'teal'}
+                                    onClick={onOpen}
+                                >
                                     Pay installment
                                 </Button>
                                 <AreYouSureAlert
                                     isOpen={isOpen}
                                     onClose={onClose}
-                                    onConsent={() => handleConsent(currentInstallment.id)}
-                                    dialogText={'Are you sure?'}
+                                    onConsent={() => handleConsent(currentInstallment, loan.id)}
+                                    dialogText={areYouSureText(currentInstallment.total)}
+                                    title={'Pay installment'}
                                 />
                             </Flex>
                         </Flex>

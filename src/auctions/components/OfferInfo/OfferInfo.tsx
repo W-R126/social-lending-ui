@@ -35,7 +35,13 @@ export const OfferInfo: React.FC<Props> = ({offer, onDelete}) => {
 
                 <IconButton name="DeleteOffer" colorScheme={'red'} aria-label={'Delete offer'} icon={<Trash />} onClick={onOpen} />
             </StatGroup>
-            <AreYouSureAlert isOpen={isOpen} onClose={onClose} onConsent={handleConsent} dialogText={'Are you sure?'} />
+            <AreYouSureAlert
+                isOpen={isOpen}
+                onClose={onClose}
+                onConsent={handleConsent}
+                dialogText={'Are you sure?'}
+                title={'Delete offer'}
+            />
         </Card>
     );
 };

@@ -69,6 +69,7 @@ export const CreateOfferView: React.FC = () => {
                                 )}
                                 <AreYouSureAlert
                                     dialogText={dialogText(values.proposedAnnualPercentageRate)}
+                                    title={'Create offer'}
                                     onClose={onClose}
                                     isOpen={isOpen}
                                     onConsent={handleSubmit}
