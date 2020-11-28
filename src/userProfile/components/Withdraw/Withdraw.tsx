@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
     Button,
-    Text,
     Heading,
     FormControl,
     FormLabel,
@@ -11,15 +10,12 @@ import {
     FormErrorMessage,
     Alert,
     AlertIcon,
-    Box,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
-//import {useUser} from '../../contexts/UserProvider';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
-import {boxStyle} from '../../views/AccountView/AccountView.styles';
 import {CardEnding} from '../CardEnding';
 import {useTransactions} from '../../hooks/useTransactions';
 

@@ -7,6 +7,8 @@ import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw/Withdraw';
 import {containerStyle} from './AccountView.styles';
 
+// todo only get the context here and make the rest into props
+
 export const AccountView: React.FC = () => {
     return (
         <Flex flexDir="column" className={containerStyle}>
