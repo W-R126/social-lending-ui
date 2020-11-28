@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../cypress/support" />
 import {v4 as uuidv4} from 'uuid';
 
 context('Accept offer', () => {

@@ -32,6 +32,10 @@ Cypress.Commands.add('login', (username: string, password: string) => {
     });
 });
 
+Cypress.Commands.add('logout', () => {
+    localStorage.removeItem('JWT');
+});
+
 Cypress.Commands.add('createNewAuction', (description: string, endDate: string, loanAmount: number, numberOfInstallments: number) => {
     return cy
         .request({
@@ -89,5 +93,4 @@ Cypress.Commands.add('deposit', (amount: number) => {
         },
     });
 });
-
 export {};

@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
+/// <reference types="../../cypress/support" />
 import {v4 as uuidv4} from 'uuid';
+
+// @ts-check
 
 context('Create offer', () => {
     it('should create new offer and show it in my offers', () => {
@@ -30,7 +33,7 @@ context('Create offer', () => {
                     .contains('Yes')
                     .click();
                 cy.contains(testData.loanAmount);
-                cy.contains(value);
+                cy.contains(value?.toString() ?? '');
             });
     });
     it('should delete offer on delete click', () => {
