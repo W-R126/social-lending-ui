@@ -36,7 +36,7 @@ export enum Routes {
      */
     MY_AUCTION_DETAILS = '/my-auctions/:auctionId',
     /**
-     * Form which gives user possibility to create his own
+     * UserAction which gives user possibility to create his own
      * auction
      */
     CREATE_AUCTION = '/new-auction',

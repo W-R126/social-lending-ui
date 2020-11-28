@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
     Button,
-    Text,
     Heading,
     FormControl,
     FormLabel,
@@ -13,26 +12,43 @@ import {
     AlertIcon,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
-//import {useUser} from '../../contexts/UserProvider';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
+import {CardNumber} from '../CardNumber';
+import {useTransactions} from '../../hooks/useTransactions';
+import {textBottomPaddingStyle} from '../../common/common.styles';
+import {CURRENCY} from '../../../common/constants';
+
+/**
+ * Component responsible for withdrawing to the card. Dependent on useUser context
+ * @constructor
+ */
 
 export const Withdraw: React.FC = () => {
-    //const user = useUser();
-    //const account = user?.account;
     const [error, setError] = useState<string | null>(null);
+    const {sendWithdrawal} = useTransactions();
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
     const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
-        console.log('bless yourself');
+        sendWithdrawal(values.amount).then(success => {
+            if (success) {
+                setSuccessMessage(`${CURRENCY}${values.amount} will be sent to your card`);
+                setError(null);
+            } else {
+                setError('Failed to send to your card, please ensure you have enough funds');
+                setSuccessMessage(null);
+            }
+        });
         setSubmitting(false);
-        setError(null);
     };
     return (
         <Card>
-            <Heading size={'md'}>Withdraw to your card</Heading>
-            <Text>Card number 1234...5678</Text>
+            <Heading size={'md'} className={textBottomPaddingStyle}>
+                Withdraw to your card
+            </Heading>
+            <CardNumber />
 
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
@@ -43,7 +59,7 @@ export const Withdraw: React.FC = () => {
                             <FormControl isInvalid={!!(errors.amount && touched.amount)}>
                                 <FormLabel>Withdraw to your card</FormLabel>
                                 <InputGroup>
-                                    <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
+                                    <InputLeftElement color="gray.300" fontSize="1.2em" children={CURRENCY} />
                                     <Input
                                         type={'number'}
                                         placeholder={'amount'}
@@ -56,20 +72,19 @@ export const Withdraw: React.FC = () => {
                                 <FormErrorMessage>{errors.amount}</FormErrorMessage>
                             </FormControl>
 
-                            <Button
-                                width={'full'}
-                                mt={4}
-                                type={'submit'}
-                                isDisabled={isSubmitting || !isValid}
-                                isLoading={isSubmitting}
-                                onClick={() => handleSubmit()}
-                            >
+                            <Button width={'full'} mt={4} type={'submit'} isDisabled={isSubmitting || !isValid} isLoading={isSubmitting}>
                                 Withdraw
                             </Button>
                             {error !== null && (
                                 <Alert mt={3} status="error">
                                     <AlertIcon />
                                     {error}
+                                </Alert>
+                            )}
+                            {successMessage !== null && (
+                                <Alert mt={3} status={'success'}>
+                                    <AlertIcon />
+                                    {successMessage}
                                 </Alert>
                             )}
                         </form>

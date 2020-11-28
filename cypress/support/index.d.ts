@@ -8,13 +8,12 @@ declare namespace Cypress {
 
         logout(): Chainable<Element>;
 
-        createNewAuction(
-            username: string,
-            password: string,
-            description: string,
-            endDate: string,
-            loanAmount: number,
-            numberOfInstallments: number,
-        ): Chainable<Element>;
+        createNewAuction(description: string, endDate: string, loanAmount: number, numberOfInstallments: number): Chainable<Element>;
+
+        submitOffer(proposedAnnualPercentageRate: number): Chainable<Element>;
+
+        withdraw(amount: number): Chainable<Element>;
+
+        deposit(amount: number): Chainable<Element>;
     }
 }

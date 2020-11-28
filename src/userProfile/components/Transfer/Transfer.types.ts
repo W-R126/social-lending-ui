@@ -1,4 +1,4 @@
 export interface newTransferData {
-    transferAmount: number;
+    amount: number;
     toAccount: string;
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Offer} from '../../api/offersAPI.types';
-import {Table} from '../Table';
+import {Table} from '../../../common/components/Table';
 import {TableColumns} from './BrowseOffers.constants';
 import {Auction} from '../../api/auctionsAPI.types';
 import {AuctionInfo} from '../AuctionInfo';

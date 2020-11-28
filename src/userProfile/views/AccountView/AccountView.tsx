@@ -5,20 +5,21 @@ import {UserProvider} from '../../contexts/UserProvider';
 import {TopUp} from '../../components/TopUp/TopUp';
 import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw/Withdraw';
+import {containerStyle} from '../../common/common.styles';
 
 export const AccountView: React.FC = () => {
     return (
-        <Flex flexDir="column">
+        <Flex flexDir="column" className={containerStyle}>
             <UserProvider>
-                <SimpleGrid m={4} minChildWidth={'340px'} spacing={22}>
+                <SimpleGrid spacing={22} columns={[1, null, 2]}>
                     <Box>
                         <BankAccount />
                     </Box>
                     <Box>
-                        <TopUp />
+                        <Transfer />
                     </Box>
                     <Box>
-                        <Transfer />
+                        <TopUp />
                     </Box>
                     <Box>
                         <Withdraw />

@@ -70,4 +70,24 @@ Cypress.Commands.add('logout', () => {
     localStorage.removeItem('JWT');
 });
 
+Cypress.Commands.add('withdraw', (amount: number) => {
+    cy.request({
+        method: 'POST',
+        url: `${Cypress.env('serverUrl')}/api/user/bank/withdraw?amount=${amount}`,
+        auth: {
+            bearer: localStorage.getItem('JWT'),
+        },
+    });
+});
+
+Cypress.Commands.add('deposit', (amount: number) => {
+    cy.request({
+        method: 'POST',
+        url: `${Cypress.env('serverUrl')}/api/user/bank/deposit?amount=${amount}`,
+        auth: {
+            bearer: localStorage.getItem('JWT'),
+        },
+    });
+});
+
 export {};
