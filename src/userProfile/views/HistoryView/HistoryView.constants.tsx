@@ -26,24 +26,3 @@ export const TableColumns = [
         Cell: (props: {value: string}) => <Box>{format(new Date(props.value), DATE_FORMAT)}</Box>,
     },
 ] as Column[];
-
-export const mockTransactions = [
-    {
-        index: 0,
-        type: 'DEBIT',
-        amount: 15.67,
-        timestamp: 1606524211326,
-    },
-    {
-        index: 1,
-        type: 'DEBIT',
-        amount: 15.67,
-        timestamp: 1606524213399,
-    },
-    {
-        index: 2,
-        type: 'CREDIT',
-        amount: 15,
-        timestamp: 1606524233846,
-    },
-];

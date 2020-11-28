@@ -79,14 +79,7 @@ export const Transfer: React.FC = () => {
                                 <FormErrorMessage>{errors.toAccount}</FormErrorMessage>
                             </FormControl>
 
-                            <Button
-                                width={'full'}
-                                mt={4}
-                                type={'submit'}
-                                isDisabled={isSubmitting || !isValid}
-                                isLoading={isSubmitting}
-                                onClick={() => handleSubmit()}
-                            >
+                            <Button width={'full'} mt={4} type={'submit'} isDisabled={isSubmitting || !isValid} isLoading={isSubmitting}>
                                 Send Transfer
                             </Button>
                             {error !== null && (

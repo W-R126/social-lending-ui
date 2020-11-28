@@ -11,8 +11,6 @@ import {
     Input,
     InputGroup,
     InputLeftElement,
-    Flex,
-    Grid,
 } from '@chakra-ui/react';
 import {Card} from '../../../common/components/Card';
 import {Formik, FormikHelpers} from 'formik';
@@ -22,8 +20,7 @@ import {initialFormValues} from './TopUp.constants';
 import {validate} from './TopUp.helpers';
 import {useTransactions} from '../../hooks/useTransactions';
 import {useUser} from '../../contexts/UserProvider';
-import {CardEnding} from '../CardEnding';
-import {bottomAligner, boxStyle, verticalAlignBottom} from '../../views/AccountView/AccountView.styles';
+import {CardNumber} from '../CardNumber';
 
 /**
  * Component responsible for topping up the account.
@@ -34,9 +31,8 @@ export const TopUp: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const {sendTopUp} = useTransactions();
-    const accountNo = useUser()?.account;
+    const accountNo = useUser()?.user?.account;
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
-        console.log(values);
         if (accountNo) {
             sendTopUp(values.amount).then(success => {
                 if (success) {
@@ -56,7 +52,7 @@ export const TopUp: React.FC = () => {
             <Box w={'100%'}>
                 <Heading size={'md'}> Top Up </Heading>
                 <br />
-                <CardEnding />
+                <CardNumber />
             </Box>
 
             <Box w={'100%'}>
@@ -88,7 +84,6 @@ export const TopUp: React.FC = () => {
                                     type={'submit'}
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
-                                    onClick={() => handleSubmit()}
                                 >
                                     Top Up
                                 </Button>

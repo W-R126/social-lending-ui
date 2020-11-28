@@ -16,7 +16,7 @@ import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
 import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
-import {CardEnding} from '../CardEnding';
+import {CardNumber} from '../CardNumber';
 import {useTransactions} from '../../hooks/useTransactions';
 
 export const Withdraw: React.FC = () => {
@@ -40,7 +40,7 @@ export const Withdraw: React.FC = () => {
         <Card>
             <Heading size={'md'}>Withdraw to your card</Heading>
             <br />
-            <CardEnding />
+            <CardNumber />
 
             <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
                 {props => {
@@ -64,14 +64,7 @@ export const Withdraw: React.FC = () => {
                                 <FormErrorMessage>{errors.amount}</FormErrorMessage>
                             </FormControl>
 
-                            <Button
-                                width={'full'}
-                                mt={4}
-                                type={'submit'}
-                                isDisabled={isSubmitting || !isValid}
-                                isLoading={isSubmitting}
-                                onClick={() => handleSubmit()}
-                            >
+                            <Button width={'full'} mt={4} type={'submit'} isDisabled={isSubmitting || !isValid} isLoading={isSubmitting}>
                                 Withdraw
                             </Button>
                             {error !== null && (

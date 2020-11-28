@@ -2,8 +2,9 @@ import React, {createContext, useContext, useState} from 'react';
 import {getUser} from '../api/userApi';
 import {User} from '../api/userApi.types';
 import {useInit} from '../../common/hooks/useInit';
+import {UserContextType} from './userProvider.types';
 
-const UserContext = createContext<User | null>(null);
+const UserContext = createContext<UserContextType | null>(null);
 
 export const useUser = () => useContext(UserContext);
 
@@ -12,17 +13,15 @@ export const UserProvider: React.FC = ({children}) => {
     const [isFetching, setFetching] = useState(false);
     async function fetchUser(): Promise<boolean> {
         setFetching(true);
-        console.log(isFetching); //todo temp
         const fetchedUser = await getUser();
         if (fetchedUser !== null) {
-            console.log(fetchedUser);
             setUser(fetchedUser);
+            setFetching(false);
             return true;
         }
+        setFetching(false);
         return false;
     }
-
     useInit(fetchUser);
-    // const user = await getUser();
-    return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+    return <UserContext.Provider value={{user, isFetching}}>{children}</UserContext.Provider>;
 };

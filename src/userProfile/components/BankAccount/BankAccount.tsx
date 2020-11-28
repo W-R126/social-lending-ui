@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Heading, Text, Grid, Button, Box, useClipboard} from '@chakra-ui/react';
+import {Heading, Text, Grid, Button, Box, useClipboard, Skeleton, Flex} from '@chakra-ui/react';
 import {useUser} from '../../contexts/UserProvider';
 import {Balance} from '../Balance/Balance';
 import {Card} from '../../../common/components/Card';
@@ -9,9 +9,11 @@ import {Routes} from '../../../routing/routes';
 import {boxStyle} from '../../views/AccountView/AccountView.styles';
 
 export const BankAccount: React.FC = () => {
-    const user = useUser();
+    const userContext = useUser();
+    const isFetching = userContext?.isFetching;
+    const user = userContext?.user;
     const account = user?.account;
-    const userName = user?.name;
+    const name = user?.name;
     const [accountNo, setAccountNo] = React.useState('');
     const {hasCopied, onCopy} = useClipboard(accountNo);
     useEffect(() => {
@@ -22,25 +24,27 @@ export const BankAccount: React.FC = () => {
 
     return (
         <Card className={boxStyle}>
-            <Heading size={'md'}>{userName}</Heading>
-            <br />
-            <Text>Balance: </Text>
-            <Balance />
-            <br />
-            <Text> Account Number: </Text>
-            <Text fontSize="md">{accountNo}</Text>
+            <Skeleton isLoaded={!isFetching}>
+                <Heading size={'md'}>{name}</Heading>
+                <br />
+                <Text>Balance: </Text>
+                <Balance />
+                <br />
+                <Text> Account Number: </Text>
+                <Text fontSize="md">{accountNo}</Text>
 
-            <Button onClick={onCopy} size={'md'}>
-                {hasCopied ? 'Copied' : 'Copy'}
-            </Button>
-            <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                <Box>
-                    <br />
-                    <LinkCard icon={<HistoryIcon boxSize={'48px'} />} path={Routes.HISTORY}>
-                        History
-                    </LinkCard>
-                </Box>
-            </Grid>
+                <Button onClick={onCopy} size={'md'}>
+                    {hasCopied ? 'Copied' : 'Copy'}
+                </Button>
+                <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+                    <Box>
+                        <br />
+                        <LinkCard icon={<HistoryIcon boxSize={'48px'} />} path={Routes.HISTORY}>
+                            History
+                        </LinkCard>
+                    </Box>
+                </Grid>
+            </Skeleton>
         </Card>
     );
 };

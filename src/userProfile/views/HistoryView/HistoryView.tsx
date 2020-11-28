@@ -1,17 +1,21 @@
 import * as React from 'react';
-import {Flex, Heading} from '@chakra-ui/react';
+import {Flex, Heading, Skeleton} from '@chakra-ui/react';
 import {Table} from '../../../auctions/components/Table';
 import {useUser} from '../../contexts/UserProvider';
-import {mockTransactions, TableColumns} from './HistoryView.constants';
+import {TableColumns} from './HistoryView.constants';
 
 export const HistoryView: React.FC = () => {
-    const transactions = useUser()?.transactions;
+    const userContext = useUser();
+    const transactions = userContext?.user?.transactions;
+    const isFetching = userContext?.isFetching;
     return (
         <Flex flexDir="column">
-            <Heading size={'m'} align={'center'}>
-                Transaction History
-            </Heading>
-            <Table data={mockTransactions} columns={TableColumns} />
+            <Skeleton isLoaded={!isFetching}>
+                <Heading size={'m'} align={'center'}>
+                    Transaction History
+                </Heading>
+                <Table data={transactions ?? []} columns={TableColumns} />
+            </Skeleton>
         </Flex>
     );
 };
