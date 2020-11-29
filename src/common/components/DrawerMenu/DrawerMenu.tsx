@@ -34,7 +34,7 @@ import {
     MyInvestmentsIcon,
 } from './DrawerMenu.icons';
 import {Balance} from '../../../userProfile/components/Balance';
-import {UserProvider} from '../../../userProfile/contexts/UserProvider';
+import UserProvider from '../../../userProfile/contexts/UserProvider';
 
 /**
  * Main navigation for the app, rendered in AppRouter.tsx.
@@ -42,7 +42,7 @@ import {UserProvider} from '../../../userProfile/contexts/UserProvider';
  * @constructor
  */
 
-export const DrawerMenu: React.FC = () => {
+const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const {isAuthenticated, logout} = useAuth();
     const {colorMode, toggleColorMode} = useColorMode();
@@ -150,3 +150,5 @@ export const DrawerMenu: React.FC = () => {
         </>
     );
 };
+
+export default DrawerMenu;

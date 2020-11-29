@@ -8,7 +8,7 @@ import {MainBox} from './PageNotFound.styles';
  * @constructor
  * @returns PageNotFound component
  */
-export const PageNotFound: React.FC = () => {
+const PageNotFound: React.FC = () => {
     return (
         <Flex className={MainBox}>
             <Image width={['60%', '50%', '40%', '30%']} src={'svg/404.svg'} />
@@ -19,3 +19,5 @@ export const PageNotFound: React.FC = () => {
         </Flex>
     );
 };
+
+export default PageNotFound;

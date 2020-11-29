@@ -10,7 +10,7 @@ import {useInit} from '../../../common/hooks/useInit';
  * props (loans data)
  * @constructor
  */
-export const BorrowerLoanView: React.FC = () => {
+const BorrowerLoanView: React.FC = () => {
     const {loans, fetchLoans, isFetching, payInstallment, isPaymentFetching} = useBorrowerLoans();
     useInit(fetchLoans);
 
@@ -22,3 +22,5 @@ export const BorrowerLoanView: React.FC = () => {
         </Flex>
     );
 };
+
+export default BorrowerLoanView;

@@ -6,7 +6,7 @@ import {useInit} from '../../../common/hooks/useInit';
 import {Flex, Skeleton} from '@chakra-ui/react';
 import {useAuctions} from '../../hooks/useAuctions';
 
-export const MyAuctionDetailsView: React.FC = () => {
+const MyAuctionDetailsView: React.FC = () => {
     const {auctionId} = useParams();
     const {fetchedAuction, fetchAuction} = useAuctions();
     const {isFetching, auction, fetchOffers} = useAuctionDetails(auctionId);
@@ -22,3 +22,5 @@ export const MyAuctionDetailsView: React.FC = () => {
         </Flex>
     );
 };
+
+export default MyAuctionDetailsView;

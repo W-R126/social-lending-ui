@@ -12,7 +12,7 @@ const UserContext = createContext<UserContextType | null>(null);
 
 export const useUser = () => useContext(UserContext);
 
-export const UserProvider: React.FC = ({children}) => {
+const UserProvider: React.FC = ({children}) => {
     const [user, setUser] = useState<UserDto | null>(null);
     const [isFetching, setFetching] = useState(false);
     async function fetchUser(): Promise<boolean> {
@@ -29,3 +29,5 @@ export const UserProvider: React.FC = ({children}) => {
     useInit(fetchUser);
     return <UserContext.Provider value={{user, isFetching}}>{children}</UserContext.Provider>;
 };
+
+export default UserProvider;

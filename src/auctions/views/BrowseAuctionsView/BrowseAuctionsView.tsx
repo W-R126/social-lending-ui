@@ -30,3 +30,5 @@ export const BrowseAuctionsView: React.FC = () => {
         </Flex>
     );
 };
+
+export default BrowseAuctionsView;

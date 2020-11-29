@@ -12,7 +12,7 @@ import {borrowerLoanHistoryViewHelpers} from './BorrowerLoanHistoryView.helpers'
  * props (loans data, and installments)
  * @constructor
  */
-export const BorrowerLoanHistoryView: React.FC = () => {
+const BorrowerLoanHistoryView: React.FC = () => {
     const {loanId} = useParams();
     const {loans, isFetching, fetchLoans} = useBorrowerLoans();
     useInit(fetchLoans);
@@ -26,3 +26,5 @@ export const BorrowerLoanHistoryView: React.FC = () => {
         </Flex>
     );
 };
+
+export default BorrowerLoanHistoryView;

@@ -8,7 +8,7 @@ import {AppLink} from '../../../routing/components/AppLink';
  * Register view which allows to sign up or transition to the login view.
  * @constructor
  */
-export const RegisterView: React.FC = () => {
+const RegisterView: React.FC = () => {
     return (
         <Flex width={'full'} p={4} align={'center'} justifyContent={'center'} direction={'column'}>
             <RegisterForm />
@@ -19,3 +19,5 @@ export const RegisterView: React.FC = () => {
         </Flex>
     );
 };
+
+export default RegisterView;
