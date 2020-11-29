@@ -2,6 +2,16 @@ import {Offer, OfferDTO} from '../api/offersAPI.types';
 import {useState} from 'react';
 import {deleteOffer, getOffers, postOffer} from '../api/lender/offersAPI';
 
+/**
+ * Hook used for fetching offers created by lender.
+ * Also it allows creation and deletion of specified offer
+ * @returns
+ * isFetching - fetching indicator,
+ * offers - fetched offers,
+ * fetchOffers - fetches all offers,
+ * createOffer - creates offer with specified data,
+ * cancelOffer - deletes offer with specified data
+ */
 export function useLenderOffers() {
     const [offers, setOffers] = useState<Offer[]>([]);
     const [isFetching, setFetching] = useState(false);

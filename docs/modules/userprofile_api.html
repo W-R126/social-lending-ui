@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>userProfile/api | social-lending</title>
+        <title>userProfile\api | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,10 +54,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="userprofile_api.html">userProfile/api</a>
+                            <a href="userprofile_api.html">userProfile\api</a>
                         </li>
                     </ul>
-                    <h1>Module userProfile/api</h1>
+                    <h1>Module userProfile\api</h1>
                 </div>
             </div>
         </header>
@@ -74,10 +72,12 @@
                                     <h3>Interfaces</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-interface tsd-parent-kind-module">
-                                            <a href="../interfaces/userprofile_api.transaction.html" class="tsd-kind-icon">Transaction</a>
+                                            <a href="../interfaces/userprofile_api.transactiondto.html" class="tsd-kind-icon"
+                                                >Transaction<wbr />Dto</a
+                                            >
                                         </li>
                                         <li class="tsd-kind-interface tsd-parent-kind-module">
-                                            <a href="../interfaces/userprofile_api.user.html" class="tsd-kind-icon">User</a>
+                                            <a href="../interfaces/userprofile_api.userdto.html" class="tsd-kind-icon">User<wbr />Dto</a>
                                         </li>
                                     </ul>
                                 </section>
@@ -110,7 +110,7 @@
                                     get<wbr />User<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
                                     ><span class="tsd-signature-symbol">&lt;</span
-                                    ><a href="../interfaces/userprofile_api.user.html" class="tsd-signature-type">User</a
+                                    ><a href="../interfaces/userprofile_api.userdto.html" class="tsd-signature-type">UserDto</a
                                     ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span
                                     ><span class="tsd-signature-symbol">&gt;</span>
                                 </li>
@@ -119,12 +119,17 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/userProfile/api/userApi.ts:4</li>
+                                            <li>Defined in src/userProfile/api/userApi.ts:7</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>get all the authenticated user related data</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
-                                        ><a href="../interfaces/userprofile_api.user.html" class="tsd-signature-type">User</a
+                                        ><a href="../interfaces/userprofile_api.userdto.html" class="tsd-signature-type">UserDto</a
                                         ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span
                                         ><span class="tsd-signature-symbol">&gt;</span>
                                     </h4>
@@ -148,13 +153,19 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/userProfile/api/userApi.ts:11</li>
+                                            <li>Defined in src/userProfile/api/userApi.ts:18</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>send a top up account request for the authenticated user</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
                                             <h5>amount: <span class="tsd-signature-type">number</span></h5>
+                                            <div class="tsd-comment tsd-typography"></div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">
@@ -182,13 +193,22 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/userProfile/api/userApi.ts:21</li>
+                                            <li>Defined in src/userProfile/api/userApi.ts:32</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                send an external withdrawal request for the authenticated user. Also used to simulate
+                                                external transfer
+                                            </p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
                                             <h5>amount: <span class="tsd-signature-type">number</span></h5>
+                                            <div class="tsd-comment tsd-typography"></div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">
@@ -207,17 +227,17 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="userprofile_api.html">user<wbr />Profile/api</a>
+                                <a href="userprofile_api.html">user<wbr />Profile\api</a>
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-interface tsd-parent-kind-module">
-                                <a href="../interfaces/userprofile_api.transaction.html" class="tsd-kind-icon">Transaction</a>
+                                <a href="../interfaces/userprofile_api.transactiondto.html" class="tsd-kind-icon">Transaction<wbr />Dto</a>
                             </li>
                             <li class=" tsd-kind-interface tsd-parent-kind-module">
-                                <a href="../interfaces/userprofile_api.user.html" class="tsd-kind-icon">User</a>
+                                <a href="../interfaces/userprofile_api.userdto.html" class="tsd-kind-icon">User<wbr />Dto</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
                                 <a href="userprofile_api.html#getuser" class="tsd-kind-icon">get<wbr />User</a>

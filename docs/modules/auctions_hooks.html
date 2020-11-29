@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>auctions/hooks | social-lending</title>
+        <title>auctions\hooks | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,10 +54,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="auctions_hooks.html">auctions/hooks</a>
+                            <a href="auctions_hooks.html">auctions\hooks</a>
                         </li>
                     </ul>
-                    <h1>Module auctions/hooks</h1>
+                    <h1>Module auctions\hooks</h1>
                 </div>
             </div>
         </header>
@@ -123,9 +121,14 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/hooks/useAuctionDetails.ts:5</li>
+                                            <li>Defined in src/auctions/hooks/useAuctionDetails.ts:13</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Hook used for fetching auction details</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
@@ -133,6 +136,9 @@
                                                 auctionId: <span class="tsd-signature-type">number</span
                                                 ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
                                             </h5>
+                                            <div class="tsd-comment tsd-typography">
+                                                <p>id of auction which details will be fetched</p>
+                                            </div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">
@@ -145,6 +151,10 @@
                                         ><span class="tsd-signature-symbol">; </span>isFetching<span class="tsd-signature-symbol">: </span
                                         ><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span>
                                     </h4>
+                                    <p>
+                                        isFetching - fetching indicator, auction - fetched auction, fetchOffers - fetches auction with its
+                                        offers
+                                    </p>
                                     <ul class="tsd-parameters">
                                         <li class="tsd-parameter">
                                             <h5>
@@ -195,9 +205,14 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/hooks/useAuctions.ts:6</li>
+                                            <li>Defined in src/auctions/hooks/useAuctions.ts:15</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Hook used for fetching auction info for one or all auctions</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-symbol">{ </span>auctions<span class="tsd-signature-symbol"
                                             >: </span
@@ -215,6 +230,10 @@
                                         ><span class="tsd-signature-symbol">; </span>isFetching<span class="tsd-signature-symbol">: </span
                                         ><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span>
                                     </h4>
+                                    <p>
+                                        auctions - fetched auctions, isFetching - fetching indicator, fetchAuctions- fetches all auctions,
+                                        fetchAuction - fetches auction with specified id, fetchedAuction - fetched auction with specified id
+                                    </p>
                                     <ul class="tsd-parameters">
                                         <li class="tsd-parameter">
                                             <h5>
@@ -278,9 +297,17 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/hooks/useLenderOffers.ts:5</li>
+                                            <li>Defined in src/auctions/hooks/useLenderOffers.ts:15</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                Hook used for fetching offers created by lender. Also it allows creation and deletion of
+                                                specified offer
+                                            </p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-symbol">{ </span>cancelOffer<span class="tsd-signature-symbol"
                                             >: </span
@@ -295,6 +322,10 @@
                                         ><a href="../interfaces/auctions_api.offer.html" class="tsd-signature-type">Offer</a
                                         ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span>
                                     </h4>
+                                    <p>
+                                        isFetching - fetching indicator, offers - fetched offers, fetchOffers - fetches all offers,
+                                        createOffer - creates offer with specified data, cancelOffer - deletes offer with specified data
+                                    </p>
                                     <ul class="tsd-parameters">
                                         <li class="tsd-parameter">
                                             <h5>
@@ -353,9 +384,14 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/hooks/useUserAuctions.ts:5</li>
+                                            <li>Defined in src/auctions/hooks/useUserAuctions.ts:13</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Hook used for fetching auction and creation of new ones</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-symbol">{ </span>auctions<span class="tsd-signature-symbol"
                                             >: </span
@@ -370,6 +406,10 @@
                                         ><span class="tsd-signature-symbol">; </span>isFetching<span class="tsd-signature-symbol">: </span
                                         ><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span>
                                     </h4>
+                                    <p>
+                                        isFetching - fetching indicator, auctions - fetched auctions, fetchAuctions - fetches all auctions,
+                                        createAuction - creates auction with specified parameters
+                                    </p>
                                     <ul class="tsd-parameters">
                                         <li class="tsd-parameter">
                                             <h5>
@@ -409,7 +449,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="auctions_hooks.html">auctions/hooks</a>
+                                <a href="auctions_hooks.html">auctions\hooks</a>
                             </li>
                         </ul>
                     </nav>

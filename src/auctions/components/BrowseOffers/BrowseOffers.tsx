@@ -7,12 +7,32 @@ import {AuctionInfo} from '../AuctionInfo';
 import {useHistory} from 'react-router-dom';
 import {Skeleton} from '@chakra-ui/react';
 
+/**
+ * Parameter definition
+ */
 interface Props {
+    /**
+     * Offers to be displayed
+     */
     offers: Offer[];
+    /**
+     * Auction which info will be shown at top of page
+     */
     auction: Auction | undefined;
+    /**
+     * Auction id used in offer table generation
+     */
     auctionId: number | null;
 }
 
+/**
+ * Shows basic info about auction and all offers
+ * available for it
+ * @param offers
+ * @param auction
+ * @param auctionId
+ * @constructor
+ */
 export const BrowseOffers: React.FC<Props> = ({offers, auction, auctionId}) => {
     const history = useHistory();
     return (

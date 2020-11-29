@@ -6,6 +6,13 @@ import {TableButton} from '../TableButton';
 import {DATE_FORMAT} from '../../../common/constants';
 import {Column} from 'react-table';
 
+/**
+ * Definition of columns in which offers for given
+ * auction will be displayed
+ * @param auctionId id of auction for which offers will be displayed
+ * @param history used for redirect after acceptation of offer by borrower
+ * @constructor
+ */
 export const TableColumns = (auctionId: number, history: {push: (route: string) => void}) => {
     return [
         {

@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,7 +54,7 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="../modules/auctions_api.html">auctions/api</a>
+                            <a href="../modules/auctions_api.html">auctions\api</a>
                         </li>
                         <li>
                             <a href="auctions_api.auctiondto.html">AuctionDTO</a>
@@ -69,6 +67,16 @@
         <div class="container container-main">
             <div class="row">
                 <div class="col-8 col-content">
+                    <section class="tsd-panel tsd-comment">
+                        <div class="tsd-comment tsd-typography">
+                            <div class="lead">
+                                <p>
+                                    Auction object used mainly in communication with api. Specifies required fields during auction creation
+                                    process
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                     <section class="tsd-panel tsd-hierarchy">
                         <h3>Hierarchy</h3>
                         <ul class="tsd-hierarchy">
@@ -113,9 +121,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:17</li>
+                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:91</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Brief description of auction about reason of creating auction and potential benefit for borrower</p>
+                                </div>
+                                <p>Represented as string with more than 5 characters</p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="enddate" class="tsd-anchor"></a>
@@ -125,9 +139,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:14</li>
+                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:68</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Scheduled end time for auction</p>
+                                </div>
+                                <p>Represented as integer number of seconds from 01.01.1970</p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="loanamount" class="tsd-anchor"></a>
@@ -137,9 +157,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:15</li>
+                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:75</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Amount of money that borrower needs to lend</p>
+                                </div>
+                                <p>Represented as floating point number of defined currency</p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="numberofinstallments" class="tsd-anchor"></a>
@@ -150,9 +176,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:16</li>
+                                    <li>Defined in src/auctions/api/auctionsAPI.types.ts:83</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Number of installments in auction, specified by borrower at the time of auction creation</p>
+                                </div>
+                                <p>Represented as integer greater than 0</p>
+                            </div>
                         </section>
                     </section>
                 </div>
@@ -163,7 +195,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="../modules/auctions_api.html">auctions/api</a>
+                                <a href="../modules/auctions_api.html">auctions\api</a>
                             </li>
                         </ul>
                     </nav>

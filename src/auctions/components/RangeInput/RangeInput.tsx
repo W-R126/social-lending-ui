@@ -15,13 +15,43 @@ import {
 } from '@chakra-ui/react';
 import {maxInputValue, minInputValue, step} from './RangeInput.constants';
 
+/**
+ * Parameter definition
+ */
 interface Props {
+    /**
+     * Unique identifier of component.
+     * Used by formik and it increases
+     * accessibility
+     */
     name: string;
+    /**
+     * Function invoked on each change of range input
+     * Updates input field
+     * @param name
+     * @param value
+     */
     onChange: (name: string, value: number) => void;
+    /**
+     * Value selected in input
+     */
     value: number;
+    /**
+     * Title of component
+     */
     title: string;
 }
 
+/**
+ * Custom input component which allows
+ * user to input data using slider or
+ * input field
+ * @param name
+ * @param title
+ * @param onChange
+ * @param value
+ * @constructor
+ */
 export const RangeInput: React.FC<Props> = ({name, title, onChange, value}) => {
     return (
         <Grid mt={2} templateRows="repeat(2, 1fr)" templateColumns={['repeat(3, 1fr)', 'repeat(5, 1fr)']}>

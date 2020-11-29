@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,7 +54,7 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="../modules/auctions_api.html">auctions/api</a>
+                            <a href="../modules/auctions_api.html">auctions\api</a>
                         </li>
                         <li>
                             <a href="auctions_api.offer.html">Offer</a>
@@ -69,6 +67,16 @@
         <div class="container container-main">
             <div class="row">
                 <div class="col-8 col-content">
+                    <section class="tsd-panel tsd-comment">
+                        <div class="tsd-comment tsd-typography">
+                            <div class="lead">
+                                <p>
+                                    Main object representing information about offer. Mainly used for presentation of offer data on
+                                    graphical interface
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                     <section class="tsd-panel tsd-hierarchy">
                         <h3>Hierarchy</h3>
                         <ul class="tsd-hierarchy">
@@ -114,9 +122,18 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/offersAPI.types.ts:4</li>
+                                    <li>Defined in src/auctions/api/offersAPI.types.ts:17</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>
+                                        Annual percentage rate that was set by lender during offer creation process. Specifies profit that
+                                        lender wants to achieve
+                                    </p>
+                                </div>
+                                <p>Represented as floating point number between 0.01 and 0.99</p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="auction" class="tsd-anchor"></a>
@@ -127,9 +144,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/offersAPI.types.ts:5</li>
+                                    <li>Defined in src/auctions/api/offersAPI.types.ts:24</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Auction object associated with this offer. Displays basic info about ongoing auction</p>
+                                </div>
+                                <p>Represented as <a href="auctions_api.auction.html">object</a></p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="date" class="tsd-anchor"></a>
@@ -139,9 +162,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/offersAPI.types.ts:6</li>
+                                    <li>Defined in src/auctions/api/offersAPI.types.ts:30</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Date of submission of this offer</p>
+                                </div>
+                                <p>Represented as integer number of seconds from 01.01.1970</p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="id" class="tsd-anchor"></a>
@@ -151,9 +180,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/offersAPI.types.ts:7</li>
+                                    <li>Defined in src/auctions/api/offersAPI.types.ts:36</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Value that uniquely identifies given offer</p>
+                                </div>
+                                <p>Represented as integer number greater than 0</p>
+                            </div>
                         </section>
                     </section>
                 </div>
@@ -164,7 +199,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="../modules/auctions_api.html">auctions/api</a>
+                                <a href="../modules/auctions_api.html">auctions\api</a>
                             </li>
                         </ul>
                     </nav>

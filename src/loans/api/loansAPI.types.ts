@@ -49,14 +49,14 @@ export interface Loan {
      * Amount of money received by borrower after acceptance
      * of offer
      *
-     * Represented as floating point number if defined currency
+     * Represented as floating point number of defined currency
      */
     takenAmount: number;
     /**
      * Amount of money that borrower has left to pay. It
      * took into account all interests and fees.
      *
-     * Represented as floating point number if defined currency
+     * Represented as floating point number of defined currency
      */
     amountLeft: number;
 }

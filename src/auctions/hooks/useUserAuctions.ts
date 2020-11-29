@@ -2,6 +2,14 @@ import {useState} from 'react';
 import {Auction, AuctionDTO} from '../api/auctionsAPI.types';
 import {getAuctions, postAuction} from '../api/borrower/auctionsAPI';
 
+/**
+ * Hook used for fetching auction and creation of new ones
+ * @returns
+ * isFetching - fetching indicator,
+ * auctions - fetched auctions,
+ * fetchAuctions - fetches all auctions,
+ * createAuction - creates auction with specified parameters
+ */
 export function useUserAuctions() {
     const [auctions, setAuctions] = useState<Auction[]>([]);
     const [isFetching, setFetching] = useState(false);

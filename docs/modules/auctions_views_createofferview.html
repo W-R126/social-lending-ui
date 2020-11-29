@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>auctions/views/CreateOfferView | social-lending</title>
+        <title>auctions\views\CreateOfferView | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,10 +54,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="auctions_views_createofferview.html">auctions/views/CreateOfferView</a>
+                            <a href="auctions_views_createofferview.html">auctions\views\CreateOfferView</a>
                         </li>
                     </ul>
-                    <h1>Module auctions/views/CreateOfferView</h1>
+                    <h1>Module auctions\views\CreateOfferView</h1>
                 </div>
             </div>
         </header>
@@ -117,9 +115,17 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.tsx:16</li>
+                                            <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.tsx:21</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                Shows form which allows lender to submit his offer to certain auction with desired
+                                                parameters
+                                            </p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
                                 </li>
                             </ul>
@@ -140,13 +146,23 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:8</li>
+                                            <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:16</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Text displayed when lender creates new offer for certain auction. Used as warning</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
                                             <h5>percentageRate: <span class="tsd-signature-type">number</span></h5>
+                                            <div class="tsd-comment tsd-typography">
+                                                <div class="lead">
+                                                    <p>percentage rate set by user</p>
+                                                </div>
+                                            </div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -168,9 +184,17 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.helpers.ts:4</li>
+                                            <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.helpers.ts:8</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                Validation of data provided in
+                                                <a href="auctions_views_createofferview.html#createofferview">CreateOfferView</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
@@ -178,6 +202,9 @@
                                                 values:
                                                 <a href="../interfaces/auctions_api.offerdto.html" class="tsd-signature-type">OfferDTO</a>
                                             </h5>
+                                            <div class="tsd-comment tsd-typography">
+                                                <div class="lead"></div>
+                                            </div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -196,9 +223,14 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:3</li>
+                                    <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:6</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Default data set for create offer form</p>
+                                </div>
+                            </div>
                             <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
                                 <a name="initialformvalues.auctionid" class="tsd-anchor"></a>
                                 <h3>auction<wbr />Id</h3>
@@ -208,7 +240,7 @@
                                 </div>
                                 <aside class="tsd-sources">
                                     <ul>
-                                        <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:5</li>
+                                        <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:8</li>
                                     </ul>
                                 </aside>
                             </section>
@@ -221,7 +253,7 @@
                                 </div>
                                 <aside class="tsd-sources">
                                     <ul>
-                                        <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:4</li>
+                                        <li>Defined in src/auctions/views/CreateOfferView/CreateOfferView.constants.ts:7</li>
                                     </ul>
                                 </aside>
                             </section>
@@ -235,7 +267,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="auctions_views_createofferview.html">auctions/views/<wbr />Create<wbr />Offer<wbr />View</a>
+                                <a href="auctions_views_createofferview.html">auctions\views\<wbr />Create<wbr />Offer<wbr />View</a>
                             </li>
                         </ul>
                     </nav>

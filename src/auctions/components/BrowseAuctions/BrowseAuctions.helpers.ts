@@ -1,6 +1,13 @@
 import {Auction} from '../../api/auctionsAPI.types';
 import {OrderBy} from './BrowseAuctions.types';
 
+/**
+ * Helper used for conditional sorting of available auctions.
+ * Sorts according to {@link OrderBy} enum value
+ * @param auctions objects to be sorted
+ * @param orderBy sorting method
+ * @returns copy of sorted auctions
+ */
 export function orderAuctions(auctions: Auction[], orderBy: OrderBy) {
     const copy = [...auctions];
 
