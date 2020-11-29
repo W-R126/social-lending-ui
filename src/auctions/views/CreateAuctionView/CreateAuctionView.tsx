@@ -115,6 +115,7 @@ export const CreateAuctionView: React.FC = () => {
                                             onBlur={handleBlur}
                                             placeholder={'Short description...'}
                                             maxLength={250}
+                                            data-cy={'description'}
                                         />
                                     </InputGroup>
                                     <FormErrorMessage>{errors.description}</FormErrorMessage>

@@ -28,7 +28,7 @@ context('Create auction', () => {
         cy.get('[name="numberOfInstallments"]')
             .clear()
             .blur();
-        cy.get('[name="description"]')
+        cy.get('[data-cy="description"]')
             .clear()
             .blur();
         cy.contains('Loan amount must be greater than 0');
@@ -51,7 +51,7 @@ context('Create auction', () => {
 
         cy.get('[name="loanAmount"]').type((loanAmount as unknown) as string);
         cy.get('[name="numberOfInstallments"]').type((numberOfInstallments as unknown) as string);
-        cy.get('[name="description"]').type(description);
+        cy.get('[data-cy="description"]').type(description);
         cy.get('[type="submit"]').click();
         cy.contains(loanAmount);
         cy.contains(numberOfInstallments);
