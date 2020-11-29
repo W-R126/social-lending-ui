@@ -33,7 +33,7 @@ import {
     MyLoansIcon,
     MyInvestmentsIcon,
 } from './DrawerMenu.icons';
-import {Balance} from '../../../userProfile/components/Balance/Balance';
+import {Balance} from '../../../userProfile/components/Balance';
 import {UserProvider} from '../../../userProfile/contexts/UserProvider';
 
 /**
