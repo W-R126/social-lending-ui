@@ -53,7 +53,7 @@ interface ItemProps {
  * @param isPaymentFetching
  * @constructor
  */
-export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment}) => {
+export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPaymentFetching}) => {
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
     const toast = useToast();
