@@ -1,10 +1,17 @@
-# Social Lending UI
+# Social Lending React Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It uses the custom FinTech Challenge template which integrates by default typescript, emotion and react testing library.
 
-## Available Scripts
+For its Component Library, it uses [Chakra UI](https://chakra-ui.com/).
 
-In the project directory, you can run:
+## Setting up development environment
+
+First of all, ensure all dependencies have been installed correctly.
+
+### `yarn install`
+
+Then, you can run one of the two following commands.
 
 ### `yarn start`
 
@@ -14,33 +21,32 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+Additionally by default the proxy is pointing to the SIT environment for the API so there is no need to spin up the API locally.
+To change this behaviour please modify `package.json`.
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Style guide
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Always prefer 4 spaces for tabulation.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Always prefer single quotes when applicable.
+The exception are HTML attributes without binding and when you need to use an apostrophe in the text.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Prefer trailing commas in multiline statements.
 
-### `yarn eject`
+Because Chakra UI relies on `styled-system`, prefer to use its CSS properties in simple cases.
+When they number reaches 4 or more consider moving the styling to a separate class made using `emotion` in a separate file.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To the above limit we do not count properties tied with a given specialized layout component, such as `<Flex>` or `<Stack>`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Try to always rely on such layout components before falling back to using a `<Box>` or other more generic variants.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Prefer the usage of `<Box>` over `<div>` and other base html components.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+When using SVG icons, always run them by an SVG optimizer of choice to reduce their size as much as possible while retaining acceptable quality. Keep in mind, the quality won't be noticable as much when an icon is small enough.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Store all created icons using the `createIcon` utility in a separate file. Example of this is the `<DrawerMenu>` component.
