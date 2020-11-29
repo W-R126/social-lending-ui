@@ -4,6 +4,9 @@ import {CURRENCY, DATE_FORMAT} from '../../../common/constants';
 import {Column} from 'react-table';
 import React from 'react';
 
+/**
+ * Table column definition for bank account history
+ */
 export const TableColumns = [
     {
         Header: 'ID',

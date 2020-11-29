@@ -13,6 +13,15 @@ interface Props {
     showPopperArrow?: boolean;
 }
 
+/**
+ * Date picker component to be used with forms. Adopted from 'ReactDatePicker'
+ * @param name
+ * @param value
+ * @param onChange
+ * @param isClearable
+ * @param showPopperArrow
+ * @constructor
+ */
 export const DatePicker: React.FC<Props> = ({name, value, onChange, isClearable = false, showPopperArrow = false}) => {
     return (
         // Honestly, I have no idea how to improve this part without writing a compatible datepicker myself...

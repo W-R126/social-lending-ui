@@ -18,9 +18,8 @@ import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
 import {MyAuctionDetailsView} from '../auctions/views/MyAuctionDetailsView';
 import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 import {CreateOfferView} from '../auctions/views/CreateOfferView';
-import {Transfer} from '../userProfile/components/Transfer/Transfer';
-import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
-import {AccountView} from '../userProfile/views/AccountView/AccountView';
+import {HistoryView} from '../userProfile/views/HistoryView';
+import {AccountView} from '../userProfile/views/AccountView';
 import {BorrowerLoanView} from '../loans/views/BorrowerLoanView';
 import {BorrowerLoanHistoryView} from '../loans/views/BorrowerLoanHistoryView';
 import {LenderLoanView} from '../loans/views/LenderLoanView';
@@ -71,10 +70,6 @@ export const AppRouter: React.FC = () => {
 
                 <RestrictedRoute path={Routes.ACCOUNT}>
                     <AccountView />
-                </RestrictedRoute>
-
-                <RestrictedRoute path={Routes.TRANSFER}>
-                    <Transfer />
                 </RestrictedRoute>
 
                 <RestrictedRoute path={Routes.HISTORY}>

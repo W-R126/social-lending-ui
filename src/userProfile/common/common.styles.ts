@@ -1,33 +1,33 @@
+/**
+ * Styles shared across the user profile related components
+ */
+
 import {css} from 'emotion';
 
 /**
- * Styles for AccountView Component. Adjusts spacing and size
+ * Adjust height for some of the account view boxes
  */
 export const boxStyle = css`
     min-height: 370px;
 `;
 
+/**
+ * Used where general padding is necessary
+ */
 export const containerStyle = css`
     padding: 42px;
 `;
 
-export const verticalAlignBottom = css`
-    display: inline-block;
-    align-self: flex-end;
-    vertical-align: bottom;
-`;
-
-export const bottomAligner = css`
-    display: inline-block;
-    height: 100%;
-    vertical-align: bottom;
-    width: 0px;
-`;
-
+/**
+ * used where padding adjustment is needed below
+ */
 export const textBottomPaddingStyle = css`
     padding-bottom: 10px;
 `;
 
+/**
+ * used where padding adjustment is needed above
+ */
 export const textTopPaddingStyle = css`
     padding-top: 20px;
 `;

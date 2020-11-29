@@ -1,5 +1,9 @@
 import {createIcon} from '@chakra-ui/react';
 
+/**
+ * SVG icons used in the drawer menu navigation
+ */
+
 export const MyAuctionsIcon = createIcon({
     displayName: 'MyAuctionsIcon',
     viewBox: '0 0 512 512',

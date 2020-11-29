@@ -14,15 +14,16 @@ import {
 import {Card} from '../../../common/components/Card';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Withdraw.constants';
-import {validate} from './Withdraw.helpers';
 import {WithdrawData} from './Withdraw.types';
-import {CardNumber} from '../CardNumber';
+import {CardNumber} from '../CardNumber/CardNumber';
 import {useTransactions} from '../../hooks/useTransactions';
 import {textBottomPaddingStyle} from '../../common/common.styles';
 import {CURRENCY} from '../../../common/constants';
+import {leave2DecimalPlaces} from '../../../common/helpers/leave2DecimalPlaces';
+import {validateFormAmount} from '../../common/common.helpers';
 
 /**
- * Component responsible for withdrawing to the card. Dependent on useUser context
+ * Component responsible for withdrawing to the card.
  * @constructor
  */
 
@@ -32,9 +33,10 @@ export const Withdraw: React.FC = () => {
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
     const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
-        sendWithdrawal(values.amount).then(success => {
+        const amountToSend = leave2DecimalPlaces(values.amount);
+        sendWithdrawal(amountToSend).then(success => {
             if (success) {
-                setSuccessMessage(`${CURRENCY}${values.amount.toFixed(2)} will be sent to your card`);
+                setSuccessMessage(`${CURRENCY}${amountToSend} will be sent to your card`);
                 setError(null);
             } else {
                 setError('Failed to send to your card, please ensure you have enough funds');
@@ -50,7 +52,7 @@ export const Withdraw: React.FC = () => {
             </Heading>
             <CardNumber />
 
-            <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
+            <Formik initialValues={initialFormValues} validate={validateFormAmount} onSubmit={handleSubmit}>
                 {props => {
                     const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
 

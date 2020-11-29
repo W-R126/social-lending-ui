@@ -3,6 +3,11 @@ import {Heading, Skeleton} from '@chakra-ui/react';
 import {useUser} from '../../contexts/UserProvider';
 import {CURRENCY} from '../../../common/constants';
 
+/**
+ * Used where ever balanced needs to be displayed.
+ * Depends on useUser context
+ * @constructor
+ */
 export const Balance: React.FC = () => {
     const userContext = useUser();
     const isFetching = userContext?.isFetching;

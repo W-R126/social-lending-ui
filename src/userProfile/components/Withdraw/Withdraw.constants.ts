@@ -1,5 +1,8 @@
-import {WithdrawData} from './Withdraw.types';
+import {TransferData} from '../../common/common.types';
 
-export const initialFormValues: WithdrawData = {
+/**
+ * Initial form values for withdrawing back to user's bank card.
+ */
+export const initialFormValues: TransferData = {
     amount: 0,
 };

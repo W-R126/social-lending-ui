@@ -9,10 +9,9 @@ import {Routes} from '../../../routing/routes';
 import {boxStyle, textBottomPaddingStyle, textTopPaddingStyle} from '../../common/common.styles';
 
 /**
- * Component responsible for displaying user information, depends on useUser Context
+ * Component responsible for displaying user information related to their bank account. Depends on useUser Context.
  * @constructor
  */
-
 export const BankAccount: React.FC = () => {
     const userContext = useUser();
     const isFetching = userContext?.isFetching;

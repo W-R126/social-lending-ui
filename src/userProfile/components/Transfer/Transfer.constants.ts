@@ -1,6 +1,9 @@
-import {newTransferData} from './Transfer.types';
+import {ExternalTransferData} from './Transfer.types';
 
-export const initialFormValues: newTransferData = {
+/**
+ * Initial form Values for transfer form
+ */
+export const initialFormValues: ExternalTransferData = {
     amount: 0,
     toAccount: '',
 };
