@@ -75,7 +75,11 @@
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-function tsd-parent-kind-module">
                                             <a href="loans_hooks.html#useborrowerloans" class="tsd-kind-icon"
-                                                >use<wbr />Borrower<wbr />Loans</a
+                                                >use
+                                                <wbr />
+                                                Borrower
+                                                <wbr />
+                                                Loans</a
                                             >
                                         </li>
                                     </ul>
@@ -87,26 +91,42 @@
                         <h2>Functions</h2>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="useborrowerloans" class="tsd-anchor"></a>
-                            <h3>use<wbr />Borrower<wbr />Loans</h3>
+                            <h3>
+                                use
+                                <wbr />
+                                Borrower
+                                <wbr />
+                                Loans
+                            </h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    use<wbr />Borrower<wbr />Loans<span class="tsd-signature-symbol">(</span
-                                    ><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span
-                                    ><span class="tsd-signature-symbol">{ </span>fetchLoans<span class="tsd-signature-symbol">: </span
+                                    use
+                                    <wbr />
+                                    Borrower
+                                    <wbr />
+                                    Loans<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
+                                    ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>fetchLoans<span
+                                        class="tsd-signature-symbol"
+                                        >: </span
                                     ><span class="tsd-signature-type">fetchLoans</span
                                     ><span class="tsd-signature-symbol">; </span>isFetching<span class="tsd-signature-symbol">: </span
+                                    ><span class="tsd-signature-type">boolean</span
+                                    ><span class="tsd-signature-symbol">; </span>isPaymentFetching<span class="tsd-signature-symbol"
+                                        >: </span
                                     ><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>loans<span
                                         class="tsd-signature-symbol"
                                         >: </span
                                     ><a href="../interfaces/loans_api.loan.html" class="tsd-signature-type">Loan</a
-                                    ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span>
+                                    ><span class="tsd-signature-symbol">[]</span
+                                    ><span class="tsd-signature-symbol">; </span>payInstallment<span class="tsd-signature-symbol">: </span
+                                    ><a href="" class="tsd-signature-type">payInstallment</a><span class="tsd-signature-symbol"> }</span>
                                 </li>
                             </ul>
                             <ul class="tsd-descriptions">
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/loans/hooks/useBorrowerLoans.ts:14</li>
+                                            <li>Defined in src/loans/hooks/useBorrowerLoans.ts:16</li>
                                         </ul>
                                     </aside>
                                     <div class="tsd-comment tsd-typography">
@@ -116,6 +136,11 @@
                                                 parameters
                                             </p>
                                         </div>
+                                        <p>
+                                            Returns: fetchLoans - invokes loan fetching from api isFetching - if true then some asynchronous
+                                            action is not finished yet loans - list of loan items payInstallment - pays next installment
+                                            isPaymentFetching - fetching indicator for installment payment
+                                        </p>
                                     </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-symbol">{ </span>fetchLoans<span class="tsd-signature-symbol"
@@ -123,23 +148,41 @@
                                         ><span class="tsd-signature-type">fetchLoans</span
                                         ><span class="tsd-signature-symbol">; </span>isFetching<span class="tsd-signature-symbol">: </span
                                         ><span class="tsd-signature-type">boolean</span
+                                        ><span class="tsd-signature-symbol">; </span>isPaymentFetching<span class="tsd-signature-symbol"
+                                            >: </span
+                                        ><span class="tsd-signature-type">boolean</span
                                         ><span class="tsd-signature-symbol">; </span>loans<span class="tsd-signature-symbol">: </span
                                         ><a href="../interfaces/loans_api.loan.html" class="tsd-signature-type">Loan</a
-                                        ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span>
+                                        ><span class="tsd-signature-symbol">[]</span
+                                        ><span class="tsd-signature-symbol">; </span>payInstallment<span class="tsd-signature-symbol"
+                                            >: </span
+                                        ><a href="" class="tsd-signature-type">payInstallment</a
+                                        ><span class="tsd-signature-symbol"> }</span>
                                     </h4>
-                                    <p>fetchLoans invokes loan fetching from api</p>
-                                    <p>isFetching if true then some asynchronous action is not finished yet</p>
-                                    <p>loans which is list of loan items</p>
                                     <ul class="tsd-parameters">
                                         <li class="tsd-parameter">
                                             <h5>
-                                                fetch<wbr />Loans<span class="tsd-signature-symbol">: </span
+                                                fetch
+                                                <wbr />
+                                                Loans<span class="tsd-signature-symbol">: </span
                                                 ><span class="tsd-signature-type">fetchLoans</span>
                                             </h5>
                                         </li>
                                         <li class="tsd-parameter">
                                             <h5>
-                                                is<wbr />Fetching<span class="tsd-signature-symbol">: </span
+                                                is
+                                                <wbr />
+                                                Fetching<span class="tsd-signature-symbol">: </span
+                                                ><span class="tsd-signature-type">boolean</span>
+                                            </h5>
+                                        </li>
+                                        <li class="tsd-parameter">
+                                            <h5>
+                                                is
+                                                <wbr />
+                                                Payment
+                                                <wbr />
+                                                Fetching<span class="tsd-signature-symbol">: </span
                                                 ><span class="tsd-signature-type">boolean</span>
                                             </h5>
                                         </li>
@@ -148,6 +191,14 @@
                                                 loans<span class="tsd-signature-symbol">: </span
                                                 ><a href="../interfaces/loans_api.loan.html" class="tsd-signature-type">Loan</a
                                                 ><span class="tsd-signature-symbol">[]</span>
+                                            </h5>
+                                        </li>
+                                        <li class="tsd-parameter">
+                                            <h5>
+                                                pay
+                                                <wbr />
+                                                Installment<span class="tsd-signature-symbol">: </span
+                                                ><a href="" class="tsd-signature-type">payInstallment</a>
                                             </h5>
                                         </li>
                                     </ul>
@@ -170,7 +221,13 @@
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="loans_hooks.html#useborrowerloans" class="tsd-kind-icon">use<wbr />Borrower<wbr />Loans</a>
+                                <a href="loans_hooks.html#useborrowerloans" class="tsd-kind-icon"
+                                    >use
+                                    <wbr />
+                                    Borrower
+                                    <wbr />
+                                    Loans</a
+                                >
                             </li>
                         </ul>
                     </nav>

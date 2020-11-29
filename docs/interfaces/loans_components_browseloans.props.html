@@ -95,7 +95,23 @@
                                     <h3>Properties</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+                                            <a href="loans_components_browseloans.props.html#ispaymentfetching" class="tsd-kind-icon"
+                                                >is
+                                                <wbr />
+                                                Payment
+                                                <wbr />
+                                                Fetching</a
+                                            >
+                                        </li>
+                                        <li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
                                             <a href="loans_components_browseloans.props.html#loans" class="tsd-kind-icon">loans</a>
+                                        </li>
+                                        <li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+                                            <a href="loans_components_browseloans.props.html#payinstallment" class="tsd-kind-icon"
+                                                >pay
+                                                <wbr />
+                                                Installment</a
+                                            >
                                         </li>
                                     </ul>
                                 </section>
@@ -104,6 +120,33 @@
                     </section>
                     <section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
                         <h2>Properties</h2>
+                        <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+                            <a name="ispaymentfetching" class="tsd-anchor"></a>
+                            <h3>
+                                is
+                                <wbr />
+                                Payment
+                                <wbr />
+                                Fetching
+                            </h3>
+                            <div class="tsd-signature tsd-kind-icon">
+                                is
+                                <wbr />
+                                Payment
+                                <wbr />
+                                Fetching<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span>
+                            </div>
+                            <aside class="tsd-sources">
+                                <ul>
+                                    <li>Defined in src/loans/components/BrowseLoans/BrowseLoans.tsx:29</li>
+                                </ul>
+                            </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>True if payment procedure is not finished, false otherwise</p>
+                                </div>
+                            </div>
+                        </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
                             <a name="loans" class="tsd-anchor"></a>
                             <h3>loans</h3>
@@ -114,7 +157,7 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/loans/components/BrowseLoans/BrowseLoans.tsx:14</li>
+                                    <li>Defined in src/loans/components/BrowseLoans/BrowseLoans.tsx:16</li>
                                 </ul>
                             </aside>
                             <div class="tsd-comment tsd-typography">
@@ -127,6 +170,84 @@
                                 </div>
                             </div>
                         </section>
+                        <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+                            <a name="payinstallment" class="tsd-anchor"></a>
+                            <h3>
+                                pay
+                                <wbr />
+                                Installment
+                            </h3>
+                            <div class="tsd-signature tsd-kind-icon">
+                                pay
+                                <wbr />
+                                Installment<span class="tsd-signature-symbol">:</span>
+                                <span class="tsd-signature-symbol">(</span>loanId<span class="tsd-signature-symbol">: </span
+                                ><span class="tsd-signature-type">number</span>, amount<span class="tsd-signature-symbol">: </span
+                                ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
+                                ><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span
+                                ><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span
+                                ><span class="tsd-signature-symbol">&gt;</span>
+                            </div>
+                            <aside class="tsd-sources">
+                                <ul>
+                                    <li>Defined in src/loans/components/BrowseLoans/BrowseLoans.tsx:24</li>
+                                </ul>
+                            </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>
+                                        Function from <a href="../modules/loans_hooks.html#useborrowerloans">useBorrowerLoans</a> hook.
+                                        Forwarded to
+                                        <a href="../modules/loans_components_browseloans.html#browseloansitem">BrowseLoansItem</a> in order
+                                        to make payInstallment procedure possible
+                                    </p>
+                                </div>
+                                <dl class="tsd-comment-tags">
+                                    <dt>param</dt>
+                                    <dd></dd>
+                                    <dt>param</dt>
+                                    <dd></dd>
+                                </dl>
+                            </div>
+                            <div class="tsd-type-declaration">
+                                <h4>Type declaration</h4>
+                                <ul class="tsd-parameters">
+                                    <li class="tsd-parameter-signature">
+                                        <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+                                            <li class="tsd-signature tsd-kind-icon">
+                                                <span class="tsd-signature-symbol">(</span>loanId<span class="tsd-signature-symbol">: </span
+                                                ><span class="tsd-signature-type">number</span>, amount<span class="tsd-signature-symbol"
+                                                    >: </span
+                                                ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
+                                                ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
+                                                ><span class="tsd-signature-symbol">&lt;</span
+                                                ><span class="tsd-signature-type">boolean</span
+                                                ><span class="tsd-signature-symbol">&gt;</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="tsd-descriptions">
+                                            <li class="tsd-description">
+                                                <h4 class="tsd-parameters-title">Parameters</h4>
+                                                <ul class="tsd-parameters">
+                                                    <li>
+                                                        <h5>loanId: <span class="tsd-signature-type">number</span></h5>
+                                                    </li>
+                                                    <li>
+                                                        <h5>amount: <span class="tsd-signature-type">number</span></h5>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="tsd-returns-title">
+                                                    Returns <span class="tsd-signature-type">Promise</span
+                                                    ><span class="tsd-signature-symbol">&lt;</span
+                                                    ><span class="tsd-signature-type">boolean</span
+                                                    ><span class="tsd-signature-symbol">&gt;</span>
+                                                </h4>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
                     </section>
                 </div>
                 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -136,14 +257,24 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="../modules/loans_components_browseloans.html">loans\components\<wbr />Browse<wbr />Loans</a>
+                                <a href="../modules/loans_components_browseloans.html"
+                                    >loans\components\
+                                    <wbr />
+                                    Browse
+                                    <wbr />
+                                    Loans</a
+                                >
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-                                <a href="loans_components_browseloans.itemprops.html" class="tsd-kind-icon">Item<wbr />Props</a>
+                                <a href="loans_components_browseloans.itemprops.html" class="tsd-kind-icon"
+                                    >Item
+                                    <wbr />
+                                    Props</a
+                                >
                             </li>
                         </ul>
                         <ul class="current">
@@ -151,7 +282,23 @@
                                 <a href="loans_components_browseloans.props.html" class="tsd-kind-icon">Props</a>
                                 <ul>
                                     <li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+                                        <a href="loans_components_browseloans.props.html#ispaymentfetching" class="tsd-kind-icon"
+                                            >is
+                                            <wbr />
+                                            Payment
+                                            <wbr />
+                                            Fetching</a
+                                        >
+                                    </li>
+                                    <li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
                                         <a href="loans_components_browseloans.props.html#loans" class="tsd-kind-icon">loans</a>
+                                    </li>
+                                    <li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+                                        <a href="loans_components_browseloans.props.html#payinstallment" class="tsd-kind-icon"
+                                            >pay
+                                            <wbr />
+                                            Installment</a
+                                        >
                                     </li>
                                 </ul>
                             </li>
@@ -159,22 +306,45 @@
                         <ul class="after-current">
                             <li class=" tsd-kind-function tsd-parent-kind-module">
                                 <a href="../modules/loans_components_browseloans.html#browseloans" class="tsd-kind-icon"
-                                    >Browse<wbr />Loans</a
+                                    >Browse
+                                    <wbr />
+                                    Loans</a
                                 >
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
                                 <a href="../modules/loans_components_browseloans.html#browseloansitem" class="tsd-kind-icon"
-                                    >Browse<wbr />Loans<wbr />Item</a
+                                    >Browse
+                                    <wbr />
+                                    Loans
+                                    <wbr />
+                                    Item</a
+                                >
+                            </li>
+                            <li class=" tsd-kind-function tsd-parent-kind-module">
+                                <a href="../modules/loans_components_browseloans.html#areyousuretext" class="tsd-kind-icon"
+                                    >are
+                                    <wbr />
+                                    You
+                                    <wbr />
+                                    Sure
+                                    <wbr />
+                                    Text</a
                                 >
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
                                 <a href="../modules/loans_components_browseloans.html#getcurrentinstallment" class="tsd-kind-icon"
-                                    >get<wbr />Current<wbr />Installment</a
+                                    >get
+                                    <wbr />
+                                    Current
+                                    <wbr />
+                                    Installment</a
                                 >
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="../modules/loans_components_browseloans.html#onpayinstallment" class="tsd-kind-icon"
-                                    >on<wbr />Pay<wbr />Installment</a
+                                <a href="../modules/loans_components_browseloans.html#sortloans" class="tsd-kind-icon"
+                                    >sort
+                                    <wbr />
+                                    Loans</a
                                 >
                             </li>
                         </ul>

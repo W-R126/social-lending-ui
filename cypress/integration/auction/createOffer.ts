@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
+/// <reference types="../../cypress/support" />
 import {v4 as uuidv4} from 'uuid';
+
+// @ts-check
 
 context('Create offer', () => {
     it('should create new offer and show it in my offers', () => {
@@ -30,7 +33,7 @@ context('Create offer', () => {
                     .contains('Yes')
                     .click();
                 cy.contains(testData.loanAmount);
-                cy.contains(value);
+                cy.contains(value?.toString() ?? '');
             });
     });
     it('should delete offer on delete click', () => {
@@ -73,8 +76,8 @@ const getTestData = () => ({
     username2: uuidv4(),
     password2: uuidv4(),
     endDate: '12/12/9999 12:12',
-    loanAmount: Math.round(Math.random() * 100000) / 100,
-    numberOfInstallments: Math.round(Math.random() * 120),
-    description: uuidv4() + uuidv4(),
-    proposedAnnualPercentageRate: Math.round(Math.random() * 10) / 100,
+    loanAmount: 10000,
+    numberOfInstallments: 12,
+    description: 'description',
+    proposedAnnualPercentageRate: 10,
 });

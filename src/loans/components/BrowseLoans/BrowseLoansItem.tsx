@@ -4,7 +4,7 @@ import {Button, Flex, Stack, Stat, StatHelpText, Text, useDisclosure, useToast} 
 import {StatusBadge} from '../StatusBadge';
 import {CURRENCY} from '../../../common/constants';
 import {Installment, InstallmentStatus, Loan} from '../../api/loansAPI.types';
-import {getCurrentInstallment} from './BrowseLoans.helpers';
+import {getCurrentInstallment, sortInvestmentsById} from './BrowseLoans.helpers';
 import {useHistory} from 'react-router';
 import {Routes} from '../../../routing/routes';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
@@ -19,7 +19,17 @@ interface ItemProps {
      * Loan info to be shown
      */
     loan: Loan;
+    /**
+     * Pay installment with specified data.
+     * Makes call to hook which makes call to api
+     * @param loanId id of loan in which installment is
+     * @param amount value of installment which will be payed
+     */
     payInstallment: (loanId: number, amount: number) => Promise<boolean>;
+    /**
+     * True if payment procedure is not finished,
+     * false otherwise
+     */
     isPaymentFetching: boolean;
 }
 
@@ -29,19 +39,25 @@ interface ItemProps {
  * Shortly describes the most recent not paid
  * installment and makes ability to pay for it
  *
- * After pushing see details button, user is redirected
+ * After pushing "see details" button, user is redirected
  * to {@link BorrowerLoanHistoryView}
  *
- * When Pay installment is pressed, after prompt,
+ * When "Pay installment" is pressed, after prompt,
  * installment is being paid
+ *
+ * When successful, then green toast is produced,
+ * when failure, then red toast with appropriate
+ * messages are displayed
  * @param loan
+ * @param payInstallment
+ * @param isPaymentFetching
  * @constructor
  */
 export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPaymentFetching}) => {
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
     const toast = useToast();
-    const currentInstallment = getCurrentInstallment(loan.installments);
+    const currentInstallment = getCurrentInstallment(sortInvestmentsById(loan.installments));
 
     const handleOpenDetails = () => {
         history.push(Routes.BORROWER_LOANS_DETAILS.replace(':loanId', loan.id.toString()));
@@ -67,6 +83,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
             });
         }
     };
+
     return (
         <Card maxWidth={'500px'} width={'full'}>
             <Stack direction={'column'}>
@@ -75,7 +92,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                         <Flex justify={'space-between'}>
                             <StatusBadge status={currentInstallment.status} />
                             <Flex alignItems={'flex-end'} flexDir={'column'}>
-                                <Text fontSize={'3xl'} lineHeight={1} ml={1}>
+                                <Text fontSize={'3xl'} lineHeight={1} ml={1} name="LoanLeft">
                                     {CURRENCY}
                                     {currentInstallment.status !== InstallmentStatus.PAID ? currentInstallment.left : 0}
                                 </Text>
@@ -97,9 +114,14 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                                         </StatHelpText>
                                         <StatHelpText mb={0}>
                                             {CURRENCY}
-                                            {currentInstallment.total} value to pay
+                                            <Flex name="valueToPay" display={'inline'}>
+                                                {currentInstallment.total}
+                                            </Flex>{' '}
+                                            value to pay
                                         </StatHelpText>
-                                        <StatHelpText mb={0}>Due {formatDate(currentInstallment.due)}</StatHelpText>
+                                        <StatHelpText name="dueDate" mb={0}>
+                                            Due {formatDate(currentInstallment.due)}
+                                        </StatHelpText>
                                     </>
                                 ) : (
                                     <></>
@@ -117,6 +139,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                                     Pay installment
                                 </Button>
                                 <AreYouSureAlert
+                                    isLoading={isPaymentFetching}
                                     isOpen={isOpen}
                                     onClose={onClose}
                                     onConsent={() => handleConsent(currentInstallment, loan.id)}

@@ -14,7 +14,18 @@ interface Props {
      * components
      */
     loans: Loan[];
+    /**
+     * Function from {@link useBorrowerLoans} hook.
+     * Forwarded to {@link BrowseLoansItem} in order to
+     * make payInstallment procedure possible
+     * @param loanId
+     * @param amount
+     */
     payInstallment: (loanId: number, amount: number) => Promise<boolean>;
+    /**
+     * True if payment procedure is not finished,
+     * false otherwise
+     */
     isPaymentFetching: boolean;
 }
 
@@ -22,6 +33,8 @@ interface Props {
  * List of loan items. This component, with
  * loans prop will be rendered inside {@link BorrowerLoanView}
  * @param loans
+ * @param payInstallment
+ * @param isPaymentFetching
  * @constructor
  */
 export const BrowseLoans: React.FC<Props> = ({loans, payInstallment, isPaymentFetching}) => {
