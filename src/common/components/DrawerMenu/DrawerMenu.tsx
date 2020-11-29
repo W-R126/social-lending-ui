@@ -50,7 +50,7 @@ export const DrawerMenu: React.FC = () => {
         <>
             <Flex as={'nav'} align={'center'} justify={'space-between'} p={2} shadow={'sm'}>
                 <Box as={'span'}>
-                    <Image src={'logo/logo256.png'} boxSize={'48px'} d={'inline'} />
+                    <Image src={'logo/logo256.png'} boxSize={'48px'} d={'inline'} alt={'Logo'} />
                     <Text d={'inline'}>LendTree - The Social Lending App</Text>
                 </Box>
                 <Stack direction={'row'}>

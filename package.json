@@ -39,6 +39,7 @@
         "react-datepicker": "^3.3.0",
         "react-dom": "^17.0.1",
         "react-feather": "^2.0.8",
+        "react-helmet": "^6.1.0",
         "react-responsive": "^8.1.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "^4.0.0",
@@ -76,6 +77,7 @@
     },
     "proxy": "https://metis-social-lending-service.metis-team.sit.fintechchallenge.pl",
     "devDependencies": {
+        "@types/react-helmet": "^6.1.0",
         "cypress": "^5.6.0",
         "start-server-and-test": "^1.11.6",
         "typedoc": "^0.19.2",
