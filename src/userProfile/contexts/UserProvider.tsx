@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from 'react';
 import {getUser} from '../api/userApi';
-import {User} from '../api/userApi.types';
+import {UserDto} from '../api/userApi.types';
 import {useInit} from '../../common/hooks/useInit';
 import {UserContextType} from './userProvider.types';
 
@@ -13,7 +13,7 @@ const UserContext = createContext<UserContextType | null>(null);
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider: React.FC = ({children}) => {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<UserDto | null>(null);
     const [isFetching, setFetching] = useState(false);
     async function fetchUser(): Promise<boolean> {
         setFetching(true);

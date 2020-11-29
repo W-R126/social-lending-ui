@@ -17,11 +17,12 @@ import {Formik, FormikHelpers} from 'formik';
 import {useState} from 'react';
 import {TopUpData} from './TopUp.types';
 import {initialFormValues} from './TopUp.constants';
-import {validate} from './TopUp.helpers';
 import {useTransactions} from '../../hooks/useTransactions';
 import {CardNumber} from '../CardNumber/CardNumber';
 import {textBottomPaddingStyle} from '../../common/common.styles';
 import {CURRENCY} from '../../../common/constants';
+import {leave2DecimalPlaces} from '../../../common/helpers/leave2DecimalPlaces';
+import {validateFormAmount} from '../../common/common.helpers';
 
 /**
  * Component responsible for topping up the account.
@@ -33,9 +34,10 @@ export const TopUp: React.FC = () => {
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const {sendTopUp} = useTransactions();
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
-        sendTopUp(values.amount).then(success => {
+        const amountToSend = leave2DecimalPlaces(values.amount);
+        sendTopUp(amountToSend).then(success => {
             if (success) {
-                setSuccessMessage(`${CURRENCY}${values.amount.toFixed(2)} will be added to your account`);
+                setSuccessMessage(`${CURRENCY}${amountToSend} will be added to your account`);
                 setError(null);
             } else {
                 setError('Failed to top up, please try again later.');
@@ -55,7 +57,7 @@ export const TopUp: React.FC = () => {
             </Box>
 
             <Box w={'100%'}>
-                <Formik initialValues={initialFormValues} validate={validate} onSubmit={handleSubmit}>
+                <Formik initialValues={initialFormValues} validate={validateFormAmount} onSubmit={handleSubmit}>
                     {props => {
                         const {values, touched, errors, isSubmitting, isValid, handleChange, handleBlur, handleSubmit} = props;
 

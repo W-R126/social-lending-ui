@@ -1,10 +1,10 @@
 import axios from 'axios';
-import {User} from './userApi.types';
+import {UserDto} from './userApi.types';
 
 /**
  * get all the authenticated user related data
  */
-export function getUser(): Promise<User | null> {
+export function getUser(): Promise<UserDto | null> {
     return axios
         .get('api/user/me')
         .then(response => response.data)

@@ -1,9 +1,9 @@
-import {User} from '../api/userApi.types';
+import {UserDto} from '../api/userApi.types';
 
 /**
  * Type for user context
  */
 export interface UserContextType {
-    user: User | null;
+    user: UserDto | null;
     isFetching: boolean;
 }

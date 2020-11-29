@@ -2,18 +2,18 @@
  * Defines all the user data attributes
  */
 
-export interface User {
+export interface UserDto {
     account: string | null;
     balance: number | null;
     cardNumber: number | null;
     cvc: number | null;
     expiry: string | null;
     name: string | null;
-    transactions: Transaction[];
+    transactions: TransactionDto[];
     username: string | null;
 }
 
-export interface Transaction {
+export interface TransactionDto {
     id: number;
     type: string;
     amount: number;

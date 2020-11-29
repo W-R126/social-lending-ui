@@ -15,11 +15,12 @@ import {Card} from '../../../common/components/Card';
 import {Formik, FormikHelpers} from 'formik';
 import {initialFormValues} from './Transfer.constants';
 import {validate} from './Transfer.helpers';
-import {newTransferData} from './Transfer.types';
+import {ExternalTransferData} from './Transfer.types';
 import {useState} from 'react';
 import {boxStyle, textBottomPaddingStyle} from '../../common/common.styles';
 import {useTransactions} from '../../hooks/useTransactions';
 import {CURRENCY} from '../../../common/constants';
+import {leave2DecimalPlaces} from '../../../common/helpers/leave2DecimalPlaces';
 
 /**
  * Component responsible for user transfers
@@ -30,10 +31,11 @@ export const Transfer: React.FC = () => {
     const {sendWithdrawal} = useTransactions();
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-    const handleSubmit = (values: newTransferData, {setSubmitting}: FormikHelpers<newTransferData>) => {
-        sendWithdrawal(values.amount).then(success => {
+    const handleSubmit = (values: ExternalTransferData, {setSubmitting}: FormikHelpers<ExternalTransferData>) => {
+        const amountToSend = leave2DecimalPlaces(values.amount);
+        sendWithdrawal(amountToSend).then(success => {
             if (success) {
-                setSuccessMessage(`${CURRENCY}${values.amount.toFixed(2)} will be transferred`);
+                setSuccessMessage(`${CURRENCY}${amountToSend} will be transferred`);
                 setError(null);
             } else {
                 setError('Failed to transfer, please ensure you have enough funds');
