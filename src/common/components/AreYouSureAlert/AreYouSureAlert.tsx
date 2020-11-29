@@ -17,9 +17,10 @@ interface Props {
     onConsent: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
     dialogText: string;
     title: string;
+    isLoading?: boolean;
 }
 
-export const AreYouSureAlert: React.FC<Props> = ({title, dialogText, isOpen, onClose, cancelRef, onConsent}) => {
+export const AreYouSureAlert: React.FC<Props> = ({title, dialogText, isOpen, onClose, isLoading, cancelRef, onConsent}) => {
     return (
         <>
             <AlertDialog motionPreset="slideInBottom" leastDestructiveRef={cancelRef} onClose={onClose} isOpen={isOpen} isCentered>
@@ -33,7 +34,7 @@ export const AreYouSureAlert: React.FC<Props> = ({title, dialogText, isOpen, onC
                         <Button ref={cancelRef} onClick={onClose}>
                             No
                         </Button>
-                        <Button type="submit" colorScheme="green" ml={3} onClick={() => onConsent()}>
+                        <Button isLoading={isLoading} type="submit" colorScheme="green" ml={3} onClick={() => onConsent()}>
                             Yes
                         </Button>
                     </AlertDialogFooter>

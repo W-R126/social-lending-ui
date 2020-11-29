@@ -5,11 +5,13 @@ import {getMyLoans, payNextInstallment} from '../api/borrower/loansAPI';
 /**
  * Hook used for communicating with api module.
  * Fetches data and returns useful methods and parameters
- * @returns fetchLoans invokes loan fetching from api
  *
- * isFetching if true then some asynchronous action is not finished yet
- *
- * loans which is list of loan items
+ * Returns:
+ * fetchLoans - invokes loan fetching from api
+ * isFetching - if true then some asynchronous action is not finished yet
+ * loans - list of loan items
+ * payInstallment - pays next installment
+ * isPaymentFetching - fetching indicator for installment payment
  */
 export function useBorrowerLoans() {
     const [loans, setLoans] = useState<Loan[]>([]);

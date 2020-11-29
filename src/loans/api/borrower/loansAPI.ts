@@ -30,6 +30,16 @@ export function getMyLoans(): Promise<Loan[] | null> {
         .catch(() => null);
 }
 
+/**
+ * Makes POST request to api in order to pay next installment
+ * Successful if borrower has enough funds on his account
+ *
+ * After payment amount is taken from borrower account and added
+ * to lender account
+ * @param loanId
+ * @param amount
+ * @returns http codes 200 if successful, 400 otherwise
+ */
 export function payNextInstallment(loanId: number, amount: number): Promise<any | null> {
     const url = `api/borrower/loans/${loanId}/pay-next-installment?amount=${amount}`;
     return axios

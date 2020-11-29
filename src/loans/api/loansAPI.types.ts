@@ -44,7 +44,7 @@ export interface Loan {
      *
      * Represented as integer number of seconds from 01.01.1970
      */
-    startDate: string;
+    startDate: number;
     /**
      * Amount of money received by borrower after acceptance
      * of offer

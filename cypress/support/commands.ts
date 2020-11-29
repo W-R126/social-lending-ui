@@ -32,6 +32,10 @@ Cypress.Commands.add('login', (username: string, password: string) => {
     });
 });
 
+Cypress.Commands.add('logout', () => {
+    localStorage.removeItem('JWT');
+});
+
 Cypress.Commands.add('createNewAuction', (description: string, endDate: string, loanAmount: number, numberOfInstallments: number) => {
     return cy
         .request({
@@ -63,11 +67,21 @@ Cypress.Commands.add('submitOffer', (proposedAnnualPercentageRate: number) => {
             auctionId: localStorage.getItem('auctionId'),
             proposedAnnualPercentageRate,
         },
+    }).then(response => {
+        localStorage.setItem('offerId', response.body.id);
     });
 });
 
-Cypress.Commands.add('logout', () => {
-    localStorage.removeItem('JWT');
+Cypress.Commands.add('acceptOffer', () => {
+    cy.request({
+        method: 'POST',
+        url: `${Cypress.env('serverUrl')}/api/borrower/auctions/${localStorage.getItem(
+            'auctionId',
+        )}/accept-offer?offer_id=${localStorage.getItem('offerId')}`,
+        auth: {
+            bearer: localStorage.getItem('JWT'),
+        },
+    });
 });
 
 Cypress.Commands.add('withdraw', (amount: number) => {
@@ -88,6 +102,18 @@ Cypress.Commands.add('deposit', (amount: number) => {
             bearer: localStorage.getItem('JWT'),
         },
     });
+});
+
+Cypress.Commands.add('userInfo', () => {
+    return cy
+        .request({
+            method: 'GET',
+            url: `${Cypress.env('serverUrl')}/api/user/me`,
+            auth: {
+                bearer: localStorage.getItem('JWT'),
+            },
+        })
+        .then(({body}) => body);
 });
 
 export {};
