@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>authentication\helpers | social-lending</title>
+        <title>authentication/helpers | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -56,10 +56,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="authentication_helpers.html">authentication\helpers</a>
+                            <a href="authentication_helpers.html">authentication/helpers</a>
                         </li>
                     </ul>
-                    <h1>Module authentication\helpers</h1>
+                    <h1>Module authentication/helpers</h1>
                 </div>
             </div>
         </header>
@@ -75,17 +75,11 @@
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-function tsd-parent-kind-module">
                                             <a href="authentication_helpers.html#retrievetoken" class="tsd-kind-icon"
-                                                >retrieve
-                                                <wbr />
-                                                Token</a
+                                                >retrieve<wbr />Token</a
                                             >
                                         </li>
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="authentication_helpers.html#storetoken" class="tsd-kind-icon"
-                                                >store
-                                                <wbr />
-                                                Token</a
-                                            >
+                                            <a href="authentication_helpers.html#storetoken" class="tsd-kind-icon">store<wbr />Token</a>
                                         </li>
                                     </ul>
                                 </section>
@@ -96,46 +90,42 @@
                         <h2>Functions</h2>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="retrievetoken" class="tsd-anchor"></a>
-                            <h3>
-                                retrieve
-                                <wbr />
-                                Token
-                            </h3>
+                            <h3>retrieve<wbr />Token</h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    retrieve
-                                    <wbr />
-                                    Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
-                                    ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
-                                    ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
+                                    retrieve<wbr />Token<span class="tsd-signature-symbol">(</span
+                                    ><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span
+                                    ><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span
+                                    ><span class="tsd-signature-type">null</span>
                                 </li>
                             </ul>
                             <ul class="tsd-descriptions">
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/authentication/helpers/tokenStorage.ts:9</li>
+                                            <li>Defined in src/authentication/helpers/tokenStorage.ts:17</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Tries to retrieve token from local storage</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span
                                         ><span class="tsd-signature-type">null</span>
                                     </h4>
+                                    <p>JWT or null if does not exist</p>
                                 </li>
                             </ul>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="storetoken" class="tsd-anchor"></a>
-                            <h3>
-                                store
-                                <wbr />
-                                Token
-                            </h3>
+                            <h3>store<wbr />Token</h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    store
-                                    <wbr />
-                                    Token<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span
+                                    store<wbr />Token<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol"
+                                        >: </span
                                     ><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span
                                     ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span>
@@ -145,9 +135,14 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/authentication/helpers/tokenStorage.ts:1</li>
+                                            <li>Defined in src/authentication/helpers/tokenStorage.ts:5</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Stores token in local storage</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
@@ -155,6 +150,7 @@
                                                 token: <span class="tsd-signature-type">string</span
                                                 ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
                                             </h5>
+                                            <div class="tsd-comment tsd-typography"></div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -170,25 +166,17 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="authentication_helpers.html">authentication\helpers</a>
+                                <a href="authentication_helpers.html">authentication/helpers</a>
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="authentication_helpers.html#retrievetoken" class="tsd-kind-icon"
-                                    >retrieve
-                                    <wbr />
-                                    Token</a
-                                >
+                                <a href="authentication_helpers.html#retrievetoken" class="tsd-kind-icon">retrieve<wbr />Token</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="authentication_helpers.html#storetoken" class="tsd-kind-icon"
-                                    >store
-                                    <wbr />
-                                    Token</a
-                                >
+                                <a href="authentication_helpers.html#storetoken" class="tsd-kind-icon">store<wbr />Token</a>
                             </li>
                         </ul>
                     </nav>

@@ -6,6 +6,9 @@ import {validate} from './LoginForm.helpers';
 import {LoginFormData} from './LoginForm.types';
 import {useAuth} from '../../context/AuthProvider';
 
+/**
+ * Form for logging in via username and password
+ */
 export const LoginForm: React.FC = () => {
     const {login} = useAuth();
     const [error, setError] = useState<string | null>(null);

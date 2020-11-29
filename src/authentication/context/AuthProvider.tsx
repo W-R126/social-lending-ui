@@ -4,6 +4,9 @@ import {createContext, useContext} from 'react';
 import {signin} from '../api/authAPI';
 import axios from 'axios';
 
+/**
+ * List of available methods and objects in the auth context
+ */
 interface Context {
     isAuthenticated: boolean;
     token: string | null;
@@ -11,6 +14,9 @@ interface Context {
     logout: () => Promise<boolean>;
 }
 
+/**
+ * Default values, shouldn't be used outside tests for instance
+ */
 const AuthContext = createContext<Context>({
     isAuthenticated: false,
     token: null,
@@ -18,8 +24,16 @@ const AuthContext = createContext<Context>({
     logout: async () => false,
 });
 
+/**
+ * custom hook to simplify usage of auth context
+ */
 export const useAuth = () => useContext(AuthContext);
 
+/**
+ * Implementation of a provider for the auth context
+ * @param children
+ * @constructor
+ */
 export const AuthProvider: React.FC = ({children}) => {
     const storedToken = retrieveToken();
     const [token, setToken] = useState<string | null>(storedToken);

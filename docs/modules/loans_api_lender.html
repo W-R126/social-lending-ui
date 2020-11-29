@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Props | social-lending</title>
+        <title>loans/api/lender | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -56,44 +56,26 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="../modules/loans_components_installmentitem.html">loans/components/InstallmentItem</a>
-                        </li>
-                        <li>
-                            <a href="loans_components_installmentitem.props.html">Props</a>
+                            <a href="loans_api_lender.html">loans/api/lender</a>
                         </li>
                     </ul>
-                    <h1>Interface Props</h1>
+                    <h1>Module loans/api/lender</h1>
                 </div>
             </div>
         </header>
         <div class="container container-main">
             <div class="row">
                 <div class="col-8 col-content">
-                    <section class="tsd-panel tsd-comment">
-                        <div class="tsd-comment tsd-typography">
-                            <div class="lead">
-                                <p>Parameter definition</p>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="tsd-panel tsd-hierarchy">
-                        <h3>Hierarchy</h3>
-                        <ul class="tsd-hierarchy">
-                            <li>
-                                <span class="target">Props</span>
-                            </li>
-                        </ul>
-                    </section>
                     <section class="tsd-panel-group tsd-index-group">
                         <h2>Index</h2>
                         <section class="tsd-panel tsd-index-panel">
                             <div class="tsd-index-content">
-                                <section class="tsd-index-section tsd-is-not-exported">
-                                    <h3>Properties</h3>
+                                <section class="tsd-index-section ">
+                                    <h3>Functions</h3>
                                     <ul class="tsd-index-list">
-                                        <li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-                                            <a href="loans_components_installmentitem.props.html#installment" class="tsd-kind-icon"
-                                                >installment</a
+                                        <li class="tsd-kind-function tsd-parent-kind-module">
+                                            <a href="loans_api_lender.html#getgivenloans" class="tsd-kind-icon"
+                                                >get<wbr />Given<wbr />Loans</a
                                             >
                                         </li>
                                     </ul>
@@ -101,25 +83,45 @@
                             </div>
                         </section>
                     </section>
-                    <section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-                        <h2>Properties</h2>
-                        <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-                            <a name="installment" class="tsd-anchor"></a>
-                            <h3>installment</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                installment<span class="tsd-signature-symbol">:</span>
-                                <a href="loans_api.installment.html" class="tsd-signature-type">Installment</a>
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/loans/components/InstallmentItem/InstallmentItem.tsx:16</li>
-                                </ul>
-                            </aside>
-                            <div class="tsd-comment tsd-typography">
-                                <div class="lead">
-                                    <p>Installment info to be shown</p>
-                                </div>
-                            </div>
+                    <section class="tsd-panel-group tsd-member-group ">
+                        <h2>Functions</h2>
+                        <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+                            <a name="getgivenloans" class="tsd-anchor"></a>
+                            <h3>get<wbr />Given<wbr />Loans</h3>
+                            <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+                                <li class="tsd-signature tsd-kind-icon">
+                                    get<wbr />Given<wbr />Loans<span class="tsd-signature-symbol">(</span
+                                    ><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span
+                                    ><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
+                                    ><a href="../interfaces/loans_api.loan.html" class="tsd-signature-type">Loan</a
+                                    ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span
+                                    ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span>
+                                </li>
+                            </ul>
+                            <ul class="tsd-descriptions">
+                                <li class="tsd-description">
+                                    <aside class="tsd-sources">
+                                        <ul>
+                                            <li>Defined in src/loans/api/lender/loansAPI.ts:10</li>
+                                        </ul>
+                                    </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                Makes GET request to api in order to get loans given to others for current account as a
+                                                lender
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h4 class="tsd-returns-title">
+                                        Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
+                                        ><a href="../interfaces/loans_api.loan.html" class="tsd-signature-type">Loan</a
+                                        ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span
+                                        ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span>
+                                    </h4>
+                                    <p>List of all loans given by user</p>
+                                </li>
+                            </ul>
                         </section>
                     </section>
                 </div>
@@ -130,31 +132,14 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="../modules/loans_components_installmentitem.html"
-                                    >loans/components/<wbr />Installment<wbr />Item</a
-                                >
+                                <a href="loans_api_lender.html">loans/api/lender</a>
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
-                        <ul class="before-current"></ul>
-                        <ul class="current">
-                            <li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-                                <a href="loans_components_installmentitem.props.html" class="tsd-kind-icon">Props</a>
-                                <ul>
-                                    <li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-                                        <a href="loans_components_installmentitem.props.html#installment" class="tsd-kind-icon"
-                                            >installment</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="after-current">
+                        <ul class="before-current">
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="../modules/loans_components_installmentitem.html#installmentitem" class="tsd-kind-icon"
-                                    >Installment<wbr />Item</a
-                                >
+                                <a href="loans_api_lender.html#getgivenloans" class="tsd-kind-icon">get<wbr />Given<wbr />Loans</a>
                             </li>
                         </ul>
                     </nav>
@@ -182,7 +167,6 @@
                         <li class="tsd-kind-interface tsd-has-type-parameter">
                             <span class="tsd-kind-icon">Interface with type parameter</span>
                         </li>
-                        <li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
                     </ul>
                     <ul class="tsd-legend">
                         <li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>

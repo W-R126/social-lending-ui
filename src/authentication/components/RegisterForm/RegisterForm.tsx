@@ -22,6 +22,10 @@ import {useAuth} from '../../context/AuthProvider';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 
+/**
+ * A form to allow registering a new user
+ * @constructor
+ */
 export const RegisterForm: React.FC = () => {
     const {login} = useAuth();
     const [error, setError] = useState<string | null>(null);

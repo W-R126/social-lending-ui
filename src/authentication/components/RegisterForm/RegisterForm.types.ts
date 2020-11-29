@@ -1,3 +1,6 @@
+/**
+ * Data required for creating a new user
+ */
 export interface RegisterFormData {
     username: string;
     password: string;

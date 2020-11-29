@@ -64,16 +64,31 @@
             <div class="row">
                 <div class="col-8 col-content">
                     <div class="tsd-panel tsd-typography">
-                        <a href="#social-lending-ui" id="social-lending-ui" style="color: inherit; text-decoration: none;">
-                            <h1>Social Lending UI</h1>
+                        <a
+                            href="#social-lending-react-frontend"
+                            id="social-lending-react-frontend"
+                            style="color: inherit; text-decoration: none;"
+                        >
+                            <h1>Social Lending React Frontend</h1>
                         </a>
                         <p>
                             This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
+                            It uses the custom FinTech Challenge template which integrates by default typescript, emotion and react testing
+                            library.
                         </p>
-                        <a href="#available-scripts" id="available-scripts" style="color: inherit; text-decoration: none;">
-                            <h2>Available Scripts</h2>
+                        <p>For its Component Library, it uses <a href="https://chakra-ui.com/">Chakra UI</a>.</p>
+                        <a
+                            href="#setting-up-development-environment"
+                            id="setting-up-development-environment"
+                            style="color: inherit; text-decoration: none;"
+                        >
+                            <h2>Setting up development environment</h2>
                         </a>
-                        <p>In the project directory, you can run:</p>
+                        <p>First of all, ensure all dependencies have been installed correctly.</p>
+                        <a href="#yarn-install" id="yarn-install" style="color: inherit; text-decoration: none;">
+                            <h3><code>yarn install</code></h3>
+                        </a>
+                        <p>Then, you can run one of the two following commands.</p>
                         <a href="#yarn-start" id="yarn-start" style="color: inherit; text-decoration: none;">
                             <h3><code>yarn start</code></h3>
                         </a>
@@ -85,6 +100,10 @@
                             The page will reload if you make edits.<br />
                             You will also see any lint errors in the console.
                         </p>
+                        <p>
+                            Additionally by default the proxy is pointing to the SIT environment for the API so there is no need to spin up
+                            the API locally. To change this behaviour please modify <code>package.json</code>.
+                        </p>
                         <a href="#yarn-test" id="yarn-test" style="color: inherit; text-decoration: none;">
                             <h3><code>yarn test</code></h3>
                         </a>
@@ -93,49 +112,38 @@
                             See the section about
                             <a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a> for more information.
                         </p>
-                        <a href="#yarn-build" id="yarn-build" style="color: inherit; text-decoration: none;">
-                            <h3><code>yarn build</code></h3>
+                        <a href="#style-guide" id="style-guide" style="color: inherit; text-decoration: none;">
+                            <h2>Style guide</h2>
                         </a>
+                        <p>Always prefer 4 spaces for tabulation.</p>
                         <p>
-                            Builds the app for production to the <code>build</code> folder.<br />
-                            It correctly bundles React in production mode and optimizes the build for the best performance.
+                            Always prefer single quotes when applicable. The exception are HTML attributes without binding and when you need
+                            to use an apostrophe in the text.
+                        </p>
+                        <p>Prefer trailing commas in multiline statements.</p>
+                        <p>
+                            Because Chakra UI relies on <code>styled-system</code>, prefer to use its CSS properties in simple cases. When
+                            they number reaches 4 or more consider moving the styling to a separate class made using <code>emotion</code> in
+                            a separate file.
                         </p>
                         <p>
-                            The build is minified and the filenames include the hashes.<br />
-                            Your app is ready to be deployed!
+                            To the above limit we do not count properties tied with a given specialized layout component, such as
+                            <code>&lt;Flex&gt;</code> or <code>&lt;Stack&gt;</code>.
                         </p>
                         <p>
-                            See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for
-                            more information.
+                            Try to always rely on such layout components before falling back to using a <code>&lt;Box&gt;</code> or other
+                            more generic variants.
                         </p>
-                        <a href="#yarn-eject" id="yarn-eject" style="color: inherit; text-decoration: none;">
-                            <h3><code>yarn eject</code></h3>
-                        </a>
+                        <p>Prefer the usage of <code>&lt;Box&gt;</code> over <code>&lt;div&gt;</code> and other base html components.</p>
                         <p>
-                            <strong>Note: this is a one-way operation. Once you <code>eject</code>, you can’t go back!</strong>
-                        </p>
-                        <p>
-                            If you aren’t satisfied with the build tool and configuration choices, you can <code>eject</code> at any time.
-                            This command will remove the single build dependency from your project.
+                            When using SVG icons, always run them by an SVG optimizer of choice to reduce their size as much as possible
+                            while retaining acceptable quality. Keep in mind, the quality won&#39;t be noticable as much when an icon is
+                            small enough.
                         </p>
                         <p>
-                            Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc)
-                            right into your project so you have full control over them. All of the commands except <code>eject</code> will
-                            still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+                            Store all created icons using the <code>createIcon</code> utility in a separate file. Example of this is the
+                            <code>&lt;DrawerMenu&gt;</code> component.
                         </p>
-                        <p>
-                            You don’t have to ever use <code>eject</code>. The curated feature set is suitable for small and middle
-                            deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t
-                            be useful if you couldn’t customize it when you are ready for it.
-                        </p>
-                        <a href="#learn-more" id="learn-more" style="color: inherit; text-decoration: none;">
-                            <h2>Learn More</h2>
-                        </a>
-                        <p>
-                            You can learn more in the
-                            <a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.
-                        </p>
-                        <p>To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
                     </div>
                 </div>
                 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -145,499 +153,236 @@
                                 <a href="globals.html"><em>Globals</em></a>
                             </li>
                             <li class=" tsd-kind-module tsd-is-not-exported">
-                                <a href="modules/reflection-1182.html">&lt;em&gt;<wbr /> Module&lt;/em&gt;</a>
+                                <a href="modules/reflection-1204.html">&lt;em&gt;<wbr />Module&lt;/em&gt;</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_api.html">auctions\api</a>
+                                <a href="modules/auctions_api.html">auctions/api</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_api_borrower.html">auctions\api\borrower</a>
+                                <a href="modules/auctions_api_borrower.html">auctions/api/borrower</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_api_lender.html">auctions\api\lender</a>
+                                <a href="modules/auctions_api_lender.html">auctions/api/lender</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_components_auctioninfo.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Auction
-                                    <wbr />
-                                    Info</a
-                                >
+                                <a href="modules/auctions_components_auctioninfo.html">auctions/components/<wbr />Auction<wbr />Info</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_components_browseauctions.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    Auctions</a
+                                    >auctions/components/<wbr />Browse<wbr />Auctions</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_components_browseauctions_auctionitem.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    Auctions\
-                                    <wbr />
-                                    Auction
-                                    <wbr />
-                                    Item</a
+                                    >auctions/components/<wbr />Browse<wbr />Auctions/<wbr />Auction<wbr />Item</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_components_browseoffers.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    Offers</a
-                                >
+                                <a href="modules/auctions_components_browseoffers.html">auctions/components/<wbr />Browse<wbr />Offers</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_components_offerinfo.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Offer
-                                    <wbr />
-                                    Info</a
-                                >
+                                <a href="modules/auctions_components_offerinfo.html">auctions/components/<wbr />Offer<wbr />Info</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_components_rangeinput.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Range
-                                    <wbr />
-                                    Input</a
-                                >
+                                <a href="modules/auctions_components_rangeinput.html">auctions/components/<wbr />Range<wbr />Input</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_components_table.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Table</a
-                                >
+                                <a href="modules/auctions_components_tablebutton.html">auctions/components/<wbr />Table<wbr />Button</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/auctions_components_tablebutton.html"
-                                    >auctions\components\
-                                    <wbr />
-                                    Table
-                                    <wbr />
-                                    Button</a
-                                >
-                            </li>
-                            <li class=" tsd-kind-module">
-                                <a href="modules/auctions_hooks.html">auctions\hooks</a>
+                                <a href="modules/auctions_hooks.html">auctions/hooks</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_views_browseauctionsview.html"
-                                    >auctions\views\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    Auctions
-                                    <wbr />
-                                    View</a
+                                    >auctions/views/<wbr />Browse<wbr />Auctions<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_views_browsemyauctionsview.html"
-                                    >auctions\views\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    MyAuctions
-                                    <wbr />
-                                    View</a
+                                    >auctions/views/<wbr />Browse<wbr />MyAuctions<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_views_browsemyoffersview.html"
-                                    >auctions\views\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    MyOffers
-                                    <wbr />
-                                    View</a
+                                    >auctions/views/<wbr />Browse<wbr />MyOffers<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_views_createauctionview.html"
-                                    >auctions\views\
-                                    <wbr />
-                                    Create
-                                    <wbr />
-                                    Auction
-                                    <wbr />
-                                    View</a
+                                    >auctions/views/<wbr />Create<wbr />Auction<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_views_createofferview.html"
-                                    >auctions\views\
-                                    <wbr />
-                                    Create
-                                    <wbr />
-                                    Offer
-                                    <wbr />
-                                    View</a
+                                    >auctions/views/<wbr />Create<wbr />Offer<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/auctions_views_myauctiondetailsview.html"
-                                    >auctions\views\
-                                    <wbr />
-                                    MyAuction
-                                    <wbr />
-                                    Details
-                                    <wbr />
-                                    View</a
+                                    >auctions/views/<wbr />MyAuction<wbr />Details<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/authentication_api.html">authentication\api</a>
+                                <a href="modules/authentication_api.html">authentication/api</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/authentication_components_loginform.html"
-                                    >authentication\components\
-                                    <wbr />
-                                    Login
-                                    <wbr />
-                                    Form</a
+                                    >authentication/components/<wbr />Login<wbr />Form</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/authentication_components_registerform.html"
-                                    >authentication\components\
-                                    <wbr />
-                                    Register
-                                    <wbr />
-                                    Form</a
+                                    >authentication/components/<wbr />Register<wbr />Form</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/authentication_context.html">authentication\context</a>
+                                <a href="modules/authentication_context.html">authentication/context</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/authentication_helpers.html">authentication\helpers</a>
+                                <a href="modules/authentication_helpers.html">authentication/helpers</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/authentication_views_loginview.html"
-                                    >authentication\views\
-                                    <wbr />
-                                    Login
-                                    <wbr />
-                                    View</a
-                                >
+                                <a href="modules/authentication_views_loginview.html">authentication/views/<wbr />Login<wbr />View</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/authentication_views_registerview.html"
-                                    >authentication\views\
-                                    <wbr />
-                                    Register
-                                    <wbr />
-                                    View</a
-                                >
+                                <a href="modules/authentication_views_registerview.html">authentication/views/<wbr />Register<wbr />View</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/common.html">common</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/common_components_areyousurealert.html"
-                                    >common\components\
-                                    <wbr />
-                                    Are
-                                    <wbr />
-                                    You
-                                    <wbr />
-                                    Sure
-                                    <wbr />
-                                    Alert</a
+                                    >common/components/<wbr />Are<wbr />You<wbr />Sure<wbr />Alert</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_components_card.html"
-                                    >common\components\
-                                    <wbr />
-                                    Card</a
-                                >
+                                <a href="modules/common_components_card.html">common/components/<wbr />Card</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_components_datepicker.html"
-                                    >common\components\
-                                    <wbr />
-                                    Date
-                                    <wbr />
-                                    Picker</a
-                                >
+                                <a href="modules/common_components_datepicker.html">common/components/<wbr />Date<wbr />Picker</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_components_drawermenu.html"
-                                    >common\components\
-                                    <wbr />
-                                    Drawer
-                                    <wbr />
-                                    Menu</a
-                                >
+                                <a href="modules/common_components_drawermenu.html">common/components/<wbr />Drawer<wbr />Menu</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_components_emptypage.html"
-                                    >common\components\
-                                    <wbr />
-                                    Empty
-                                    <wbr />
-                                    Page</a
-                                >
+                                <a href="modules/common_components_emptypage.html">common/components/<wbr />Empty<wbr />Page</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_components_linkcard.html"
-                                    >common\components\
-                                    <wbr />
-                                    Link
-                                    <wbr />
-                                    Card</a
-                                >
+                                <a href="modules/common_components_linkcard.html">common/components/<wbr />Link<wbr />Card</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_helpers.html">common\helpers</a>
+                                <a href="modules/common_components_table.html">common/components/<wbr />Table</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/common_hooks.html">common\hooks</a>
+                                <a href="modules/common_helpers.html">common/helpers</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_api.html">loans\api</a>
+                                <a href="modules/common_hooks.html">common/hooks</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_api_borrower.html">loans\api\borrower</a>
+                                <a href="modules/loans_api.html">loans/api</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_components_badgefilter.html"
-                                    >loans\components\
-                                    <wbr />
-                                    Badge
-                                    <wbr />
-                                    Filter</a
-                                >
+                                <a href="modules/loans_api_borrower.html">loans/api/borrower</a>
+                            </li>
+                            <li class=" tsd-kind-module">
+                                <a href="modules/loans_api_lender.html">loans/api/lender</a>
+                            </li>
+                            <li class=" tsd-kind-module">
+                                <a href="modules/loans_components_badgefilter.html">loans/components/<wbr />Badge<wbr />Filter</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/loans_components_browseloanhistory.html"
-                                    >loans\components\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    Loan
-                                    <wbr />
-                                    History</a
+                                    >loans/components/<wbr />Browse<wbr />Loan<wbr />History</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_components_browseloans.html"
-                                    >loans\components\
-                                    <wbr />
-                                    Browse
-                                    <wbr />
-                                    Loans</a
+                                <a href="modules/loans_components_browseloans.html">loans/components/<wbr />Browse<wbr />Loans</a>
+                            </li>
+                            <li class=" tsd-kind-module">
+                                <a href="modules/loans_components_givenloaninfo.html"
+                                    >loans/components/<wbr />Given<wbr />Loan<wbr />Info</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_components_installmentitem.html"
-                                    >loans\components\
-                                    <wbr />
-                                    Installment
-                                    <wbr />
-                                    Item</a
-                                >
+                                <a href="modules/loans_components_installmentitem.html">loans/components/<wbr />Installment<wbr />Item</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_components_loaninfo.html"
-                                    >loans\components\
-                                    <wbr />
-                                    Loan
-                                    <wbr />
-                                    Info</a
-                                >
+                                <a href="modules/loans_components_loaninfo.html">loans/components/<wbr />Loan<wbr />Info</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_components_statusbadge.html"
-                                    >loans\components\
-                                    <wbr />
-                                    Status
-                                    <wbr />
-                                    Badge</a
-                                >
+                                <a href="modules/loans_components_statusbadge.html">loans/components/<wbr />Status<wbr />Badge</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_helpers.html">loans\helpers</a>
+                                <a href="modules/loans_helpers.html">loans/helpers</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_hooks.html">loans\hooks</a>
+                                <a href="modules/loans_hooks.html">loans/hooks</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/loans_views_borrowerloanhistoryview.html"
-                                    >loans\views\
-                                    <wbr />
-                                    Borrower
-                                    <wbr />
-                                    Loan
-                                    <wbr />
-                                    History
-                                    <wbr />
-                                    View</a
+                                    >loans/views/<wbr />Borrower<wbr />Loan<wbr />History<wbr />View</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/loans_views_borrowerloanview.html"
-                                    >loans\views\
-                                    <wbr />
-                                    Borrower
-                                    <wbr />
-                                    Loan
-                                    <wbr />
-                                    View</a
-                                >
+                                <a href="modules/loans_views_borrowerloanview.html">loans/views/<wbr />Borrower<wbr />Loan<wbr />View</a>
+                            </li>
+                            <li class=" tsd-kind-module">
+                                <a href="modules/loans_views_lenderloanview.html">loans/views/<wbr />Lender<wbr />Loan<wbr />View</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/routing.html">routing</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/routing_components_applink.html"
-                                    >routing\components\
-                                    <wbr />
-                                    App
-                                    <wbr />
-                                    Link</a
-                                >
+                                <a href="modules/routing_components_applink.html">routing/components/<wbr />App<wbr />Link</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/routing_components_pagenotfound.html"
-                                    >routing\components\
-                                    <wbr />
-                                    Page
-                                    <wbr />
-                                    Not
-                                    <wbr />
-                                    Found</a
+                                    >routing/components/<wbr />Page<wbr />Not<wbr />Found</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/routing_components_restrictedroute.html"
-                                    >routing\components\
-                                    <wbr />
-                                    Restricted
-                                    <wbr />
-                                    Route</a
+                                    >routing/components/<wbr />Restricted<wbr />Route</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_api_account.html"
-                                    >user
-                                    <wbr />
-                                    Profile\api\account</a
-                                >
+                                <a href="modules/userprofile_api.html">user<wbr />Profile/api</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_api_user.html"
-                                    >user
-                                    <wbr />
-                                    Profile\api\user</a
-                                >
+                                <a href="modules/userprofile_common.html">user<wbr />Profile/common</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_common.html"
-                                    >user
-                                    <wbr />
-                                    Profile\common</a
-                                >
+                                <a href="modules/userprofile_components.html">user<wbr />Profile/components</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_components_balance.html"
-                                    >user
-                                    <wbr />
-                                    Profile\components\
-                                    <wbr />
-                                    Balance</a
-                                >
+                                <a href="modules/userprofile_components_balance.html">user<wbr />Profile/components/<wbr />Balance</a>
                             </li>
                             <li class=" tsd-kind-module">
                                 <a href="modules/userprofile_components_bankaccount.html"
-                                    >user
-                                    <wbr />
-                                    Profile\components\
-                                    <wbr />
-                                    Bank
-                                    <wbr />
-                                    Account</a
+                                    >user<wbr />Profile/components/<wbr />Bank<wbr />Account</a
                                 >
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_components_topup.html"
-                                    >user
-                                    <wbr />
-                                    Profile\components\
-                                    <wbr />
-                                    Top
-                                    <wbr />
-                                    Up</a
-                                >
+                                <a href="modules/userprofile_components_topup.html">user<wbr />Profile/components/<wbr />Top<wbr />Up</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_components_transfer.html"
-                                    >user
-                                    <wbr />
-                                    Profile\components\
-                                    <wbr />
-                                    Transfer</a
-                                >
+                                <a href="modules/userprofile_components_transfer.html">user<wbr />Profile/components/<wbr />Transfer</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_components_withdraw.html"
-                                    >user
-                                    <wbr />
-                                    Profile\components\
-                                    <wbr />
-                                    Withdraw</a
-                                >
+                                <a href="modules/userprofile_components_withdraw.html">user<wbr />Profile/components/<wbr />Withdraw</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_contexts.html"
-                                    >user
-                                    <wbr />
-                                    Profile\contexts</a
-                                >
+                                <a href="modules/userprofile_contexts.html">user<wbr />Profile/contexts</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_hooks.html"
-                                    >user
-                                    <wbr />
-                                    Profile\hooks</a
-                                >
+                                <a href="modules/userprofile_hooks.html">user<wbr />Profile/hooks</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_views_accountview.html"
-                                    >user
-                                    <wbr />
-                                    Profile\views\
-                                    <wbr />
-                                    Account
-                                    <wbr />
-                                    View</a
-                                >
+                                <a href="modules/userprofile_views_accountview.html">user<wbr />Profile/views/<wbr />Account<wbr />View</a>
                             </li>
                             <li class=" tsd-kind-module">
-                                <a href="modules/userprofile_views_historyview.html"
-                                    >user
-                                    <wbr />
-                                    Profile\views\
-                                    <wbr />
-                                    History
-                                    <wbr />
-                                    View</a
-                                >
+                                <a href="modules/userprofile_views_historyview.html">user<wbr />Profile/views/<wbr />History<wbr />View</a>
                             </li>
                         </ul>
                     </nav>

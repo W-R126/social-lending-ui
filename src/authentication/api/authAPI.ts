@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+/**
+ * Makes POST request to api in order to get the JWT
+ *
+ * @param username
+ * @param password
+ * @returns JWT or null if auth failed
+ */
 export function signin(username: string, password: string): Promise<string | null> {
     return axios
         .post('api/user/signin', {
@@ -10,6 +17,17 @@ export function signin(username: string, password: string): Promise<string | nul
         .catch(() => null);
 }
 
+/**
+ * Makes POST request to api in order to register a new user
+ *
+ * @param username
+ * @param password
+ * @param cvc
+ * @param expiry
+ * @param name
+ * @param cardNumber
+ * @returns user info upon success or null otherwise
+ */
 export function signup(
     username: string,
     password: string,

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>userProfile\api\account | social-lending</title>
+        <title>userProfile/api | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -56,10 +56,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="userprofile_api_account.html">userProfile\api\account</a>
+                            <a href="userprofile_api.html">userProfile/api</a>
                         </li>
                     </ul>
-                    <h1>Module userProfile\api\account</h1>
+                    <h1>Module userProfile/api</h1>
                 </div>
             </div>
         </header>
@@ -74,38 +74,10 @@
                                     <h3>Interfaces</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-interface tsd-parent-kind-module">
-                                            <a href="../interfaces/userprofile_api_account.accountdetails.html" class="tsd-kind-icon"
-                                                >Account
-                                                <wbr />
-                                                Details</a
-                                            >
+                                            <a href="../interfaces/userprofile_api.transaction.html" class="tsd-kind-icon">Transaction</a>
                                         </li>
                                         <li class="tsd-kind-interface tsd-parent-kind-module">
-                                            <a href="../interfaces/userprofile_api_account.externaltransaction.html" class="tsd-kind-icon"
-                                                >External
-                                                <wbr />
-                                                Transaction</a
-                                            >
-                                        </li>
-                                        <li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-                                            <a href="../interfaces/userprofile_api_account.transaction.html" class="tsd-kind-icon"
-                                                >Transaction</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </section>
-                                <section class="tsd-index-section ">
-                                    <h3>Variables</h3>
-                                    <ul class="tsd-index-list">
-                                        <li class="tsd-kind-variable tsd-parent-kind-module">
-                                            <a href="userprofile_api_account.html#base_url" class="tsd-kind-icon"
-                                                >BASE_
-                                                <wbr />
-                                                URL</a
-                                            >
-                                        </li>
-                                        <li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-                                            <a href="userprofile_api_account.html#instance" class="tsd-kind-icon">instance</a>
+                                            <a href="../interfaces/userprofile_api.user.html" class="tsd-kind-icon">User</a>
                                         </li>
                                     </ul>
                                 </section>
@@ -113,28 +85,14 @@
                                     <h3>Functions</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="userprofile_api_account.html#getaccountdetails" class="tsd-kind-icon"
-                                                >get
-                                                <wbr />
-                                                Account
-                                                <wbr />
-                                                Details</a
-                                            >
+                                            <a href="userprofile_api.html#getuser" class="tsd-kind-icon">get<wbr />User</a>
                                         </li>
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="userprofile_api_account.html#topupaccount" class="tsd-kind-icon"
-                                                >top
-                                                <wbr />
-                                                UpAccount</a
-                                            >
+                                            <a href="userprofile_api.html#topupaccount" class="tsd-kind-icon">top<wbr />UpAccount</a>
                                         </li>
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="userprofile_api_account.html#withdrawfromaccount" class="tsd-kind-icon"
-                                                >withdraw
-                                                <wbr />
-                                                From
-                                                <wbr />
-                                                Account</a
+                                            <a href="userprofile_api.html#withdrawfromaccount" class="tsd-kind-icon"
+                                                >withdraw<wbr />From<wbr />Account</a
                                             >
                                         </li>
                                     </ul>
@@ -143,69 +101,16 @@
                         </section>
                     </section>
                     <section class="tsd-panel-group tsd-member-group ">
-                        <h2>Variables</h2>
-                        <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-                            <a name="base_url" class="tsd-anchor"></a>
-                            <h3>
-                                <span class="tsd-flag ts-flagConst">Const</span> BASE_
-                                <wbr />
-                                URL
-                            </h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                BASE_
-                                <wbr />
-                                URL<span class="tsd-signature-symbol">:</span>
-                                <span class="tsd-signature-type">"https://hltechbank.thebe-team.sit.fintechchallenge.pl"</span
-                                ><span class="tsd-signature-symbol">
-                                    = &quot;https://hltechbank.thebe-team.sit.fintechchallenge.pl&quot;</span
-                                >
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/api/account/accountApi.constants.ts:1</li>
-                                </ul>
-                            </aside>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-                            <a name="instance" class="tsd-anchor"></a>
-                            <h3><span class="tsd-flag ts-flagConst">Const</span> instance</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                instance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosInstance</span
-                                ><span class="tsd-signature-symbol">
-                                    = axios.create({baseURL: BASE_URL,headers: {Authorization: &#x60;Basic ZXhhbXBsZTpleGFtcGxl&#x60;,},//
-                                    auth: {// username: &#x27;example&#x27;,// password: &#x27;example&#x27;// }})</span
-                                >
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/api/account/userApi.ts:5</li>
-                                </ul>
-                            </aside>
-                        </section>
-                    </section>
-                    <section class="tsd-panel-group tsd-member-group ">
                         <h2>Functions</h2>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-                            <a name="getaccountdetails" class="tsd-anchor"></a>
-                            <h3>
-                                get
-                                <wbr />
-                                Account
-                                <wbr />
-                                Details
-                            </h3>
+                            <a name="getuser" class="tsd-anchor"></a>
+                            <h3>get<wbr />User</h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    get
-                                    <wbr />
-                                    Account
-                                    <wbr />
-                                    Details<span class="tsd-signature-symbol">(</span>accountNo<span class="tsd-signature-symbol">: </span
-                                    ><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span
+                                    get<wbr />User<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
                                     ><span class="tsd-signature-symbol">&lt;</span
-                                    ><a href="../interfaces/userprofile_api_account.accountdetails.html" class="tsd-signature-type"
-                                        >AccountDetails</a
+                                    ><a href="../interfaces/userprofile_api.user.html" class="tsd-signature-type">User</a
                                     ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span
                                     ><span class="tsd-signature-symbol">&gt;</span>
                                 </li>
@@ -214,19 +119,12 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/userProfile/api/account/userApi.ts:16</li>
+                                            <li>Defined in src/userProfile/api/userApi.ts:4</li>
                                         </ul>
                                     </aside>
-                                    <h4 class="tsd-parameters-title">Parameters</h4>
-                                    <ul class="tsd-parameters">
-                                        <li>
-                                            <h5>accountNo: <span class="tsd-signature-type">string</span></h5>
-                                        </li>
-                                    </ul>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
-                                        ><a href="../interfaces/userprofile_api_account.accountdetails.html" class="tsd-signature-type"
-                                            >AccountDetails</a
+                                        ><a href="../interfaces/userprofile_api.user.html" class="tsd-signature-type">User</a
                                         ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span
                                         ><span class="tsd-signature-symbol">&gt;</span>
                                     </h4>
@@ -235,17 +133,11 @@
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="topupaccount" class="tsd-anchor"></a>
-                            <h3>
-                                top
-                                <wbr />
-                                UpAccount
-                            </h3>
+                            <h3>top<wbr />UpAccount</h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    top
-                                    <wbr />
-                                    UpAccount<span class="tsd-signature-symbol">(</span>accountNo<span class="tsd-signature-symbol">: </span
-                                    ><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span
+                                    top<wbr />UpAccount<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol"
+                                        >: </span
                                     ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
                                     ><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span
@@ -256,14 +148,11 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/userProfile/api/account/userApi.ts:23</li>
+                                            <li>Defined in src/userProfile/api/userApi.ts:11</li>
                                         </ul>
                                     </aside>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
-                                        <li>
-                                            <h5>accountNo: <span class="tsd-signature-type">string</span></h5>
-                                        </li>
                                         <li>
                                             <h5>amount: <span class="tsd-signature-type">number</span></h5>
                                         </li>
@@ -277,21 +166,12 @@
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="withdrawfromaccount" class="tsd-anchor"></a>
-                            <h3>
-                                withdraw
-                                <wbr />
-                                From
-                                <wbr />
-                                Account
-                            </h3>
+                            <h3>withdraw<wbr />From<wbr />Account</h3>
                             <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
                                 <li class="tsd-signature tsd-kind-icon">
-                                    withdraw
-                                    <wbr />
-                                    From
-                                    <wbr />
-                                    Account<span class="tsd-signature-symbol">(</span>accountNo<span class="tsd-signature-symbol">: </span
-                                    ><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span
+                                    withdraw<wbr />From<wbr />Account<span class="tsd-signature-symbol">(</span>amount<span
+                                        class="tsd-signature-symbol"
+                                        >: </span
                                     ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
                                     ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span
                                     ><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span
@@ -302,14 +182,11 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/userProfile/api/account/userApi.ts:33</li>
+                                            <li>Defined in src/userProfile/api/userApi.ts:21</li>
                                         </ul>
                                     </aside>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
-                                        <li>
-                                            <h5>accountNo: <span class="tsd-signature-type">string</span></h5>
-                                        </li>
                                         <li>
                                             <h5>amount: <span class="tsd-signature-type">number</span></h5>
                                         </li>
@@ -330,66 +207,27 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="userprofile_api_account.html"
-                                    >user
-                                    <wbr />
-                                    Profile\api\account</a
-                                >
+                                <a href="userprofile_api.html">user<wbr />Profile/api</a>
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-interface tsd-parent-kind-module">
-                                <a href="../interfaces/userprofile_api_account.accountdetails.html" class="tsd-kind-icon"
-                                    >Account
-                                    <wbr />
-                                    Details</a
-                                >
+                                <a href="../interfaces/userprofile_api.transaction.html" class="tsd-kind-icon">Transaction</a>
                             </li>
                             <li class=" tsd-kind-interface tsd-parent-kind-module">
-                                <a href="../interfaces/userprofile_api_account.externaltransaction.html" class="tsd-kind-icon"
-                                    >External
-                                    <wbr />
-                                    Transaction</a
-                                >
-                            </li>
-                            <li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-                                <a href="../interfaces/userprofile_api_account.transaction.html" class="tsd-kind-icon">Transaction</a>
-                            </li>
-                            <li class=" tsd-kind-variable tsd-parent-kind-module">
-                                <a href="userprofile_api_account.html#base_url" class="tsd-kind-icon"
-                                    >BASE_
-                                    <wbr />
-                                    URL</a
-                                >
-                            </li>
-                            <li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-                                <a href="userprofile_api_account.html#instance" class="tsd-kind-icon">instance</a>
+                                <a href="../interfaces/userprofile_api.user.html" class="tsd-kind-icon">User</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="userprofile_api_account.html#getaccountdetails" class="tsd-kind-icon"
-                                    >get
-                                    <wbr />
-                                    Account
-                                    <wbr />
-                                    Details</a
-                                >
+                                <a href="userprofile_api.html#getuser" class="tsd-kind-icon">get<wbr />User</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="userprofile_api_account.html#topupaccount" class="tsd-kind-icon"
-                                    >top
-                                    <wbr />
-                                    UpAccount</a
-                                >
+                                <a href="userprofile_api.html#topupaccount" class="tsd-kind-icon">top<wbr />UpAccount</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="userprofile_api_account.html#withdrawfromaccount" class="tsd-kind-icon"
-                                    >withdraw
-                                    <wbr />
-                                    From
-                                    <wbr />
-                                    Account</a
+                                <a href="userprofile_api.html#withdrawfromaccount" class="tsd-kind-icon"
+                                    >withdraw<wbr />From<wbr />Account</a
                                 >
                             </li>
                         </ul>

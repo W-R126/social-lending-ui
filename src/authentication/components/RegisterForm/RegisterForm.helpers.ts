@@ -1,6 +1,12 @@
 import {RegisterFormData} from './RegisterForm.types';
 import {FormikErrors} from 'formik';
 
+/**
+ *
+ * @param values
+ *
+ * @returns List of validation errors
+ */
 export const validate = (values: RegisterFormData) => {
     const errors: FormikErrors<RegisterFormData> = {};
 
