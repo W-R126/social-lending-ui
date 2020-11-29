@@ -5,7 +5,7 @@ import {Skeleton, Stack} from '@chakra-ui/react';
 import {EmptyPage} from '../../../common/components/EmptyPage';
 import {GivenLoanInfo} from '../../components/GivenLoanInfo';
 
-export const LenderLoanView: React.FC = () => {
+const LenderLoanView: React.FC = () => {
     const {loans, fetchLoans, isFetching} = useLenderLoans();
     useInit(fetchLoans);
 
@@ -21,3 +21,5 @@ export const LenderLoanView: React.FC = () => {
         </Skeleton>
     );
 };
+
+export default LenderLoanView;

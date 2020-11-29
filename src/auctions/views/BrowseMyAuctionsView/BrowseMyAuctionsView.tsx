@@ -8,7 +8,7 @@ import {Auction} from '../../api/auctionsAPI.types';
 import {Routes} from '../../../routing/routes';
 import {EmptyPage} from '../../../common/components/EmptyPage';
 
-export const BrowseMyAuctionsView: React.FC = () => {
+const BrowseMyAuctionsView: React.FC = () => {
     const {isFetching, auctions, fetchAuctions} = useUserAuctions();
     useInit(fetchAuctions);
     const history = useHistory();
@@ -29,3 +29,5 @@ export const BrowseMyAuctionsView: React.FC = () => {
         </Flex>
     );
 };
+
+export default BrowseMyAuctionsView;

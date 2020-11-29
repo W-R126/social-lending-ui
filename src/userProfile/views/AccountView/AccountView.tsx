@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {Flex, SimpleGrid, Box} from '@chakra-ui/react';
 import {BankAccount} from '../../components/BankAccount';
-import {UserProvider} from '../../contexts/UserProvider';
+import UserProvider from '../../contexts/UserProvider';
 import {TopUp} from '../../components/TopUp';
-import {Transfer} from '../../components/Transfer';
+import {Transfer} from '../../components/Transfer/Transfer';
 import {Withdraw} from '../../components/Withdraw';
 import {containerStyle} from '../../common/common.styles';
 
@@ -11,7 +11,7 @@ import {containerStyle} from '../../common/common.styles';
  * View for user account details and user account related actions.
  * @constructor
  */
-export const AccountView: React.FC = () => {
+const AccountView: React.FC = () => {
     return (
         <Flex flexDir="column" className={containerStyle}>
             <UserProvider>
@@ -33,3 +33,5 @@ export const AccountView: React.FC = () => {
         </Flex>
     );
 };
+
+export default AccountView;

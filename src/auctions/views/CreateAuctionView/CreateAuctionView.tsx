@@ -27,7 +27,7 @@ import {format} from 'date-fns';
 import {useUserAuctions} from '../../hooks/useUserAuctions';
 import {DATE_FORMAT} from '../../../common/constants';
 
-export const CreateAuctionView: React.FC = () => {
+const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {createAuction} = useUserAuctions();
     const history = useHistory();
@@ -144,3 +144,5 @@ export const CreateAuctionView: React.FC = () => {
         </Flex>
     );
 };
+
+export default CreateAuctionView;

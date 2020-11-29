@@ -8,7 +8,7 @@ import {TableColumns} from './HistoryView.constants';
  * component for viewing account's transaction history
  * @constructor
  */
-export const HistoryView: React.FC = () => {
+const HistoryView: React.FC = () => {
     const userContext = useUser();
     const transactions = userContext?.user?.transactions;
     const isFetching = userContext?.isFetching;
@@ -23,3 +23,5 @@ export const HistoryView: React.FC = () => {
         </Flex>
     );
 };
+
+export default HistoryView;

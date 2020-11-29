@@ -24,7 +24,9 @@ interface Props {
  * @param children
  * @returns RestrictedRoute route component
  */
-export const RestrictedRoute: React.FC<Props> = ({path, children}) => {
+const RestrictedRoute: React.FC<Props> = ({path, children}) => {
     const {isAuthenticated} = useAuth();
     return <Route path={path}>{isAuthenticated ? children : <Redirect to={Routes.LOGIN} />}</Route>;
 };
+
+export default RestrictedRoute;

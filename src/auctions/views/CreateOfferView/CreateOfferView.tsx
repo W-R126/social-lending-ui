@@ -13,7 +13,7 @@ import {useParams} from 'react-router';
 import {RangeInput} from '../../components/RangeInput';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
 
-export const CreateOfferView: React.FC = () => {
+const CreateOfferView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {createOffer} = useLenderOffers();
     const history = useHistory();
@@ -82,3 +82,5 @@ export const CreateOfferView: React.FC = () => {
         </Flex>
     );
 };
+
+export default CreateOfferView;

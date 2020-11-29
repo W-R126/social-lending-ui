@@ -6,7 +6,7 @@ import {OfferInfo} from '../../components/OfferInfo';
 import {Offer} from '../../api/offersAPI.types';
 import {EmptyPage} from '../../../common/components/EmptyPage';
 
-export const BrowseMyOffersView: React.FC = () => {
+const BrowseMyOffersView: React.FC = () => {
     const {offers, isFetching, fetchOffers, cancelOffer} = useLenderOffers();
     useInit(fetchOffers);
 
@@ -27,3 +27,5 @@ export const BrowseMyOffersView: React.FC = () => {
         </Skeleton>
     );
 };
+
+export default BrowseMyOffersView;
