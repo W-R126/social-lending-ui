@@ -29,7 +29,7 @@ export const Transfer: React.FC = () => {
     const handleSubmit = (values: newTransferData, {setSubmitting}: FormikHelpers<newTransferData>) => {
         sendWithdrawal(values.amount).then(success => {
             if (success) {
-                setSuccessMessage(`${CURRENCY}${values.amount} will be transferred`);
+                setSuccessMessage(`${CURRENCY}${values.amount.toFixed(2)} will be transferred`);
                 setError(null);
             } else {
                 setError('Failed to transfer, please ensure you have enough funds');

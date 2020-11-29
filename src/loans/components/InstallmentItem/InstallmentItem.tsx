@@ -34,7 +34,7 @@ export const InstallmentItem: React.FC<Props> = ({installment}) => {
                             {CURRENCY}
                         </Text>
                         <Text fontSize={'3xl'} lineHeight={1} ml={1}>
-                            {installment.total}
+                            {installment.total.toFixed(2)}
                         </Text>
                     </Flex>
                 </Flex>
@@ -43,7 +43,7 @@ export const InstallmentItem: React.FC<Props> = ({installment}) => {
                         <Stat>
                             <StatHelpText mb={0}>
                                 {CURRENCY}
-                                {installment.fine} fine
+                                {installment.fine.toFixed(2)} fine
                             </StatHelpText>
                             <StatHelpText mb={0}>Due {formatDate(installment.due)}</StatHelpText>
                         </Stat>
@@ -52,11 +52,11 @@ export const InstallmentItem: React.FC<Props> = ({installment}) => {
                         <Stat>
                             <StatHelpText mb={0}>
                                 {CURRENCY}
-                                {installment.amount} amount
+                                {installment.amount.toFixed(2)} amount
                             </StatHelpText>
                             <StatHelpText mb={0}>
                                 {CURRENCY}
-                                {installment.interest} interest
+                                {installment.interest.toFixed(2)} interest
                             </StatHelpText>
                         </Stat>
                     </Flex>

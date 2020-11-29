@@ -34,7 +34,7 @@ export const AuctionItem: React.FC<Props> = ({buttonTitle, auction, onOpenDetail
                         {CURRENCY}
                     </Text>
                     <Text fontSize={'3xl'} lineHeight={1}>
-                        {auction.loanAmount}
+                        {auction.loanAmount.toFixed(2)}
                     </Text>
                 </Flex>
                 <Flex justify={'flex-end'} align={'flex-end'}>
