@@ -1,5 +1,8 @@
 import {css} from 'emotion';
 
+/**
+ * tableBody styles
+ */
 export const MainFlex = css`
     flex-direction: column;
 `;

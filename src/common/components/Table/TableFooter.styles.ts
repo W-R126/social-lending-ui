@@ -1,5 +1,8 @@
 import {css} from 'emotion';
 
+/**
+ * Table Footer styles
+ */
 export const MainFlex = css`
     justify-content: space-between;
     flex-direction: row;

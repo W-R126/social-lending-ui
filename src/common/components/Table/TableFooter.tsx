@@ -21,6 +21,18 @@ interface Props {
     pageCount: number;
 }
 
+/**
+ * the Footer of the Table component, displays table page number and provides table navigation
+ * @param gotoPage
+ * @param canPreviousPage
+ * @param previousPage
+ * @param pageIndex
+ * @param pageOptions
+ * @param canNextPage
+ * @param nextPage
+ * @param pageCount
+ * @constructor
+ */
 export const TableFooter: React.FC<Props> = ({
     gotoPage,
     canPreviousPage,

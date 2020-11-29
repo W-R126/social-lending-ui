@@ -1,3 +1,7 @@
+/**
+ * styles to over-write ReactDatePicker to fit chakra-ui styling
+ */
+
 .react-datepicker {
     font-family: unset;
     font-size: 0.9rem;

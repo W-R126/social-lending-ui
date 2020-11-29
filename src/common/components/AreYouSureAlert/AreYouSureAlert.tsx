@@ -21,7 +21,7 @@ interface Props {
 }
 /**
  * Component to be used wherever user confirmation is needed. Will either cancel action with cancelRef
- * or coninue by calling on onConsent. Does not store states, depends on props
+ * or continue by calling on onConsent. Does not store states, depends on props
  * @param title
  * @param dialogText
  * @param isOpen

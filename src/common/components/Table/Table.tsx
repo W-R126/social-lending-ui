@@ -25,6 +25,15 @@ type Props<D extends object = {}> = {
     onRowClick?: (row: Row<D>) => void;
 };
 
+/**
+ * Table component to be used wherever an information in tabular form needs to be presented.
+ * @param columns
+ * @param data - must be compatible with columns
+ * @param tableHeading
+ * @param pageSize
+ * @param onRowClick
+ * @constructor
+ */
 export const Table: React.FC<Props> = <D extends {}>({columns, data, tableHeading, pageSize, onRowClick}: Props<D>) => {
     const tableColumns = React.useMemo(() => columns, [columns]);
 

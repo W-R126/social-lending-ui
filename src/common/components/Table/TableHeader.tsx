@@ -8,6 +8,12 @@ interface Props {
     headerGroups: HeaderGroup<any>[];
 }
 
+/**
+ * Displays the header of the Table component
+ * @param headerGroups
+ * @constructor
+ */
+
 export const TableHeader: React.FC<Props> = ({headerGroups}) => (
     <Flex className={MainFlex}>
         {headerGroups.map((headerGroup: any) => (

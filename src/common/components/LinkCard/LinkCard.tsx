@@ -9,6 +9,14 @@ interface Props {
     path: string;
 }
 
+/**
+ * Component that is rendered to be a link to a view in used in app navigation.
+ * @param icon
+ * @param path
+ * @param children
+ * @param rest
+ * @constructor
+ */
 export const LinkCard: React.FC<Props> = ({icon, path, children, ...rest}) => {
     const match = useRouteMatch(path);
     const history = useHistory();

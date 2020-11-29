@@ -9,6 +9,13 @@ interface Props {
     onRowClick?: (row: Row<any>) => void;
 }
 
+/**
+ * main part of the Table component
+ * @param prepareRow
+ * @param page
+ * @param onRowClick
+ * @constructor
+ */
 export const TableBody: React.FC<Props> = ({prepareRow, page, onRowClick}) => (
     <Flex className={MainFlex}>
         {page.map(

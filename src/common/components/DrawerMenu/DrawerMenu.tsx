@@ -36,6 +36,12 @@ import {
 import {Balance} from '../../../userProfile/components/Balance/Balance';
 import {UserProvider} from '../../../userProfile/contexts/UserProvider';
 
+/**
+ * Main navigation for the app, rendered in AppRouter.tsx.
+ * Also displays user's balance (depends on User Context)
+ * @constructor
+ */
+
 export const DrawerMenu: React.FC = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const {isAuthenticated, logout} = useAuth();

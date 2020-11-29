@@ -1,5 +1,8 @@
 import {css} from 'emotion';
 
+/**
+ * custom styles for Table component
+ */
 export const MainFlex = css`
     flex-direction: column;
     flex: 1;

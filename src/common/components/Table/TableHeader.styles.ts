@@ -1,5 +1,9 @@
 import {css} from 'emotion';
 
+/**
+ * styles for TableHeader
+ */
+
 export const TableItem = css`
     flex: 1;
     align-items: center;
