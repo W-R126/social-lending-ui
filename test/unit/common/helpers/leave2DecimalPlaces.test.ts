@@ -1,6 +1,6 @@
 import {leave2DecimalPlaces} from '../../../../src/common/helpers/leave2DecimalPlaces';
 
-describe('isAtLeastMinFunds', () => {
+describe('leave2DecimalPlaces', () => {
     test.each([
         [0, 0],
         [0.0099999999, 0],
