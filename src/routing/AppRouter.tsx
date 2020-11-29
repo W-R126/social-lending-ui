@@ -18,7 +18,6 @@ import {BrowseMyAuctionsView} from '../auctions/views/BrowseMyAuctionsView';
 import {MyAuctionDetailsView} from '../auctions/views/MyAuctionDetailsView';
 import {BrowseMyOffersView} from '../auctions/views/BrowseMyOffersView';
 import {CreateOfferView} from '../auctions/views/CreateOfferView';
-import {Transfer} from '../userProfile/components/Transfer/Transfer';
 import {HistoryView} from '../userProfile/views/HistoryView/HistoryView';
 import {AccountView} from '../userProfile/views/AccountView/AccountView';
 import {BorrowerLoanView} from '../loans/views/BorrowerLoanView';
