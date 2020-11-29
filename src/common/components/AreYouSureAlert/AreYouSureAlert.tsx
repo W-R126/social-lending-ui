@@ -19,8 +19,19 @@ interface Props {
     title: string;
     isLoading?: boolean;
 }
-
+/**
+ * Component to be used wherever user confirmation is needed. Will either cancel action with cancelRef
+ * or coninue by calling on onConsent. Does not store states, depends on props
+ * @param title
+ * @param dialogText
+ * @param isOpen
+ * @param onClose
+ * @param cancelRef
+ * @param onConsent
+ * @constructor
+ */
 export const AreYouSureAlert: React.FC<Props> = ({title, dialogText, isOpen, onClose, isLoading, cancelRef, onConsent}) => {
+
     return (
         <>
             <AlertDialog motionPreset="slideInBottom" leastDestructiveRef={cancelRef} onClose={onClose} isOpen={isOpen} isCentered>
