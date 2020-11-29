@@ -37,7 +37,7 @@ interface ItemProps {
  * @param loan
  * @constructor
  */
-export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPaymentFetching}) => {
+export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment}) => {
     const history = useHistory();
     const {isOpen, onOpen, onClose} = useDisclosure();
     const toast = useToast();
@@ -52,7 +52,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
         if (isSuccessful) {
             toast({
                 title: 'Installment paid.',
-                description: `${CURRENCY}${installment.total} was taken from your account`,
+                description: `${CURRENCY}${installment.total.toFixed(2)} was taken from your account`,
                 status: 'success',
                 duration: 4000,
                 isClosable: true,
@@ -88,7 +88,7 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                         </Flex>
                         <Flex justify={'flex-start'} align={'flex-end'}>
                             <Stat>
-                                {currentInstallment.status !== InstallmentStatus.PAID ? (
+                                {currentInstallment.status !== InstallmentStatus.PAID && (
                                     <>
                                         <Text>Current installment</Text>
                                         <StatHelpText mb={0}>
@@ -101,8 +101,6 @@ export const BrowseLoansItem: React.FC<ItemProps> = ({loan, payInstallment, isPa
                                         </StatHelpText>
                                         <StatHelpText mb={0}>Due {formatDate(currentInstallment.due)}</StatHelpText>
                                     </>
-                                ) : (
-                                    <></>
                                 )}
                             </Stat>
                             <Flex flexDir={'column'} justifyContent={'space-between'}>

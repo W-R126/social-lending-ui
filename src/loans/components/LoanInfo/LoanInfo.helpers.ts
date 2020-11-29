@@ -7,5 +7,5 @@
  */
 export const formatInterest = (acceptedInterest: number | undefined) => {
     if (acceptedInterest === undefined) return '-';
-    else return acceptedInterest * 100;
+    else return (acceptedInterest * 100).toFixed(2);
 };

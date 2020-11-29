@@ -29,7 +29,7 @@ export const AuctionInfo: React.FC<Props> = ({auction, auctionId}) => {
                             <StatLabel>Loan amount</StatLabel>
                             <StatNumber>
                                 {CURRENCY}
-                                {auction?.loanAmount}
+                                {auction?.loanAmount.toFixed(2)}
                             </StatNumber>
                         </Stat>
                     </Flex>

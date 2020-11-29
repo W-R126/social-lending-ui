@@ -34,7 +34,7 @@ export const Withdraw: React.FC = () => {
     const handleSubmit = (values: WithdrawData, {setSubmitting}: FormikHelpers<WithdrawData>) => {
         sendWithdrawal(values.amount).then(success => {
             if (success) {
-                setSuccessMessage(`${CURRENCY}${values.amount} will be sent to your card`);
+                setSuccessMessage(`${CURRENCY}${values.amount.toFixed(2)} will be sent to your card`);
                 setError(null);
             } else {
                 setError('Failed to send to your card, please ensure you have enough funds');

@@ -43,7 +43,7 @@ export const LoanInfo: React.FC<Props> = ({loan}) => {
                         <StatLabel>Taken amount</StatLabel>
                         <StatNumber>
                             {CURRENCY}
-                            {loan?.takenAmount ?? ''}
+                            {loan?.takenAmount.toFixed(2) ?? ''}
                         </StatNumber>
                     </Stat>
                 </Flex>

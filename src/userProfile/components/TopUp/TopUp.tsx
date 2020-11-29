@@ -35,7 +35,7 @@ export const TopUp: React.FC = () => {
     const handleSubmit = (values: TopUpData, {setSubmitting}: FormikHelpers<TopUpData>) => {
         sendTopUp(values.amount).then(success => {
             if (success) {
-                setSuccessMessage(`${CURRENCY}${values.amount} will be added to your account`);
+                setSuccessMessage(`${CURRENCY}${values.amount.toFixed(2)} will be added to your account`);
                 setError(null);
             } else {
                 setError('Failed to top up, please try again later.');

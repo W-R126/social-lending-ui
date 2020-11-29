@@ -11,7 +11,7 @@ export const TableColumns = (auctionId: number, history: {push: (route: string) 
         {
             Header: 'Annual percentage rate',
             accessor: 'proposedAnnualPercentageRate',
-            Cell: (props: {value: number}) => <Box>{props.value * 100} %</Box>,
+            Cell: (props: {value: number}) => <Box>{(props.value * 100).toFixed(2)} %</Box>,
         },
         {
             Header: 'Date',
