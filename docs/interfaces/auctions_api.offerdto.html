@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,7 +54,7 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="../modules/auctions_api.html">auctions/api</a>
+                            <a href="../modules/auctions_api.html">auctions\api</a>
                         </li>
                         <li>
                             <a href="auctions_api.offerdto.html">OfferDTO</a>
@@ -69,6 +67,16 @@
         <div class="container container-main">
             <div class="row">
                 <div class="col-8 col-content">
+                    <section class="tsd-panel tsd-comment">
+                        <div class="tsd-comment tsd-typography">
+                            <div class="lead">
+                                <p>
+                                    Offer object used during offer creation process. Contains set of required data that will be sent to api
+                                    in order to create new offer
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                     <section class="tsd-panel tsd-hierarchy">
                         <h3>Hierarchy</h3>
                         <ul class="tsd-hierarchy">
@@ -107,9 +115,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/offersAPI.types.ts:11</li>
+                                    <li>Defined in src/auctions/api/offersAPI.types.ts:50</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Id of auction for which offer will be generated</p>
+                                </div>
+                                <p>Represented as non-negative integer</p>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
                             <a name="proposedannualpercentagerate" class="tsd-anchor"></a>
@@ -120,9 +134,15 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/offersAPI.types.ts:12</li>
+                                    <li>Defined in src/auctions/api/offersAPI.types.ts:57</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Proposed by lender annual percentage rate during offer creation process</p>
+                                </div>
+                                <p>Represented as floating point number between 0.01 and 0.99</p>
+                            </div>
                         </section>
                     </section>
                 </div>
@@ -133,7 +153,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="../modules/auctions_api.html">auctions/api</a>
+                                <a href="../modules/auctions_api.html">auctions\api</a>
                             </li>
                         </ul>
                     </nav>

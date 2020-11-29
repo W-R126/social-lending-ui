@@ -1,0 +1,8 @@
+{
+    "out": "docs",
+    "inputFiles": ["./src"],
+    "exclude": ["node_modules/", "src/**/index.ts", "src/index.tsx", "src/App.tsx"],
+    "mode": "modules",
+    "plugin": ["typedoc-plugin-external-module-name"],
+    "excludeExternals": true
+}

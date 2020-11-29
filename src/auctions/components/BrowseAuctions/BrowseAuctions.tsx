@@ -7,12 +7,34 @@ import {SyntheticEvent, useState} from 'react';
 import {OrderBy} from './BrowseAuctions.types';
 import {orderAuctions} from './BrowseAuctions.helpers';
 
+/**
+ * Parameter definition
+ */
 interface Props {
+    /**
+     * Auction objects to be shown
+     */
     auctions: Auction[];
+    /**
+     * Function that executes when "detail" button
+     * is clicked
+     * @param auction auction that will be used as parameter
+     */
     onOpenDetails?: (auction: Auction) => void;
+    /**
+     * Text that will be displayed on "detail" button
+     */
     buttonTitle: string;
 }
 
+/**
+ * Shows list of auctions and additionally
+ * provides sorting utility for this list
+ * @param buttonTitle
+ * @param auctions
+ * @param onOpenDetails
+ * @constructor
+ */
 export const BrowseAuctions: React.FC<Props> = ({buttonTitle, auctions, onOpenDetails}) => {
     const [order, setOrder] = useState(OrderBy.NEWEST);
 

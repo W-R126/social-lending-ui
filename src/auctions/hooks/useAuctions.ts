@@ -3,6 +3,15 @@ import {Auction} from '../api/auctionsAPI.types';
 import {getAuctions} from '../api/lender/auctionsAPI';
 import {getAuction} from '../api/borrower/auctionsAPI';
 
+/**
+ * Hook used for fetching auction info for one or all auctions
+ * @returns
+ * auctions - fetched auctions,
+ * isFetching - fetching indicator,
+ * fetchAuctions- fetches all auctions,
+ * fetchAuction -  fetches auction with specified id,
+ * fetchedAuction - fetched auction with specified id
+ */
 export function useAuctions() {
     const [auctions, setAuctions] = useState<Auction[]>([]);
     const [fetchedAuction, setFetchedAuction] = useState<Auction>();

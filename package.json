@@ -1,6 +1,6 @@
 {
     "name": "social-lending",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "private": true,
     "dependencies": {
         "@chakra-ui/react": "^1.0.0",
@@ -58,7 +58,7 @@
         "cy:verify": "set NODE_ENV=development& cypress verify",
         "cy:open": "set NODE_ENV=development& cypress open",
         "e2e": "start-server-and-test start http://localhost:3000 cy:run",
-        "typedoc:generate": "typedoc -out docs src/ --exclude src/**/index.ts --exclude src/index.tsx --exclude src/App.tsx --mode modules --plugin typedoc-plugin-external-module-name"
+        "typedoc:generate": "typedoc --options typedoc.json"
     },
     "eslintConfig": {
         "extends": "react-app"

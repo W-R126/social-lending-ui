@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>common/helpers | social-lending</title>
+        <title>common\helpers | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,10 +54,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="common_helpers.html">common/helpers</a>
+                            <a href="common_helpers.html">common\helpers</a>
                         </li>
                     </ul>
-                    <h1>Module common/helpers</h1>
+                    <h1>Module common\helpers</h1>
                 </div>
             </div>
         </header>
@@ -74,10 +72,17 @@
                                     <h3>Functions</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="common_helpers.html#gettoday" class="tsd-kind-icon">get<wbr />Today</a>
+                                            <a href="common_helpers.html#gettomorrow" class="tsd-kind-icon">get<wbr />Tomorrow</a>
                                         </li>
                                         <li class="tsd-kind-function tsd-parent-kind-module">
-                                            <a href="common_helpers.html#gettomorrow" class="tsd-kind-icon">get<wbr />Tomorrow</a>
+                                            <a href="common_helpers.html#isatleastminfunds" class="tsd-kind-icon"
+                                                >is<wbr />AtLeast<wbr />Min<wbr />Funds</a
+                                            >
+                                        </li>
+                                        <li class="tsd-kind-function tsd-parent-kind-module">
+                                            <a href="common_helpers.html#leave2decimalplaces" class="tsd-kind-icon"
+                                                >leave2<wbr />Decimal<wbr />Places</a
+                                            >
                                         </li>
                                     </ul>
                                 </section>
@@ -86,38 +91,6 @@
                     </section>
                     <section class="tsd-panel-group tsd-member-group ">
                         <h2>Functions</h2>
-                        <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-                            <a name="gettoday" class="tsd-anchor"></a>
-                            <h3>get<wbr />Today</h3>
-                            <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-                                <li class="tsd-signature tsd-kind-icon">
-                                    get<wbr />Today<span class="tsd-signature-symbol">(</span>today<span class="tsd-signature-symbol"
-                                        >?: </span
-                                    ><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span
-                                    ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>
-                                </li>
-                            </ul>
-                            <ul class="tsd-descriptions">
-                                <li class="tsd-description">
-                                    <aside class="tsd-sources">
-                                        <ul>
-                                            <li>Defined in src/common/helpers/getToday.ts:1</li>
-                                        </ul>
-                                    </aside>
-                                    <h4 class="tsd-parameters-title">Parameters</h4>
-                                    <ul class="tsd-parameters">
-                                        <li>
-                                            <h5>
-                                                <span class="tsd-flag ts-flagDefault value">Default value</span> today:
-                                                <span class="tsd-signature-type">Date</span
-                                                ><span class="tsd-signature-symbol"> = new Date()</span>
-                                            </h5>
-                                        </li>
-                                    </ul>
-                                    <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-                                </li>
-                            </ul>
-                        </section>
                         <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
                             <a name="gettomorrow" class="tsd-anchor"></a>
                             <h3>get<wbr />Tomorrow</h3>
@@ -133,9 +106,17 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/common/helpers/getTomorrow.ts:1</li>
+                                            <li>Defined in src/common/helpers/getTomorrow.ts:6</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>
+                                                returns javascript Date object for tomorrow. If data is given as a param, it will return the
+                                                next days date
+                                            </p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
@@ -144,9 +125,87 @@
                                                 <span class="tsd-signature-type">Date</span
                                                 ><span class="tsd-signature-symbol"> = new Date()</span>
                                             </h5>
+                                            <div class="tsd-comment tsd-typography"></div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+                            <a name="isatleastminfunds" class="tsd-anchor"></a>
+                            <h3>is<wbr />AtLeast<wbr />Min<wbr />Funds</h3>
+                            <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+                                <li class="tsd-signature tsd-kind-icon">
+                                    is<wbr />AtLeast<wbr />Min<wbr />Funds<span class="tsd-signature-symbol">(</span>value<span
+                                        class="tsd-signature-symbol"
+                                        >: </span
+                                    ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span
+                                    ><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span
+                                    ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span
+                                    ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>
+                                </li>
+                            </ul>
+                            <ul class="tsd-descriptions">
+                                <li class="tsd-description">
+                                    <aside class="tsd-sources">
+                                        <ul>
+                                            <li>Defined in src/common/helpers/isAtLeastMinFunds.ts:6</li>
+                                        </ul>
+                                    </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Checks whether value given by the user is sufficient to perform a transaction</p>
+                                        </div>
+                                    </div>
+                                    <h4 class="tsd-parameters-title">Parameters</h4>
+                                    <ul class="tsd-parameters">
+                                        <li>
+                                            <h5>
+                                                value: <span class="tsd-signature-type">number</span
+                                                ><span class="tsd-signature-symbol"> | </span
+                                                ><span class="tsd-signature-type">undefined</span
+                                                ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
+                                            </h5>
+                                            <div class="tsd-comment tsd-typography"></div>
+                                        </li>
+                                    </ul>
+                                    <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+                            <a name="leave2decimalplaces" class="tsd-anchor"></a>
+                            <h3>leave2<wbr />Decimal<wbr />Places</h3>
+                            <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+                                <li class="tsd-signature tsd-kind-icon">
+                                    leave2<wbr />Decimal<wbr />Places<span class="tsd-signature-symbol">(</span>value<span
+                                        class="tsd-signature-symbol"
+                                        >: </span
+                                    ><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span
+                                    ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>
+                                </li>
+                            </ul>
+                            <ul class="tsd-descriptions">
+                                <li class="tsd-description">
+                                    <aside class="tsd-sources">
+                                        <ul>
+                                            <li>Defined in src/common/helpers/leave2DecimalPlaces.ts:6</li>
+                                        </ul>
+                                    </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>removes all decimals beyond the first 2 decimal places</p>
+                                        </div>
+                                    </div>
+                                    <h4 class="tsd-parameters-title">Parameters</h4>
+                                    <ul class="tsd-parameters">
+                                        <li>
+                                            <h5>value: <span class="tsd-signature-type">number</span></h5>
+                                            <div class="tsd-comment tsd-typography"></div>
+                                        </li>
+                                    </ul>
+                                    <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
                                 </li>
                             </ul>
                         </section>
@@ -159,17 +218,24 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="common_helpers.html">common/helpers</a>
+                                <a href="common_helpers.html">common\helpers</a>
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="common_helpers.html#gettoday" class="tsd-kind-icon">get<wbr />Today</a>
+                                <a href="common_helpers.html#gettomorrow" class="tsd-kind-icon">get<wbr />Tomorrow</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="common_helpers.html#gettomorrow" class="tsd-kind-icon">get<wbr />Tomorrow</a>
+                                <a href="common_helpers.html#isatleastminfunds" class="tsd-kind-icon"
+                                    >is<wbr />AtLeast<wbr />Min<wbr />Funds</a
+                                >
+                            </li>
+                            <li class=" tsd-kind-function tsd-parent-kind-module">
+                                <a href="common_helpers.html#leave2decimalplaces" class="tsd-kind-icon"
+                                    >leave2<wbr />Decimal<wbr />Places</a
+                                >
                             </li>
                         </ul>
                     </nav>

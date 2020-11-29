@@ -27,6 +27,11 @@ import {format} from 'date-fns';
 import {useUserAuctions} from '../../hooks/useUserAuctions';
 import {DATE_FORMAT} from '../../../common/constants';
 
+/**
+ * Shows form which is used by borrower
+ * to create new auction
+ * @constructor
+ */
 const CreateAuctionView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {createAuction} = useUserAuctions();

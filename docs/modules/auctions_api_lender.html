@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>auctions/api/lender | social-lending</title>
+        <title>auctions\api\lender | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,10 +54,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="auctions_api_lender.html">auctions/api/lender</a>
+                            <a href="auctions_api_lender.html">auctions\api\lender</a>
                         </li>
                     </ul>
-                    <h1>Module auctions/api/lender</h1>
+                    <h1>Module auctions\api\lender</h1>
                 </div>
             </div>
         </header>
@@ -110,9 +108,14 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/auctions/api/lender/auctionsAPI.ts:4</li>
+                                    <li>Defined in src/auctions/api/lender/auctionsAPI.ts:7</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Base address for requests</p>
+                                </div>
+                            </div>
                         </section>
                     </section>
                     <section class="tsd-panel-group tsd-member-group ">
@@ -134,19 +137,28 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/api/lender/offersAPI.ts:18</li>
+                                            <li>Defined in src/auctions/api/lender/offersAPI.ts:33</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Performs DELETE offer request to api.</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
                                             <h5>offerId: <span class="tsd-signature-type">number</span></h5>
+                                            <div class="tsd-comment tsd-typography">
+                                                <p>id of offer that will be deleted</p>
+                                            </div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
                                         ><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span>
                                     </h4>
+                                    <p>true if deletion was successful, false otherwise</p>
                                 </li>
                             </ul>
                         </section>
@@ -167,15 +179,21 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/api/lender/auctionsAPI.ts:6</li>
+                                            <li>Defined in src/auctions/api/lender/auctionsAPI.ts:13</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Performs GET auction request to api</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
                                         ><a href="../interfaces/auctions_api.auction.html" class="tsd-signature-type">Auction</a
                                         ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span
                                         ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span>
                                     </h4>
+                                    <p>list of <a href="../interfaces/auctions_api.auction.html">Auction</a></p>
                                 </li>
                             </ul>
                         </section>
@@ -196,15 +214,21 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/api/lender/offersAPI.ts:4</li>
+                                            <li>Defined in src/auctions/api/lender/offersAPI.ts:8</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Performs GET offers request to api</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-returns-title">
                                         Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span
                                         ><a href="../interfaces/auctions_api.offer.html" class="tsd-signature-type">Offer</a
                                         ><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span
                                         ><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span>
                                     </h4>
+                                    <p>list of <a href="../interfaces/auctions_api.offer.html">Offer</a></p>
                                 </li>
                             </ul>
                         </section>
@@ -227,9 +251,14 @@
                                 <li class="tsd-description">
                                     <aside class="tsd-sources">
                                         <ul>
-                                            <li>Defined in src/auctions/api/lender/offersAPI.ts:11</li>
+                                            <li>Defined in src/auctions/api/lender/offersAPI.ts:20</li>
                                         </ul>
                                     </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>Performs POST offer request to api</p>
+                                        </div>
+                                    </div>
                                     <h4 class="tsd-parameters-title">Parameters</h4>
                                     <ul class="tsd-parameters">
                                         <li>
@@ -237,6 +266,9 @@
                                                 offer:
                                                 <a href="../interfaces/auctions_api.offerdto.html" class="tsd-signature-type">OfferDTO</a>
                                             </h5>
+                                            <div class="tsd-comment tsd-typography">
+                                                <p>offer info object (<a href="../interfaces/auctions_api.offerdto.html">OfferDTO</a></p>
+                                            </div>
                                         </li>
                                     </ul>
                                     <h4 class="tsd-returns-title">
@@ -245,6 +277,7 @@
                                         ><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span
                                         ><span class="tsd-signature-symbol">&gt;</span>
                                     </h4>
+                                    <p>info about created offer in <a href="../interfaces/auctions_api.offer.html">Offer</a> object</p>
                                 </li>
                             </ul>
                         </section>
@@ -257,7 +290,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="auctions_api_lender.html">auctions/api/lender</a>
+                                <a href="auctions_api_lender.html">auctions\api\lender</a>
                             </li>
                         </ul>
                     </nav>

@@ -3,10 +3,24 @@ import {Box, Flex, Heading, Stat, StatLabel, StatNumber, Text} from '@chakra-ui/
 import {Auction} from '../../api/auctionsAPI.types';
 import {CURRENCY} from '../../../common/constants';
 
+/**
+ * Parameter definitions
+ */
 interface Props {
+    /**
+     * Auction object which data will be displayed
+     * in this component
+     */
     auction: Auction;
 }
 
+/**
+ * Shows basic information about auction
+ * Rendered at the upper part of {@link BrowseOffers} component
+ *
+ * @param auction
+ * @constructor
+ */
 export const AuctionInfo: React.FC<Props> = ({auction}) => {
     return (
         <Box minHeight={120} mt={5} shadow={'sm'} borderRadius={'lg'}>

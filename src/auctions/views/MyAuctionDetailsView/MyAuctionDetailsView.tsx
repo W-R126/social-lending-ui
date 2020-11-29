@@ -6,6 +6,11 @@ import {useInit} from '../../../common/hooks/useInit';
 import {Flex, Skeleton} from '@chakra-ui/react';
 import {useAuctions} from '../../hooks/useAuctions';
 
+/**
+ * Shows detailed informations about ongoing auction
+ * and shows list of offers that was submitted
+ * @constructor
+ */
 const MyAuctionDetailsView: React.FC = () => {
     const {auctionId} = useParams();
     const {fetchedAuction, fetchAuction} = useAuctions();

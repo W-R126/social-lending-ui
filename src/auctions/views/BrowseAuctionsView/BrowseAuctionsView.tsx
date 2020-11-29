@@ -8,6 +8,11 @@ import {Routes} from '../../../routing/routes';
 import {useHistory} from 'react-router-dom';
 import {EmptyPage} from '../../../common/components/EmptyPage';
 
+/**
+ * Displays list of auctions that can be selected
+ * by lender in order to make offer
+ * @constructor
+ */
 export const BrowseAuctionsView: React.FC = () => {
     const {isFetching, auctions, fetchAuctions} = useAuctions();
     useInit(fetchAuctions);

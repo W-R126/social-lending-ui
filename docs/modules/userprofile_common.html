@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>userProfile/common | social-lending</title>
+        <title>userProfile\common | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,10 +54,10 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="userprofile_common.html">userProfile/common</a>
+                            <a href="userprofile_common.html">userProfile\common</a>
                         </li>
                     </ul>
-                    <h1>Module userProfile/common</h1>
+                    <h1>Module userProfile\common</h1>
                 </div>
             </div>
         </header>
@@ -71,16 +69,20 @@
                         <section class="tsd-panel tsd-index-panel">
                             <div class="tsd-index-content">
                                 <section class="tsd-index-section ">
+                                    <h3>Interfaces</h3>
+                                    <ul class="tsd-index-list">
+                                        <li class="tsd-kind-interface tsd-parent-kind-module">
+                                            <a href="../interfaces/userprofile_common.transferdata.html" class="tsd-kind-icon"
+                                                >Transfer<wbr />Data</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </section>
+                                <section class="tsd-index-section ">
                                     <h3>Variables</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-variable tsd-parent-kind-module">
-                                            <a href="userprofile_common.html#bottomaligner" class="tsd-kind-icon">bottom<wbr />Aligner</a>
-                                        </li>
-                                        <li class="tsd-kind-variable tsd-parent-kind-module">
                                             <a href="userprofile_common.html#boxstyle" class="tsd-kind-icon">box<wbr />Style</a>
-                                        </li>
-                                        <li class="tsd-kind-variable tsd-parent-kind-module">
-                                            <a href="userprofile_common.html#cardwidth" class="tsd-kind-icon">card<wbr />Width</a>
                                         </li>
                                         <li class="tsd-kind-variable tsd-parent-kind-module">
                                             <a href="userprofile_common.html#containerstyle" class="tsd-kind-icon">container<wbr />Style</a>
@@ -95,9 +97,14 @@
                                                 >text<wbr />Top<wbr />Padding<wbr />Style</a
                                             >
                                         </li>
-                                        <li class="tsd-kind-variable tsd-parent-kind-module">
-                                            <a href="userprofile_common.html#verticalalignbottom" class="tsd-kind-icon"
-                                                >vertical<wbr />Align<wbr />Bottom</a
+                                    </ul>
+                                </section>
+                                <section class="tsd-index-section ">
+                                    <h3>Functions</h3>
+                                    <ul class="tsd-index-list">
+                                        <li class="tsd-kind-function tsd-parent-kind-module">
+                                            <a href="userprofile_common.html#validateformamount" class="tsd-kind-icon"
+                                                >validate<wbr />Form<wbr />Amount</a
                                             >
                                         </li>
                                     </ul>
@@ -108,22 +115,6 @@
                     <section class="tsd-panel-group tsd-member-group ">
                         <h2>Variables</h2>
                         <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-                            <a name="bottomaligner" class="tsd-anchor"></a>
-                            <h3><span class="tsd-flag ts-flagConst">Const</span> bottom<wbr />Aligner</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                bottom<wbr />Aligner<span class="tsd-signature-symbol">:</span>
-                                <span class="tsd-signature-type">string</span
-                                ><span class="tsd-signature-symbol">
-                                    = css&#x60;display: inline-block;height: 100%;vertical-align: bottom;width: 0px;&#x60;</span
-                                >
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/common/common.styles.ts:20</li>
-                                </ul>
-                            </aside>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
                             <a name="boxstyle" class="tsd-anchor"></a>
                             <h3><span class="tsd-flag ts-flagConst">Const</span> box<wbr />Style</h3>
                             <div class="tsd-signature tsd-kind-icon">
@@ -132,27 +123,14 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/userProfile/common/common.styles.ts:6</li>
+                                    <li>Defined in src/userProfile/common/common.styles.ts:10</li>
                                 </ul>
                             </aside>
                             <div class="tsd-comment tsd-typography">
                                 <div class="lead">
-                                    <p>Styles for AccountView Component. Adjusts spacing and size</p>
+                                    <p>Adjust height for some of the account view boxes</p>
                                 </div>
                             </div>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-                            <a name="cardwidth" class="tsd-anchor"></a>
-                            <h3><span class="tsd-flag ts-flagConst">Const</span> card<wbr />Width</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                card<wbr />Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"500px"</span
-                                ><span class="tsd-signature-symbol"> = &quot;500px&quot;</span>
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/common/common.constants.ts:1</li>
-                                </ul>
-                            </aside>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
                             <a name="containerstyle" class="tsd-anchor"></a>
@@ -164,9 +142,14 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/userProfile/common/common.styles.ts:10</li>
+                                    <li>Defined in src/userProfile/common/common.styles.ts:17</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Used where general padding is necessary</p>
+                                </div>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
                             <a name="textbottompaddingstyle" class="tsd-anchor"></a>
@@ -178,9 +161,14 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/userProfile/common/common.styles.ts:27</li>
+                                    <li>Defined in src/userProfile/common/common.styles.ts:24</li>
                                 </ul>
                             </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>used where padding adjustment is needed below</p>
+                                </div>
+                            </div>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
                             <a name="texttoppaddingstyle" class="tsd-anchor"></a>
@@ -195,22 +183,65 @@
                                     <li>Defined in src/userProfile/common/common.styles.ts:31</li>
                                 </ul>
                             </aside>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-                            <a name="verticalalignbottom" class="tsd-anchor"></a>
-                            <h3><span class="tsd-flag ts-flagConst">Const</span> vertical<wbr />Align<wbr />Bottom</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                vertical<wbr />Align<wbr />Bottom<span class="tsd-signature-symbol">:</span>
-                                <span class="tsd-signature-type">string</span
-                                ><span class="tsd-signature-symbol">
-                                    = css&#x60;display: inline-block;align-self: flex-end;vertical-align: bottom;&#x60;</span
-                                >
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>used where padding adjustment is needed above</p>
+                                </div>
                             </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/common/common.styles.ts:14</li>
-                                </ul>
-                            </aside>
+                        </section>
+                    </section>
+                    <section class="tsd-panel-group tsd-member-group ">
+                        <h2>Functions</h2>
+                        <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+                            <a name="validateformamount" class="tsd-anchor"></a>
+                            <h3><span class="tsd-flag ts-flagConst">Const</span> validate<wbr />Form<wbr />Amount</h3>
+                            <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+                                <li class="tsd-signature tsd-kind-icon">
+                                    validate<wbr />Form<wbr />Amount<span class="tsd-signature-symbol">(</span>values<span
+                                        class="tsd-signature-symbol"
+                                        >: </span
+                                    ><a href="../interfaces/userprofile_common.transferdata.html" class="tsd-signature-type">TransferData</a
+                                    ><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span
+                                    ><span class="tsd-signature-type">FormikErrors</span><span class="tsd-signature-symbol">&lt;</span
+                                    ><a href="../interfaces/userprofile_common.transferdata.html" class="tsd-signature-type">TransferData</a
+                                    ><span class="tsd-signature-symbol">&gt;</span>
+                                </li>
+                            </ul>
+                            <ul class="tsd-descriptions">
+                                <li class="tsd-description">
+                                    <aside class="tsd-sources">
+                                        <ul>
+                                            <li>Defined in src/userProfile/common/common.helpers.ts:9</li>
+                                        </ul>
+                                    </aside>
+                                    <div class="tsd-comment tsd-typography">
+                                        <div class="lead">
+                                            <p>used to validate forms with one amount value</p>
+                                        </div>
+                                    </div>
+                                    <h4 class="tsd-parameters-title">Parameters</h4>
+                                    <ul class="tsd-parameters">
+                                        <li>
+                                            <h5>
+                                                values:
+                                                <a href="../interfaces/userprofile_common.transferdata.html" class="tsd-signature-type"
+                                                    >TransferData</a
+                                                >
+                                            </h5>
+                                            <div class="tsd-comment tsd-typography">
+                                                <div class="lead"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <h4 class="tsd-returns-title">
+                                        Returns <span class="tsd-signature-type">FormikErrors</span
+                                        ><span class="tsd-signature-symbol">&lt;</span
+                                        ><a href="../interfaces/userprofile_common.transferdata.html" class="tsd-signature-type"
+                                            >TransferData</a
+                                        ><span class="tsd-signature-symbol">&gt;</span>
+                                    </h4>
+                                </li>
+                            </ul>
                         </section>
                     </section>
                 </div>
@@ -221,20 +252,17 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="userprofile_common.html">user<wbr />Profile/common</a>
+                                <a href="userprofile_common.html">user<wbr />Profile\common</a>
                             </li>
                         </ul>
                     </nav>
                     <nav class="tsd-navigation secondary menu-sticky">
                         <ul class="before-current">
-                            <li class=" tsd-kind-variable tsd-parent-kind-module">
-                                <a href="userprofile_common.html#bottomaligner" class="tsd-kind-icon">bottom<wbr />Aligner</a>
+                            <li class=" tsd-kind-interface tsd-parent-kind-module">
+                                <a href="../interfaces/userprofile_common.transferdata.html" class="tsd-kind-icon">Transfer<wbr />Data</a>
                             </li>
                             <li class=" tsd-kind-variable tsd-parent-kind-module">
                                 <a href="userprofile_common.html#boxstyle" class="tsd-kind-icon">box<wbr />Style</a>
-                            </li>
-                            <li class=" tsd-kind-variable tsd-parent-kind-module">
-                                <a href="userprofile_common.html#cardwidth" class="tsd-kind-icon">card<wbr />Width</a>
                             </li>
                             <li class=" tsd-kind-variable tsd-parent-kind-module">
                                 <a href="userprofile_common.html#containerstyle" class="tsd-kind-icon">container<wbr />Style</a>
@@ -249,9 +277,9 @@
                                     >text<wbr />Top<wbr />Padding<wbr />Style</a
                                 >
                             </li>
-                            <li class=" tsd-kind-variable tsd-parent-kind-module">
-                                <a href="userprofile_common.html#verticalalignbottom" class="tsd-kind-icon"
-                                    >vertical<wbr />Align<wbr />Bottom</a
+                            <li class=" tsd-kind-function tsd-parent-kind-module">
+                                <a href="userprofile_common.html#validateformamount" class="tsd-kind-icon"
+                                    >validate<wbr />Form<wbr />Amount</a
                                 >
                             </li>
                         </ul>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Transaction | social-lending</title>
+        <title>ExternalTransferData | social-lending</title>
         <meta name="description" content="Documentation for social-lending" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,8 +38,6 @@
                                     </div>
                                     <input type="checkbox" id="tsd-filter-inherited" checked />
                                     <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                                    <input type="checkbox" id="tsd-filter-externals" checked />
-                                    <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
                                     <input type="checkbox" id="tsd-filter-only-exported" />
                                     <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                                 </div>
@@ -56,24 +54,34 @@
                             <a href="../globals.html">Globals</a>
                         </li>
                         <li>
-                            <a href="../modules/userprofile_api.html">userProfile/api</a>
+                            <a href="../modules/userprofile_components_transfer.html">userProfile\components\Transfer</a>
                         </li>
                         <li>
-                            <a href="userprofile_api.transaction.html">Transaction</a>
+                            <a href="userprofile_components_transfer.externaltransferdata.html">ExternalTransferData</a>
                         </li>
                     </ul>
-                    <h1>Interface Transaction</h1>
+                    <h1>Interface ExternalTransferData</h1>
                 </div>
             </div>
         </header>
         <div class="container container-main">
             <div class="row">
                 <div class="col-8 col-content">
+                    <section class="tsd-panel tsd-comment">
+                        <div class="tsd-comment tsd-typography">
+                            <div class="lead">
+                                <p>
+                                    Type of data send by the form. Note that toAccount is only for simulation purposes; and thus, it is
+                                    currently ignored by the api.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                     <section class="tsd-panel tsd-hierarchy">
                         <h3>Hierarchy</h3>
                         <ul class="tsd-hierarchy">
                             <li>
-                                <span class="target">Transaction</span>
+                                <span class="target">ExternalTransferData</span>
                             </li>
                         </ul>
                     </section>
@@ -85,21 +93,16 @@
                                     <h3>Properties</h3>
                                     <ul class="tsd-index-list">
                                         <li class="tsd-kind-property tsd-parent-kind-interface">
-                                            <a href="userprofile_api.transaction.html#amount" class="tsd-kind-icon">amount</a>
-                                        </li>
-                                        <li class="tsd-kind-property tsd-parent-kind-interface">
-                                            <a href="userprofile_api.transaction.html#id" class="tsd-kind-icon">id</a>
-                                        </li>
-                                        <li class="tsd-kind-property tsd-parent-kind-interface">
-                                            <a href="userprofile_api.transaction.html#referenceid" class="tsd-kind-icon"
-                                                >reference<wbr />Id</a
+                                            <a href="userprofile_components_transfer.externaltransferdata.html#amount" class="tsd-kind-icon"
+                                                >amount</a
                                             >
                                         </li>
                                         <li class="tsd-kind-property tsd-parent-kind-interface">
-                                            <a href="userprofile_api.transaction.html#timestamp" class="tsd-kind-icon">timestamp</a>
-                                        </li>
-                                        <li class="tsd-kind-property tsd-parent-kind-interface">
-                                            <a href="userprofile_api.transaction.html#type" class="tsd-kind-icon">type</a>
+                                            <a
+                                                href="userprofile_components_transfer.externaltransferdata.html#toaccount"
+                                                class="tsd-kind-icon"
+                                                >to<wbr />Account</a
+                                            >
                                         </li>
                                     </ul>
                                 </section>
@@ -116,55 +119,19 @@
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/userProfile/api/userApi.types.ts:15</li>
+                                    <li>Defined in src/userProfile/components/Transfer/Transfer.types.ts:7</li>
                                 </ul>
                             </aside>
                         </section>
                         <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                            <a name="id" class="tsd-anchor"></a>
-                            <h3>id</h3>
+                            <a name="toaccount" class="tsd-anchor"></a>
+                            <h3>to<wbr />Account</h3>
                             <div class="tsd-signature tsd-kind-icon">
-                                id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span>
+                                to<wbr />Account<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span>
                             </div>
                             <aside class="tsd-sources">
                                 <ul>
-                                    <li>Defined in src/userProfile/api/userApi.types.ts:13</li>
-                                </ul>
-                            </aside>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                            <a name="referenceid" class="tsd-anchor"></a>
-                            <h3>reference<wbr />Id</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                reference<wbr />Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span>
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/api/userApi.types.ts:16</li>
-                                </ul>
-                            </aside>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                            <a name="timestamp" class="tsd-anchor"></a>
-                            <h3>timestamp</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span>
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/api/userApi.types.ts:17</li>
-                                </ul>
-                            </aside>
-                        </section>
-                        <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                            <a name="type" class="tsd-anchor"></a>
-                            <h3>type</h3>
-                            <div class="tsd-signature tsd-kind-icon">
-                                type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span>
-                            </div>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in src/userProfile/api/userApi.types.ts:14</li>
+                                    <li>Defined in src/userProfile/components/Transfer/Transfer.types.ts:8</li>
                                 </ul>
                             </aside>
                         </section>
@@ -177,7 +144,7 @@
                                 <a href="../globals.html"><em>Globals</em></a>
                             </li>
                             <li class="current tsd-kind-module">
-                                <a href="../modules/userprofile_api.html">user<wbr />Profile/api</a>
+                                <a href="../modules/userprofile_components_transfer.html">user<wbr />Profile\components\<wbr />Transfer</a>
                             </li>
                         </ul>
                     </nav>
@@ -185,39 +152,33 @@
                         <ul class="before-current"></ul>
                         <ul class="current">
                             <li class="current tsd-kind-interface tsd-parent-kind-module">
-                                <a href="userprofile_api.transaction.html" class="tsd-kind-icon">Transaction</a>
+                                <a href="userprofile_components_transfer.externaltransferdata.html" class="tsd-kind-icon"
+                                    >External<wbr />Transfer<wbr />Data</a
+                                >
                                 <ul>
                                     <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                        <a href="userprofile_api.transaction.html#amount" class="tsd-kind-icon">amount</a>
+                                        <a href="userprofile_components_transfer.externaltransferdata.html#amount" class="tsd-kind-icon"
+                                            >amount</a
+                                        >
                                     </li>
                                     <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                        <a href="userprofile_api.transaction.html#id" class="tsd-kind-icon">id</a>
-                                    </li>
-                                    <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                        <a href="userprofile_api.transaction.html#referenceid" class="tsd-kind-icon">reference<wbr />Id</a>
-                                    </li>
-                                    <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                        <a href="userprofile_api.transaction.html#timestamp" class="tsd-kind-icon">timestamp</a>
-                                    </li>
-                                    <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                        <a href="userprofile_api.transaction.html#type" class="tsd-kind-icon">type</a>
+                                        <a href="userprofile_components_transfer.externaltransferdata.html#toaccount" class="tsd-kind-icon"
+                                            >to<wbr />Account</a
+                                        >
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="after-current">
-                            <li class=" tsd-kind-interface tsd-parent-kind-module">
-                                <a href="userprofile_api.user.html" class="tsd-kind-icon">User</a>
+                            <li class=" tsd-kind-function tsd-parent-kind-module">
+                                <a href="../modules/userprofile_components_transfer.html#transfer" class="tsd-kind-icon">Transfer</a>
                             </li>
                             <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="../modules/userprofile_api.html#getuser" class="tsd-kind-icon">get<wbr />User</a>
+                                <a href="../modules/userprofile_components_transfer.html#validate" class="tsd-kind-icon">validate</a>
                             </li>
-                            <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="../modules/userprofile_api.html#topupaccount" class="tsd-kind-icon">top<wbr />UpAccount</a>
-                            </li>
-                            <li class=" tsd-kind-function tsd-parent-kind-module">
-                                <a href="../modules/userprofile_api.html#withdrawfromaccount" class="tsd-kind-icon"
-                                    >withdraw<wbr />From<wbr />Account</a
+                            <li class=" tsd-kind-object-literal tsd-parent-kind-module">
+                                <a href="../modules/userprofile_components_transfer.html#initialformvalues" class="tsd-kind-icon"
+                                    >initial<wbr />Form<wbr />Values</a
                                 >
                             </li>
                         </ul>

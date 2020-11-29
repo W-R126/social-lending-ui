@@ -19,12 +19,33 @@ import {Card} from '../../../../common/components/Card';
 import {formatDate} from './AuctionItem.helpers';
 import {CURRENCY} from '../../../../common/constants';
 
+/**
+ * Parameter definition
+ */
 interface Props {
+    /**
+     * Auction object to be displayed
+     */
     auction: Auction;
+    /**
+     * Function triggered on "details" button click
+     * @param auction
+     */
     onOpenDetails: (auction: Auction) => void;
+    /**
+     * Title of button to be rendered
+     */
     buttonTitle: string;
 }
 
+/**
+ * Shows basic information about auction created by
+ * borrower. Rendered in {@link BrowseAuctions}
+ * @param buttonTitle
+ * @param auction
+ * @param onOpenDetails
+ * @constructor
+ */
 export const AuctionItem: React.FC<Props> = ({buttonTitle, auction, onOpenDetails}) => {
     return (
         <Card key={auction.id} maxWidth={'500px'} width={'full'}>

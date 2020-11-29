@@ -8,6 +8,13 @@ import {Auction} from '../../api/auctionsAPI.types';
 import {Routes} from '../../../routing/routes';
 import {EmptyPage} from '../../../common/components/EmptyPage';
 
+/**
+ * Displays auctions created by borrower himself.
+ * Used for quick lookup what auctions are active and
+ * when detail button is clicked then gathered offers for given auction will be
+ * displayed
+ * @constructor
+ */
 const BrowseMyAuctionsView: React.FC = () => {
     const {isFetching, auctions, fetchAuctions} = useUserAuctions();
     useInit(fetchAuctions);

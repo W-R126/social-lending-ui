@@ -1,6 +1,10 @@
 import {CreateAuctionFormData} from './CreateAuctionView.types';
 import {FormikErrors} from 'formik';
 
+/**
+ * Validates input in {@link CreateAuctionView}
+ * @param values input values
+ */
 export const validate = (values: CreateAuctionFormData) => {
     const errors: FormikErrors<CreateAuctionFormData> = {};
 

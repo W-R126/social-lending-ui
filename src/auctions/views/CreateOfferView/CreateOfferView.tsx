@@ -13,6 +13,11 @@ import {useParams} from 'react-router';
 import {RangeInput} from '../../components/RangeInput';
 import {AreYouSureAlert} from '../../../common/components/AreYouSureAlert';
 
+/**
+ * Shows form which allows lender to submit his
+ * offer to certain auction with desired parameters
+ * @constructor
+ */
 const CreateOfferView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {createOffer} = useLenderOffers();

@@ -15,12 +15,20 @@ context('Accept offer', () => {
         cy.deposit(testData.loanAmount);
         cy.submitOffer(testData.proposedAnnualPercentageRate);
         cy.login(testData.username1, testData.password1);
-        cy.visit('/my-auctions');
-        cy.contains('See details').click();
-        cy.contains('Accept').click();
-        cy.contains('Loan No.');
-        cy.contains(testData.proposedAnnualPercentageRate * 100);
-        cy.contains(testData.loanAmount);
+        cy.visit('/my-auctions').then(() => {
+            cy.contains('See details')
+                .click()
+                .then(() => {
+                    cy.wait(2000);
+                    cy.contains('Accept')
+                        .click()
+                        .then(() => {
+                            cy.contains('Loan No.');
+                            cy.contains(testData.proposedAnnualPercentageRate * 100);
+                            cy.contains(testData.loanAmount);
+                        });
+                });
+        });
     });
 });
 

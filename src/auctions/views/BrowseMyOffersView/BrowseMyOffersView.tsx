@@ -6,6 +6,12 @@ import {OfferInfo} from '../../components/OfferInfo';
 import {Offer} from '../../api/offersAPI.types';
 import {EmptyPage} from '../../../common/components/EmptyPage';
 
+/**
+ * Shows all offers created by certain user (lender).
+ * Allows deletion of offers and quick lookup at
+ * potential benefits from them
+ * @constructor
+ */
 const BrowseMyOffersView: React.FC = () => {
     const {offers, isFetching, fetchOffers, cancelOffer} = useLenderOffers();
     useInit(fetchOffers);
