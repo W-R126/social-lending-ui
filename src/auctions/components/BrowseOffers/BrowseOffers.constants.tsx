@@ -11,9 +11,10 @@ import {Column} from 'react-table';
  * auction will be displayed
  * @param auctionId id of auction for which offers will be displayed
  * @param history used for redirect after acceptation of offer by borrower
+ * @param onFail shows toast when user does not have enough funds
  * @constructor
  */
-export const TableColumns = (auctionId: number, history: {push: (route: string) => void}) => {
+export const TableColumns = (auctionId: number, history: {push: (route: string) => void}, onFail: () => void) => {
     return [
         {
             Header: 'Annual percentage rate',
@@ -28,7 +29,7 @@ export const TableColumns = (auctionId: number, history: {push: (route: string) 
         {
             Header: 'Action',
             Cell: (props: any) => (
-                <TableButton text="Accept" onClick={() => HandleAcceptOfferClick(props.cell.row.original.id, auctionId, history)} />
+                <TableButton text="Accept" onClick={() => HandleAcceptOfferClick(props.cell.row.original.id, auctionId, history, onFail)} />
             ),
         },
     ] as Column[];

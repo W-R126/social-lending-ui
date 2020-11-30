@@ -5,7 +5,7 @@ import {TableColumns} from './BrowseOffers.constants';
 import {Auction} from '../../api/auctionsAPI.types';
 import {AuctionInfo} from '../AuctionInfo';
 import {useHistory} from 'react-router-dom';
-import {Skeleton} from '@chakra-ui/react';
+import {Skeleton, useToast} from '@chakra-ui/react';
 
 /**
  * Parameter definition
@@ -35,11 +35,23 @@ interface Props {
  */
 export const BrowseOffers: React.FC<Props> = ({offers, auction, auctionId}) => {
     const history = useHistory();
+    const toast = useToast();
+
+    const onFail = () => {
+        toast({
+            title: 'Offer not accepted.',
+            description: 'Seems like lender does not have enough money',
+            status: 'error',
+            duration: 4000,
+            isClosable: true,
+        });
+    };
+
     return (
         <>
             <Skeleton isLoaded={auction !== undefined}>{auction && <AuctionInfo auction={auction} />}</Skeleton>
 
-            <Table data={offers} columns={TableColumns(auctionId!, history)} />
+            <Table data={offers} columns={TableColumns(auctionId!, history, onFail)} />
         </>
     );
 };
