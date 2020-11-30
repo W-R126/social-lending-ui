@@ -18,7 +18,7 @@ import {useState} from 'react';
 import {TopUpData} from './TopUp.types';
 import {initialFormValues} from './TopUp.constants';
 import {useTransactions} from '../../hooks/useTransactions';
-import {CardNumber} from '../CardNumber/CardNumber';
+import {CardNumber} from '../CardNumber';
 import {textBottomPaddingStyle} from '../../common/common.styles';
 import {CURRENCY} from '../../../common/constants';
 import {leave2DecimalPlaces} from '../../../common/helpers/leave2DecimalPlaces';
@@ -87,7 +87,7 @@ export const TopUp: React.FC = () => {
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
                                 >
-                                    Top Up
+                                    Send Top Up
                                 </Button>
                                 {error !== null && (
                                     <Alert mt={3} status={'error'}>

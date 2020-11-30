@@ -46,6 +46,7 @@
         "react-spring": "^8.0.27",
         "react-table": "^7.6.1",
         "styled-system": "^5.1.5",
+        "ts-jest": "^26.4.4",
         "typescript": "3.8.3",
         "uuid": "^8.3.1"
     },

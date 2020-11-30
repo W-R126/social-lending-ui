@@ -1,5 +1,6 @@
 import {CreateAuctionFormData} from './CreateAuctionView.types';
 import {FormikErrors} from 'formik';
+import {isAtLeastMinFunds} from '../../../common/helpers/isAtLeastMinFunds';
 
 /**
  * Validates input in {@link CreateAuctionView}
@@ -8,7 +9,7 @@ import {FormikErrors} from 'formik';
 export const validate = (values: CreateAuctionFormData) => {
     const errors: FormikErrors<CreateAuctionFormData> = {};
 
-    if (!values.loanAmount || values.loanAmount <= 0) {
+    if (!isAtLeastMinFunds(values.loanAmount)) {
         errors.loanAmount = 'Loan amount must be greater than 0';
     }
 
