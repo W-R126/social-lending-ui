@@ -116,4 +116,25 @@ Cypress.Commands.add('userInfo', () => {
         .then(({body}) => body);
 });
 
+Cypress.Commands.add('getLoanId', () => {
+    return cy
+        .request({
+            method: 'GET',
+            url: `${Cypress.env('serverUrl')}/api/borrower/loans`,
+            auth: {
+                bearer: localStorage.getItem('JWT'),
+            },
+        })
+        .then(({body}) => body[0]?.id);
+});
+Cypress.Commands.add('payNextInstallment', (amount: number, loan_id: number) => {
+    return cy.request({
+        method: 'POST',
+        url: `${Cypress.env('serverUrl')}/api/borrower/loans/${loan_id}/pay-next-installment?amount=${amount}`,
+        auth: {
+            bearer: localStorage.getItem('JWT'),
+        },
+    });
+});
+
 export {};

@@ -19,6 +19,10 @@ declare namespace Cypress {
         deposit(amount: number): Chainable<Element>;
 
         userInfo(): Chainable<User>;
+
+        payNextInstallment(amount: number, loan_id: number): Chainable<Element>;
+
+        getAllLoans(): Chainable<Element>;
     }
 }
 

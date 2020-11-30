@@ -67,6 +67,7 @@ export const Transfer: React.FC = () => {
                                         value={values.amount}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        data-cy={'transferAmountInput'}
                                     />
                                 </InputGroup>
                                 <FormErrorMessage>{errors.amount}</FormErrorMessage>
@@ -82,6 +83,7 @@ export const Transfer: React.FC = () => {
                                         value={values.toAccount}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        data-cy={'transferAddressInput'}
                                     />
                                 </InputGroup>
                                 <FormErrorMessage>{errors.toAccount}</FormErrorMessage>
