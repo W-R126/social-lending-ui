@@ -15,13 +15,10 @@ export function getUser(): Promise<UserDto | null> {
  * send a top up account request for the authenticated user
  * @param amount
  */
-export function topUpAccount(amount: number): Promise<boolean> {
+export function postTopUpAccount(amount: number): Promise<boolean> {
     return axios
         .post('api/user/bank/deposit?amount=' + amount)
-        .then(response => {
-            console.log(response);
-            return true;
-        })
+        .then(() => true)
         .catch(() => false);
 }
 
@@ -29,7 +26,7 @@ export function topUpAccount(amount: number): Promise<boolean> {
  * send an external withdrawal request for the authenticated user. Also used to simulate external transfer
  * @param amount
  */
-export function withdrawFromAccount(amount: number): Promise<boolean> {
+export function postWithdrawFromAccount(amount: number): Promise<boolean> {
     return axios
         .post('api/user/bank/withdraw?amount=' + amount)
         .then(() => true)

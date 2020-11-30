@@ -87,7 +87,7 @@ export const TopUp: React.FC = () => {
                                     isDisabled={isSubmitting || !isValid}
                                     isLoading={isSubmitting}
                                 >
-                                    Top Up
+                                    Send Top Up
                                 </Button>
                                 {error !== null && (
                                     <Alert mt={3} status={'error'}>
