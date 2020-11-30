@@ -69,6 +69,7 @@ export const Withdraw: React.FC = () => {
                                         value={values.amount}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        data-cy={'withdrawInput'}
                                     />
                                 </InputGroup>
                                 <FormErrorMessage>{errors.amount}</FormErrorMessage>

@@ -74,6 +74,7 @@ export const TopUp: React.FC = () => {
                                             value={values.amount}
                                             onChange={handleChange}
                                             onBlur={handleBlur}
+                                            data-cy={'topUpInput'}
                                         />
                                     </InputGroup>
                                     <FormErrorMessage>{errors.amount}</FormErrorMessage>

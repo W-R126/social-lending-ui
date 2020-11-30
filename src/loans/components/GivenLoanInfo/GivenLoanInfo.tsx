@@ -16,13 +16,13 @@ export const GivenLoanInfo: React.FC<Props> = ({loan}) => {
             <StatGroup>
                 <Stat>
                     <StatLabel>Loan amount</StatLabel>
-                    <StatNumber>${loan.takenAmount.toFixed(2)}</StatNumber>
+                    <StatNumber>${loan.takenAmount?.toFixed(2)}</StatNumber>
                     <StatHelpText>Started {formatDate(loan.startDate)}</StatHelpText>
                 </Stat>
 
                 <Stat>
                     <StatLabel>Still due</StatLabel>
-                    <StatNumber>${loan.amountLeft.toFixed(2)}</StatNumber>
+                    <StatNumber>${loan.amountLeft?.toFixed(2)}</StatNumber>
                 </Stat>
 
                 <Stat>
